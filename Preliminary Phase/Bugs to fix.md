@@ -1,35 +1,35 @@
 # testbench.v
 
-## Bugs Detected
+### Bugs Detected
 
 
 # processor.v
 
-## Bugs Detected
+### Bugs Detected
 
 
 # registerFile.v
 
-## Bugs Detected
+### Bugs Detected
 
 # controlUnit.v
 
-## Bugs Detected
+### Bugs Detected
 
 
 # ALU.v
 
-## Bugs Detected
+### Bugs Detected
 
 
 # signextender.v
 
-## Bugs Detected
-
+### Bugs Detected
+No bugs Detected
 
 # programCounter.v
 
-## Bugs Detected
+### Bugs Detected
 
 
 # mux2x1.v
@@ -39,9 +39,11 @@
 
 # adder.v
 
-## Bugs Detected
+### Bugs Detected
 
 
 # ANDGate.v
 
-## Bugs Detected
+### Bugs Detected
+
+No bugs Detected
