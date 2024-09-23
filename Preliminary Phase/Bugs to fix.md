@@ -1,49 +1,12 @@
-# testbench.v
-
-### Bugs Detected
-
-
-# processor.v
-
-### Bugs Detected
-
-
-# registerFile.v
-
-### Bugs Detected
-
-# controlUnit.v
-
-### Bugs Detected
-
-
-# ALU.v
-
-### Bugs Detected
-
-
-# signextender.v
-
-### Bugs Detected
-No bugs Detected
-
-# programCounter.v
-
-### Bugs Detected
-
-
-# mux2x1.v
-
-## Bugs Detected
-@line 5, 8 --> size - 1
-
-# adder.v
-
-### Bugs Detected
-
-
-# ANDGate.v
-
-### Bugs Detected
-
-No bugs Detected
+| File Name         |       Bugs         |  Found By |          Fixes         |  Fixed By |
+|-------------------|:------------------:|----------:|:----------------------:|----------:|
+| processsor.v      |         --         |        -- |            --          |        -- |
+| registerFile.v    |         --         |        -- |            --          |        -- |
+| controlUnit.v     |         --         |        -- |            --          |        -- |
+| ALU.v             |         --         |        -- |            --          |        -- |
+| signextender.v    |      No bugs       |        -- |            --          |        -- |
+| programCounter.v  |     many lines     |     Saleh |   Change pc width      |        -- |
+| mux2x1.v          | @line 5,8(size)    |   AhmadK  |        size - 1        |        -- |
+| adder.v           |         --         |        -- |            --          |        -- |
+| ANDGate.v         |      No bugs       |        -- |            --          |        -- |
+| testbench.v       |         --         |        -- |            --          |        -- |
