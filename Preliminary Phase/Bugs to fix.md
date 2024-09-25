@@ -1,6 +1,6 @@
 | File Name         |       Bugs         |  Found By |          Fixes         |  Fixed By |
 |-------------------|:------------------:|----------:|:----------------------:|----------:|
-| processsor.v      | rs,rd,rt assignment|     OmarK |  rearrange assignments |        -- |
+| processsor.v      | rs,rd,rt assignment, @line 27 IM input incorrect|     OmarK |  rearrange assignments, change IM input |        -- |
 | registerFile.v    |         --         |        -- |            --          |        -- |
 | controlUnit.v     |         --         |        -- |            --          |        -- |
 | ALU.v             |         --         |        -- |            --          |        -- |
