@@ -1,0 +1,18 @@
+Fitter Status : Successful - Fri Sep 20 17:25:18 2024
+Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+Revision Name : SingleCycle
+Top-level Entity Name : processor
+Family : MAX 10
+Device : 10M50DAF484C7G
+Timing Models : Final
+Total logic elements : 1,872 / 49,760 ( 4 % )
+    Total combinational functions : 1,680 / 49,760 ( 3 % )
+    Dedicated logic registers : 998 / 49,760 ( 2 % )
+Total registers : 998
+Total pins : 8 / 360 ( 2 % )
+Total virtual pins : 0
+Total memory bits : 10,240 / 1,677,312 ( < 1 % )
+Embedded Multiplier 9-bit elements : 0 / 288 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0 / 2 ( 0 % )

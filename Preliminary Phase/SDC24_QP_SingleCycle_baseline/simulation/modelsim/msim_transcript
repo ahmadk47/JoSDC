@@ -1,0 +1,168 @@
+# Reading pref.tcl
+# do SingleCycle_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle {C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/processor.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 18:04:53 on Sep 20,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle" C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/processor.v 
+# -- Compiling module processor
+# 
+# Top level modules:
+# 	processor
+# End time: 18:04:53 on Sep 20,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle {C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/registerFile.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 18:04:53 on Sep 20,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle" C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/registerFile.v 
+# -- Compiling module registerFile
+# 
+# Top level modules:
+# 	registerFile
+# End time: 18:04:53 on Sep 20,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle {C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/controlUnit.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 18:04:54 on Sep 20,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle" C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/controlUnit.v 
+# -- Compiling module controlUnit
+# 
+# Top level modules:
+# 	controlUnit
+# End time: 18:04:54 on Sep 20,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle {C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/ALU.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 18:04:54 on Sep 20,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle" C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/ALU.v 
+# -- Compiling module ALU
+# 
+# Top level modules:
+# 	ALU
+# End time: 18:04:54 on Sep 20,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle {C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/signextender.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 18:04:54 on Sep 20,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle" C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/signextender.v 
+# -- Compiling module SignExtender
+# 
+# Top level modules:
+# 	SignExtender
+# End time: 18:04:54 on Sep 20,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle {C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/programCounter.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 18:04:54 on Sep 20,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle" C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/programCounter.v 
+# -- Compiling module programCounter
+# 
+# Top level modules:
+# 	programCounter
+# End time: 18:04:55 on Sep 20,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle {C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/mux2x1.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 18:04:55 on Sep 20,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle" C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/mux2x1.v 
+# -- Compiling module mux2x1
+# 
+# Top level modules:
+# 	mux2x1
+# End time: 18:04:55 on Sep 20,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle {C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/adder.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 18:04:55 on Sep 20,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle" C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/adder.v 
+# -- Compiling module adder
+# 
+# Top level modules:
+# 	adder
+# End time: 18:04:55 on Sep 20,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle {C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/ANDGate.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 18:04:55 on Sep 20,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle" C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/ANDGate.v 
+# -- Compiling module ANDGate
+# 
+# Top level modules:
+# 	ANDGate
+# End time: 18:04:56 on Sep 20,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle {C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/instructionMemory.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 18:04:56 on Sep 20,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle" C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/instructionMemory.v 
+# -- Compiling module instructionMemory
+# 
+# Top level modules:
+# 	instructionMemory
+# End time: 18:04:56 on Sep 20,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle {C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/dataMemory.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 18:04:56 on Sep 20,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle" C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/dataMemory.v 
+# -- Compiling module dataMemory
+# 
+# Top level modules:
+# 	dataMemory
+# End time: 18:04:56 on Sep 20,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle {C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/testbench.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 18:04:56 on Sep 20,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle" C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/testbench.v 
+# -- Compiling module testbench
+# 
+# Top level modules:
+# 	testbench
+# End time: 18:04:56 on Sep 20,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L fiftyfivenm_ver -L rtl_work -L work -voptargs="+acc"  testbench
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L fiftyfivenm_ver -L rtl_work -L work -voptargs=""+acc"" testbench 
+# Start time: 18:04:57 on Sep 20,2024
+# Loading work.testbench
+# Loading work.processor
+# Loading work.programCounter
+# Loading work.adder
+# Loading work.instructionMemory
+# Loading altera_mf_ver.altsyncram
+# Loading work.controlUnit
+# Loading work.mux2x1
+# Loading work.registerFile
+# Loading work.SignExtender
+# Loading work.ALU
+# Loading work.ANDGate
+# Loading work.dataMemory
+# Loading altera_mf_ver.altsyncram_body
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# ** Warning: (vsim-PLI-3412) Memory address read on line 129 of file "instructionMemoryInitializationFile.ver" is out of bounds specified for readmem command.  (Current address [64], address range [0:63])    : $MODEL_TECH/../altera/verilog/src/altera_mf.v(48977)
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/uut/IM/altsyncram_component/m_default/altsyncram_inst
+# ** Note: $finish    : C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/testbench.v(17)
+#    Time: 104 ns  Iteration: 0  Instance: /testbench
+# 1
+# Break in Module testbench at C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/testbench.v line 17
+# End time: 18:07:23 on Sep 20,2024, Elapsed time: 0:02:26
+# Errors: 0, Warnings: 1
