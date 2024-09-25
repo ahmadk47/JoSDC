@@ -1,6 +1,6 @@
 | File Name         |       Bugs         |  Found By |          Fixes         |  Fixed By |
 |-------------------|:------------------:|----------:|:----------------------:|----------:|
-| processsor.v      |         --         |        -- |            --          |        -- |
+| processsor.v      | rs,rd,rt assignment|     OmarK |  rearrange assignments |        -- |
 | registerFile.v    |         --         |        -- |            --          |        -- |
 | controlUnit.v     |         --         |        -- |            --          |        -- |
 | ALU.v             |         --         |        -- |            --          |        -- |
