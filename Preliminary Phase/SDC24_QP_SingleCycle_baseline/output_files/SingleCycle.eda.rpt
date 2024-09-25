@@ -1,6 +1,6 @@
 EDA Netlist Writer report for SingleCycle
-Fri Sep 20 17:27:27 2024
-Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+Wed Sep 25 22:38:28 2024
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
 ---------------------
@@ -37,7 +37,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Fri Sep 20 17:27:27 2024 ;
+; EDA Netlist Writer Status ; Successful - Wed Sep 25 22:38:28 2024 ;
 ; Revision Name             ; SingleCycle                           ;
 ; Top-level Entity Name     ; processor                             ;
 ; Family                    ; MAX 10                                ;
@@ -66,13 +66,13 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------------------------------------+---------------------------+
 
 
-+------------------------------------------------------------------------------------+
-; Simulation Generated Files                                                         ;
-+------------------------------------------------------------------------------------+
-; Generated Files                                                                    ;
-+------------------------------------------------------------------------------------+
-; C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/simulation/modelsim/SingleCycle.vo ;
-+------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------+
+; Simulation Generated Files                                                                                               ;
++--------------------------------------------------------------------------------------------------------------------------+
+; Generated Files                                                                                                          ;
++--------------------------------------------------------------------------------------------------------------------------+
+; C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/simulation/modelsim/SingleCycle.vo ;
++--------------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------+
@@ -80,14 +80,14 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime EDA Netlist Writer
-    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Fri Sep 20 17:26:51 2024
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Wed Sep 25 22:38:28 2024
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off SingleCycle -c SingleCycle
-Info (204019): Generated file SingleCycle.vo in folder "C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file SingleCycle.vo in folder "C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/simulation/modelsim/" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4708 megabytes
-    Info: Processing ended: Fri Sep 20 17:27:27 2024
-    Info: Elapsed time: 00:00:36
-    Info: Total CPU time (on all processors): 00:00:35
+    Info: Peak virtual memory: 4659 megabytes
+    Info: Processing ended: Wed Sep 25 22:38:28 2024
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:00
 
 

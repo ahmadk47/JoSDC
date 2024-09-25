@@ -1,32 +1,43 @@
-Analysis & Elaboration report for SingleCycle
-Fri Sep 20 18:09:20 2024
-Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+Analysis & Synthesis report for SingleCycle
+Wed Sep 25 22:38:14 2024
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
 ---------------------
 ; Table of Contents ;
 ---------------------
   1. Legal Notice
-  2. Analysis & Elaboration Summary
-  3. Parallel Compilation
-  4. Analysis & Elaboration IP Cores Summary
-  5. Source assignments for instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated
-  6. Source assignments for dataMemory:DM|altsyncram:altsyncram_component|altsyncram_8km1:auto_generated
-  7. Parameter Settings for User Entity Instance: adder:PCAdder
-  8. Parameter Settings for User Entity Instance: instructionMemory:IM|altsyncram:altsyncram_component
-  9. Parameter Settings for User Entity Instance: controlUnit:CU
- 10. Parameter Settings for User Entity Instance: mux2x1:RFMux
- 11. Parameter Settings for User Entity Instance: mux2x1:ALUMux
- 12. Parameter Settings for User Entity Instance: ALU:alu
- 13. Parameter Settings for User Entity Instance: adder:branchAdder
- 14. Parameter Settings for User Entity Instance: dataMemory:DM|altsyncram:altsyncram_component
- 15. Parameter Settings for User Entity Instance: mux2x1:WBMux
- 16. Parameter Settings for User Entity Instance: mux2x1:PCMux
- 17. altsyncram Parameter Settings by Entity Instance
- 18. Analysis & Elaboration Settings
- 19. Port Connectivity Checks: "adder:PCAdder"
- 20. Analysis & Elaboration Messages
- 21. Analysis & Elaboration Suppressed Messages
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis IP Cores Summary
+ 10. User-Specified and Inferred Latches
+ 11. Registers Removed During Synthesis
+ 12. General Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Source assignments for instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated
+ 15. Source assignments for dataMemory:DM|altsyncram:altsyncram_component|altsyncram_8km1:auto_generated
+ 16. Parameter Settings for User Entity Instance: adder:PCAdder
+ 17. Parameter Settings for User Entity Instance: instructionMemory:IM|altsyncram:altsyncram_component
+ 18. Parameter Settings for User Entity Instance: controlUnit:CU
+ 19. Parameter Settings for User Entity Instance: mux2x1:RFMux
+ 20. Parameter Settings for User Entity Instance: mux2x1:ALUMux
+ 21. Parameter Settings for User Entity Instance: ALU:alu
+ 22. Parameter Settings for User Entity Instance: adder:branchAdder
+ 23. Parameter Settings for User Entity Instance: dataMemory:DM|altsyncram:altsyncram_component
+ 24. Parameter Settings for User Entity Instance: mux2x1:WBMux
+ 25. Parameter Settings for User Entity Instance: mux2x1:PCMux
+ 26. altsyncram Parameter Settings by Entity Instance
+ 27. Port Connectivity Checks: "mux2x1:RFMux"
+ 28. Port Connectivity Checks: "adder:PCAdder"
+ 29. Post-Synthesis Netlist Statistics for Top Partition
+ 30. Elapsed Time Per Partition
+ 31. Analysis & Synthesis Messages
+ 32. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -51,25 +62,112 @@ https://fpgasoftware.intel.com/eula.
 
 
 +----------------------------------------------------------------------------------+
-; Analysis & Elaboration Summary                                                   ;
+; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Elaboration Status      ; Successful - Fri Sep 20 18:09:20 2024       ;
-; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
+; Analysis & Synthesis Status        ; Successful - Wed Sep 25 22:38:14 2024       ;
+; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; SingleCycle                                 ;
 ; Top-level Entity Name              ; processor                                   ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; N/A until Partition Merge                   ;
-;     Total combinational functions  ; N/A until Partition Merge                   ;
-;     Dedicated logic registers      ; N/A until Partition Merge                   ;
-; Total registers                    ; N/A until Partition Merge                   ;
-; Total pins                         ; N/A until Partition Merge                   ;
-; Total virtual pins                 ; N/A until Partition Merge                   ;
-; Total memory bits                  ; N/A until Partition Merge                   ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                   ;
-; Total PLLs                         ; N/A until Partition Merge                   ;
-; UFM blocks                         ; N/A until Partition Merge                   ;
-; ADC blocks                         ; N/A until Partition Merge                   ;
+; Total logic elements               ; 372                                         ;
+;     Total combinational functions  ; 372                                         ;
+;     Dedicated logic registers      ; 38                                          ;
+; Total registers                    ; 38                                          ;
+; Total pins                         ; 8                                           ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 9,920                                       ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
 +------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M50DAF484C7G     ;                    ;
+; Top-level entity name                                            ; processor          ; SingleCycle        ;
+; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; Maximum processors allowed for parallel compilation              ; All                ;                    ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
 
 
 +------------------------------------------+
@@ -77,25 +175,1193 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 4           ;
-; Maximum allowed            ; 2           ;
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 6           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processors 2-6         ;   0.0%      ;
 +----------------------------+-------------+
 
 
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                 ;
++-----------------------------------------+-----------------+----------------------------------+-------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path        ; Used in Netlist ; File Type                        ; File Name with Absolute Path                                                                                                  ; Library ;
++-----------------------------------------+-----------------+----------------------------------+-------------------------------------------------------------------------------------------------------------------------------+---------+
+; processor.v                             ; yes             ; User Verilog HDL File            ; C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/processor.v                             ;         ;
+; registerFile.v                          ; yes             ; User Verilog HDL File            ; C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/registerFile.v                          ;         ;
+; controlUnit.v                           ; yes             ; User Verilog HDL File            ; C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/controlUnit.v                           ;         ;
+; ALU.v                                   ; yes             ; User Verilog HDL File            ; C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v                                   ;         ;
+; signextender.v                          ; yes             ; User Verilog HDL File            ; C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/signextender.v                          ;         ;
+; programCounter.v                        ; yes             ; User Verilog HDL File            ; C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/programCounter.v                        ;         ;
+; mux2x1.v                                ; yes             ; User Verilog HDL File            ; C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/mux2x1.v                                ;         ;
+; adder.v                                 ; yes             ; User Verilog HDL File            ; C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/adder.v                                 ;         ;
+; ANDGate.v                               ; yes             ; User Verilog HDL File            ; C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ANDGate.v                               ;         ;
+; instructionMemoryInitializationFile.mif ; yes             ; User Memory Initialization File  ; C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/instructionMemoryInitializationFile.mif ;         ;
+; dataMemoryInitializationFile.mif        ; yes             ; User Memory Initialization File  ; C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/dataMemoryInitializationFile.mif        ;         ;
+; instructionMemory.v                     ; yes             ; User Wizard-Generated File       ; C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/instructionMemory.v                     ;         ;
+; dataMemory.v                            ; yes             ; User Wizard-Generated File       ; C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/dataMemory.v                            ;         ;
+; altsyncram.tdf                          ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf                                                         ;         ;
+; stratix_ram_block.inc                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/stratix_ram_block.inc                                                  ;         ;
+; lpm_mux.inc                             ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_mux.inc                                                            ;         ;
+; lpm_decode.inc                          ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_decode.inc                                                         ;         ;
+; aglobal201.inc                          ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc                                                         ;         ;
+; a_rdenreg.inc                           ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/a_rdenreg.inc                                                          ;         ;
+; altrom.inc                              ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altrom.inc                                                             ;         ;
+; altram.inc                              ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altram.inc                                                             ;         ;
+; altdpram.inc                            ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altdpram.inc                                                           ;         ;
+; db/altsyncram_38e1.tdf                  ; yes             ; Auto-Generated Megafunction      ; C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf                  ;         ;
+; db/altsyncram_8km1.tdf                  ; yes             ; Auto-Generated Megafunction      ; C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_8km1.tdf                  ;         ;
++-----------------------------------------+-----------------+----------------------------------+-------------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 372       ;
+;                                             ;           ;
+; Total combinational functions               ; 372       ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 125       ;
+;     -- 3 input functions                    ; 225       ;
+;     -- <=2 input functions                  ; 22        ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 304       ;
+;     -- arithmetic mode                      ; 68        ;
+;                                             ;           ;
+; Total registers                             ; 38        ;
+;     -- Dedicated logic registers            ; 38        ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 8         ;
+; Total memory bits                           ; 9920      ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 97        ;
+; Total fan-out                               ; 1920      ;
+; Average fan-out                             ; 3.96      ;
++---------------------------------------------+-----------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                ;
++-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------+-------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                            ; Entity Name       ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------+-------------------+--------------+
+; |processor                                ; 372 (0)             ; 38 (0)                    ; 9920        ; 0          ; 0            ; 0       ; 0         ; 8    ; 0            ; 0          ; |processor                                                                                     ; processor         ; work         ;
+;    |ALU:alu|                              ; 198 (198)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|ALU:alu                                                                             ; ALU               ; work         ;
+;    |ANDGate:branchAnd|                    ; 13 (13)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|ANDGate:branchAnd                                                                   ; ANDGate           ; work         ;
+;    |adder:PCAdder|                        ; 6 (6)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|adder:PCAdder                                                                       ; adder             ; work         ;
+;    |adder:branchAdder|                    ; 12 (12)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|adder:branchAdder                                                                   ; adder             ; work         ;
+;    |controlUnit:CU|                       ; 13 (13)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|controlUnit:CU                                                                      ; controlUnit       ; work         ;
+;    |dataMemory:DM|                        ; 0 (0)               ; 0 (0)                     ; 8192        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|dataMemory:DM                                                                       ; dataMemory        ; work         ;
+;       |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 8192        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|dataMemory:DM|altsyncram:altsyncram_component                                       ; altsyncram        ; work         ;
+;          |altsyncram_8km1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 8192        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|dataMemory:DM|altsyncram:altsyncram_component|altsyncram_8km1:auto_generated        ; altsyncram_8km1   ; work         ;
+;    |instructionMemory:IM|                 ; 0 (0)               ; 0 (0)                     ; 1728        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|instructionMemory:IM                                                                ; instructionMemory ; work         ;
+;       |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 1728        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|instructionMemory:IM|altsyncram:altsyncram_component                                ; altsyncram        ; work         ;
+;          |altsyncram_38e1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 1728        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated ; altsyncram_38e1   ; work         ;
+;    |mux2x1:ALUMux|                        ; 32 (32)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux2x1:ALUMux                                                                       ; mux2x1            ; work         ;
+;    |mux2x1:WBMux|                         ; 32 (32)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux2x1:WBMux                                                                        ; mux2x1            ; work         ;
+;    |programCounter:pc|                    ; 0 (0)               ; 6 (6)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|programCounter:pc                                                                   ; programCounter    ; work         ;
+;    |registerFile:RF|                      ; 66 (66)             ; 32 (32)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|registerFile:RF                                                                     ; registerFile      ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------+-------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                 ;
++------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+-----------------------------------------+
+; Name                                                                                           ; Type ; Mode        ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF                                     ;
++------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+-----------------------------------------+
+; dataMemory:DM|altsyncram:altsyncram_component|altsyncram_8km1:auto_generated|ALTSYNCRAM        ; M9K  ; Single Port ; 256          ; 32           ; --           ; --           ; 8192 ; dataMemoryInitializationFile.mif        ;
+; instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated|ALTSYNCRAM ; M9K  ; ROM         ; 64           ; 32           ; --           ; --           ; 2048 ; instructionMemoryInitializationFile.mif ;
++------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+-----------------------------------------+
+
+
 +-----------------------------------------------------------------------------------------------------------------------+
-; Analysis & Elaboration IP Cores Summary                                                                               ;
+; Analysis & Synthesis IP Cores Summary                                                                                 ;
 +--------+--------------+---------+--------------+--------------+---------------------------------+---------------------+
 ; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                 ; IP Include File     ;
 +--------+--------------+---------+--------------+--------------+---------------------------------+---------------------+
 ; Altera ; RAM: 1-PORT  ; 20.1    ; N/A          ; N/A          ; |processor|dataMemory:DM        ; dataMemory.v        ;
 ; Altera ; ROM: 1-PORT  ; 20.1    ; N/A          ; N/A          ; |processor|instructionMemory:IM ; instructionMemory.v ;
 +--------+--------------+---------+--------------+--------------+---------------------------------+---------------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                ;
++-----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------+------------------------+
+; ALU:alu|result[0]                                   ; ALU:alu|Mux32       ; yes                    ;
+; ALU:alu|result[1]                                   ; ALU:alu|Mux32       ; yes                    ;
+; ALU:alu|result[2]                                   ; ALU:alu|Mux32       ; yes                    ;
+; ALU:alu|result[3]                                   ; ALU:alu|Mux32       ; yes                    ;
+; ALU:alu|result[4]                                   ; ALU:alu|Mux32       ; yes                    ;
+; ALU:alu|result[5]                                   ; ALU:alu|Mux32       ; yes                    ;
+; ALU:alu|result[6]                                   ; ALU:alu|Mux32       ; yes                    ;
+; ALU:alu|result[7]                                   ; ALU:alu|Mux32       ; yes                    ;
+; ALU:alu|result[8]                                   ; ALU:alu|Mux32       ; yes                    ;
+; ALU:alu|result[9]                                   ; ALU:alu|Mux32       ; yes                    ;
+; ALU:alu|result[10]                                  ; ALU:alu|Mux32       ; yes                    ;
+; ALU:alu|result[11]                                  ; ALU:alu|Mux32       ; yes                    ;
+; ALU:alu|result[12]                                  ; ALU:alu|Mux32       ; yes                    ;
+; ALU:alu|result[13]                                  ; ALU:alu|Mux32       ; yes                    ;
+; ALU:alu|result[14]                                  ; ALU:alu|Mux32       ; yes                    ;
+; ALU:alu|result[15]                                  ; ALU:alu|Mux32       ; yes                    ;
+; ALU:alu|result[16]                                  ; ALU:alu|Mux32       ; yes                    ;
+; ALU:alu|result[17]                                  ; ALU:alu|Mux32       ; yes                    ;
+; ALU:alu|result[18]                                  ; ALU:alu|Mux32       ; yes                    ;
+; ALU:alu|result[19]                                  ; ALU:alu|Mux32       ; yes                    ;
+; ALU:alu|result[20]                                  ; ALU:alu|Mux32       ; yes                    ;
+; ALU:alu|result[21]                                  ; ALU:alu|Mux32       ; yes                    ;
+; ALU:alu|result[22]                                  ; ALU:alu|Mux32       ; yes                    ;
+; ALU:alu|result[23]                                  ; ALU:alu|Mux32       ; yes                    ;
+; ALU:alu|result[24]                                  ; ALU:alu|Mux32       ; yes                    ;
+; ALU:alu|result[25]                                  ; ALU:alu|Mux32       ; yes                    ;
+; ALU:alu|result[26]                                  ; ALU:alu|Mux32       ; yes                    ;
+; ALU:alu|result[27]                                  ; ALU:alu|Mux32       ; yes                    ;
+; ALU:alu|result[28]                                  ; ALU:alu|Mux32       ; yes                    ;
+; ALU:alu|result[29]                                  ; ALU:alu|Mux32       ; yes                    ;
+; ALU:alu|result[30]                                  ; ALU:alu|Mux32       ; yes                    ;
+; ALU:alu|result[31]                                  ; ALU:alu|Mux32       ; yes                    ;
+; Number of user-specified and inferred latches = 32  ;                     ;                        ;
++-----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++----------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                     ;
++-----------------------------------------+----------------------------------------------+
+; Register name                           ; Reason for Removal                           ;
++-----------------------------------------+----------------------------------------------+
+; registerFile:RF|registers[4][15]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[29][9]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[15][21]       ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[29][7]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[8][27]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[29][5]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[15][19]       ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[29][3]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[1][5]         ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[29][1]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[15][17]       ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[30][31]       ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[8][25]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[30][29]       ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[15][15]       ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[30][27]       ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[4][13]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[30][25]       ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[15][13]       ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[30][23]       ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[8][23]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[30][21]       ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[15][11]       ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[30][19]       ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[2][7]         ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[30][17]       ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[15][9]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[30][15]       ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[8][21]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[30][13]       ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[15][7]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[30][11]       ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[4][11]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[30][9]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[15][5]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[30][7]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[8][19]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[30][5]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[15][3]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[30][3]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[1][19]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[30][1]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[15][1]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[31][31]       ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[8][17]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[31][29]       ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[16][31]       ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[31][27]       ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[4][9]         ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[31][25]       ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[16][29]       ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[31][23]       ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[8][15]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[31][21]       ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[16][27]       ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[31][19]       ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[2][5]         ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[31][17]       ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[16][25]       ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[31][15]       ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[8][13]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[31][13]       ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[16][23]       ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[31][11]       ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[4][7]         ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[31][9]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[16][21]       ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[31][7]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[8][11]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[31][5]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[16][19]       ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[31][3]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[1][3]         ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[16][17]       ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[1][30]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[1][26]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[1][18]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[1][2]         ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[2][2]         ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[4][2]         ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[8][2]         ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[16][2]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[12][27]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[23][19]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[2][21]        ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[23][17]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[12][25]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[23][15]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[6][13]        ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[23][13]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[12][23]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[23][11]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[3][7]         ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[23][9]        ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[12][21]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[23][7]        ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[6][11]        ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[23][5]        ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[12][19]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[23][3]        ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[1][11]        ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[23][1]        ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[12][17]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[24][31]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[6][9]         ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[24][29]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[12][15]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[24][27]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[3][5]         ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[24][25]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[12][13]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[24][23]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[6][7]         ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[24][21]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[12][11]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[24][19]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[2][19]        ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[24][17]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[12][9]        ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[24][15]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[6][5]         ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[24][13]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[12][7]        ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[24][11]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[3][3]         ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[24][9]        ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[12][5]        ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[24][7]        ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[6][3]         ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[24][5]        ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[12][3]        ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[24][3]        ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[24][1]        ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[12][1]        ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[25][31]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[6][1]         ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[25][29]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[13][31]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[25][27]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[3][1]         ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[25][25]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[13][29]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[25][23]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[7][31]        ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[25][21]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[13][27]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[25][19]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[2][17]        ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[25][17]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[13][25]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[25][15]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[7][29]        ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[25][13]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[13][23]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[25][11]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[4][31]        ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[25][9]        ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[13][21]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[25][7]        ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[7][27]        ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[25][5]        ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[13][19]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[25][3]        ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[1][9]         ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[25][1]        ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[13][17]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[26][31]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[7][25]        ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[26][29]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[13][15]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[26][27]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[4][29]        ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[26][25]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[13][13]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[26][23]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[7][23]        ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[26][21]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[13][11]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[26][19]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[2][15]        ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[26][17]       ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[13][9]        ; Merged with registerFile:RF|registers[1][31] ;
+; registerFile:RF|registers[20][25]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[10][13]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[20][23]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[5][7]         ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[20][21]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[10][11]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[20][19]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[2][27]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[20][17]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[10][9]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[20][15]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[5][5]         ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[20][13]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[10][7]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[20][11]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[3][19]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[20][9]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[10][5]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[20][7]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[5][3]         ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[20][5]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[10][3]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[20][3]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[20][1]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[10][1]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[21][31]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[5][1]         ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[21][29]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[11][31]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[21][27]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[3][17]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[21][25]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[11][29]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[21][23]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[6][31]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[21][21]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[11][27]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[21][19]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[2][25]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[21][17]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[11][25]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[21][15]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[6][29]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[21][13]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[11][23]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[21][11]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[3][15]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[21][9]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[11][21]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[21][7]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[6][27]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[21][5]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[11][19]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[21][3]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[1][13]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[21][1]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[11][17]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[22][31]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[6][25]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[22][29]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[11][15]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[22][27]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[3][13]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[22][25]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[11][13]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[22][23]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[6][23]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[22][21]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[11][11]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[22][19]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[2][23]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[22][17]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[11][9]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[22][15]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[6][21]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[22][13]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[11][7]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[22][11]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[3][11]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[22][9]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[11][5]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[22][7]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[6][19]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[22][5]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[11][3]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[22][3]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[1][23]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[22][1]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[11][1]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[23][31]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[6][17]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[23][29]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[12][31]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[23][27]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[3][9]         ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[23][25]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[12][29]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[23][23]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[6][15]        ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[23][21]       ; Merged with registerFile:RF|registers[1][29] ;
+; registerFile:RF|registers[20][16]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[10][8]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[20][12]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[5][4]         ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[20][8]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[10][4]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[20][4]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[1][24]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[20][0]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[10][0]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[21][28]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[5][0]         ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[21][24]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[11][28]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[21][20]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[3][16]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[21][16]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[11][24]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[21][12]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[6][28]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[21][8]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[11][20]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[21][4]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[2][24]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[21][0]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[11][16]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[22][28]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[6][24]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[22][24]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[11][12]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[22][20]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[3][12]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[22][16]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[11][8]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[22][12]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[6][20]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[22][8]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[11][4]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[22][4]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[1][12]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[22][0]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[11][0]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[23][28]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[6][16]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[23][24]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[12][28]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[23][20]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[3][8]         ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[23][16]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[12][24]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[23][12]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[6][12]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[23][8]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[12][20]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[23][4]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[2][20]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[23][0]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[12][16]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[24][28]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[6][8]         ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[24][24]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[12][12]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[24][20]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[3][4]         ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[24][16]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[12][8]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[24][12]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[6][4]         ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[24][8]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[12][4]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[24][4]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[24][0]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[12][0]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[25][28]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[6][0]         ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[25][24]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[13][28]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[25][20]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[3][0]         ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[25][16]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[13][24]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[25][12]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[7][28]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[25][8]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[13][20]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[25][4]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[2][16]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[25][0]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[13][16]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[26][28]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[7][24]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[26][24]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[13][12]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[26][20]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[4][28]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[26][16]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[13][8]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[26][12]       ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[7][20]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[26][8]        ; Merged with registerFile:RF|registers[1][28] ;
+; registerFile:RF|registers[26][15]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[7][21]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[26][13]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[13][7]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[26][11]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[4][27]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[26][9]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[13][5]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[26][7]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[7][19]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[26][5]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[13][3]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[26][3]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[1][21]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[26][1]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[13][1]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[27][31]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[7][17]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[27][29]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[14][31]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[27][27]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[4][25]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[27][25]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[14][29]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[27][23]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[7][15]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[27][21]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[14][27]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[27][19]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[2][13]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[27][17]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[14][25]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[27][15]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[7][13]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[27][13]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[14][23]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[27][11]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[4][23]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[27][9]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[14][21]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[27][7]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[7][11]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[27][5]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[14][19]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[27][3]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[1][7]         ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[27][1]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[14][17]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[28][31]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[7][9]         ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[28][29]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[14][15]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[28][27]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[4][21]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[28][25]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[14][13]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[28][23]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[7][7]         ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[28][21]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[14][11]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[28][19]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[2][11]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[28][17]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[14][9]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[28][15]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[7][5]         ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[28][13]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[14][7]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[28][11]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[4][19]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[28][9]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[14][5]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[28][7]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[7][3]         ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[28][5]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[14][3]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[28][3]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[28][1]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[14][1]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[29][31]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[7][1]         ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[29][29]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[15][31]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[29][27]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[4][17]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[29][25]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[15][29]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[29][23]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[8][31]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[29][21]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[15][27]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[29][19]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[2][9]         ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[29][17]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[15][25]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[29][15]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[8][29]        ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[29][13]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[15][23]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[29][11]       ; Merged with registerFile:RF|registers[1][27] ;
+; registerFile:RF|registers[4][1]         ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[17][29]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[9][31]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[17][27]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[2][1]         ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[17][25]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[9][29]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[17][23]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[5][31]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[17][21]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[9][27]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[17][19]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[1][1]         ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[17][17]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[9][25]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[17][15]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[5][29]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[17][13]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[9][23]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[17][11]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[3][31]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[17][9]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[9][21]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[17][7]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[5][27]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[17][5]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[9][19]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[17][3]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[1][17]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[17][1]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[9][17]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[18][31]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[5][25]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[18][29]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[9][15]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[18][27]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[3][29]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[18][25]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[9][13]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[18][23]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[5][23]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[18][21]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[9][11]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[18][19]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[2][31]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[18][17]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[9][9]         ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[18][15]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[5][21]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[18][13]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[9][7]         ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[18][11]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[3][27]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[18][9]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[9][5]         ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[18][7]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[5][19]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[18][5]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[9][3]         ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[18][3]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[18][1]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[9][1]         ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[19][31]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[5][17]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[19][29]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[10][31]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[19][27]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[3][25]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[19][25]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[10][29]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[19][23]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[5][15]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[19][21]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[10][27]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[19][19]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[2][29]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[19][17]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[10][25]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[19][15]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[5][13]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[19][13]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[10][23]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[19][11]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[3][23]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[19][9]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[10][21]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[19][7]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[5][11]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[19][5]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[10][19]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[19][3]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[1][15]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[19][1]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[10][17]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[20][31]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[5][9]         ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[20][29]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[10][15]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[20][27]       ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[3][21]        ; Merged with registerFile:RF|registers[1][25] ;
+; registerFile:RF|registers[28][26]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[14][10]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[28][10]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[2][10]        ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[29][26]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[15][26]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[29][10]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[8][26]        ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[30][26]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[15][10]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[30][10]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[4][10]        ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[31][26]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[16][26]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[31][10]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[8][10]        ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[16][14]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[8][6]         ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[17][30]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[16][6]        ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[9][30]        ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[17][22]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[5][30]        ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[17][14]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[9][22]        ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[17][6]        ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[3][30]        ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[18][30]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[9][14]        ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[18][22]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[5][22]        ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[18][14]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[9][6]         ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[18][6]        ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[2][30]        ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[19][30]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[10][30]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[19][22]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[5][14]        ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[19][14]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[10][22]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[19][6]        ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[3][22]        ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[20][30]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[10][14]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[20][22]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[5][6]         ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[20][14]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[10][6]        ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[20][6]        ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[1][14]        ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[21][30]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[11][30]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[21][22]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[6][30]        ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[21][14]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[11][22]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[21][6]        ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[3][14]        ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[22][30]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[11][14]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[22][22]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[6][22]        ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[22][14]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[11][6]        ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[22][6]        ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[2][22]        ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[23][30]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[12][30]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[23][22]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[6][14]        ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[23][14]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[12][22]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[23][6]        ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[3][6]         ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[24][30]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[12][14]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[24][22]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[6][6]         ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[24][14]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[12][6]        ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[24][6]        ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[25][30]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[13][30]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[25][22]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[7][30]        ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[25][14]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[13][22]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[25][6]        ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[4][30]        ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[26][30]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[13][14]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[26][22]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[7][22]        ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[26][14]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[13][6]        ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[26][6]        ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[2][14]        ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[27][30]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[14][30]       ; Merged with registerFile:RF|registers[1][22] ;
+; registerFile:RF|registers[13][4]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[26][4]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[1][8]         ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[26][0]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[13][0]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[27][28]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[7][16]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[27][24]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[14][28]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[27][20]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[4][24]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[27][16]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[14][24]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[27][12]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[7][12]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[27][8]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[14][20]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[27][4]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[2][12]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[27][0]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[14][16]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[28][28]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[7][8]         ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[28][24]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[14][12]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[28][20]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[4][20]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[28][16]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[14][8]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[28][12]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[7][4]         ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[28][8]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[14][4]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[28][4]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[28][0]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[14][0]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[29][28]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[7][0]         ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[29][24]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[15][28]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[29][20]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[4][16]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[29][16]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[15][24]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[29][12]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[8][28]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[29][8]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[15][20]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[29][4]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[2][8]         ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[29][0]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[15][16]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[30][28]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[8][24]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[30][24]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[15][12]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[30][20]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[4][12]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[30][16]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[15][8]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[30][12]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[8][20]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[30][8]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[15][4]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[30][4]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[1][4]         ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[30][0]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[15][0]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[31][28]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[8][16]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[31][24]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[16][28]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[31][20]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[4][8]         ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[31][16]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[16][24]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[31][12]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[8][12]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[31][8]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[16][20]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[31][4]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[2][4]         ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[31][1]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[8][9]         ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[16][15]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[4][5]         ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[16][13]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[8][7]         ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[16][11]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[2][3]         ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[16][9]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[8][5]         ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[16][7]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[4][3]         ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[16][5]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[8][3]         ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[16][1]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[16][3]        ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[8][1]         ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[17][31]       ; Merged with registerFile:RF|registers[1][20] ;
+; registerFile:RF|registers[27][22]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[7][14]        ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[27][14]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[14][22]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[27][6]        ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[4][22]        ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[28][30]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[14][14]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[28][22]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[7][6]         ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[28][14]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[14][6]        ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[28][6]        ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[1][6]         ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[29][30]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[15][30]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[29][22]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[8][30]        ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[29][14]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[15][22]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[29][6]        ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[4][14]        ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[30][30]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[15][14]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[30][22]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[8][22]        ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[30][14]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[15][6]        ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[30][6]        ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[2][6]         ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[31][30]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[16][30]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[31][22]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[8][14]        ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[31][14]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[16][22]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[31][6]        ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[4][6]         ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[16][16]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[8][8]         ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[16][12]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[4][4]         ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[16][8]        ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[8][4]         ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[16][0]        ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[16][4]        ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[8][0]         ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[17][28]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[4][0]         ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[17][24]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[9][28]        ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[17][20]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[2][0]         ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[17][16]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[9][24]        ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[17][12]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[5][28]        ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[17][8]        ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[9][20]        ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[17][4]        ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[1][0]         ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[17][0]        ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[9][16]        ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[18][28]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[5][24]        ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[18][24]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[9][12]        ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[18][20]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[3][28]        ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[18][16]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[9][8]         ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[18][12]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[5][20]        ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[18][8]        ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[9][4]         ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[18][4]        ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[18][0]        ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[9][0]         ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[19][28]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[5][16]        ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[19][24]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[10][28]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[19][20]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[3][24]        ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[19][16]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[10][24]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[19][12]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[5][12]        ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[19][8]        ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[10][20]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[19][4]        ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[2][28]        ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[19][0]        ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[10][16]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[20][28]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[5][8]         ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[20][24]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[10][12]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[20][20]       ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[3][20]        ; Merged with registerFile:RF|registers[1][16] ;
+; registerFile:RF|registers[20][2]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[24][2]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[12][2]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[18][2]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[28][2]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[10][2]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[22][2]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[6][2]         ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[26][2]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[14][2]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[17][2]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[30][2]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[9][2]         ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[19][2]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[5][2]         ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[21][2]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[11][2]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[23][2]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[3][2]         ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[25][2]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[13][2]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[27][2]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[7][2]         ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[29][2]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[15][2]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[17][18]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[31][2]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[9][18]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[18][18]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[5][18]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[19][18]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[10][18]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[20][18]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[3][18]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[21][18]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[11][18]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[22][18]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[6][18]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[23][18]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[12][18]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[24][18]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[2][18]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[25][18]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[13][18]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[26][18]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[7][18]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[27][18]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[14][18]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[28][18]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[4][18]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[29][18]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[15][18]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[30][18]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[8][18]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[31][18]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[16][18]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[17][26]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[16][10]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[9][26]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[17][10]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[5][26]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[18][26]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[9][10]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[18][10]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[3][26]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[19][26]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[10][26]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[19][10]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[5][10]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[20][26]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[10][10]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[20][10]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[2][26]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[21][26]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[11][26]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[21][10]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[6][26]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[22][26]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[11][10]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[22][10]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[3][10]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[23][26]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[12][26]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[23][10]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[6][10]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[24][26]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[12][10]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[24][10]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[25][26]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[13][26]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[25][10]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[7][26]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[26][26]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[13][10]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[26][10]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[4][26]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[27][26]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[14][26]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[27][10]       ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[7][10]        ; Merged with registerFile:RF|registers[1][10] ;
+; registerFile:RF|registers[1][31]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[1][29]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[1][28]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[1][27]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[1][25]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[1][22]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[1][20]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[1][16]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[1][10]        ; Merged with registerFile:RF|registers[31][0] ;
+; registerFile:RF|registers[31][0]        ; Stuck at GND due to stuck port data_in       ;
+; Total Number of Removed Registers = 992 ;                                              ;
++-----------------------------------------+----------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 38    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 38    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 32    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 5:1                ; 31 bits   ; 93 LEs        ; 62 LEs               ; 31 LEs                 ; No         ; |processor|ALU:alu|Mux31   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 
 
 +------------------------------------------------------------------------------------------------------------+
@@ -233,9 +1499,9 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+----------------------------------+-----------------+
 ; data_width     ; 32                               ; Signed Integer  ;
 ; sel_width      ; 3                                ; Signed Integer  ;
-; _ADD           ; 00000000000000000000000000000000 ; Unsigned Binary ;
+; _AND           ; 00000000000000000000000000000000 ; Unsigned Binary ;
 ; _SUB           ; 00000000000000000000000000000001 ; Unsigned Binary ;
-; _AND           ; 00000000000000000000000000000010 ; Unsigned Binary ;
+; _ADD           ; 00000000000000000000000000000010 ; Unsigned Binary ;
 ; _OR            ; 00000000000000000000000000000011 ; Unsigned Binary ;
 ; _SLT           ; 00000000000000000000000000000100 ; Unsigned Binary ;
 +----------------+----------------------------------+-----------------+
@@ -364,91 +1630,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------------------+------------------------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------+
-; Analysis & Elaboration Settings                                                                            ;
-+------------------------------------------------------------------+--------------------+--------------------+
-; Option                                                           ; Setting            ; Default Value      ;
-+------------------------------------------------------------------+--------------------+--------------------+
-; Device                                                           ; 10M50DAF484C7G     ;                    ;
-; Top-level entity name                                            ; processor          ; SingleCycle        ;
-; Family name                                                      ; MAX 10             ; Cyclone V          ;
-; Maximum processors allowed for parallel compilation              ; All                ;                    ;
-; Use smart compilation                                            ; Off                ; Off                ;
-; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
-; Enable compact report table                                      ; Off                ; Off                ;
-; Restructure Multiplexers                                         ; Auto               ; Auto               ;
-; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
-; Preserve fewer node names                                        ; On                 ; On                 ;
-; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
-; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
-; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
-; State Machine Processing                                         ; Auto               ; Auto               ;
-; Safe State Machine                                               ; Off                ; Off                ;
-; Extract Verilog State Machines                                   ; On                 ; On                 ;
-; Extract VHDL State Machines                                      ; On                 ; On                 ;
-; Ignore Verilog initial constructs                                ; Off                ; Off                ;
-; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
-; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
-; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
-; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
-; Parallel Synthesis                                               ; On                 ; On                 ;
-; DSP Block Balancing                                              ; Auto               ; Auto               ;
-; NOT Gate Push-Back                                               ; On                 ; On                 ;
-; Power-Up Don't Care                                              ; On                 ; On                 ;
-; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
-; Remove Duplicate Registers                                       ; On                 ; On                 ;
-; Ignore CARRY Buffers                                             ; Off                ; Off                ;
-; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
-; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
-; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
-; Ignore LCELL Buffers                                             ; Off                ; Off                ;
-; Ignore SOFT Buffers                                              ; On                 ; On                 ;
-; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
-; Optimization Technique                                           ; Balanced           ; Balanced           ;
-; Carry Chain Length                                               ; 70                 ; 70                 ;
-; Auto Carry Chains                                                ; On                 ; On                 ;
-; Auto Open-Drain Pins                                             ; On                 ; On                 ;
-; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
-; Auto ROM Replacement                                             ; On                 ; On                 ;
-; Auto RAM Replacement                                             ; On                 ; On                 ;
-; Auto DSP Block Replacement                                       ; On                 ; On                 ;
-; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
-; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
-; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
-; Strict RAM Replacement                                           ; Off                ; Off                ;
-; Allow Synchronous Control Signals                                ; On                 ; On                 ;
-; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
-; Auto RAM Block Balancing                                         ; On                 ; On                 ;
-; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
-; Auto Resource Sharing                                            ; Off                ; Off                ;
-; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
-; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
-; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
-; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
-; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
-; Timing-Driven Synthesis                                          ; On                 ; On                 ;
-; Report Parameter Settings                                        ; On                 ; On                 ;
-; Report Source Assignments                                        ; On                 ; On                 ;
-; Report Connectivity Checks                                       ; On                 ; On                 ;
-; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
-; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
-; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
-; HDL message level                                                ; Level2             ; Level2             ;
-; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
-; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
-; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
-; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
-; Clock MUX Protection                                             ; On                 ; On                 ;
-; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
-; Block Design Naming                                              ; Auto               ; Auto               ;
-; SDC constraint protection                                        ; Off                ; Off                ;
-; Synthesis Effort                                                 ; Auto               ; Auto               ;
-; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
-; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
-; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
-; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
-; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
-+------------------------------------------------------------------+--------------------+--------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "mux2x1:RFMux"                                                                                                          ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
+; out  ; Output ; Warning  ; Output or bidir port (5 bits) is wider than the port expression (1 bits) it drives; bit(s) "out[4..1]" have no fanouts ;
+; out  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                    ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
 
 
 +---------------------------------------------+
@@ -461,46 +1650,80 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------+-------+----------+--------------+
 
 
-+---------------------------------+
-; Analysis & Elaboration Messages ;
-+---------------------------------+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 8                           ;
+; cycloneiii_ff         ; 38                          ;
+;     CLR               ; 6                           ;
+;     ENA CLR           ; 32                          ;
+; cycloneiii_lcell_comb ; 372                         ;
+;     arith             ; 68                          ;
+;         3 data inputs ; 68                          ;
+;     normal            ; 304                         ;
+;         2 data inputs ; 22                          ;
+;         3 data inputs ; 157                         ;
+;         4 data inputs ; 125                         ;
+; cycloneiii_ram_block  ; 59                          ;
+;                       ;                             ;
+; Max LUT depth         ; 10.10                       ;
+; Average LUT depth     ; 6.82                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
 Info: *******************************************************************
-Info: Running Quartus Prime Analysis & Elaboration
-    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Fri Sep 20 18:08:30 2024
-Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SingleCycle -c SingleCycle --analysis_and_elaboration
-Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Wed Sep 25 22:38:07 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SingleCycle -c SingleCycle
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file testbench.v
-    Info (12023): Found entity 1: testbench File: C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/testbench.v Line: 2
+    Info (12023): Found entity 1: testbench File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/testbench.v Line: 2
 Info (12021): Found 1 design units, including 1 entities, in source file processor.v
-    Info (12023): Found entity 1: processor File: C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/processor.v Line: 1
+    Info (12023): Found entity 1: processor File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/processor.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file registerfile.v
-    Info (12023): Found entity 1: registerFile File: C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/registerFile.v Line: 3
+    Info (12023): Found entity 1: registerFile File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/registerFile.v Line: 3
+Warning (10229): Verilog HDL Expression warning at controlUnit.v(52): truncated literal to match 3 bits File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/controlUnit.v Line: 52
 Info (12021): Found 1 design units, including 1 entities, in source file controlunit.v
-    Info (12023): Found entity 1: controlUnit File: C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/controlUnit.v Line: 1
+    Info (12023): Found entity 1: controlUnit File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/controlUnit.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file alu.v
-    Info (12023): Found entity 1: ALU File: C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/ALU.v Line: 1
+    Info (12023): Found entity 1: ALU File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file signextender.v
-    Info (12023): Found entity 1: SignExtender File: C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/signextender.v Line: 4
+    Info (12023): Found entity 1: SignExtender File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/signextender.v Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file programcounter.v
-    Info (12023): Found entity 1: programCounter File: C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/programCounter.v Line: 1
+    Info (12023): Found entity 1: programCounter File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/programCounter.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file mux2x1.v
-    Info (12023): Found entity 1: mux2x1 File: C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/mux2x1.v Line: 1
+    Info (12023): Found entity 1: mux2x1 File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/mux2x1.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file adder.v
-    Info (12023): Found entity 1: adder File: C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/adder.v Line: 3
+    Info (12023): Found entity 1: adder File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/adder.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file andgate.v
-    Info (12023): Found entity 1: ANDGate File: C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/ANDGate.v Line: 1
+    Info (12023): Found entity 1: ANDGate File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ANDGate.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file instructionmemory.v
-    Info (12023): Found entity 1: instructionMemory File: C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/instructionMemory.v Line: 40
+    Info (12023): Found entity 1: instructionMemory File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/instructionMemory.v Line: 40
 Info (12021): Found 1 design units, including 1 entities, in source file datamemory.v
-    Info (12023): Found entity 1: dataMemory File: C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/dataMemory.v Line: 40
+    Info (12023): Found entity 1: dataMemory File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/dataMemory.v Line: 40
+Warning (10236): Verilog HDL Implicit Net warning at processor.v(33): created implicit net for "WriteRegister" File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/processor.v Line: 33
 Info (12127): Elaborating entity "processor" for the top level hierarchy
-Info (12128): Elaborating entity "programCounter" for hierarchy "programCounter:pc" File: C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/processor.v Line: 23
-Info (12128): Elaborating entity "adder" for hierarchy "adder:PCAdder" File: C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/processor.v Line: 25
-Info (12128): Elaborating entity "instructionMemory" for hierarchy "instructionMemory:IM" File: C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/processor.v Line: 27
-Info (12128): Elaborating entity "altsyncram" for hierarchy "instructionMemory:IM|altsyncram:altsyncram_component" File: C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/instructionMemory.v Line: 82
-Info (12130): Elaborated megafunction instantiation "instructionMemory:IM|altsyncram:altsyncram_component" File: C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/instructionMemory.v Line: 82
-Info (12133): Instantiated megafunction "instructionMemory:IM|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/instructionMemory.v Line: 82
+Info (12128): Elaborating entity "programCounter" for hierarchy "programCounter:pc" File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/processor.v Line: 23
+Info (12128): Elaborating entity "adder" for hierarchy "adder:PCAdder" File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/processor.v Line: 25
+Info (12128): Elaborating entity "instructionMemory" for hierarchy "instructionMemory:IM" File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/processor.v Line: 27
+Info (12128): Elaborating entity "altsyncram" for hierarchy "instructionMemory:IM|altsyncram:altsyncram_component" File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/instructionMemory.v Line: 82
+Info (12130): Elaborated megafunction instantiation "instructionMemory:IM|altsyncram:altsyncram_component" File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/instructionMemory.v Line: 82
+Info (12133): Instantiated megafunction "instructionMemory:IM|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/instructionMemory.v Line: 82
     Info (12134): Parameter "address_aclr_a" = "NONE"
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
@@ -517,20 +1740,53 @@ Info (12133): Instantiated megafunction "instructionMemory:IM|altsyncram:altsync
     Info (12134): Parameter "width_a" = "32"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_38e1.tdf
-    Info (12023): Found entity 1: altsyncram_38e1 File: C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/db/altsyncram_38e1.tdf Line: 28
+    Info (12023): Found entity 1: altsyncram_38e1 File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf Line: 28
 Info (12128): Elaborating entity "altsyncram_38e1" for hierarchy "instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Critical Warning (127004): Memory depth (64) in the design file differs from memory depth (256) in the Memory Initialization File "C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/instructionMemoryInitializationFile.mif" -- truncated remaining initial content value to fit RAM File: C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/instructionMemory.v Line: 82
-Info (12128): Elaborating entity "controlUnit" for hierarchy "controlUnit:CU" File: C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/processor.v Line: 31
-Info (12128): Elaborating entity "mux2x1" for hierarchy "mux2x1:RFMux" File: C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/processor.v Line: 33
-Info (12128): Elaborating entity "registerFile" for hierarchy "registerFile:RF" File: C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/processor.v Line: 37
-Info (12128): Elaborating entity "SignExtender" for hierarchy "SignExtender:SignExtend" File: C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/processor.v Line: 39
-Info (12128): Elaborating entity "mux2x1" for hierarchy "mux2x1:ALUMux" File: C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/processor.v Line: 41
-Info (12128): Elaborating entity "ALU" for hierarchy "ALU:alu" File: C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/processor.v Line: 43
-Info (12128): Elaborating entity "ANDGate" for hierarchy "ANDGate:branchAnd" File: C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/processor.v Line: 45
-Info (12128): Elaborating entity "dataMemory" for hierarchy "dataMemory:DM" File: C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/processor.v Line: 49
-Info (12128): Elaborating entity "altsyncram" for hierarchy "dataMemory:DM|altsyncram:altsyncram_component" File: C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/dataMemory.v Line: 89
-Info (12130): Elaborated megafunction instantiation "dataMemory:DM|altsyncram:altsyncram_component" File: C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/dataMemory.v Line: 89
-Info (12133): Instantiated megafunction "dataMemory:DM|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/dataMemory.v Line: 89
+Info (12128): Elaborating entity "controlUnit" for hierarchy "controlUnit:CU" File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/processor.v Line: 31
+Info (12128): Elaborating entity "mux2x1" for hierarchy "mux2x1:RFMux" File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/processor.v Line: 33
+Info (12128): Elaborating entity "registerFile" for hierarchy "registerFile:RF" File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/processor.v Line: 37
+Info (12128): Elaborating entity "SignExtender" for hierarchy "SignExtender:SignExtend" File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/processor.v Line: 39
+Info (12128): Elaborating entity "mux2x1" for hierarchy "mux2x1:ALUMux" File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/processor.v Line: 41
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:alu" File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/processor.v Line: 43
+Warning (10270): Verilog HDL Case Statement warning at ALU.v(28): incomplete case statement has no default case item File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+Warning (10240): Verilog HDL Always Construct warning at ALU.v(28): inferring latch(es) for variable "result", which holds its previous value in one or more paths through the always construct File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+Info (10041): Inferred latch for "result[0]" at ALU.v(28) File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+Info (10041): Inferred latch for "result[1]" at ALU.v(28) File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+Info (10041): Inferred latch for "result[2]" at ALU.v(28) File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+Info (10041): Inferred latch for "result[3]" at ALU.v(28) File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+Info (10041): Inferred latch for "result[4]" at ALU.v(28) File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+Info (10041): Inferred latch for "result[5]" at ALU.v(28) File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+Info (10041): Inferred latch for "result[6]" at ALU.v(28) File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+Info (10041): Inferred latch for "result[7]" at ALU.v(28) File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+Info (10041): Inferred latch for "result[8]" at ALU.v(28) File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+Info (10041): Inferred latch for "result[9]" at ALU.v(28) File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+Info (10041): Inferred latch for "result[10]" at ALU.v(28) File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+Info (10041): Inferred latch for "result[11]" at ALU.v(28) File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+Info (10041): Inferred latch for "result[12]" at ALU.v(28) File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+Info (10041): Inferred latch for "result[13]" at ALU.v(28) File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+Info (10041): Inferred latch for "result[14]" at ALU.v(28) File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+Info (10041): Inferred latch for "result[15]" at ALU.v(28) File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+Info (10041): Inferred latch for "result[16]" at ALU.v(28) File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+Info (10041): Inferred latch for "result[17]" at ALU.v(28) File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+Info (10041): Inferred latch for "result[18]" at ALU.v(28) File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+Info (10041): Inferred latch for "result[19]" at ALU.v(28) File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+Info (10041): Inferred latch for "result[20]" at ALU.v(28) File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+Info (10041): Inferred latch for "result[21]" at ALU.v(28) File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+Info (10041): Inferred latch for "result[22]" at ALU.v(28) File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+Info (10041): Inferred latch for "result[23]" at ALU.v(28) File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+Info (10041): Inferred latch for "result[24]" at ALU.v(28) File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+Info (10041): Inferred latch for "result[25]" at ALU.v(28) File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+Info (10041): Inferred latch for "result[26]" at ALU.v(28) File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+Info (10041): Inferred latch for "result[27]" at ALU.v(28) File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+Info (10041): Inferred latch for "result[28]" at ALU.v(28) File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+Info (10041): Inferred latch for "result[29]" at ALU.v(28) File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+Info (10041): Inferred latch for "result[30]" at ALU.v(28) File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+Info (10041): Inferred latch for "result[31]" at ALU.v(28) File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+Info (12128): Elaborating entity "ANDGate" for hierarchy "ANDGate:branchAnd" File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/processor.v Line: 45
+Info (12128): Elaborating entity "dataMemory" for hierarchy "dataMemory:DM" File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/processor.v Line: 49
+Info (12128): Elaborating entity "altsyncram" for hierarchy "dataMemory:DM|altsyncram:altsyncram_component" File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/dataMemory.v Line: 89
+Info (12130): Elaborated megafunction instantiation "dataMemory:DM|altsyncram:altsyncram_component" File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/dataMemory.v Line: 89
+Info (12133): Instantiated megafunction "dataMemory:DM|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/dataMemory.v Line: 89
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
     Info (12134): Parameter "init_file" = "dataMemoryInitializationFile.mif"
@@ -548,20 +1804,100 @@ Info (12133): Instantiated megafunction "dataMemory:DM|altsyncram:altsyncram_com
     Info (12134): Parameter "width_a" = "32"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_8km1.tdf
-    Info (12023): Found entity 1: altsyncram_8km1 File: C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/db/altsyncram_8km1.tdf Line: 28
+    Info (12023): Found entity 1: altsyncram_8km1 File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_8km1.tdf Line: 28
 Info (12128): Elaborating entity "altsyncram_8km1" for hierarchy "dataMemory:DM|altsyncram:altsyncram_component|altsyncram_8km1:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "mux2x1" for hierarchy "mux2x1:PCMux" File: C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/processor.v Line: 53
-Info (144001): Generated suppressed messages file C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/output_files/SingleCycle.map.smsg
-Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4765 megabytes
-    Info: Processing ended: Fri Sep 20 18:09:20 2024
-    Info: Elapsed time: 00:00:50
-    Info: Total CPU time (on all processors): 00:01:02
+Info (12128): Elaborating entity "mux2x1" for hierarchy "mux2x1:PCMux" File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/processor.v Line: 53
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following RAM node(s):
+        Warning (14320): Synthesized away node "instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated|q_a[21]" File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf Line: 476
+        Warning (14320): Synthesized away node "instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated|q_a[22]" File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf Line: 497
+        Warning (14320): Synthesized away node "instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated|q_a[23]" File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf Line: 518
+        Warning (14320): Synthesized away node "instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated|q_a[24]" File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf Line: 539
+        Warning (14320): Synthesized away node "instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated|q_a[25]" File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf Line: 560
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13012): Latch ALU:alu|result[0] has unsafe behavior File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated|q_a[0] File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf Line: 32
+Warning (13012): Latch ALU:alu|result[1] has unsafe behavior File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated|q_a[0] File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf Line: 32
+Warning (13012): Latch ALU:alu|result[2] has unsafe behavior File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated|q_a[0] File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf Line: 32
+Warning (13012): Latch ALU:alu|result[3] has unsafe behavior File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated|q_a[0] File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf Line: 32
+Warning (13012): Latch ALU:alu|result[4] has unsafe behavior File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated|q_a[0] File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf Line: 32
+Warning (13012): Latch ALU:alu|result[5] has unsafe behavior File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated|q_a[0] File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf Line: 32
+Warning (13012): Latch ALU:alu|result[6] has unsafe behavior File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated|q_a[0] File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf Line: 32
+Warning (13012): Latch ALU:alu|result[7] has unsafe behavior File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated|q_a[0] File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf Line: 32
+Warning (13012): Latch ALU:alu|result[8] has unsafe behavior File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated|q_a[0] File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf Line: 32
+Warning (13012): Latch ALU:alu|result[9] has unsafe behavior File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated|q_a[0] File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf Line: 32
+Warning (13012): Latch ALU:alu|result[10] has unsafe behavior File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated|q_a[0] File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf Line: 32
+Warning (13012): Latch ALU:alu|result[11] has unsafe behavior File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated|q_a[0] File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf Line: 32
+Warning (13012): Latch ALU:alu|result[12] has unsafe behavior File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated|q_a[0] File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf Line: 32
+Warning (13012): Latch ALU:alu|result[13] has unsafe behavior File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated|q_a[0] File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf Line: 32
+Warning (13012): Latch ALU:alu|result[14] has unsafe behavior File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated|q_a[0] File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf Line: 32
+Warning (13012): Latch ALU:alu|result[15] has unsafe behavior File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated|q_a[0] File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf Line: 32
+Warning (13012): Latch ALU:alu|result[16] has unsafe behavior File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated|q_a[0] File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf Line: 32
+Warning (13012): Latch ALU:alu|result[17] has unsafe behavior File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated|q_a[0] File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf Line: 32
+Warning (13012): Latch ALU:alu|result[18] has unsafe behavior File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated|q_a[0] File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf Line: 32
+Warning (13012): Latch ALU:alu|result[19] has unsafe behavior File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated|q_a[0] File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf Line: 32
+Warning (13012): Latch ALU:alu|result[20] has unsafe behavior File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated|q_a[0] File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf Line: 32
+Warning (13012): Latch ALU:alu|result[21] has unsafe behavior File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated|q_a[0] File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf Line: 32
+Warning (13012): Latch ALU:alu|result[22] has unsafe behavior File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated|q_a[0] File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf Line: 32
+Warning (13012): Latch ALU:alu|result[23] has unsafe behavior File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated|q_a[0] File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf Line: 32
+Warning (13012): Latch ALU:alu|result[24] has unsafe behavior File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated|q_a[0] File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf Line: 32
+Warning (13012): Latch ALU:alu|result[25] has unsafe behavior File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated|q_a[0] File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf Line: 32
+Warning (13012): Latch ALU:alu|result[26] has unsafe behavior File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated|q_a[0] File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf Line: 32
+Warning (13012): Latch ALU:alu|result[27] has unsafe behavior File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated|q_a[0] File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf Line: 32
+Warning (13012): Latch ALU:alu|result[28] has unsafe behavior File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated|q_a[0] File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf Line: 32
+Warning (13012): Latch ALU:alu|result[29] has unsafe behavior File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated|q_a[0] File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf Line: 32
+Warning (13012): Latch ALU:alu|result[30] has unsafe behavior File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated|q_a[0] File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf Line: 32
+Warning (13012): Latch ALU:alu|result[31] has unsafe behavior File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v Line: 28
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated|q_a[0] File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf Line: 32
+Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/output_files/SingleCycle.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 445 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 6 output pins
+    Info (21061): Implemented 378 logic cells
+    Info (21064): Implemented 59 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 76 warnings
+    Info: Peak virtual memory: 4791 megabytes
+    Info: Processing ended: Wed Sep 25 22:38:14 2024
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:05
 
 
-+--------------------------------------------+
-; Analysis & Elaboration Suppressed Messages ;
-+--------------------------------------------+
-The suppressed messages can be found in C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/output_files/SingleCycle.map.smsg.
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/output_files/SingleCycle.map.smsg.
 
 

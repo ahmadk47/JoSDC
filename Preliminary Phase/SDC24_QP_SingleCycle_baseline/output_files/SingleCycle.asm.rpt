@@ -1,6 +1,6 @@
 Assembler report for SingleCycle
-Fri Sep 20 17:26:11 2024
-Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+Wed Sep 25 22:38:25 2024
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
 ---------------------
@@ -10,7 +10,7 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
   2. Assembler Summary
   3. Assembler Settings
   4. Assembler Generated Files
-  5. Assembler Device Options: C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/output_files/SingleCycle.sof
+  5. Assembler Device Options: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/output_files/SingleCycle.sof
   6. Assembler Messages
 
 
@@ -38,7 +38,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Fri Sep 20 17:26:11 2024 ;
+; Assembler Status      ; Successful - Wed Sep 25 22:38:25 2024 ;
 ; Revision Name         ; SingleCycle                           ;
 ; Top-level Entity Name ; processor                             ;
 ; Family                ; MAX 10                                ;
@@ -53,23 +53,23 @@ https://fpgasoftware.intel.com/eula.
 +--------+---------+---------------+
 
 
-+------------------------------------------------------------------------------+
-; Assembler Generated Files                                                    ;
-+------------------------------------------------------------------------------+
-; File Name                                                                    ;
-+------------------------------------------------------------------------------+
-; C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/output_files/SingleCycle.sof ;
-+------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------+
+; Assembler Generated Files                                                                                          ;
++--------------------------------------------------------------------------------------------------------------------+
+; File Name                                                                                                          ;
++--------------------------------------------------------------------------------------------------------------------+
+; C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/output_files/SingleCycle.sof ;
++--------------------------------------------------------------------------------------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------+
-; Assembler Device Options: C:/Users/THINKPAD/Documents/JoSDC24/SingleCycle/output_files/SingleCycle.sof ;
-+----------------+---------------------------------------------------------------------------------------+
-; Option         ; Setting                                                                               ;
-+----------------+---------------------------------------------------------------------------------------+
-; JTAG usercode  ; 0x003E718C                                                                            ;
-; Checksum       ; 0x003E718C                                                                            ;
-+----------------+---------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Assembler Device Options: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/output_files/SingleCycle.sof ;
++----------------+-----------------------------------------------------------------------------------------------------------------------------+
+; Option         ; Setting                                                                                                                     ;
++----------------+-----------------------------------------------------------------------------------------------------------------------------+
+; JTAG usercode  ; 0x002B40AE                                                                                                                  ;
+; Checksum       ; 0x002B40AE                                                                                                                  ;
++----------------+-----------------------------------------------------------------------------------------------------------------------------+
 
 
 +--------------------+
@@ -77,15 +77,15 @@ https://fpgasoftware.intel.com/eula.
 +--------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
-    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Fri Sep 20 17:25:20 2024
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Wed Sep 25 22:38:23 2024
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off SingleCycle -c SingleCycle
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4745 megabytes
-    Info: Processing ended: Fri Sep 20 17:26:11 2024
-    Info: Elapsed time: 00:00:51
-    Info: Total CPU time (on all processors): 00:00:50
+    Info: Peak virtual memory: 4695 megabytes
+    Info: Processing ended: Wed Sep 25 22:38:25 2024
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
 
 

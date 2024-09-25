@@ -10,7 +10,7 @@ module programCounter (clk, rst, PCin, PCout);
 	//Counter logic
 	always@(posedge clk, negedge rst) begin
 		if(~rst) begin
-			PCout <= 6'b000000;
+			PCout <= 6'b111111;
 		end
 		else begin
 			PCout <= PCin;
