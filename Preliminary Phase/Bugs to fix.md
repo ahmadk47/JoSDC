@@ -1,7 +1,7 @@
 | File Name         |       Bugs         |  Found By |          Fixes         |  Fixed By |
 |-------------------|:------------------:|----------:|:----------------------:|----------:|
 | processsor.v      | rs,rd,rt assignment, @line 27 IM input incorrect|     OmarK |  rearrange assignments, change IM input |        -- |
-| registerFile.v    |         --         |        -- |            --          |        -- |
+| registerFile.v    |@line 16 Endiannes of the registerFile   |        AhmadK |           change endiannes      |        -- |
 | controlUnit.v     |         --         |        -- |            --          |        -- |
 | ALU.v             |  @line 38 SLT OP   |      OmarK|reverse comparison order|        -- |
 | signextender.v    |      No bugs       |        -- |            --          |        -- |
