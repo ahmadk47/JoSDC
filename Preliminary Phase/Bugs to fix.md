@@ -2,7 +2,7 @@
 |-------------------|:------------------:|----------:|:----------------------:|----------:|
 | processsor.v      | rs,rd,rt assignment, @line 27 IM input incorrect|     OmarK |  rearrange assignments, change IM input |        -- |
 | registerFile.v    |@line 16 Endiannes of the registerFile   |        AhmadK |           change endiannes      |        -- |
-| controlUnit.v     |         --         |        -- |            --          |        -- |
+| controlUnit.v     |@line 52 ALUOp decimal instead of binary       |       Saleh|           change to binary        |        -- |
 | ALU.v             |  @line 38 SLT OP, unsafe behaviour of "result"  |      OmarK, Saleh|reverse comparison order, set initial value for result|        -- |
 | signextender.v    |      No bugs       |        -- |            --          |        -- |
 | programCounter.v  | incorrect pc reset |     Saleh |   let pc reset to zero |        -- |
