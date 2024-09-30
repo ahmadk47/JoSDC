@@ -1,0 +1,9 @@
+addi $x5,$s0,255
+addi $x6,$s0,85
+sub $x7,$s5,$s6
+sw $x7,$x0,0
+lw $x8,$x0,20
+beq $x6,$s7,3
+or $x9,$s6,$s7
+and $x8,$s6,$s7
+add $x0,$s6,$s7
