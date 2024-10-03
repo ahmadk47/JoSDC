@@ -106,27 +106,25 @@ public class Assembler {
         }
     }
 
-    public static void main(String[] args) {
+   public static void main(String[] args) {
         try {
             Assembler assembler = new Assembler();
-            // Register numbers are used instead of names like $t0, $t1, etc.
+            // Updated array with the new set of instructions
             String[] machineCodes = {
-                    "addi $5, $0, 0xff",
-                    "addi $6, $0, 255",
-                    "addi $7, $0, 0x55",
-                    "addi $8, $0, 85",
-                    "sub $9, $5, $6",
-                    "sw $9, 0x0($0)",
-                    "lw $10, 0($20)",
-                    "beq $6, $7, 4",
-                    "or $11, $6, $7",
-                    "and $12, $6, $7",
-                    "add $0, $6, $7",
-                    "slt $13, $0, $5"
+                "addi $5, $0, 0xff",
+                "addi $6, $0, 0x55",
+                "sub $7, $5, $6",
+                "sw $7, 0x0($0)",
+                "lw $8, 0x0($20)",
+                "beq $6, $7, 5",  // Assuming 'fin' is 5 instructions away
+                "or $9, $6, $7",
+                "and $8, $6, $7",
+                "add $0, $6, $7",
+                "slt $10, $0, $5"  // This is the 'fin' label
             };
             for (String instruction : machineCodes) {
                 String machineCode = assembler.assemble(instruction);
-                System.out.println(machineCode);
+                System.out.println(instruction + " -> " + machineCode);
             }
         } catch (Exception e) {
             e.printStackTrace();
