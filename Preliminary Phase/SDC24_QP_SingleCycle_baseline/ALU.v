@@ -17,13 +17,14 @@ module ALU (operand1, operand2, opSel, result, zero );
 	
 	// Operation Parameters
 	// ....................
-	parameter   _AND  = 'b000, _SUB  = 'b001, _ADD = 'b010,
+	parameter   _ADD  = 'b000, _SUB  = 'b001, _AND = 'b010,
 				_OR   = 'b011, _SLT  = 'b100;	
 	
 	// Perform Operation
 	// .................
 	
 	always @ (*) begin
+			result = 32'b0; // added default value for result
 		
 		case(opSel)
 			
@@ -35,15 +36,15 @@ module ALU (operand1, operand2, opSel, result, zero );
 			
 			_OR : result = operand1 | operand2;
 			
-			_SLT: result = (operand2 < operand1) ? 1 : 0; 
-
+			_SLT: result = (operand1 < operand2) ? 1 : 0; // edited
+			default : ;
 		endcase
 	
 	end
 	
 	always @ (*) begin 
 		
-		zero = (result == 'b0);
+		zero = (result == 32'b0); // edited
 	
 	end
 
