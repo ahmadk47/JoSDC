@@ -14,9 +14,9 @@ module processor(clk, rst, PC);
 	wire RegDst, Branch, MemReadEn, MemtoReg, MemWriteEn, RegWriteEn, ALUSrc, zero, PCsrc;
 	
 	assign opCode = instruction[31:26];
-	assign rd = instruction[25:21];
-	assign rs = instruction[20:16];
-	assign rt = instruction[15:11];
+	assign rd = instruction[15:11]; // edited
+	assign rs = instruction[25:21]; // edited
+	assign rt = instruction[20:16]; // edited
 	assign imm = instruction[15:0];
 	assign funct = instruction[5:0];
 	
@@ -24,13 +24,13 @@ module processor(clk, rst, PC);
 	
 	adder PCAdder(.in1(PC), .in2(6'b1), .out(PCPlus1));	
 	
-	instructionMemory IM(.address(nextPC), .clock(clk), .q(instruction));
+	instructionMemory IM(.address(nextPC), .clock(clk), .q(instruction)); // no edit
 	
 	controlUnit CU(.opCode(opCode), .funct(funct), 
 				      .RegDst(RegDst), .Branch(Branch), .MemReadEn(MemReadEn), .MemtoReg(MemtoReg),
 				      .ALUOp(ALUOp), .MemWriteEn(MemWriteEn), .RegWriteEn(RegWriteEn), .ALUSrc(ALUSrc));
 	
-	mux2x1 #(5) RFMux(.in1(rt), .in2(rd), .s(RegDst), .out(WriteRegister));
+	mux2x1 #(5) RFMux(.in1(rt), .in2(rd), .s(RegDst), .out(writeRegister)); // edited
 	
 	registerFile RF(.clk(clk), .rst(rst), .we(RegWriteEn), 
 					    .readRegister1(rs), .readRegister2(rt), .writeRegister(writeRegister),
@@ -48,8 +48,8 @@ module processor(clk, rst, PC);
 	
 	dataMemory DM(.address(ALUResult[7:0]), .clock(~clk), .data(readData2), .rden(MemReadEn), .wren(MemWriteEn), .q(memoryReadData));
 	
-	mux2x1 #(32) WBMux(.in1(memoryReadData), .in2(ALUResult), .s(MemtoReg), .out(writeData));
-
+	mux2x1 #(32) WBMux(.in1(ALUResult), .in2(memoryReadData), .s(MemtoReg), .out(writeData)); // edited
+	
 	mux2x1 #(6) PCMux(.in1(PCPlus1), .in2(adderResult), .s(PCsrc), .out(nextPC));
 	
 	

@@ -49,7 +49,7 @@ module controlUnit(opCode, funct,
 					end
 						
 					_or_ : begin
-						ALUOp = 3'd011;
+						ALUOp = 3'b011; // edited
 					end
 						
 					_slt_ : begin
@@ -74,12 +74,12 @@ module controlUnit(opCode, funct,
 			end
 				
 			_lw : begin
-				RegDst = 1'b1;
+				RegDst = 1'b0; // edited
 				Branch = 1'b0;
-				MemReadEn = 1'b0;
+				MemReadEn = 1'b1; // edited
 				MemtoReg = 1'b1;
 				ALUOp = 3'b000;
-				MemWriteEn = 1'b1;
+				MemWriteEn = 1'b0; // edited
 				RegWriteEn = 1'b1;		
 				ALUSrc = 1'b1;		
 			end
@@ -99,7 +99,7 @@ module controlUnit(opCode, funct,
 				ALUOp = 3'b001;
 				MemWriteEn = 1'b0;
 				RegWriteEn = 1'b0;
-				ALUSrc = 1'b1;				
+				ALUSrc = 1'b0; // edited	
 			end
 			
 			default: ;

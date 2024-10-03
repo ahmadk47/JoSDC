@@ -1,15 +1,15 @@
-Analysis & Synthesis Status : Successful - Mon Sep 23 22:49:06 2024
+Analysis & Synthesis Status : Successful - Fri Oct 04 01:08:09 2024
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : SingleCycle
-Top-level Entity Name : mux2x1
+Top-level Entity Name : processor
 Family : MAX 10
-Total logic elements : 33
-    Total combinational functions : 33
-    Dedicated logic registers : 0
-Total registers : 0
-Total pins : 100
+Total logic elements : 2,663
+    Total combinational functions : 1,671
+    Dedicated logic registers : 1,030
+Total registers : 1030
+Total pins : 8
 Total virtual pins : 0
-Total memory bits : 0
+Total memory bits : 10,240
 Embedded Multiplier 9-bit elements : 0
 Total PLLs : 0
 UFM blocks : 0
