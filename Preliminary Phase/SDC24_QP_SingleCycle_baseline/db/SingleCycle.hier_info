@@ -4989,7 +4989,7 @@ readData2[30] <= Mux33.DB_MAX_OUTPUT_PORT_TYPE
 readData2[31] <= Mux32.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|processor|SignExtender:SignExtend
+|processor|signextender:SignExtend
 in[0] => out[0].DATAIN
 in[1] => out[1].DATAIN
 in[2] => out[2].DATAIN

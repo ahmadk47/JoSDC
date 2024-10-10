@@ -10,131 +10,131 @@
 # Copying C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
-# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/single\ cycle\ final/SDC24_QP_SingleCycle_baseline {C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline/processor.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/single\ cycle\ final\ ong/SDC24_QP_SingleCycle_baseline {C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline/processor.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 01:22:25 on Oct 04,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline" C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline/processor.v 
+# Start time: 01:25:22 on Oct 11,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline" C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline/processor.v 
 # -- Compiling module processor
 # 
 # Top level modules:
 # 	processor
-# End time: 01:22:25 on Oct 04,2024, Elapsed time: 0:00:00
+# End time: 01:25:22 on Oct 11,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/single\ cycle\ final/SDC24_QP_SingleCycle_baseline {C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline/registerFile.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/single\ cycle\ final\ ong/SDC24_QP_SingleCycle_baseline {C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline/registerFile.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 01:22:25 on Oct 04,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline" C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline/registerFile.v 
+# Start time: 01:25:22 on Oct 11,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline" C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline/registerFile.v 
 # -- Compiling module registerFile
 # 
 # Top level modules:
 # 	registerFile
-# End time: 01:22:25 on Oct 04,2024, Elapsed time: 0:00:00
+# End time: 01:25:22 on Oct 11,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/single\ cycle\ final/SDC24_QP_SingleCycle_baseline {C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline/controlUnit.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/single\ cycle\ final\ ong/SDC24_QP_SingleCycle_baseline {C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline/controlUnit.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 01:22:25 on Oct 04,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline" C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline/controlUnit.v 
+# Start time: 01:25:22 on Oct 11,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline" C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline/controlUnit.v 
 # -- Compiling module controlUnit
 # 
 # Top level modules:
 # 	controlUnit
-# End time: 01:22:25 on Oct 04,2024, Elapsed time: 0:00:00
+# End time: 01:25:22 on Oct 11,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/single\ cycle\ final/SDC24_QP_SingleCycle_baseline {C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline/ALU.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/single\ cycle\ final\ ong/SDC24_QP_SingleCycle_baseline {C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline/ALU.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 01:22:25 on Oct 04,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline" C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline/ALU.v 
+# Start time: 01:25:22 on Oct 11,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline" C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline/ALU.v 
 # -- Compiling module ALU
 # 
 # Top level modules:
 # 	ALU
-# End time: 01:22:25 on Oct 04,2024, Elapsed time: 0:00:00
+# End time: 01:25:22 on Oct 11,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/single\ cycle\ final/SDC24_QP_SingleCycle_baseline {C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline/signextender.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/single\ cycle\ final\ ong/SDC24_QP_SingleCycle_baseline {C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline/signextender.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 01:22:25 on Oct 04,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline" C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline/signextender.v 
-# -- Compiling module SignExtender
+# Start time: 01:25:22 on Oct 11,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline" C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline/signextender.v 
+# -- Compiling module signextender
 # 
 # Top level modules:
-# 	SignExtender
-# End time: 01:22:25 on Oct 04,2024, Elapsed time: 0:00:00
+# 	signextender
+# End time: 01:25:22 on Oct 11,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/single\ cycle\ final/SDC24_QP_SingleCycle_baseline {C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline/programCounter.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/single\ cycle\ final\ ong/SDC24_QP_SingleCycle_baseline {C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline/programCounter.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 01:22:25 on Oct 04,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline" C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline/programCounter.v 
+# Start time: 01:25:22 on Oct 11,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline" C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline/programCounter.v 
 # -- Compiling module programCounter
 # 
 # Top level modules:
 # 	programCounter
-# End time: 01:22:25 on Oct 04,2024, Elapsed time: 0:00:00
+# End time: 01:25:22 on Oct 11,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/single\ cycle\ final/SDC24_QP_SingleCycle_baseline {C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline/mux2x1.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/single\ cycle\ final\ ong/SDC24_QP_SingleCycle_baseline {C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline/mux2x1.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 01:22:25 on Oct 04,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline" C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline/mux2x1.v 
+# Start time: 01:25:22 on Oct 11,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline" C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline/mux2x1.v 
 # -- Compiling module mux2x1
 # 
 # Top level modules:
 # 	mux2x1
-# End time: 01:22:25 on Oct 04,2024, Elapsed time: 0:00:00
+# End time: 01:25:22 on Oct 11,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/single\ cycle\ final/SDC24_QP_SingleCycle_baseline {C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline/adder.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/single\ cycle\ final\ ong/SDC24_QP_SingleCycle_baseline {C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline/adder.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 01:22:25 on Oct 04,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline" C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline/adder.v 
+# Start time: 01:25:22 on Oct 11,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline" C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline/adder.v 
 # -- Compiling module adder
 # 
 # Top level modules:
 # 	adder
-# End time: 01:22:25 on Oct 04,2024, Elapsed time: 0:00:00
+# End time: 01:25:22 on Oct 11,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/single\ cycle\ final/SDC24_QP_SingleCycle_baseline {C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline/ANDGate.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/single\ cycle\ final\ ong/SDC24_QP_SingleCycle_baseline {C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline/ANDGate.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 01:22:25 on Oct 04,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline" C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline/ANDGate.v 
+# Start time: 01:25:22 on Oct 11,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline" C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline/ANDGate.v 
 # -- Compiling module ANDGate
 # 
 # Top level modules:
 # 	ANDGate
-# End time: 01:22:25 on Oct 04,2024, Elapsed time: 0:00:00
+# End time: 01:25:22 on Oct 11,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/single\ cycle\ final/SDC24_QP_SingleCycle_baseline {C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline/instructionMemory.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/single\ cycle\ final\ ong/SDC24_QP_SingleCycle_baseline {C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline/instructionMemory.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 01:22:25 on Oct 04,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline" C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline/instructionMemory.v 
+# Start time: 01:25:22 on Oct 11,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline" C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline/instructionMemory.v 
 # -- Compiling module instructionMemory
 # 
 # Top level modules:
 # 	instructionMemory
-# End time: 01:22:25 on Oct 04,2024, Elapsed time: 0:00:00
+# End time: 01:25:22 on Oct 11,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/single\ cycle\ final/SDC24_QP_SingleCycle_baseline {C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline/dataMemory.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/single\ cycle\ final\ ong/SDC24_QP_SingleCycle_baseline {C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline/dataMemory.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 01:22:25 on Oct 04,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline" C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline/dataMemory.v 
+# Start time: 01:25:22 on Oct 11,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline" C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline/dataMemory.v 
 # -- Compiling module dataMemory
 # 
 # Top level modules:
 # 	dataMemory
-# End time: 01:22:25 on Oct 04,2024, Elapsed time: 0:00:00
+# End time: 01:25:22 on Oct 11,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/single\ cycle\ final/SDC24_QP_SingleCycle_baseline {C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline/testbench.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/single\ cycle\ final\ ong/SDC24_QP_SingleCycle_baseline {C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline/testbench.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 01:22:25 on Oct 04,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline" C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline/testbench.v 
+# Start time: 01:25:22 on Oct 11,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline" C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline/testbench.v 
 # -- Compiling module testbench
 # 
 # Top level modules:
 # 	testbench
-# End time: 01:22:25 on Oct 04,2024, Elapsed time: 0:00:00
+# End time: 01:25:22 on Oct 11,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L fiftyfivenm_ver -L rtl_work -L work -voptargs="+acc"  testbench
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L fiftyfivenm_ver -L rtl_work -L work -voptargs=""+acc"" testbench 
-# Start time: 01:22:25 on Oct 04,2024
+# Start time: 01:25:22 on Oct 11,2024
 # Loading work.testbench
 # Loading work.processor
 # Loading work.programCounter
@@ -144,7 +144,7 @@
 # Loading work.controlUnit
 # Loading work.mux2x1
 # Loading work.registerFile
-# Loading work.SignExtender
+# Loading work.signextender
 # Loading work.ALU
 # Loading work.ANDGate
 # Loading work.dataMemory
@@ -160,17 +160,22 @@
 # run -all
 # ** Warning: (vsim-PLI-3412) Memory address read on line 129 of file "instructionMemoryInitializationFile.ver" is out of bounds specified for readmem command.  (Current address [64], address range [0:63])    : $MODEL_TECH/../altera/verilog/src/altera_mf.v(48977)
 #    Time: 0 ps  Iteration: 0  Instance: /testbench/uut/IM/altsyncram_component/m_default/altsyncram_inst
-# ** Note: $stop    : C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline/testbench.v(12)
+# ** Note: $stop    : C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline/testbench.v(12)
 #    Time: 114 ns  Iteration: 0  Instance: /testbench
-# Break in Module testbench at C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline/testbench.v line 12
+# Break in Module testbench at C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline/testbench.v line 12
+do C:/Users/Saleh/Desktop/waves/rsrtrdwave.do
 do {C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline/simulation/modelsim/wave.do}
 restart
 # ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
 run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
 # ** Warning: (vsim-PLI-3412) Memory address read on line 129 of file "instructionMemoryInitializationFile.ver" is out of bounds specified for readmem command.  (Current address [64], address range [0:63])    : $MODEL_TECH/../altera/verilog/src/altera_mf.v(48977)
 #    Time: 0 ps  Iteration: 0  Instance: /testbench/uut/IM/altsyncram_component/m_default/altsyncram_inst
-# ** Note: $stop    : C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline/testbench.v(12)
+# ** Note: $stop    : C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline/testbench.v(12)
 #    Time: 114 ns  Iteration: 0  Instance: /testbench
-# Break in Module testbench at C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline/testbench.v line 12
-# End time: 01:24:10 on Oct 04,2024, Elapsed time: 0:01:45
+# Break in Module testbench at C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline/testbench.v line 12
+do {C:/Users/Saleh/Desktop/single cycle final/SDC24_QP_SingleCycle_baseline/simulation/modelsim/wave.do}
+# End time: 01:28:38 on Oct 11,2024, Elapsed time: 0:03:16
 # Errors: 0, Warnings: 1

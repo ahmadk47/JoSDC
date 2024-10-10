@@ -49,7 +49,7 @@ module controlUnit(opCode, funct,
 					end
 						
 					_or_ : begin
-						ALUOp = 3'b011; // edited
+						ALUOp = 3'b011; // changed from decimal to binary 
 					end
 						
 					_slt_ : begin
@@ -74,12 +74,12 @@ module controlUnit(opCode, funct,
 			end
 				
 			_lw : begin
-				RegDst = 1'b0; // edited
+				RegDst = 1'b0; // changed to 0
 				Branch = 1'b0;
-				MemReadEn = 1'b1; // edited
+				MemReadEn = 1'b1; // changed to 1
 				MemtoReg = 1'b1;
 				ALUOp = 3'b000;
-				MemWriteEn = 1'b0; // edited
+				MemWriteEn = 1'b0; // changed to 0
 				RegWriteEn = 1'b1;		
 				ALUSrc = 1'b1;		
 			end
@@ -99,7 +99,7 @@ module controlUnit(opCode, funct,
 				ALUOp = 3'b001;
 				MemWriteEn = 1'b0;
 				RegWriteEn = 1'b0;
-				ALUSrc = 1'b0; // edited	
+				ALUSrc = 1'b0;  // changed to 0				
 			end
 			
 			default: ;

@@ -17,14 +17,15 @@ module ALU (operand1, operand2, opSel, result, zero );
 	
 	// Operation Parameters
 	// ....................
-	parameter   _ADD  = 'b000, _SUB  = 'b001, _AND = 'b010,
+	parameter   _ADD  = 'b000, _SUB  = 'b001, _AND = 'b010, // swap AND & ADD opSel values
 				_OR   = 'b011, _SLT  = 'b100;	
 	
 	// Perform Operation
 	// .................
 	
 	always @ (*) begin
-			result = 32'b0; // added default value for result
+	
+			result = 32'b0; // set a default value for "result" to prevent latching
 		
 		case(opSel)
 			
@@ -36,15 +37,17 @@ module ALU (operand1, operand2, opSel, result, zero );
 			
 			_OR : result = operand1 | operand2;
 			
-			_SLT: result = (operand1 < operand2) ? 1 : 0; // edited
-			default : ;
+			_SLT: result = (operand1 < operand2) ? 1 : 0; // changed order of comparison
+			
+			default:;
+
 		endcase
 	
 	end
 	
 	always @ (*) begin 
 		
-		zero = (result == 32'b0); // edited
+		zero = (result == 32'b0); // explicitly set the width for the comparison
 	
 	end
 
