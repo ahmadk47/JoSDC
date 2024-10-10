@@ -1,5 +1,5 @@
 Fitter report for SingleCycle
-Fri Oct 11 01:41:50 2024
+Fri Oct 11 01:53:22 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -69,7 +69,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Fri Oct 11 01:41:50 2024       ;
+; Fitter Status                      ; Successful - Fri Oct 11 01:53:22 2024       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; SingleCycle                                 ;
 ; Top-level Entity Name              ; processor                                   ;
@@ -156,16 +156,16 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 12          ;
 ; Maximum allowed            ; 6           ;
 ;                            ;             ;
-; Average used               ; 1.50        ;
+; Average used               ; 1.49        ;
 ; Maximum used               ; 6           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;  10.2%      ;
-;     Processor 3            ;  10.1%      ;
-;     Processor 4            ;  10.0%      ;
-;     Processor 5            ;   9.9%      ;
-;     Processor 6            ;   9.8%      ;
+;     Processor 2            ;  10.0%      ;
+;     Processor 3            ;   9.8%      ;
+;     Processor 4            ;   9.7%      ;
+;     Processor 5            ;   9.6%      ;
+;     Processor 6            ;   9.5%      ;
 +----------------------------+-------------+
 
 
@@ -207,7 +207,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------+
 ; Pin-Out File ;
 +--------------+
-The pin-out file can be found in C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline/output_files/SingleCycle.pin.
+The pin-out file can be found in C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/output_files/SingleCycle.pin.
 
 
 +----------------------------------------------------------------------------+
@@ -1416,9 +1416,9 @@ Info (332111): Found 1 clocks
     Info (332111):   Period   Clock Name
     Info (332111): ======== ============
     Info (332111):   29.000          clk
-Info (176353): Automatically promoted node clk~input (placed in PIN M8 (CLK1n, DIFFIO_RX_L36n, DIFFOUT_L36n, High_Speed)) File: C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline/processor.v Line: 4
+Info (176353): Automatically promoted node clk~input (placed in PIN M8 (CLK1n, DIFFIO_RX_L36n, DIFFOUT_L36n, High_Speed)) File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/processor.v Line: 4
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G3
-Info (176353): Automatically promoted node rst~input (placed in PIN M9 (CLK1p, DIFFIO_RX_L36p, DIFFOUT_L36p, High_Speed)) File: C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline/processor.v Line: 4
+Info (176353): Automatically promoted node rst~input (placed in PIN M9 (CLK1p, DIFFIO_RX_L36p, DIFFOUT_L36p, High_Speed)) File: C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/processor.v Line: 4
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G4
 Info (176233): Starting register packing
 Info (176235): Finished register packing
@@ -1451,23 +1451,23 @@ Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were
     Info (170201): Optimizations that may affect the design's routability were skipped
     Info (170200): Optimizations that may affect the design's timing were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:04
-Info (11888): Total time spent on timing analysis during the Fitter is 1.12 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 1.07 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:02
-Info (144001): Generated suppressed messages file C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline/output_files/SingleCycle.fit.smsg
+Info (144001): Generated suppressed messages file C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/output_files/SingleCycle.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 5817 megabytes
-    Info: Processing ended: Fri Oct 11 01:41:51 2024
-    Info: Elapsed time: 00:00:15
-    Info: Total CPU time (on all processors): 00:00:08
+    Info: Peak virtual memory: 5838 megabytes
+    Info: Processing ended: Fri Oct 11 01:53:22 2024
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:07
 
 
 +----------------------------+
 ; Fitter Suppressed Messages ;
 +----------------------------+
-The suppressed messages can be found in C:/Users/Saleh/Desktop/single cycle final ong/SDC24_QP_SingleCycle_baseline/output_files/SingleCycle.fit.smsg.
+The suppressed messages can be found in C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/output_files/SingleCycle.fit.smsg.
 
 
