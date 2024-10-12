@@ -10,7 +10,7 @@ z2
 cModel Technology
 Z0 dC:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/simulation/modelsim
 vadder
-Z1 !s110 1728600820
+Z1 !s110 1728757611
 !i10b 1
 !s100 gBM;hF6Ljc_F[zz5jLd422
 Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
@@ -26,7 +26,7 @@ Z4 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z5 !s108 1728600820.000000
+Z5 !s108 1728757611.000000
 !s107 C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/adder.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline|C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/adder.v|
 !i113 1
@@ -166,7 +166,7 @@ R2
 I:Id<WeReJ7`Kde<bCJ:cV2
 R3
 R0
-w1728598025
+w1728680345
 8C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/mux2x1.v
 FC:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/mux2x1.v
 !i122 6
@@ -183,7 +183,7 @@ R6
 R7
 R8
 vprocessor
-R1
+!s110 1728757610
 !i10b 1
 !s100 V7Kmd4Fm;ICh9Bj?1V54l1
 R2
@@ -199,7 +199,7 @@ R4
 r1
 !s85 0
 31
-R5
+Z9 !s108 1728757610.000000
 !s107 C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/processor.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline|C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/processor.v|
 !i113 1
@@ -248,7 +248,7 @@ R4
 r1
 !s85 0
 31
-R5
+R9
 !s107 C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/registerFile.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline|C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/registerFile.v|
 !i113 1

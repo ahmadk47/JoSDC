@@ -5,7 +5,6 @@ public class Assembler {
     private HashMap<String, String> opcodes;
     private HashMap<String, String> functCodes;
 
-    // Constructor to initialize the opcode and funct maps
     public Assembler() {
         init();
     }
@@ -30,23 +29,19 @@ public class Assembler {
         functCodes.put("slt", "101010");
     }
 
-    // Convert numerical register to binary directly
     public String regToBinary(String reg) {
-        int regNumber = Integer.parseInt(reg); // Convert the register number string to an integer
-        return toBinary(regNumber, 5); // Convert the integer to a 5-bit binary string
+        int regNumber = Integer.parseInt(reg);
+        return toBinary(regNumber, 5);
     }
 
     public String toBinary(int value, int bits) {
-        // Use Integer.toBinaryString to handle both positive and negative values
+
         String binaryString = Integer.toBinaryString(value);
 
-        // If the binary string is longer than the specified bits, take the least
-        // significant bits
         if (binaryString.length() > bits) {
             return binaryString.substring(binaryString.length() - bits);
         }
 
-        // If it's shorter, pad with zeros
         return String.format("%" + bits + "s", binaryString).replace(' ', '0');
     }
 
@@ -71,7 +66,7 @@ public class Assembler {
     }
 
     public String assemble(String instructionLine) throws Exception {
-        // Parse the instruction line, handling commas
+
         String[] parts = instructionLine.replace(",", "").split("\\s+");
         String instruction = parts[0];
 
@@ -81,21 +76,21 @@ public class Assembler {
             case "and":
             case "or":
             case "slt":
-                String rd = parts[1].substring(1); // Remove $ from the register
-                String rs = parts[2].substring(1); // Remove $ from the register
-                String rt = parts[3].substring(1); // Remove $ from the register
+                String rd = parts[1].substring(1);
+                String rs = parts[2].substring(1);
+                String rt = parts[3].substring(1);
                 return assembleRType(instruction, rs, rt, rd);
 
             case "addi":
             case "beq":
-                String rt2 = parts[1].substring(1); // Remove $ from the register
-                String rs2 = parts[2].substring(1); // Remove $ from the register
+                String rt2 = parts[1].substring(1);
+                String rs2 = parts[2].substring(1);
                 int immediate = parseImmediate(parts[3]);
                 return assembleIType(instruction, rs2, rt2, immediate);
 
             case "lw":
             case "sw":
-                String rt3 = parts[1].substring(1); // Remove $ from the register
+                String rt3 = parts[1].substring(1);
                 String[] offsetAndReg = parts[2].split("\\(");
                 int offset = parseImmediate(offsetAndReg[0]);
                 String rs3 = offsetAndReg[1].substring(1, offsetAndReg[1].length() - 1); // Remove $ and parentheses
@@ -106,21 +101,21 @@ public class Assembler {
         }
     }
 
-   public static void main(String[] args) {
+    public static void main(String[] args) {
         try {
             Assembler assembler = new Assembler();
-            // Updated array with the new set of instructions
+
             String[] machineCodes = {
-                "addi $5, $0, 0xff",
-                "addi $6, $0, 0x55",
-                "sub $7, $5, $6",
-                "sw $7, 0x0($0)",
-                "lw $8, 0x0($20)",
-                "beq $6, $7, 5",  // Assuming 'fin' is 5 instructions away
-                "or $9, $6, $7",
-                "and $8, $6, $7",
-                "add $0, $6, $7",
-                "slt $10, $0, $5"  // This is the 'fin' label
+                    "addi $5, $0, 0xff",
+                    "addi $6, $0, 0x55",
+                    "sub $7, $5, $6",
+                    "sw $7, 0x0($0)",
+                    "lw $8, 0x0($20)",
+                    "beq $6, $7, 5",
+                    "or $9, $6, $7",
+                    "and $8, $6, $7",
+                    "add $0, $6, $7",
+                    "slt $10, $0, $5"
             };
             for (String instruction : machineCodes) {
                 String machineCode = assembler.assemble(instruction);

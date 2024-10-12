@@ -10,4 +10,4 @@ module mux2x1 #(parameter size = 32) (in1, in2, s, out);
 	// Unit logic
 	assign out = (~s) ? in1 : in2;
 	
-endmodule
+endmodule 

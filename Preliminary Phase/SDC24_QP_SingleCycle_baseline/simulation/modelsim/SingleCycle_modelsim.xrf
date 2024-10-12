@@ -1,4 +1,5 @@
 vendor_name = ModelSim
+source_file = 1, C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/SingleCycle.sdc
 source_file = 1, C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/testbench.v
 source_file = 1, C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/processor.v
 source_file = 1, C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/registerFile.v
@@ -27,7 +28,6 @@ source_file = 1, c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altdpram
 source_file = 1, c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/cbx.lst
 source_file = 1, C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_38e1.tdf
 source_file = 1, C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/db/altsyncram_8km1.tdf
-source_file = 1, C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/SingleCycle.sdc
 design_name = processor
 instance = comp, \~QUARTUS_CREATED_GND~I , ~QUARTUS_CREATED_GND~I, processor, 1
 instance = comp, \PC[0]~output , PC[0]~output, processor, 1
