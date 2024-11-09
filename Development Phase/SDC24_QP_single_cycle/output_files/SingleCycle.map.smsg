@@ -1,0 +1,2 @@
+Info (10281): Verilog HDL Declaration information at processor.v(7): object "PC" differs only in case from object "pc" in the same scope File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/processor.v Line: 7
+Warning (10268): Verilog HDL information at registerFile.v(22): always construct contains both blocking and non-blocking assignments File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/registerFile.v Line: 22
