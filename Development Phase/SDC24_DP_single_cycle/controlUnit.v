@@ -160,7 +160,7 @@ module controlUnit(opCode, funct,
 				Branch = 1'b0;
 				MemReadEn = 1'b0;
 				MemWriteEn = 1'b0;
-				RegWriteEn = 1'b0;
+				RegWriteEn = 1'b1;
 				ALUSrc = 1'b0;
 				RegDst = 2'b10;
 				MemtoReg =  2'b10;
