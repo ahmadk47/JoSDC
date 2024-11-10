@@ -157,11 +157,13 @@ module controlUnit(opCode, funct,
 
 			
 			_jal : begin
-				Branch = 1'b0;
+				Branch = 1'b0;    // some stuff fixed
 				MemReadEn = 1'b0;
 				MemWriteEn = 1'b0;
 				RegWriteEn = 1'b1;
 				ALUSrc = 1'b0;
+				Jump = 1'b1;
+				PcSrc = 1'b1;
 				RegDst = 2'b10;
 				MemtoReg =  2'b10;
 				

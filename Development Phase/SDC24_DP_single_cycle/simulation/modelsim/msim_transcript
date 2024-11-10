@@ -10,131 +10,143 @@
 # Copying C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
-# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/git\ repo/JoSDC/Preliminary\ Phase/SDC24_QP_SingleCycle_baseline {C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/processor.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/Josdc\ phase\ 2/JoSDC/Development\ Phase/SDC24_DP_single_cycle {C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/muxes.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 21:26:50 on Oct 12,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline" C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/processor.v 
+# Start time: 01:23:25 on Nov 11,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle" C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/muxes.v 
+# -- Compiling module mux2x1
+# -- Compiling module mux3to1
+# 
+# Top level modules:
+# 	mux2x1
+# 	mux3to1
+# End time: 01:23:25 on Nov 11,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/Josdc\ phase\ 2/JoSDC/Development\ Phase/SDC24_DP_single_cycle {C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/processor.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 01:23:25 on Nov 11,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle" C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/processor.v 
 # -- Compiling module processor
 # 
 # Top level modules:
 # 	processor
-# End time: 21:26:50 on Oct 12,2024, Elapsed time: 0:00:00
+# End time: 01:23:25 on Nov 11,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/git\ repo/JoSDC/Preliminary\ Phase/SDC24_QP_SingleCycle_baseline {C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/registerFile.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/Josdc\ phase\ 2/JoSDC/Development\ Phase/SDC24_DP_single_cycle {C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/registerFile.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 21:26:50 on Oct 12,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline" C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/registerFile.v 
+# Start time: 01:23:25 on Nov 11,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle" C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/registerFile.v 
 # -- Compiling module registerFile
 # 
 # Top level modules:
 # 	registerFile
-# End time: 21:26:51 on Oct 12,2024, Elapsed time: 0:00:01
+# End time: 01:23:25 on Nov 11,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/git\ repo/JoSDC/Preliminary\ Phase/SDC24_QP_SingleCycle_baseline {C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/controlUnit.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/Josdc\ phase\ 2/JoSDC/Development\ Phase/SDC24_DP_single_cycle {C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/controlUnit.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 21:26:51 on Oct 12,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline" C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/controlUnit.v 
+# Start time: 01:23:26 on Nov 11,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle" C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/controlUnit.v 
 # -- Compiling module controlUnit
 # 
 # Top level modules:
 # 	controlUnit
-# End time: 21:26:51 on Oct 12,2024, Elapsed time: 0:00:00
+# End time: 01:23:26 on Nov 11,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/git\ repo/JoSDC/Preliminary\ Phase/SDC24_QP_SingleCycle_baseline {C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/Josdc\ phase\ 2/JoSDC/Development\ Phase/SDC24_DP_single_cycle {C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/ALU.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 21:26:51 on Oct 12,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline" C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v 
+# Start time: 01:23:26 on Nov 11,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle" C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/ALU.v 
 # -- Compiling module ALU
 # 
 # Top level modules:
 # 	ALU
-# End time: 21:26:51 on Oct 12,2024, Elapsed time: 0:00:00
+# End time: 01:23:26 on Nov 11,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/git\ repo/JoSDC/Preliminary\ Phase/SDC24_QP_SingleCycle_baseline {C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/signextender.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/Josdc\ phase\ 2/JoSDC/Development\ Phase/SDC24_DP_single_cycle {C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/signextender.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 21:26:51 on Oct 12,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline" C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/signextender.v 
+# Start time: 01:23:26 on Nov 11,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle" C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/signextender.v 
 # -- Compiling module signextender
 # 
 # Top level modules:
 # 	signextender
-# End time: 21:26:51 on Oct 12,2024, Elapsed time: 0:00:00
+# End time: 01:23:26 on Nov 11,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/git\ repo/JoSDC/Preliminary\ Phase/SDC24_QP_SingleCycle_baseline {C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/programCounter.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/Josdc\ phase\ 2/JoSDC/Development\ Phase/SDC24_DP_single_cycle {C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/programCounter.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 21:26:51 on Oct 12,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline" C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/programCounter.v 
+# Start time: 01:23:26 on Nov 11,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle" C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/programCounter.v 
 # -- Compiling module programCounter
 # 
 # Top level modules:
 # 	programCounter
-# End time: 21:26:51 on Oct 12,2024, Elapsed time: 0:00:00
+# End time: 01:23:26 on Nov 11,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/git\ repo/JoSDC/Preliminary\ Phase/SDC24_QP_SingleCycle_baseline {C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/mux2x1.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/Josdc\ phase\ 2/JoSDC/Development\ Phase/SDC24_DP_single_cycle {C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/adder.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 21:26:51 on Oct 12,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline" C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/mux2x1.v 
-# -- Compiling module mux2x1
-# 
-# Top level modules:
-# 	mux2x1
-# End time: 21:26:51 on Oct 12,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/git\ repo/JoSDC/Preliminary\ Phase/SDC24_QP_SingleCycle_baseline {C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/adder.v}
-# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 21:26:51 on Oct 12,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline" C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/adder.v 
+# Start time: 01:23:26 on Nov 11,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle" C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/adder.v 
 # -- Compiling module adder
 # 
 # Top level modules:
 # 	adder
-# End time: 21:26:51 on Oct 12,2024, Elapsed time: 0:00:00
+# End time: 01:23:26 on Nov 11,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/git\ repo/JoSDC/Preliminary\ Phase/SDC24_QP_SingleCycle_baseline {C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ANDGate.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/Josdc\ phase\ 2/JoSDC/Development\ Phase/SDC24_DP_single_cycle {C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/ANDGate.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 21:26:51 on Oct 12,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline" C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ANDGate.v 
+# Start time: 01:23:26 on Nov 11,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle" C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/ANDGate.v 
 # -- Compiling module ANDGate
 # 
 # Top level modules:
 # 	ANDGate
-# End time: 21:26:51 on Oct 12,2024, Elapsed time: 0:00:00
+# End time: 01:23:26 on Nov 11,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/git\ repo/JoSDC/Preliminary\ Phase/SDC24_QP_SingleCycle_baseline {C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/instructionMemory.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/Josdc\ phase\ 2/JoSDC/Development\ Phase/SDC24_DP_single_cycle {C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/instructionMemory.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 21:26:51 on Oct 12,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline" C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/instructionMemory.v 
+# Start time: 01:23:26 on Nov 11,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle" C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/instructionMemory.v 
 # -- Compiling module instructionMemory
 # 
 # Top level modules:
 # 	instructionMemory
-# End time: 21:26:51 on Oct 12,2024, Elapsed time: 0:00:00
+# End time: 01:23:26 on Nov 11,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/git\ repo/JoSDC/Preliminary\ Phase/SDC24_QP_SingleCycle_baseline {C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/dataMemory.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/Josdc\ phase\ 2/JoSDC/Development\ Phase/SDC24_DP_single_cycle {C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/dataMemory.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 21:26:51 on Oct 12,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline" C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/dataMemory.v 
+# Start time: 01:23:26 on Nov 11,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle" C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/dataMemory.v 
 # -- Compiling module dataMemory
 # 
 # Top level modules:
 # 	dataMemory
-# End time: 21:26:51 on Oct 12,2024, Elapsed time: 0:00:00
+# End time: 01:23:26 on Nov 11,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/Josdc\ phase\ 2/JoSDC/Development\ Phase/SDC24_DP_single_cycle {C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/XNOR.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 01:23:26 on Nov 11,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle" C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/XNOR.v 
+# -- Compiling module XNORGate
+# 
+# Top level modules:
+# 	XNORGate
+# End time: 01:23:26 on Nov 11,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/git\ repo/JoSDC/Preliminary\ Phase/SDC24_QP_SingleCycle_baseline {C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/testbench.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/Josdc\ phase\ 2/JoSDC/Development\ Phase/SDC24_DP_single_cycle {C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/testbench.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 21:26:51 on Oct 12,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline" C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/testbench.v 
+# Start time: 01:23:26 on Nov 11,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle" C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/testbench.v 
 # -- Compiling module testbench
 # 
 # Top level modules:
 # 	testbench
-# End time: 21:26:51 on Oct 12,2024, Elapsed time: 0:00:00
+# End time: 01:23:26 on Nov 11,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L fiftyfivenm_ver -L rtl_work -L work -voptargs="+acc"  testbench
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L fiftyfivenm_ver -L rtl_work -L work -voptargs=""+acc"" testbench 
-# Start time: 21:26:51 on Oct 12,2024
+# Start time: 01:23:26 on Nov 11,2024
 # Loading work.testbench
 # Loading work.processor
 # Loading work.programCounter
@@ -142,10 +154,12 @@
 # Loading work.instructionMemory
 # Loading altera_mf_ver.altsyncram
 # Loading work.controlUnit
-# Loading work.mux2x1
+# Loading work.mux3to1
 # Loading work.registerFile
 # Loading work.signextender
+# Loading work.mux2x1
 # Loading work.ALU
+# Loading work.XNORGate
 # Loading work.ANDGate
 # Loading work.dataMemory
 # Loading altera_mf_ver.altsyncram_body
@@ -158,59 +172,20 @@
 # view signals
 # .main_pane.objects.interior.cs.body.tree
 # run -all
-# ** Warning: (vsim-PLI-3412) Memory address read on line 129 of file "instructionMemoryInitializationFile.ver" is out of bounds specified for readmem command.  (Current address [64], address range [0:63])    : $MODEL_TECH/../altera/verilog/src/altera_mf.v(48977)
-#    Time: 0 ps  Iteration: 0  Instance: /testbench/uut/IM/altsyncram_component/m_default/altsyncram_inst
-# ** Note: $stop    : C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/testbench.v(12)
-#    Time: 114 ns  Iteration: 0  Instance: /testbench
-# Break in Module testbench at C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/testbench.v line 12
+# ** Note: $stop    : C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/testbench.v(12)
+#    Time: 604 ns  Iteration: 0  Instance: /testbench
+# Break in Module testbench at C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/testbench.v line 12
 do wave.do
-add wave -position insertpoint  \
-sim:/testbench/uut/RF/registers
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+run
+run -all
 restart
 run -all
 # GetModuleFileName: The specified module could not be found.
 # 
 # 
-# ** Warning: (vsim-PLI-3412) Memory address read on line 129 of file "instructionMemoryInitializationFile.ver" is out of bounds specified for readmem command.  (Current address [64], address range [0:63])    : $MODEL_TECH/../altera/verilog/src/altera_mf.v(48977)
-#    Time: 0 ps  Iteration: 0  Instance: /testbench/uut/IM/altsyncram_component/m_default/altsyncram_inst
-# ** Note: $stop    : C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/testbench.v(12)
-#    Time: 114 ns  Iteration: 0  Instance: /testbench
-# Break in Module testbench at C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/testbench.v line 12
-add wave -position insertpoint  \
-sim:/testbench/uut/RF/registers
-# WARNING: No extended dataflow license exists
-# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
-# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
-# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
-# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
-# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
-# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
-# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
-# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
-# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
-# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
-# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
-# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
-# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
-# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
-# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
-# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
-add wave -position insertpoint  \
-sim:/testbench/uut/CU/MemWriteEn
-add wave -position insertpoint  \
-sim:/testbench/uut/CU/MemReadEn
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-run -all
-# GetModuleFileName: The specified module could not be found.
-# 
-# 
-# ** Warning: (vsim-PLI-3412) Memory address read on line 129 of file "instructionMemoryInitializationFile.ver" is out of bounds specified for readmem command.  (Current address [64], address range [0:63])    : $MODEL_TECH/../altera/verilog/src/altera_mf.v(48977)
-#    Time: 0 ps  Iteration: 0  Instance: /testbench/uut/IM/altsyncram_component/m_default/altsyncram_inst
-# ** Note: $stop    : C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/testbench.v(12)
-#    Time: 114 ns  Iteration: 0  Instance: /testbench
-# Break in Module testbench at C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/testbench.v line 12
-# End time: 22:43:49 on Oct 12,2024, Elapsed time: 1:16:58
-# Errors: 0, Warnings: 1
+# ** Note: $stop    : C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/testbench.v(12)
+#    Time: 604 ns  Iteration: 0  Instance: /testbench
+# Break in Module testbench at C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/testbench.v line 12
+do wave.do
+# End time: 01:32:45 on Nov 11,2024, Elapsed time: 0:09:19
+# Errors: 0, Warnings: 0

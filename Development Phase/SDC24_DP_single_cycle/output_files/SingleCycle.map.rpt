@@ -1,5 +1,5 @@
 Analysis & Synthesis report for SingleCycle
-Sun Nov 10 00:24:50 2024
+Mon Nov 11 01:22:50 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -16,29 +16,32 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   8. Analysis & Synthesis RAM Summary
   9. Analysis & Synthesis IP Cores Summary
  10. Registers Removed During Synthesis
- 11. General Register Statistics
- 12. Inverted Register Statistics
- 13. Multiplexer Restructuring Statistics (Restructuring Performed)
- 14. Source assignments for instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated
- 15. Source assignments for dataMemory:DM|altsyncram:altsyncram_component|altsyncram_8km1:auto_generated
- 16. Parameter Settings for User Entity Instance: adder:PCAdder
- 17. Parameter Settings for User Entity Instance: instructionMemory:IM|altsyncram:altsyncram_component
- 18. Parameter Settings for User Entity Instance: controlUnit:CU
- 19. Parameter Settings for User Entity Instance: mux2x1:RFMux
- 20. Parameter Settings for User Entity Instance: mux2x1:ALUMux
- 21. Parameter Settings for User Entity Instance: ALU:alu
- 22. Parameter Settings for User Entity Instance: adder:branchAdder
- 23. Parameter Settings for User Entity Instance: dataMemory:DM|altsyncram:altsyncram_component
- 24. Parameter Settings for User Entity Instance: mux2x1:WBMux
- 25. Parameter Settings for User Entity Instance: mux2x1:PCMux
- 26. altsyncram Parameter Settings by Entity Instance
- 27. Port Connectivity Checks: "ALU:alu"
- 28. Port Connectivity Checks: "controlUnit:CU"
- 29. Port Connectivity Checks: "adder:PCAdder"
- 30. Post-Synthesis Netlist Statistics for Top Partition
- 31. Elapsed Time Per Partition
- 32. Analysis & Synthesis Messages
- 33. Analysis & Synthesis Suppressed Messages
+ 11. Removed Registers Triggering Further Register Optimizations
+ 12. General Register Statistics
+ 13. Inverted Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Source assignments for instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_o9e1:auto_generated
+ 16. Source assignments for dataMemory:DM|altsyncram:altsyncram_component|altsyncram_8km1:auto_generated
+ 17. Parameter Settings for User Entity Instance: adder:pcAdder
+ 18. Parameter Settings for User Entity Instance: instructionMemory:IM|altsyncram:altsyncram_component
+ 19. Parameter Settings for User Entity Instance: controlUnit:CU
+ 20. Parameter Settings for User Entity Instance: mux3to1:RFMux
+ 21. Parameter Settings for User Entity Instance: mux2x1:ALUMux
+ 22. Parameter Settings for User Entity Instance: ALU:alu
+ 23. Parameter Settings for User Entity Instance: adder:branchAdder
+ 24. Parameter Settings for User Entity Instance: mux2x1:branchMux
+ 25. Parameter Settings for User Entity Instance: mux2x1:jumpMux
+ 26. Parameter Settings for User Entity Instance: mux2x1:pcMux
+ 27. Parameter Settings for User Entity Instance: dataMemory:DM|altsyncram:altsyncram_component
+ 28. Parameter Settings for User Entity Instance: mux3to1:WBMux
+ 29. altsyncram Parameter Settings by Entity Instance
+ 30. Port Connectivity Checks: "mux3to1:WBMux"
+ 31. Port Connectivity Checks: "mux3to1:RFMux"
+ 32. Port Connectivity Checks: "adder:pcAdder"
+ 33. Post-Synthesis Netlist Statistics for Top Partition
+ 34. Elapsed Time Per Partition
+ 35. Analysis & Synthesis Messages
+ 36. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -65,18 +68,18 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Nov 10 00:24:50 2024       ;
+; Analysis & Synthesis Status        ; Successful - Mon Nov 11 01:22:50 2024       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; SingleCycle                                 ;
 ; Top-level Entity Name              ; processor                                   ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 2,744                                       ;
-;     Total combinational functions  ; 1,784                                       ;
-;     Dedicated logic registers      ; 998                                         ;
-; Total registers                    ; 998                                         ;
-; Total pins                         ; 8                                           ;
+; Total logic elements               ; 3,190                                       ;
+;     Total combinational functions  ; 2,230                                       ;
+;     Dedicated logic registers      ; 1,000                                       ;
+; Total registers                    ; 1000                                        ;
+; Total pins                         ; 10                                          ;
 ; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 10,240                                      ;
+; Total memory bits                  ; 16,384                                      ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
 ; Total PLLs                         ; 0                                           ;
 ; UFM blocks                         ; 0                                           ;
@@ -176,50 +179,53 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 8           ;
-; Maximum allowed            ; 4           ;
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 4           ;
+; Maximum used               ; 6           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.1%      ;
 ;     Processor 3            ;   0.1%      ;
 ;     Processor 4            ;   0.1%      ;
+;     Processor 5            ;   0.1%      ;
+;     Processor 6            ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                                     ;
-+-----------------------------------------+-----------------+----------------------------------+-------------------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path        ; Used in Netlist ; File Type                        ; File Name with Absolute Path                                                                                      ; Library ;
-+-----------------------------------------+-----------------+----------------------------------+-------------------------------------------------------------------------------------------------------------------+---------+
-; muxes.v                                 ; yes             ; User Verilog HDL File            ; C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/muxes.v                                 ;         ;
-; processor.v                             ; yes             ; User Verilog HDL File            ; C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/processor.v                             ;         ;
-; registerFile.v                          ; yes             ; User Verilog HDL File            ; C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/registerFile.v                          ;         ;
-; controlUnit.v                           ; yes             ; User Verilog HDL File            ; C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/controlUnit.v                           ;         ;
-; ALU.v                                   ; yes             ; User Verilog HDL File            ; C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/ALU.v                                   ;         ;
-; signextender.v                          ; yes             ; User Verilog HDL File            ; C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/signextender.v                          ;         ;
-; programCounter.v                        ; yes             ; User Verilog HDL File            ; C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/programCounter.v                        ;         ;
-; adder.v                                 ; yes             ; User Verilog HDL File            ; C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/adder.v                                 ;         ;
-; ANDGate.v                               ; yes             ; User Verilog HDL File            ; C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/ANDGate.v                               ;         ;
-; instructionMemoryInitializationFile.mif ; yes             ; User Memory Initialization File  ; C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/instructionMemoryInitializationFile.mif ;         ;
-; dataMemoryInitializationFile.mif        ; yes             ; User Memory Initialization File  ; C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/dataMemoryInitializationFile.mif        ;         ;
-; instructionMemory.v                     ; yes             ; User Wizard-Generated File       ; C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/instructionMemory.v                     ;         ;
-; dataMemory.v                            ; yes             ; User Wizard-Generated File       ; C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/dataMemory.v                            ;         ;
-; altsyncram.tdf                          ; yes             ; Megafunction                     ; d:/quartuslite/quartus/libraries/megafunctions/altsyncram.tdf                                                     ;         ;
-; stratix_ram_block.inc                   ; yes             ; Megafunction                     ; d:/quartuslite/quartus/libraries/megafunctions/stratix_ram_block.inc                                              ;         ;
-; lpm_mux.inc                             ; yes             ; Megafunction                     ; d:/quartuslite/quartus/libraries/megafunctions/lpm_mux.inc                                                        ;         ;
-; lpm_decode.inc                          ; yes             ; Megafunction                     ; d:/quartuslite/quartus/libraries/megafunctions/lpm_decode.inc                                                     ;         ;
-; aglobal201.inc                          ; yes             ; Megafunction                     ; d:/quartuslite/quartus/libraries/megafunctions/aglobal201.inc                                                     ;         ;
-; a_rdenreg.inc                           ; yes             ; Megafunction                     ; d:/quartuslite/quartus/libraries/megafunctions/a_rdenreg.inc                                                      ;         ;
-; altrom.inc                              ; yes             ; Megafunction                     ; d:/quartuslite/quartus/libraries/megafunctions/altrom.inc                                                         ;         ;
-; altram.inc                              ; yes             ; Megafunction                     ; d:/quartuslite/quartus/libraries/megafunctions/altram.inc                                                         ;         ;
-; altdpram.inc                            ; yes             ; Megafunction                     ; d:/quartuslite/quartus/libraries/megafunctions/altdpram.inc                                                       ;         ;
-; db/altsyncram_38e1.tdf                  ; yes             ; Auto-Generated Megafunction      ; C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/db/altsyncram_38e1.tdf                  ;         ;
-; db/altsyncram_8km1.tdf                  ; yes             ; Auto-Generated Megafunction      ; C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/db/altsyncram_8km1.tdf                  ;         ;
-+-----------------------------------------+-----------------+----------------------------------+-------------------------------------------------------------------------------------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                              ;
++-----------------------------------------+-----------------+----------------------------------+----------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path        ; Used in Netlist ; File Type                        ; File Name with Absolute Path                                                                                               ; Library ;
++-----------------------------------------+-----------------+----------------------------------+----------------------------------------------------------------------------------------------------------------------------+---------+
+; muxes.v                                 ; yes             ; User Verilog HDL File            ; C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/muxes.v                                 ;         ;
+; processor.v                             ; yes             ; User Verilog HDL File            ; C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/processor.v                             ;         ;
+; registerFile.v                          ; yes             ; User Verilog HDL File            ; C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/registerFile.v                          ;         ;
+; controlUnit.v                           ; yes             ; User Verilog HDL File            ; C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/controlUnit.v                           ;         ;
+; ALU.v                                   ; yes             ; User Verilog HDL File            ; C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/ALU.v                                   ;         ;
+; signextender.v                          ; yes             ; User Verilog HDL File            ; C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/signextender.v                          ;         ;
+; programCounter.v                        ; yes             ; User Verilog HDL File            ; C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/programCounter.v                        ;         ;
+; adder.v                                 ; yes             ; User Verilog HDL File            ; C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/adder.v                                 ;         ;
+; ANDGate.v                               ; yes             ; User Verilog HDL File            ; C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/ANDGate.v                               ;         ;
+; instructionMemoryInitializationFile.mif ; yes             ; User Memory Initialization File  ; C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/instructionMemoryInitializationFile.mif ;         ;
+; dataMemoryInitializationFile.mif        ; yes             ; User Memory Initialization File  ; C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/dataMemoryInitializationFile.mif        ;         ;
+; instructionMemory.v                     ; yes             ; User Wizard-Generated File       ; C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/instructionMemory.v                     ;         ;
+; dataMemory.v                            ; yes             ; User Wizard-Generated File       ; C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/dataMemory.v                            ;         ;
+; XNOR.v                                  ; yes             ; User Verilog HDL File            ; C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/XNOR.v                                  ;         ;
+; altsyncram.tdf                          ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf                                                      ;         ;
+; stratix_ram_block.inc                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/stratix_ram_block.inc                                               ;         ;
+; lpm_mux.inc                             ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_mux.inc                                                         ;         ;
+; lpm_decode.inc                          ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_decode.inc                                                      ;         ;
+; aglobal201.inc                          ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc                                                      ;         ;
+; a_rdenreg.inc                           ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/a_rdenreg.inc                                                       ;         ;
+; altrom.inc                              ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altrom.inc                                                          ;         ;
+; altram.inc                              ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altram.inc                                                          ;         ;
+; altdpram.inc                            ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altdpram.inc                                                        ;         ;
+; db/altsyncram_o9e1.tdf                  ; yes             ; Auto-Generated Megafunction      ; C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/db/altsyncram_o9e1.tdf                  ;         ;
+; db/altsyncram_8km1.tdf                  ; yes             ; Auto-Generated Megafunction      ; C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/db/altsyncram_8km1.tdf                  ;         ;
++-----------------------------------------+-----------------+----------------------------------+----------------------------------------------------------------------------------------------------------------------------+---------+
 
 
 +---------------------------------------------------------+
@@ -227,31 +233,31 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 2,744     ;
+; Estimated Total logic elements              ; 3,190     ;
 ;                                             ;           ;
-; Total combinational functions               ; 1784      ;
+; Total combinational functions               ; 2230      ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 1520      ;
-;     -- 3 input functions                    ; 239       ;
-;     -- <=2 input functions                  ; 25        ;
+;     -- 4 input functions                    ; 1853      ;
+;     -- 3 input functions                    ; 323       ;
+;     -- <=2 input functions                  ; 54        ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 1685      ;
-;     -- arithmetic mode                      ; 99        ;
+;     -- normal mode                          ; 2122      ;
+;     -- arithmetic mode                      ; 108       ;
 ;                                             ;           ;
-; Total registers                             ; 998       ;
-;     -- Dedicated logic registers            ; 998       ;
+; Total registers                             ; 1000      ;
+;     -- Dedicated logic registers            ; 1000      ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
-; I/O pins                                    ; 8         ;
-; Total memory bits                           ; 10240     ;
+; I/O pins                                    ; 10        ;
+; Total memory bits                           ; 16384     ;
 ;                                             ;           ;
 ; Embedded Multiplier 9-bit elements          ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 1062      ;
-; Total fan-out                               ; 11449     ;
-; Average fan-out                             ; 4.00      ;
+; Maximum fan-out                             ; 1064      ;
+; Total fan-out                               ; 13162     ;
+; Average fan-out                             ; 3.97      ;
 +---------------------------------------------+-----------+
 
 
@@ -260,23 +266,23 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------+-------------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                            ; Entity Name       ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------+-------------------+--------------+
-; |processor                                ; 1784 (0)            ; 998 (0)                   ; 10240       ; 0          ; 0            ; 0       ; 0         ; 8    ; 0            ; 0          ; |processor                                                                                     ; processor         ; work         ;
-;    |ALU:alu|                              ; 261 (261)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|ALU:alu                                                                             ; ALU               ; work         ;
-;    |ANDGate:branchAnd|                    ; 12 (12)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|ANDGate:branchAnd                                                                   ; ANDGate           ; work         ;
-;    |adder:PCAdder|                        ; 6 (6)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|adder:PCAdder                                                                       ; adder             ; work         ;
-;    |adder:branchAdder|                    ; 12 (12)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|adder:branchAdder                                                                   ; adder             ; work         ;
-;    |controlUnit:CU|                       ; 30 (30)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|controlUnit:CU                                                                      ; controlUnit       ; work         ;
+; |processor                                ; 2230 (0)            ; 1000 (0)                  ; 16384       ; 0          ; 0            ; 0       ; 0         ; 10   ; 0            ; 0          ; |processor                                                                                     ; processor         ; work         ;
+;    |ALU:alu|                              ; 685 (685)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|ALU:alu                                                                             ; ALU               ; work         ;
+;    |adder:branchAdder|                    ; 8 (8)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|adder:branchAdder                                                                   ; adder             ; work         ;
+;    |adder:pcAdder|                        ; 8 (8)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|adder:pcAdder                                                                       ; adder             ; work         ;
+;    |controlUnit:CU|                       ; 35 (35)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|controlUnit:CU                                                                      ; controlUnit       ; work         ;
 ;    |dataMemory:DM|                        ; 0 (0)               ; 0 (0)                     ; 8192        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|dataMemory:DM                                                                       ; dataMemory        ; work         ;
 ;       |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 8192        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|dataMemory:DM|altsyncram:altsyncram_component                                       ; altsyncram        ; work         ;
 ;          |altsyncram_8km1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 8192        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|dataMemory:DM|altsyncram:altsyncram_component|altsyncram_8km1:auto_generated        ; altsyncram_8km1   ; work         ;
-;    |instructionMemory:IM|                 ; 0 (0)               ; 0 (0)                     ; 2048        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|instructionMemory:IM                                                                ; instructionMemory ; work         ;
-;       |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 2048        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|instructionMemory:IM|altsyncram:altsyncram_component                                ; altsyncram        ; work         ;
-;          |altsyncram_38e1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 2048        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated ; altsyncram_38e1   ; work         ;
-;    |mux2x1:ALUMux|                        ; 37 (37)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux2x1:ALUMux                                                                       ; mux2x1            ; work         ;
-;    |mux2x1:RFMux|                         ; 4 (4)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux2x1:RFMux                                                                        ; mux2x1            ; work         ;
-;    |mux2x1:WBMux|                         ; 32 (32)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux2x1:WBMux                                                                        ; mux2x1            ; work         ;
-;    |programCounter:pc|                    ; 6 (6)               ; 6 (6)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|programCounter:pc                                                                   ; programCounter    ; work         ;
-;    |registerFile:RF|                      ; 1384 (1384)         ; 992 (992)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|registerFile:RF                                                                     ; registerFile      ; work         ;
+;    |instructionMemory:IM|                 ; 0 (0)               ; 0 (0)                     ; 8192        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|instructionMemory:IM                                                                ; instructionMemory ; work         ;
+;       |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 8192        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|instructionMemory:IM|altsyncram:altsyncram_component                                ; altsyncram        ; work         ;
+;          |altsyncram_o9e1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 8192        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_o9e1:auto_generated ; altsyncram_o9e1   ; work         ;
+;    |mux2x1:ALUMux|                        ; 38 (38)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux2x1:ALUMux                                                                       ; mux2x1            ; work         ;
+;    |mux2x1:pcMux|                         ; 20 (20)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux2x1:pcMux                                                                        ; mux2x1            ; work         ;
+;    |mux3to1:RFMux|                        ; 5 (5)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux3to1:RFMux                                                                       ; mux3to1           ; work         ;
+;    |mux3to1:WBMux|                        ; 40 (40)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux3to1:WBMux                                                                       ; mux3to1           ; work         ;
+;    |programCounter:pc|                    ; 8 (8)               ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|programCounter:pc                                                                   ; programCounter    ; work         ;
+;    |registerFile:RF|                      ; 1383 (1383)         ; 992 (992)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|registerFile:RF                                                                     ; registerFile      ; work         ;
 +-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------+-------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -287,7 +293,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Name                                                                                           ; Type ; Mode        ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF                                     ;
 +------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+-----------------------------------------+
 ; dataMemory:DM|altsyncram:altsyncram_component|altsyncram_8km1:auto_generated|ALTSYNCRAM        ; M9K  ; Single Port ; 256          ; 32           ; --           ; --           ; 8192 ; dataMemoryInitializationFile.mif        ;
-; instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated|ALTSYNCRAM ; M9K  ; ROM         ; 64           ; 32           ; --           ; --           ; 2048 ; instructionMemoryInitializationFile.mif ;
+; instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_o9e1:auto_generated|ALTSYNCRAM ; M9K  ; ROM         ; 256          ; 32           ; --           ; --           ; 8192 ; instructionMemoryInitializationFile.mif ;
 +------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+-----------------------------------------+
 
 
@@ -342,15 +348,37 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------+---------------------------------------------+
 
 
++----------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                            ;
++---------------------------------+--------------------------------+---------------------------------------------------------------------+
+; Register name                   ; Reason for Removal             ; Registers Removed due to This Register                              ;
++---------------------------------+--------------------------------+---------------------------------------------------------------------+
+; registerFile:RF|registers[0][4] ; Stuck at GND                   ; registerFile:RF|registers[0][5], registerFile:RF|registers[0][6],   ;
+;                                 ; due to stuck port clock_enable ; registerFile:RF|registers[0][7], registerFile:RF|registers[0][8],   ;
+;                                 ;                                ; registerFile:RF|registers[0][9], registerFile:RF|registers[0][10],  ;
+;                                 ;                                ; registerFile:RF|registers[0][11], registerFile:RF|registers[0][12], ;
+;                                 ;                                ; registerFile:RF|registers[0][13], registerFile:RF|registers[0][14], ;
+;                                 ;                                ; registerFile:RF|registers[0][15], registerFile:RF|registers[0][16], ;
+;                                 ;                                ; registerFile:RF|registers[0][17], registerFile:RF|registers[0][18], ;
+;                                 ;                                ; registerFile:RF|registers[0][19], registerFile:RF|registers[0][20], ;
+;                                 ;                                ; registerFile:RF|registers[0][21], registerFile:RF|registers[0][22], ;
+;                                 ;                                ; registerFile:RF|registers[0][23], registerFile:RF|registers[0][24], ;
+;                                 ;                                ; registerFile:RF|registers[0][25], registerFile:RF|registers[0][26], ;
+;                                 ;                                ; registerFile:RF|registers[0][27], registerFile:RF|registers[0][28], ;
+;                                 ;                                ; registerFile:RF|registers[0][29], registerFile:RF|registers[0][30], ;
+;                                 ;                                ; registerFile:RF|registers[0][31]                                    ;
++---------------------------------+--------------------------------+---------------------------------------------------------------------+
+
+
 +------------------------------------------------------+
 ; General Register Statistics                          ;
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 998   ;
+; Total registers                              ; 1000  ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 998   ;
+; Number of registers using Asynchronous Clear ; 1000  ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 992   ;
 ; Number of registers using Preset             ; 0     ;
@@ -362,13 +390,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------+---------+
 ; Inverted Register                      ; Fan out ;
 +----------------------------------------+---------+
-; programCounter:pc|PCout[0]             ; 8       ;
-; programCounter:pc|PCout[1]             ; 6       ;
-; programCounter:pc|PCout[2]             ; 4       ;
-; programCounter:pc|PCout[3]             ; 3       ;
-; programCounter:pc|PCout[4]             ; 4       ;
+; programCounter:pc|PCout[0]             ; 2       ;
+; programCounter:pc|PCout[1]             ; 2       ;
+; programCounter:pc|PCout[2]             ; 2       ;
+; programCounter:pc|PCout[3]             ; 2       ;
+; programCounter:pc|PCout[4]             ; 2       ;
 ; programCounter:pc|PCout[5]             ; 2       ;
-; Total number of inverted registers = 6 ;         ;
+; programCounter:pc|PCout[6]             ; 2       ;
+; programCounter:pc|PCout[7]             ; 2       ;
+; Total number of inverted registers = 8 ;         ;
 +----------------------------------------+---------+
 
 
@@ -377,15 +407,25 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output          ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
-; 8:1                ; 31 bits   ; 155 LEs       ; 93 LEs               ; 62 LEs                 ; No         ; |processor|ALU:alu|Mux14            ;
-; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; No         ; |processor|registerFile:RF|Mux30    ;
-; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; No         ; |processor|registerFile:RF|Mux49    ;
-; 64:1               ; 4 bits    ; 168 LEs       ; 48 LEs               ; 120 LEs                ; No         ; |processor|controlUnit:CU|Selector1 ;
+; 4:1                ; 24 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |processor|mux3to1:WBMux|Mux1       ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |processor|mux3to1:WBMux|Mux27      ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |processor|mux3to1:RFMux|Mux3       ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |processor|mux2x1:pcMux|out[1]      ;
+; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; No         ; |processor|registerFile:RF|Mux5     ;
+; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; No         ; |processor|registerFile:RF|Mux58    ;
+; 64:1               ; 5 bits    ; 210 LEs       ; 70 LEs               ; 140 LEs                ; No         ; |processor|controlUnit:CU|Selector2 ;
+; 19:1               ; 8 bits    ; 96 LEs        ; 48 LEs               ; 48 LEs                 ; No         ; |processor|ALU:alu|Mux15            ;
+; 19:1               ; 8 bits    ; 96 LEs        ; 48 LEs               ; 48 LEs                 ; No         ; |processor|ALU:alu|Mux23            ;
+; 20:1               ; 4 bits    ; 52 LEs        ; 28 LEs               ; 24 LEs                 ; No         ; |processor|ALU:alu|Mux7             ;
+; 20:1               ; 4 bits    ; 52 LEs        ; 28 LEs               ; 24 LEs                 ; No         ; |processor|ALU:alu|Mux27            ;
+; 21:1               ; 2 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; No         ; |processor|ALU:alu|Mux2             ;
+; 21:1               ; 2 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; No         ; |processor|ALU:alu|Mux28            ;
+; 22:1               ; 2 bits    ; 28 LEs        ; 16 LEs               ; 12 LEs                 ; No         ; |processor|ALU:alu|Mux1             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
 
 
 +------------------------------------------------------------------------------------------------------------+
-; Source assignments for instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated ;
+; Source assignments for instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_o9e1:auto_generated ;
 +---------------------------------+--------------------+------+----------------------------------------------+
 ; Assignment                      ; Value              ; From ; To                                           ;
 +---------------------------------+--------------------+------+----------------------------------------------+
@@ -403,11 +443,11 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 
 +------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: adder:PCAdder ;
+; Parameter Settings for User Entity Instance: adder:pcAdder ;
 +----------------+-------+-----------------------------------+
 ; Parameter Name ; Value ; Type                              ;
 +----------------+-------+-----------------------------------+
-; size           ; 6     ; Signed Integer                    ;
+; size           ; 8     ; Signed Integer                    ;
 +----------------+-------+-----------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -425,8 +465,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; WIDTH_BYTEENA                      ; 1                                       ; Untyped            ;
 ; OPERATION_MODE                     ; ROM                                     ; Untyped            ;
 ; WIDTH_A                            ; 32                                      ; Signed Integer     ;
-; WIDTHAD_A                          ; 6                                       ; Signed Integer     ;
-; NUMWORDS_A                         ; 64                                      ; Signed Integer     ;
+; WIDTHAD_A                          ; 8                                       ; Signed Integer     ;
+; NUMWORDS_A                         ; 256                                     ; Signed Integer     ;
 ; OUTDATA_REG_A                      ; UNREGISTERED                            ; Untyped            ;
 ; ADDRESS_ACLR_A                     ; NONE                                    ; Untyped            ;
 ; OUTDATA_ACLR_A                     ; NONE                                    ; Untyped            ;
@@ -468,7 +508,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                   ; Untyped            ;
 ; WIDTH_ECCSTATUS                    ; 3                                       ; Untyped            ;
 ; DEVICE_FAMILY                      ; MAX 10                                  ; Untyped            ;
-; CBXI_PARAMETER                     ; altsyncram_38e1                         ; Untyped            ;
+; CBXI_PARAMETER                     ; altsyncram_o9e1                         ; Untyped            ;
 +------------------------------------+-----------------------------------------+--------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -502,13 +542,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------------------------+
-; Parameter Settings for User Entity Instance: mux2x1:RFMux ;
-+----------------+-------+----------------------------------+
-; Parameter Name ; Value ; Type                             ;
-+----------------+-------+----------------------------------+
-; size           ; 5     ; Signed Integer                   ;
-+----------------+-------+----------------------------------+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux3to1:RFMux ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; size           ; 5     ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -548,8 +588,38 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+---------------------------------------+
 ; Parameter Name ; Value ; Type                                  ;
 +----------------+-------+---------------------------------------+
-; size           ; 6     ; Signed Integer                        ;
+; size           ; 8     ; Signed Integer                        ;
 +----------------+-------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux2x1:branchMux ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; size           ; 8     ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux2x1:jumpMux ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; size           ; 8     ; Signed Integer                     ;
++----------------+-------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux2x1:pcMux ;
++----------------+-------+----------------------------------+
+; Parameter Name ; Value ; Type                             ;
++----------------+-------+----------------------------------+
+; size           ; 8     ; Signed Integer                   ;
++----------------+-------+----------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -614,23 +684,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------------------------+
-; Parameter Settings for User Entity Instance: mux2x1:WBMux ;
-+----------------+-------+----------------------------------+
-; Parameter Name ; Value ; Type                             ;
-+----------------+-------+----------------------------------+
-; size           ; 32    ; Signed Integer                   ;
-+----------------+-------+----------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------+
-; Parameter Settings for User Entity Instance: mux2x1:PCMux ;
-+----------------+-------+----------------------------------+
-; Parameter Name ; Value ; Type                             ;
-+----------------+-------+----------------------------------+
-; size           ; 6     ; Signed Integer                   ;
-+----------------+-------+----------------------------------+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux3to1:WBMux ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; size           ; 32    ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -643,7 +703,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Entity Instance                           ; instructionMemory:IM|altsyncram:altsyncram_component ;
 ;     -- OPERATION_MODE                     ; ROM                                                  ;
 ;     -- WIDTH_A                            ; 32                                                   ;
-;     -- NUMWORDS_A                         ; 64                                                   ;
+;     -- NUMWORDS_A                         ; 256                                                  ;
 ;     -- OUTDATA_REG_A                      ; UNREGISTERED                                         ;
 ;     -- WIDTH_B                            ; 1                                                    ;
 ;     -- NUMWORDS_B                         ; 1                                                    ;
@@ -665,34 +725,30 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------------------+------------------------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "ALU:alu"                                                                                                                                      ;
-+-------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------+
-; Port  ; Type  ; Severity ; Details                                                                                                                                       ;
-+-------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------+
-; opSel ; Input ; Warning  ; Input port expression (3 bits) is smaller than the input port (4 bits) it drives.  Extra input bit(s) "opSel[3..3]" will be connected to GND. ;
-+-------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------+
++----------------------------------------------+
+; Port Connectivity Checks: "mux3to1:WBMux"    ;
++------------+-------+----------+--------------+
+; Port       ; Type  ; Severity ; Details      ;
++------------+-------+----------+--------------+
+; in3[31..8] ; Input ; Info     ; Stuck at GND ;
++------------+-------+----------+--------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "controlUnit:CU"                                                                                                                 ;
-+----------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------+
-; Port     ; Type   ; Severity ; Details                                                                                                                     ;
-+----------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------+
-; RegDst   ; Output ; Warning  ; Output or bidir port (2 bits) is wider than the port expression (1 bits) it drives; bit(s) "RegDst[1..1]" have no fanouts   ;
-; MemtoReg ; Output ; Warning  ; Output or bidir port (2 bits) is wider than the port expression (1 bits) it drives; bit(s) "MemtoReg[1..1]" have no fanouts ;
-; ALUOp    ; Output ; Warning  ; Output or bidir port (4 bits) is wider than the port expression (3 bits) it drives; bit(s) "ALUOp[3..3]" have no fanouts    ;
-; Jump     ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                    ;
-; PcSrc    ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                    ;
-+----------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------+
++-------------------------------------------+
+; Port Connectivity Checks: "mux3to1:RFMux" ;
++------+-------+----------+-----------------+
+; Port ; Type  ; Severity ; Details         ;
++------+-------+----------+-----------------+
+; in3  ; Input ; Info     ; Stuck at VCC    ;
++------+-------+----------+-----------------+
 
 
 +---------------------------------------------+
-; Port Connectivity Checks: "adder:PCAdder"   ;
+; Port Connectivity Checks: "adder:pcAdder"   ;
 +-----------+-------+----------+--------------+
 ; Port      ; Type  ; Severity ; Details      ;
 +-----------+-------+----------+--------------+
-; in2[5..1] ; Input ; Info     ; Stuck at GND ;
+; in2[7..1] ; Input ; Info     ; Stuck at GND ;
 ; in2[0]    ; Input ; Info     ; Stuck at VCC ;
 +-----------+-------+----------+--------------+
 
@@ -702,23 +758,23 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 8                           ;
-; cycloneiii_ff         ; 998                         ;
-;     CLR               ; 6                           ;
+; boundary_port         ; 10                          ;
+; cycloneiii_ff         ; 1000                        ;
+;     CLR               ; 8                           ;
 ;     ENA CLR           ; 992                         ;
-; cycloneiii_lcell_comb ; 1790                        ;
-;     arith             ; 99                          ;
-;         2 data inputs ; 1                           ;
-;         3 data inputs ; 98                          ;
-;     normal            ; 1691                        ;
-;         1 data inputs ; 12                          ;
-;         2 data inputs ; 18                          ;
-;         3 data inputs ; 141                         ;
-;         4 data inputs ; 1520                        ;
+; cycloneiii_lcell_comb ; 2238                        ;
+;     arith             ; 108                         ;
+;         2 data inputs ; 8                           ;
+;         3 data inputs ; 100                         ;
+;     normal            ; 2130                        ;
+;         1 data inputs ; 17                          ;
+;         2 data inputs ; 37                          ;
+;         3 data inputs ; 223                         ;
+;         4 data inputs ; 1853                        ;
 ; cycloneiii_ram_block  ; 64                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 18.10                       ;
-; Average LUT depth     ; 15.18                       ;
+; Max LUT depth         ; 23.90                       ;
+; Average LUT depth     ; 20.34                       ;
 +-----------------------+-----------------------------+
 
 
@@ -727,7 +783,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:06     ;
+; Top            ; 00:00:05     ;
 +----------------+--------------+
 
 
@@ -737,41 +793,43 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Sun Nov 10 00:24:29 2024
+    Info: Processing started: Mon Nov 11 01:22:39 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SingleCycle -c SingleCycle
-Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
 Info (12021): Found 2 design units, including 2 entities, in source file muxes.v
-    Info (12023): Found entity 1: mux2x1 File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/muxes.v Line: 1
-    Info (12023): Found entity 2: mux3to1 File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/muxes.v Line: 16
+    Info (12023): Found entity 1: mux2x1 File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/muxes.v Line: 1
+    Info (12023): Found entity 2: mux3to1 File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/muxes.v Line: 16
 Info (12021): Found 1 design units, including 1 entities, in source file testbench.v
-    Info (12023): Found entity 1: testbench File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/testbench.v Line: 2
+    Info (12023): Found entity 1: testbench File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/testbench.v Line: 2
 Info (12021): Found 1 design units, including 1 entities, in source file processor.v
-    Info (12023): Found entity 1: processor File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/processor.v Line: 1
+    Info (12023): Found entity 1: processor File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/processor.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file registerfile.v
-    Info (12023): Found entity 1: registerFile File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/registerFile.v Line: 3
+    Info (12023): Found entity 1: registerFile File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/registerFile.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file controlunit.v
-    Info (12023): Found entity 1: controlUnit File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/controlUnit.v Line: 1
+    Info (12023): Found entity 1: controlUnit File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/controlUnit.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file alu.v
-    Info (12023): Found entity 1: ALU File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/ALU.v Line: 1
+    Info (12023): Found entity 1: ALU File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/ALU.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file signextender.v
-    Info (12023): Found entity 1: signextender File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/signextender.v Line: 4
+    Info (12023): Found entity 1: signextender File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/signextender.v Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file programcounter.v
-    Info (12023): Found entity 1: programCounter File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/programCounter.v Line: 1
+    Info (12023): Found entity 1: programCounter File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/programCounter.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file adder.v
-    Info (12023): Found entity 1: adder File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/adder.v Line: 3
+    Info (12023): Found entity 1: adder File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/adder.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file andgate.v
-    Info (12023): Found entity 1: ANDGate File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/ANDGate.v Line: 1
+    Info (12023): Found entity 1: ANDGate File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/ANDGate.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file instructionmemory.v
-    Info (12023): Found entity 1: instructionMemory File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/instructionMemory.v Line: 40
+    Info (12023): Found entity 1: instructionMemory File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/instructionMemory.v Line: 40
 Info (12021): Found 1 design units, including 1 entities, in source file datamemory.v
-    Info (12023): Found entity 1: dataMemory File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/dataMemory.v Line: 40
+    Info (12023): Found entity 1: dataMemory File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/dataMemory.v Line: 40
+Info (12021): Found 1 design units, including 1 entities, in source file xnor.v
+    Info (12023): Found entity 1: XNORGate File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/XNOR.v Line: 1
 Info (12127): Elaborating entity "processor" for the top level hierarchy
-Info (12128): Elaborating entity "programCounter" for hierarchy "programCounter:pc" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/processor.v Line: 24
-Info (12128): Elaborating entity "adder" for hierarchy "adder:PCAdder" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/processor.v Line: 26
-Info (12128): Elaborating entity "instructionMemory" for hierarchy "instructionMemory:IM" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/processor.v Line: 28
-Info (12128): Elaborating entity "altsyncram" for hierarchy "instructionMemory:IM|altsyncram:altsyncram_component" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/instructionMemory.v Line: 82
-Info (12130): Elaborated megafunction instantiation "instructionMemory:IM|altsyncram:altsyncram_component" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/instructionMemory.v Line: 82
-Info (12133): Instantiated megafunction "instructionMemory:IM|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/instructionMemory.v Line: 82
+Info (12128): Elaborating entity "programCounter" for hierarchy "programCounter:pc" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/processor.v Line: 27
+Info (12128): Elaborating entity "adder" for hierarchy "adder:pcAdder" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/processor.v Line: 29
+Info (12128): Elaborating entity "instructionMemory" for hierarchy "instructionMemory:IM" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/processor.v Line: 31
+Info (12128): Elaborating entity "altsyncram" for hierarchy "instructionMemory:IM|altsyncram:altsyncram_component" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/instructionMemory.v Line: 82
+Info (12130): Elaborated megafunction instantiation "instructionMemory:IM|altsyncram:altsyncram_component" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/instructionMemory.v Line: 82
+Info (12133): Instantiated megafunction "instructionMemory:IM|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/instructionMemory.v Line: 82
     Info (12134): Parameter "address_aclr_a" = "NONE"
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
@@ -779,28 +837,30 @@ Info (12133): Instantiated megafunction "instructionMemory:IM|altsyncram:altsync
     Info (12134): Parameter "intended_device_family" = "MAX 10"
     Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
     Info (12134): Parameter "lpm_type" = "altsyncram"
-    Info (12134): Parameter "numwords_a" = "64"
+    Info (12134): Parameter "numwords_a" = "256"
     Info (12134): Parameter "operation_mode" = "ROM"
     Info (12134): Parameter "outdata_aclr_a" = "NONE"
     Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
     Info (12134): Parameter "ram_block_type" = "M9K"
-    Info (12134): Parameter "widthad_a" = "6"
+    Info (12134): Parameter "widthad_a" = "8"
     Info (12134): Parameter "width_a" = "32"
     Info (12134): Parameter "width_byteena_a" = "1"
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_38e1.tdf
-    Info (12023): Found entity 1: altsyncram_38e1 File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/db/altsyncram_38e1.tdf Line: 28
-Info (12128): Elaborating entity "altsyncram_38e1" for hierarchy "instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_38e1:auto_generated" File: d:/quartuslite/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "controlUnit" for hierarchy "controlUnit:CU" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/processor.v Line: 32
-Info (12128): Elaborating entity "mux2x1" for hierarchy "mux2x1:RFMux" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/processor.v Line: 34
-Info (12128): Elaborating entity "registerFile" for hierarchy "registerFile:RF" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/processor.v Line: 38
-Info (12128): Elaborating entity "signextender" for hierarchy "signextender:SignExtend" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/processor.v Line: 40
-Info (12128): Elaborating entity "mux2x1" for hierarchy "mux2x1:ALUMux" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/processor.v Line: 42
-Info (12128): Elaborating entity "ALU" for hierarchy "ALU:alu" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/processor.v Line: 44
-Info (12128): Elaborating entity "ANDGate" for hierarchy "ANDGate:branchAnd" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/processor.v Line: 46
-Info (12128): Elaborating entity "dataMemory" for hierarchy "dataMemory:DM" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/processor.v Line: 50
-Info (12128): Elaborating entity "altsyncram" for hierarchy "dataMemory:DM|altsyncram:altsyncram_component" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/dataMemory.v Line: 89
-Info (12130): Elaborated megafunction instantiation "dataMemory:DM|altsyncram:altsyncram_component" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/dataMemory.v Line: 89
-Info (12133): Instantiated megafunction "dataMemory:DM|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/dataMemory.v Line: 89
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_o9e1.tdf
+    Info (12023): Found entity 1: altsyncram_o9e1 File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/db/altsyncram_o9e1.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_o9e1" for hierarchy "instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_o9e1:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "controlUnit" for hierarchy "controlUnit:CU" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/processor.v Line: 35
+Info (12128): Elaborating entity "mux3to1" for hierarchy "mux3to1:RFMux" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/processor.v Line: 37
+Info (12128): Elaborating entity "registerFile" for hierarchy "registerFile:RF" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/processor.v Line: 41
+Info (12128): Elaborating entity "signextender" for hierarchy "signextender:SignExtend" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/processor.v Line: 43
+Info (12128): Elaborating entity "mux2x1" for hierarchy "mux2x1:ALUMux" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/processor.v Line: 45
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:alu" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/processor.v Line: 48
+Info (12128): Elaborating entity "XNORGate" for hierarchy "XNORGate:branchXnor" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/processor.v Line: 50
+Info (12128): Elaborating entity "ANDGate" for hierarchy "ANDGate:branchAnd" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/processor.v Line: 52
+Info (12128): Elaborating entity "mux2x1" for hierarchy "mux2x1:branchMux" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/processor.v Line: 56
+Info (12128): Elaborating entity "dataMemory" for hierarchy "dataMemory:DM" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/processor.v Line: 62
+Info (12128): Elaborating entity "altsyncram" for hierarchy "dataMemory:DM|altsyncram:altsyncram_component" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/dataMemory.v Line: 89
+Info (12130): Elaborated megafunction instantiation "dataMemory:DM|altsyncram:altsyncram_component" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/dataMemory.v Line: 89
+Info (12133): Instantiated megafunction "dataMemory:DM|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/dataMemory.v Line: 89
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
     Info (12134): Parameter "init_file" = "dataMemoryInitializationFile.mif"
@@ -818,31 +878,30 @@ Info (12133): Instantiated megafunction "dataMemory:DM|altsyncram:altsyncram_com
     Info (12134): Parameter "width_a" = "32"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_8km1.tdf
-    Info (12023): Found entity 1: altsyncram_8km1 File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/db/altsyncram_8km1.tdf Line: 28
-Info (12128): Elaborating entity "altsyncram_8km1" for hierarchy "dataMemory:DM|altsyncram:altsyncram_component|altsyncram_8km1:auto_generated" File: d:/quartuslite/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "mux2x1" for hierarchy "mux2x1:PCMux" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/processor.v Line: 54
-Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Info (13000): Registers with preset signals will power-up high File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/programCounter.v Line: 16
+    Info (12023): Found entity 1: altsyncram_8km1 File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/db/altsyncram_8km1.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_8km1" for hierarchy "dataMemory:DM|altsyncram:altsyncram_component|altsyncram_8km1:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "mux3to1" for hierarchy "mux3to1:WBMux" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/processor.v Line: 64
+Info (13000): Registers with preset signals will power-up high File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/programCounter.v Line: 16
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Info (286030): Timing-Driven Synthesis is running
-Info (144001): Generated suppressed messages file C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/output_files/SingleCycle.map.smsg
+Info (144001): Generated suppressed messages file C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/output_files/SingleCycle.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 2848 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 3296 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
-    Info (21059): Implemented 6 output pins
-    Info (21061): Implemented 2776 logic cells
+    Info (21059): Implemented 8 output pins
+    Info (21061): Implemented 3222 logic cells
     Info (21064): Implemented 64 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4800 megabytes
-    Info: Processing ended: Sun Nov 10 00:24:50 2024
-    Info: Elapsed time: 00:00:21
-    Info: Total CPU time (on all processors): 00:00:09
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 4813 megabytes
+    Info: Processing ended: Mon Nov 11 01:22:50 2024
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:07
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/SDC24_QP_Pipeline/output_files/SingleCycle.map.smsg.
+The suppressed messages can be found in C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/output_files/SingleCycle.map.smsg.
 
 

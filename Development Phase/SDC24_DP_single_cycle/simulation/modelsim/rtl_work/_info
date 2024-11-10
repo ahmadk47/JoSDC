@@ -8,51 +8,51 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dC:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/simulation/modelsim
+Z0 dC:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/simulation/modelsim
 vadder
-Z1 !s110 1728757611
+Z1 !s110 1731277406
 !i10b 1
-!s100 gBM;hF6Ljc_F[zz5jLd422
+!s100 <EULQflBn0W6YzHjZ><mC0
 Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
-ICaalLdd`1X08^Eb^hPE2H3
+IoamPZEEILOYSh>L450mQQ1
 Z3 VDg1SIo80bB@j0V0VzS_@n1
 R0
-w1726831796
-8C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/adder.v
-FC:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/adder.v
+w1731268271
+8C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/adder.v
+FC:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/adder.v
 !i122 7
-L0 3 12
+L0 3 11
 Z4 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z5 !s108 1728757611.000000
-!s107 C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/adder.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline|C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/adder.v|
+Z5 !s108 1731277406.000000
+!s107 C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/adder.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle|C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/adder.v|
 !i113 1
 Z6 o-vlog01compat -work work
-Z7 !s92 -vlog01compat -work work {+incdir+C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline}
+Z7 !s92 -vlog01compat -work work {+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle}
 Z8 tCvgOpt 0
 vALU
 R1
 !i10b 1
-!s100 >PioR2[<UaOeacWbeNB9d0
+!s100 [l856:0;^ZdEHQ6GZCfzB0
 R2
-IK?9>H2<>GRMzma`a`nZ5X1
+Ih9J81_eai6OC4hXhLeX9B2
 R3
 R0
-w1728598587
-8C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v
-FC:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v
-!i122 3
-L0 1 54
+Z9 w1731261516
+8C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/ALU.v
+FC:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/ALU.v
+!i122 4
+L0 1 65
 R4
 r1
 !s85 0
 31
 R5
-!s107 C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline|C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ALU.v|
+!s107 C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/ALU.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle|C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/ALU.v|
 !i113 1
 R6
 R7
@@ -63,12 +63,12 @@ R1
 !i10b 1
 !s100 [7AXbFTB0;hR?Q`mojBNS0
 R2
-I2Q6MhN98Oe18;=aScJn?Y1
+I1<11aENB`m^4>z7@YN=O:2
 R3
 R0
-w1726785912
-8C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ANDGate.v
-FC:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ANDGate.v
+R9
+8C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/ANDGate.v
+FC:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/ANDGate.v
 !i122 8
 L0 1 7
 R4
@@ -76,8 +76,8 @@ r1
 !s85 0
 31
 R5
-!s107 C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ANDGate.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline|C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/ANDGate.v|
+!s107 C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/ANDGate.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle|C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/ANDGate.v|
 !i113 1
 R6
 R7
@@ -86,23 +86,23 @@ n@a@n@d@gate
 vcontrolUnit
 R1
 !i10b 1
-!s100 zYaobll]BHmYliYKH4Jg=3
+!s100 dbgPX6IR706f=5C0aHXH=1
 R2
-IR1n@z]APM;R?hDd?SjND:0
+In^_dI=:FnROFmiW[n9IfL2
 R3
 R0
-w1728598581
-8C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/controlUnit.v
-FC:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/controlUnit.v
-!i122 2
-L0 1 112
+w1731261981
+8C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/controlUnit.v
+FC:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/controlUnit.v
+!i122 3
+L0 1 205
 R4
 r1
 !s85 0
 31
 R5
-!s107 C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/controlUnit.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline|C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/controlUnit.v|
+!s107 C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/controlUnit.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle|C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/controlUnit.v|
 !i113 1
 R6
 R7
@@ -113,12 +113,12 @@ R1
 !i10b 1
 !s100 `b@m8UV<>2A2XBlWX5zL40
 R2
-I_Ne<6OPdM6ZCNJaHaO>h70
+INNo>[EWl7jM4?QIRd9`@n0
 R3
 R0
-w1726835572
-8C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/dataMemory.v
-FC:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/dataMemory.v
+w1731264099
+8C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/dataMemory.v
+FC:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/dataMemory.v
 !i122 10
 L0 40 70
 R4
@@ -126,8 +126,8 @@ r1
 !s85 0
 31
 R5
-!s107 C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/dataMemory.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline|C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/dataMemory.v|
+!s107 C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/dataMemory.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle|C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/dataMemory.v|
 !i113 1
 R6
 R7
@@ -136,14 +136,14 @@ ndata@memory
 vinstructionMemory
 R1
 !i10b 1
-!s100 M@N0[ibofIPRMRYTIMSTi1
+!s100 eJ9:9nNoXgVT_]0zJn4nE2
 R2
-I^^0eI][AR]ZEXYIHNIaEI0
+IP<B62b7YBgMa?mO`B[KfF2
 R3
 R0
-w1726835690
-8C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/instructionMemory.v
-FC:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/instructionMemory.v
+w1731264059
+8C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/instructionMemory.v
+FC:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/instructionMemory.v
 !i122 9
 L0 40 62
 R4
@@ -151,57 +151,81 @@ r1
 !s85 0
 31
 R5
-!s107 C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/instructionMemory.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline|C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/instructionMemory.v|
+!s107 C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/instructionMemory.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle|C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/instructionMemory.v|
 !i113 1
 R6
 R7
 R8
 ninstruction@memory
 vmux2x1
-R1
+Z10 !s110 1731277405
 !i10b 1
 !s100 4M^A:Ag]085:BGa<AUCME3
 R2
-I:Id<WeReJ7`Kde<bCJ:cV2
+ITW6?>0LbChYVBBo^5a2ld1
 R3
 R0
-w1728680345
-8C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/mux2x1.v
-FC:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/mux2x1.v
-!i122 6
+Z11 w1731267865
+Z12 8C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/muxes.v
+Z13 FC:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/muxes.v
+!i122 0
 L0 1 13
 R4
 r1
 !s85 0
 31
-R5
-!s107 C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/mux2x1.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline|C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/mux2x1.v|
+Z14 !s108 1731277405.000000
+Z15 !s107 C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/muxes.v|
+Z16 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle|C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/muxes.v|
+!i113 1
+R6
+R7
+R8
+vmux3to1
+R10
+!i10b 1
+!s100 fmMT]eFS@`7zX_H16oDZ13
+R2
+I_jc5k:6oB73n?z7_X:P0L3
+R3
+R0
+R11
+R12
+R13
+!i122 0
+L0 16 21
+R4
+r1
+!s85 0
+31
+R14
+R15
+R16
 !i113 1
 R6
 R7
 R8
 vprocessor
-!s110 1728757610
+R10
 !i10b 1
-!s100 V7Kmd4Fm;ICh9Bj?1V54l1
+!s100 <]dKS4=Y?j>SQ7=jbT0062
 R2
-I4[Q]i9iI2L=ok<j;10d`J2
+I8Bg:A7ec3Aa>FRSN67E^X1
 R3
 R0
-w1728598911
-8C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/processor.v
-FC:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/processor.v
-!i122 0
-L0 1 56
+w1731272366
+8C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/processor.v
+FC:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/processor.v
+!i122 1
+L0 1 100
 R4
 r1
 !s85 0
 31
-Z9 !s108 1728757610.000000
-!s107 C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/processor.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline|C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/processor.v|
+R14
+!s107 C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/processor.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle|C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/processor.v|
 !i113 1
 R6
 R7
@@ -209,48 +233,48 @@ R8
 vprogramCounter
 R1
 !i10b 1
-!s100 lnb9JBEA2zLXaJ4izi7me1
+!s100 PWm^=?F6A^Lm=^479>62l3
 R2
-Ih;70[9YK<H`nDj`KP91?h3
+IF8clf2QC5R?6Wi5Q3RIBF3
 R3
 R0
-w1726833374
-8C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/programCounter.v
-FC:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/programCounter.v
-!i122 5
+w1731264783
+8C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/programCounter.v
+FC:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/programCounter.v
+!i122 6
 L0 1 20
 R4
 r1
 !s85 0
 31
 R5
-!s107 C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/programCounter.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline|C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/programCounter.v|
+!s107 C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/programCounter.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle|C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/programCounter.v|
 !i113 1
 R6
 R7
 R8
 nprogram@counter
 vregisterFile
-R1
+R10
 !i10b 1
-!s100 ?8`N3Y9;nH?eOR3^[HeXJ0
+!s100 BnPjo[3T=3A2Qifb?JN]K0
 R2
-I]KDSb9ZA43^>oIC]8>JVH2
+IIM8G=KR@U9gEmQmZZH@><1
 R3
 R0
-w1726874818
-8C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/registerFile.v
-FC:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/registerFile.v
-!i122 1
-L0 3 36
+R9
+8C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/registerFile.v
+FC:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/registerFile.v
+!i122 2
+L0 3 37
 R4
 r1
 !s85 0
 31
-R9
-!s107 C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/registerFile.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline|C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/registerFile.v|
+R14
+!s107 C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/registerFile.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle|C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/registerFile.v|
 !i113 1
 R6
 R7
@@ -261,21 +285,21 @@ R1
 !i10b 1
 !s100 ;W[EIAaF>4[?XPFIQ^`751
 R2
-I6Ij_:`UCEaEkROi8kkgdT2
+IQVXVdO8O<Y3eY0XVHeTkm2
 R3
 R0
-w1728598072
-8C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/signextender.v
-FC:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/signextender.v
-!i122 4
+R9
+8C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/signextender.v
+FC:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/signextender.v
+!i122 5
 L0 4 12
 R4
 r1
 !s85 0
 31
 R5
-!s107 C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/signextender.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline|C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/signextender.v|
+!s107 C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/signextender.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle|C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/signextender.v|
 !i113 1
 R6
 R7
@@ -283,24 +307,49 @@ R8
 vtestbench
 R1
 !i10b 1
-!s100 K]hRH=Kj3Xm;O=5=;AJ4o0
+!s100 6BT73>Gz74VMMlW[;Dcl23
 R2
-ILMDng>WzYP4WfDXhEa6f22
+I;6RXD^L[fPO5R0?5KDgj;3
 R3
 R0
-w1726875241
-8C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/testbench.v
-FC:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/testbench.v
-!i122 11
+w1731275645
+8C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/testbench.v
+FC:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/testbench.v
+!i122 12
 L0 2 19
 R4
 r1
 !s85 0
 31
 R5
-!s107 C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/testbench.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline|C:/Users/Saleh/Desktop/git repo/JoSDC/Preliminary Phase/SDC24_QP_SingleCycle_baseline/testbench.v|
+!s107 C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/testbench.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle|C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/testbench.v|
 !i113 1
 R6
 R7
 R8
+vXNORGate
+R1
+!i10b 1
+!s100 X7e`Szl3RCEnUg7@GHP8;0
+R2
+IU@inDzUXQD;CCS`6TjCeB0
+R3
+R0
+w1731267565
+8C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/XNOR.v
+FC:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/XNOR.v
+!i122 11
+L0 1 10
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/XNOR.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle|C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/XNOR.v|
+!i113 1
+R6
+R7
+R8
+n@x@n@o@r@gate

@@ -28,6 +28,14 @@
 					"strict" : false
 				},
 				{
+					"name" : "PC[6]",
+					"strict" : false
+				},
+				{
+					"name" : "PC[7]",
+					"strict" : false
+				},
+				{
 					"name" : "clk",
 					"strict" : false
 				},

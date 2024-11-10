@@ -1,5 +1,5 @@
-import java.util.HashMap;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Assembler {
     private HashMap<String, String> opcodes;
@@ -27,6 +27,12 @@ public class Assembler {
         opcodes.put("and", "000000");
         opcodes.put("or", "000000");
         opcodes.put("slt", "000000");
+        opcodes.put("sgt", "000000");
+        opcodes.put("nor", "000000");
+        opcodes.put("xor", "000000");
+        opcodes.put("jr", "000000");
+        opcodes.put("sll", "000000");
+        opcodes.put("srl", "000000");
         opcodes.put("addi", "001000");
         opcodes.put("lw", "100011");
         opcodes.put("sw", "101011");
@@ -114,6 +120,7 @@ public class Assembler {
             case "and":
             case "or":
             case "slt":
+            case "sgt":
             case "nor":
             case "xor":
                 if (parts.length != 4) {
@@ -246,42 +253,74 @@ public class Assembler {
         try {
             Assembler assembler = new Assembler();
             String[] program = {
-                    "addi $1, $0, 5",
-                    "addi $2, $0, 0",
-                    "addi $3, $0, 1",
-                    "loop:",
-                    "add  $2, $2, $1",
-                    "sub  $1, $1, $3",
-                    "beq  $1, $0, store",
-                    "beq  $0, $0, loop",
-                    "store:",
-                    "sw $2, 0($0)",
-                    "done:",
-                    "addi $4, $2, 0",
-                    "beq  $0, $0, exit",
-                    "exit:"
-            };
+                    // Initialize registers with test values
+                    "addi $1, $0, 10", // $1 = 10
+                    "addi $2, $0, 5", // $2 = 5
+                    "addi $3, $0, 15", // $3 = 15
+                    "addi $4, $0, 241", // $4 = 241
+                    "addi $7, $0, 255", // $7 = 255
 
-            // First pass to collect labels
+                    // Test arithmetic operations
+                    "add $5, $1, $2", // $5 = 15 (10 + 5)
+                    "sub $6, $3, $2", // $6 = 10 (15 - 5)
+                    "add $8, $4, $7", // $8 = 496 (241 + 255)
+
+                    // Test logical operations
+                    "and $9, $1, $2", // $9 = 0 (10 & 5)
+                    "or $10, $1, $2", // $10 = 15 (10 | 5)
+                    "nor $11, $1, $2", // $11 = ~(10 | 5)
+                    "xor $12, $1, $2", // $12 = 15 (10 ^ 5)
+                    "xori $13, $1, 3", // $13 = 9 (10 ^ 3)
+                    "ori $14, $1, 3", // $14 = 11 (10 | 3)
+
+                    // Test comparison operations
+                    "slt $15, $1, $3", // $15 = 1 (10 < 15)
+                    "sgt $16, $1, $2", // $16 = 1 (10 > 5)
+
+                    // Test shift operations
+                    "sll $17, $1, 2", // $17 = 40 (10 << 2)
+                    "srl $18, $3, 1", // $18 = 7 (15 >> 1)
+
+                    // Test memory operations
+                    "addi $20, $0, 100", // Base memory address
+                    "sw $1, 0($20)", // Store 10 at address 100
+                    "sw $2, 4($20)", // Store 5 at address 104
+                    "lw $21, 0($20)", // Load from address 100
+                    "lw $22, 4($20)", // Load from address 104
+
+                    // Test branches and jumps
+                    "beq $1, $21, label1", // Should branch forward 2 instructions
+                    "addi $1, $1, 1",
+                    "label1 :", // Should be skipped
+                    "bne $1, $2, label2", // Should branch forward 2 instructions
+                    "addi $2, $2, 1",
+                    "label2 :", // Should be skipped
+                    "jal label2", // Jump and link
+                    "add $0, $0, $0", // NOP (should be skipped)
+                    "jr $31", // Return to caller
+
+                    // Additional edge cases
+                    "addi $23, $0, -1",
+                    "label3 :", // Test negative immediate
+                    "add $24, $23, $23", // Test negative number addition
+                    "xori $25, $23, 255", // Test XOR with all bits
+                    "slt $26, $23, $0" // Test comparison with negative
+            };
             assembler.firstPass(program);
 
-            // Generate machine code
             ArrayList<String> machineCode = assembler.secondPass();
 
-            // Print MIF format header
             System.out.println("WIDTH=32;");
             System.out.println("DEPTH=256;");
             System.out.println("ADDRESS_RADIX=UNS;");
             System.out.println("DATA_RADIX=BIN;");
             System.out.println("CONTENT BEGIN");
 
-            // Print memory contents
             int addr = 0;
             for (String code : machineCode) {
                 System.out.printf("    %d   : %s;\n", addr++, code);
             }
 
-            // Fill remaining memory locations with zeros using range notation
             if (addr < 256) {
                 System.out.printf("    [%d..255] : %s;  -- fill the rest with zeros\n",
                         addr, "00000000000000000000000000000000");
