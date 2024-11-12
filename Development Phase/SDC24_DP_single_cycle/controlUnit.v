@@ -14,7 +14,7 @@ module controlUnit(opCode, funct,
 	// parameters (opCodes/functs)
 	parameter _RType = 6'h0, _addi = 6'h8, _lw = 6'h23, _sw = 6'h2b, _beq = 6'h4, _bne = 6'h5, _jal=6'h03, _ori=6'h0d, _xori=6'h16;
 	parameter _add_ = 6'h20, _sub_ = 6'h22, _and_ = 6'h24, _or_ = 6'h25, _slt_ = 6'h2a, _sgt_ = 6'h14, _sll_ = 6'h00,
-	_srl_ = 6'h02, _nor_ = 6'h27, _xor_ = 6'h15, _jr_ = 6'h08 ;
+	_srl_ = 6'h02, _nor_ = 6'h27, _xor_ = 6'h15, _jr_ = 6'h08, _andi = 6'hc, _slti = 6'ha, _j = 6'h2;
 	
 	
 	// unit logic - generate signals
@@ -194,6 +194,48 @@ module controlUnit(opCode, funct,
 				Jump = 1'b0;
 				PcSrc = 1'b0;				
 			end
+			
+			_andi : begin
+				RegDst = 2'b0;
+				Branch = 1'b0;
+				MemReadEn = 1'b0;
+				MemtoReg = 2'b0;
+				ALUOp = 4'b0010;
+				MemWriteEn = 1'b0;
+				RegWriteEn = 1'b1;
+				ALUSrc = 1'b1;
+				Jump = 1'b0;
+				PcSrc = 1'b0;				
+			end
+			
+			_slti : begin
+				RegDst = 2'b0;
+				Branch = 1'b0;
+				MemReadEn = 1'b0;
+				MemtoReg = 2'b0;
+				ALUOp = 4'b0100; ///////
+				MemWriteEn = 1'b0;
+				RegWriteEn = 1'b1;
+				ALUSrc = 1'b1;
+				Jump = 1'b0;
+				PcSrc = 1'b0;				
+			end
+			
+			_j : begin
+				Branch = 1'b0;    
+				MemReadEn = 1'b0;
+				MemWriteEn = 1'b0;
+				RegWriteEn = 1'b0;
+				ALUSrc = 1'b0; // don't care
+				Jump = 1'b1;
+				PcSrc = 1'b1;
+				RegDst = 2'b10; // don't care
+				MemtoReg =  2'b10; // don't care
+				
+			end
+			
+			
+
 			
 			default: ;
 				

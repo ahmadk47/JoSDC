@@ -38,9 +38,12 @@ public class Assembler {
         opcodes.put("sw", "101011");
         opcodes.put("beq", "000100");
         opcodes.put("bne", "000101");
+        opcodes.put("j", "000010");
         opcodes.put("jal", "000011");
         opcodes.put("ori", "001101");
         opcodes.put("xori", "010110");
+        opcodes.put("andi", "001100");
+        opcodes.put("slti", "001010");
 
         functCodes = new HashMap<>();
         functCodes.put("add", "100000");
@@ -89,12 +92,45 @@ public class Assembler {
         currentAddress = 0;
 
         for (String instruction : instructions) {
-            String assembled = assemble(instruction);
-            machineCode.add(assembled);
-            currentAddress += 1; // Increment by 1 for word-addressable memory
+            if (instruction.startsWith("bltz") || instruction.startsWith("bgez")) {
+                machineCode.addAll(expandPseudoInstruction(instruction));
+            } else {
+                String assembled = assemble(instruction);
+                machineCode.add(assembled);
+                currentAddress += 1; // Increment by 1 for word-addressable memory
+            }
         }
 
         return machineCode;
+    }
+
+    private ArrayList<String> expandPseudoInstruction(String instruction) throws Exception {
+        ArrayList<String> expandedInstructions = new ArrayList<>();
+        String[] parts = instruction.replace(",", "").split("\\s+");
+        String pseudoOp = parts[0].toLowerCase();
+        String rs = parts[1].substring(1);
+        String label = parts[2];
+        String rd1 = "1"; // Using $1 as temporary register
+
+        if (pseudoOp.equals("bltz")) {
+            // BLTZ (branch on less than zero):
+            // Replaces with:
+            // slt $1, $rs, $0
+            // bne $1, $0, label
+            expandedInstructions.add(assemble("slt $" + rd1 + ", $" + rs + ", $0"));
+            expandedInstructions.add(assemble("bne $" + rd1 + ", $0" + ", " + label));
+        } else if (pseudoOp.equals("bgez")) {
+            // bgez (branch on greater than zero):
+            // Replaces with:
+            // slt $1, $rs, $0
+            // beq $1, $0, label
+            expandedInstructions.add(assemble("slt $" + rd1 + ", $" + rs + ", $0"));
+            expandedInstructions.add(assemble("beq $" + rd1 + ", $0" + ", " + label));
+        }
+
+        // Update the current address by the number of instructions added
+        currentAddress += expandedInstructions.size();
+        return expandedInstructions;
     }
 
     private int calculateBranchOffset(String label) throws Exception {
@@ -146,6 +182,8 @@ public class Assembler {
             case "addi":
             case "ori":
             case "xori":
+            case "andi":
+            case "slti":
                 if (parts.length != 4) {
                     throw new Exception("Invalid format for " + instruction + ". Expected: " + instruction
                             + " $rt, $rs, immediate");
@@ -182,6 +220,7 @@ public class Assembler {
                 return assembleIType(instruction, rs4, rt4, offset2);
 
             case "jal":
+            case "j":
                 if (parts.length != 2) {
                     throw new Exception("Invalid format for " + instruction + ". Expected: " + instruction + " label");
                 }
@@ -253,59 +292,88 @@ public class Assembler {
         try {
             Assembler assembler = new Assembler();
             String[] program = {
-                    // Initialize registers with test values
-                    "addi $1, $0, 10", // $1 = 10
-                    "addi $2, $0, 5", // $2 = 5
-                    "addi $3, $0, 15", // $3 = 15
-                    "addi $4, $0, 241", // $4 = 241
-                    "addi $7, $0, 255", // $7 = 255
-
-                    // Test arithmetic operations
-                    "add $5, $1, $2", // $5 = 15 (10 + 5)
-                    "sub $6, $3, $2", // $6 = 10 (15 - 5)
-                    "add $8, $4, $7", // $8 = 496 (241 + 255)
-
-                    // Test logical operations
-                    "and $9, $1, $2", // $9 = 0 (10 & 5)
-                    "or $10, $1, $2", // $10 = 15 (10 | 5)
-                    "nor $11, $1, $2", // $11 = ~(10 | 5)
-                    "xor $12, $1, $2", // $12 = 15 (10 ^ 5)
-                    "xori $13, $1, 3", // $13 = 9 (10 ^ 3)
-                    "ori $14, $1, 3", // $14 = 11 (10 | 3)
-
-                    // Test comparison operations
-                    "slt $15, $1, $3", // $15 = 1 (10 < 15)
-                    "sgt $16, $1, $2", // $16 = 1 (10 > 5)
-
-                    // Test shift operations
-                    "sll $17, $1, 2", // $17 = 40 (10 << 2)
-                    "srl $18, $3, 1", // $18 = 7 (15 >> 1)
-
-                    // Test memory operations
-                    "addi $20, $0, 100", // Base memory address
-                    "sw $1, 0($20)", // Store 10 at address 100
-                    "sw $2, 4($20)", // Store 5 at address 104
-                    "lw $21, 0($20)", // Load from address 100
-                    "lw $22, 4($20)", // Load from address 104
-
-                    // Test branches and jumps
-                    "beq $1, $21, label1", // Should branch forward 2 instructions
-                    "addi $1, $1, 1",
-                    "label1 :", // Should be skipped
-                    "bne $1, $2, label2", // Should branch forward 2 instructions
-                    "addi $2, $2, 1",
-                    "label2 :", // Should be skipped
-                    "jal label2", // Jump and link
-                    "add $0, $0, $0", // NOP (should be skipped)
-                    "jr $31", // Return to caller
-
-                    // Additional edge cases
-                    "addi $23, $0, -1",
-                    "label3 :", // Test negative immediate
-                    "add $24, $23, $23", // Test negative number addition
-                    "xori $25, $23, 255", // Test XOR with all bits
-                    "slt $26, $23, $0" // Test comparison with negative
+                "addi $2, $0, -123", // $2 = -123
+                "addi $3, $0, -1542", // $3 = -1542
+                "addi $4, $0, 523", // $4 = 523
+                "addi $5, $0, 892", // $5 = 892
+                "addi $6, $0, 32767", // $6 = 32767
+            
+                "add $13, $6, $4", // $13 = $6 + $4 = 33290 --> overflow
+            
+                "addi $6, $0, 1", // $6 = 32768 --> overflow
+            
+                "sub $7, $5, $4", // $7 = $5 - $4 = 369
+                "sub $8, $2, $3", // $8 = $2 - $3 = 1419
+                "sub $9, $3, $5", // $9 = $3 - $5 = -2434
+            
+                "addi $10, $0, 32767", // $10 = 32767
+                "and $11, $10, $0", // $11 = 0
+            
+                "addi $12, $0, 32767", // $12 = 32767
+                "andi $12, $12, 0", // $12 = 0
+            
+                "or $14, $10, $0", // $14 = 32767
+            
+                "addi $15, $0, 32767", // $15 = 32767
+            
+                "nor $16, $10, $15", // $16 = -32768
+            
+                "xori $17, $15, 15123", // $17 = 32767 XOR 15123 = 17644
+            
+                "slt $18, $4, $5", // $18 = 1
+                "slt $19, $5, $4", // $19 = 0
+            
+                "slt $22, $2, $3", // $22 = 0
+                "slt $23, $3, $2", // $23 = 1
+            
+                "sgt $20, $4, $5", // $20 = 0
+                "sgt $21, $5, $4", // $21 = 1
+            
+                "sgt $24, $2, $3", // $24 = 1
+                "sgt $23, $3, $2", // $23 = 0
+            
+                "ori $15, $15, 0", // $15 = 32767
+            
+                "sll $29, $2, 2", // $29 = -492
+                "addi $3, $0, 1542",
+                "srl $30, $3, 2", // $30 = -385.5 --> -385
+            
+                "sw $15, 0($0)", // DM[0] = 32767
+                "lw $24, 0($0)", // $24 = 32767
+            
+                "sw $3, 1($0)", // DM[1] = -1542
+                "lw $25, 1($0)", // $25 = -1542
+            
+                "sw $2, 2($0)", // DM[2] = -123
+                "lw $26, 2($0)", // $26 = -123
+            
+                "addi $27, $0, 5", // $27 = 5
+            
+                "LOOP:",
+                "addi $28, $28, 1", // LOOP UNTIL $28 = $27 = 5
+                "bne $27, $28, LOOP",
+            
+                "LOOP2:",
+                "addi $28, $28, -1", // LOOP UNTIL $28 = 0
+                "bne $28, $0, LOOP2",
+            
+                "addi $29, $0, 5",
+            
+                "jal SUBROUTINE",
+                "j SKIP",
+            
+                "SUBROUTINE:",
+                "addi $29, $29, -1",
+                "bne $29, $0, SUBROUTINE",
+                "jr $31",
+            
+                "SKIP:",
+                "addi $30, $0, 25"
             };
+            
+            
+            
+            
             assembler.firstPass(program);
 
             ArrayList<String> machineCode = assembler.secondPass();

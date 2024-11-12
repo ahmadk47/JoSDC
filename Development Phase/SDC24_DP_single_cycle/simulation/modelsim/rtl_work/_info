@@ -10,7 +10,7 @@ z2
 cModel Technology
 Z0 dC:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/simulation/modelsim
 vadder
-Z1 !s110 1731277406
+Z1 !s110 1731430699
 !i10b 1
 !s100 <EULQflBn0W6YzHjZ><mC0
 Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
@@ -26,7 +26,7 @@ Z4 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z5 !s108 1731277406.000000
+Z5 !s108 1731430699.000000
 !s107 C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/adder.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle|C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/adder.v|
 !i113 1
@@ -86,16 +86,16 @@ n@a@n@d@gate
 vcontrolUnit
 R1
 !i10b 1
-!s100 dbgPX6IR706f=5C0aHXH=1
+!s100 hzY2zfC[^8FegYR;:ZD[a2
 R2
-In^_dI=:FnROFmiW[n9IfL2
+I4iHBLO5EdKWhf5M[[zCa]1
 R3
 R0
-w1731261981
+w1731345426
 8C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/controlUnit.v
 FC:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/controlUnit.v
 !i122 3
-L0 1 205
+L0 1 247
 R4
 r1
 !s85 0
@@ -159,55 +159,55 @@ R7
 R8
 ninstruction@memory
 vmux2x1
-Z10 !s110 1731277405
+R1
 !i10b 1
 !s100 4M^A:Ag]085:BGa<AUCME3
 R2
 ITW6?>0LbChYVBBo^5a2ld1
 R3
 R0
-Z11 w1731267865
-Z12 8C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/muxes.v
-Z13 FC:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/muxes.v
+Z10 w1731267865
+Z11 8C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/muxes.v
+Z12 FC:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/muxes.v
 !i122 0
 L0 1 13
 R4
 r1
 !s85 0
 31
-Z14 !s108 1731277405.000000
-Z15 !s107 C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/muxes.v|
-Z16 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle|C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/muxes.v|
+R5
+Z13 !s107 C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/muxes.v|
+Z14 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle|C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/muxes.v|
 !i113 1
 R6
 R7
 R8
 vmux3to1
-R10
+R1
 !i10b 1
 !s100 fmMT]eFS@`7zX_H16oDZ13
 R2
 I_jc5k:6oB73n?z7_X:P0L3
 R3
 R0
+R10
 R11
 R12
-R13
 !i122 0
 L0 16 21
 R4
 r1
 !s85 0
 31
+R5
+R13
 R14
-R15
-R16
 !i113 1
 R6
 R7
 R8
 vprocessor
-R10
+R1
 !i10b 1
 !s100 <]dKS4=Y?j>SQ7=jbT0062
 R2
@@ -223,7 +223,7 @@ R4
 r1
 !s85 0
 31
-R14
+R5
 !s107 C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/processor.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle|C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/processor.v|
 !i113 1
@@ -256,7 +256,7 @@ R7
 R8
 nprogram@counter
 vregisterFile
-R10
+R1
 !i10b 1
 !s100 BnPjo[3T=3A2Qifb?JN]K0
 R2
@@ -272,7 +272,7 @@ R4
 r1
 !s85 0
 31
-R14
+R5
 !s107 C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/registerFile.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle|C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/registerFile.v|
 !i113 1
@@ -305,14 +305,14 @@ R6
 R7
 R8
 vtestbench
-R1
+Z15 !s110 1731430700
 !i10b 1
-!s100 6BT73>Gz74VMMlW[;Dcl23
+!s100 00?bH6J23Mz5gYBK2HMzO3
 R2
-I;6RXD^L[fPO5R0?5KDgj;3
+ILFBPVAaM_GU=AMWTnPVi63
 R3
 R0
-w1731275645
+w1731417461
 8C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/testbench.v
 FC:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/testbench.v
 !i122 12
@@ -321,7 +321,7 @@ R4
 r1
 !s85 0
 31
-R5
+!s108 1731430700.000000
 !s107 C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/testbench.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle|C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/testbench.v|
 !i113 1
@@ -329,7 +329,7 @@ R6
 R7
 R8
 vXNORGate
-R1
+R15
 !i10b 1
 !s100 X7e`Szl3RCEnUg7@GHP8;0
 R2

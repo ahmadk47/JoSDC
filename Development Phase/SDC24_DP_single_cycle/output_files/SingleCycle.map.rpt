@@ -1,5 +1,5 @@
 Analysis & Synthesis report for SingleCycle
-Mon Nov 11 01:22:50 2024
+Tue Nov 12 19:58:11 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -68,13 +68,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Nov 11 01:22:50 2024       ;
+; Analysis & Synthesis Status        ; Successful - Tue Nov 12 19:58:10 2024       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; SingleCycle                                 ;
 ; Top-level Entity Name              ; processor                                   ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 3,190                                       ;
-;     Total combinational functions  ; 2,230                                       ;
+; Total logic elements               ; 3,192                                       ;
+;     Total combinational functions  ; 2,232                                       ;
 ;     Dedicated logic registers      ; 1,000                                       ;
 ; Total registers                    ; 1000                                        ;
 ; Total pins                         ; 10                                          ;
@@ -191,7 +191,7 @@ https://fpgasoftware.intel.com/eula.
 ;     Processor 3            ;   0.1%      ;
 ;     Processor 4            ;   0.1%      ;
 ;     Processor 5            ;   0.1%      ;
-;     Processor 6            ;   0.0%      ;
+;     Processor 6            ;   0.1%      ;
 +----------------------------+-------------+
 
 
@@ -233,16 +233,16 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 3,190     ;
+; Estimated Total logic elements              ; 3,192     ;
 ;                                             ;           ;
-; Total combinational functions               ; 2230      ;
+; Total combinational functions               ; 2232      ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 1853      ;
-;     -- 3 input functions                    ; 323       ;
-;     -- <=2 input functions                  ; 54        ;
+;     -- 4 input functions                    ; 1857      ;
+;     -- 3 input functions                    ; 318       ;
+;     -- <=2 input functions                  ; 57        ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 2122      ;
+;     -- normal mode                          ; 2124      ;
 ;     -- arithmetic mode                      ; 108       ;
 ;                                             ;           ;
 ; Total registers                             ; 1000      ;
@@ -256,7 +256,7 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
 ; Maximum fan-out                             ; 1064      ;
-; Total fan-out                               ; 13162     ;
+; Total fan-out                               ; 13169     ;
 ; Average fan-out                             ; 3.97      ;
 +---------------------------------------------+-----------+
 
@@ -266,19 +266,19 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------+-------------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                            ; Entity Name       ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------+-------------------+--------------+
-; |processor                                ; 2230 (0)            ; 1000 (0)                  ; 16384       ; 0          ; 0            ; 0       ; 0         ; 10   ; 0            ; 0          ; |processor                                                                                     ; processor         ; work         ;
-;    |ALU:alu|                              ; 685 (685)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|ALU:alu                                                                             ; ALU               ; work         ;
+; |processor                                ; 2232 (0)            ; 1000 (0)                  ; 16384       ; 0          ; 0            ; 0       ; 0         ; 10   ; 0            ; 0          ; |processor                                                                                     ; processor         ; work         ;
+;    |ALU:alu|                              ; 686 (686)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|ALU:alu                                                                             ; ALU               ; work         ;
 ;    |adder:branchAdder|                    ; 8 (8)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|adder:branchAdder                                                                   ; adder             ; work         ;
 ;    |adder:pcAdder|                        ; 8 (8)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|adder:pcAdder                                                                       ; adder             ; work         ;
-;    |controlUnit:CU|                       ; 35 (35)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|controlUnit:CU                                                                      ; controlUnit       ; work         ;
+;    |controlUnit:CU|                       ; 36 (36)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|controlUnit:CU                                                                      ; controlUnit       ; work         ;
 ;    |dataMemory:DM|                        ; 0 (0)               ; 0 (0)                     ; 8192        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|dataMemory:DM                                                                       ; dataMemory        ; work         ;
 ;       |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 8192        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|dataMemory:DM|altsyncram:altsyncram_component                                       ; altsyncram        ; work         ;
 ;          |altsyncram_8km1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 8192        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|dataMemory:DM|altsyncram:altsyncram_component|altsyncram_8km1:auto_generated        ; altsyncram_8km1   ; work         ;
 ;    |instructionMemory:IM|                 ; 0 (0)               ; 0 (0)                     ; 8192        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|instructionMemory:IM                                                                ; instructionMemory ; work         ;
 ;       |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 8192        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|instructionMemory:IM|altsyncram:altsyncram_component                                ; altsyncram        ; work         ;
 ;          |altsyncram_o9e1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 8192        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_o9e1:auto_generated ; altsyncram_o9e1   ; work         ;
-;    |mux2x1:ALUMux|                        ; 38 (38)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux2x1:ALUMux                                                                       ; mux2x1            ; work         ;
-;    |mux2x1:pcMux|                         ; 20 (20)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux2x1:pcMux                                                                        ; mux2x1            ; work         ;
+;    |mux2x1:ALUMux|                        ; 39 (39)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux2x1:ALUMux                                                                       ; mux2x1            ; work         ;
+;    |mux2x1:pcMux|                         ; 19 (19)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux2x1:pcMux                                                                        ; mux2x1            ; work         ;
 ;    |mux3to1:RFMux|                        ; 5 (5)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux3to1:RFMux                                                                       ; mux3to1           ; work         ;
 ;    |mux3to1:WBMux|                        ; 40 (40)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux3to1:WBMux                                                                       ; mux3to1           ; work         ;
 ;    |programCounter:pc|                    ; 8 (8)               ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|programCounter:pc                                                                   ; programCounter    ; work         ;
@@ -538,6 +538,9 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; _nor_          ; 100111 ; Unsigned Binary                   ;
 ; _xor_          ; 010101 ; Unsigned Binary                   ;
 ; _jr_           ; 001000 ; Unsigned Binary                   ;
+; _andi          ; 001100 ; Unsigned Binary                   ;
+; _slti          ; 001010 ; Unsigned Binary                   ;
+; _j             ; 000010 ; Unsigned Binary                   ;
 +----------------+--------+-----------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -762,19 +765,19 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; cycloneiii_ff         ; 1000                        ;
 ;     CLR               ; 8                           ;
 ;     ENA CLR           ; 992                         ;
-; cycloneiii_lcell_comb ; 2238                        ;
+; cycloneiii_lcell_comb ; 2240                        ;
 ;     arith             ; 108                         ;
 ;         2 data inputs ; 8                           ;
 ;         3 data inputs ; 100                         ;
-;     normal            ; 2130                        ;
+;     normal            ; 2132                        ;
 ;         1 data inputs ; 17                          ;
-;         2 data inputs ; 37                          ;
-;         3 data inputs ; 223                         ;
-;         4 data inputs ; 1853                        ;
+;         2 data inputs ; 40                          ;
+;         3 data inputs ; 218                         ;
+;         4 data inputs ; 1857                        ;
 ; cycloneiii_ram_block  ; 64                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 23.90                       ;
-; Average LUT depth     ; 20.34                       ;
+; Max LUT depth         ; 22.90                       ;
+; Average LUT depth     ; 19.61                       ;
 +-----------------------+-----------------------------+
 
 
@@ -793,7 +796,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Mon Nov 11 01:22:39 2024
+    Info: Processing started: Tue Nov 12 19:58:00 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SingleCycle -c SingleCycle
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
 Info (12021): Found 2 design units, including 2 entities, in source file muxes.v
@@ -887,16 +890,16 @@ Info (286030): Timing-Driven Synthesis is running
 Info (144001): Generated suppressed messages file C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/SDC24_DP_single_cycle/output_files/SingleCycle.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 3296 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 3298 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 8 output pins
-    Info (21061): Implemented 3222 logic cells
+    Info (21061): Implemented 3224 logic cells
     Info (21064): Implemented 64 RAM segments
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4813 megabytes
-    Info: Processing ended: Mon Nov 11 01:22:50 2024
+    Info: Peak virtual memory: 4821 megabytes
+    Info: Processing ended: Tue Nov 12 19:58:11 2024
     Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:07
+    Info: Total CPU time (on all processors): 00:00:06
 
 
 +------------------------------------------+
