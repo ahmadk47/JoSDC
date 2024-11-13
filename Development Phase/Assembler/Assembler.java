@@ -76,12 +76,25 @@ public class Assembler {
 
                 // If there's an instruction after the label, store it
                 if (labelParts.length > 1 && !labelParts[1].trim().isEmpty()) {
-                    instructions.add(labelParts[1].trim());
-                    currentAddress += 1; // Increment by 1 for word-addressable memory
+                    String instruction = labelParts[1].trim();
+                    instructions.add(instruction);
+
+                    // Check if it's a pseudo-instruction
+                    if (instruction.startsWith("bltz") || instruction.startsWith("bgez")) {
+                        currentAddress += 2; // Increment by 2 for expanded pseudo-instruction
+                    } else {
+                        currentAddress += 1; // Increment by 1 for regular instruction
+                    }
                 }
             } else {
                 instructions.add(line);
-                currentAddress += 1; // Increment by 1 for word-addressable memory
+
+                // Check if it's a pseudo-instruction
+                if (line.startsWith("bltz") || line.startsWith("bgez")) {
+                    currentAddress += 2; // Increment by 2 for expanded pseudo-instruction
+                } else {
+                    currentAddress += 1; // Increment by 1 for regular instruction
+                }
             }
         }
     }
@@ -93,9 +106,9 @@ public class Assembler {
 
         for (String instruction : instructions) {
             if (instruction.startsWith("bltz") || instruction.startsWith("bgez")) {
-                machineCode.addAll(expandPseudoInstruction(instruction));
+                machineCode.addAll(expandPseudoInstruction(instruction, true));
             } else {
-                String assembled = assemble(instruction);
+                String assembled = assemble(instruction, false);
                 machineCode.add(assembled);
                 currentAddress += 1; // Increment by 1 for word-addressable memory
             }
@@ -104,7 +117,7 @@ public class Assembler {
         return machineCode;
     }
 
-    private ArrayList<String> expandPseudoInstruction(String instruction) throws Exception {
+    private ArrayList<String> expandPseudoInstruction(String instruction, boolean isPseudo) throws Exception {
         ArrayList<String> expandedInstructions = new ArrayList<>();
         String[] parts = instruction.replace(",", "").split("\\s+");
         String pseudoOp = parts[0].toLowerCase();
@@ -117,32 +130,33 @@ public class Assembler {
             // Replaces with:
             // slt $1, $rs, $0
             // bne $1, $0, label
-            expandedInstructions.add(assemble("slt $" + rd1 + ", $" + rs + ", $0"));
-            expandedInstructions.add(assemble("bne $" + rd1 + ", $0" + ", " + label));
+            expandedInstructions.add(assemble("slt $" + rd1 + ", $" + rs + ", $0", false));
+            expandedInstructions.add(assemble("bne $" + rd1 + ", $0" + ", " + label, true));
         } else if (pseudoOp.equals("bgez")) {
             // bgez (branch on greater than zero):
             // Replaces with:
             // slt $1, $rs, $0
             // beq $1, $0, label
-            expandedInstructions.add(assemble("slt $" + rd1 + ", $" + rs + ", $0"));
-            expandedInstructions.add(assemble("beq $" + rd1 + ", $0" + ", " + label));
+            expandedInstructions.add(assemble("slt $" + rd1 + ", $" + rs + ", $0", false));
+            expandedInstructions.add(assemble("beq $" + rd1 + ", $0" + ", " + label, true));
         }
 
         // Update the current address by the number of instructions added
         currentAddress += expandedInstructions.size();
+        isPseudo = true;
         return expandedInstructions;
     }
 
-    private int calculateBranchOffset(String label) throws Exception {
+    private int calculateBranchOffset(String label, boolean isPseudo) throws Exception {
         if (!labelAddresses.containsKey(label)) {
             throw new Exception("Undefined label: " + label);
         }
         // Calculate relative offset in words
-        // Subtract current address + 1 (to account for branch delay slot)
-        return (labelAddresses.get(label) - (currentAddress + 1));
+        // Subtract (currentAddress + 1) to account for the branch delay slot
+        return (labelAddresses.get(label) - (currentAddress + (isPseudo ? 2 : 1)));
     }
 
-    public String assemble(String instructionLine) throws Exception {
+    public String assemble(String instructionLine, boolean isPseudo) throws Exception {
         String[] parts = instructionLine.replace(",", "").split("\\s+");
         String instruction = parts[0].toLowerCase();
 
@@ -201,7 +215,7 @@ public class Assembler {
                 }
                 String rs3 = parts[1].substring(1);
                 String rt3 = parts[2].substring(1);
-                int offset = calculateBranchOffset(parts[3]);
+                int offset = calculateBranchOffset(parts[3], isPseudo);
                 return assembleIType(instruction, rs3, rt3, offset);
 
             case "lw":
@@ -292,92 +306,46 @@ public class Assembler {
         try {
             Assembler assembler = new Assembler();
             String[] program = {
-                "addi $2, $0, -123", // $2 = -123
-                "addi $3, $0, -1542", // $3 = -1542
-                "addi $4, $0, 523", // $4 = 523
-                "addi $5, $0, 892", // $5 = 892
-                "addi $6, $0, 32767", // $6 = 32767
-            
-                "add $13, $6, $4", // $13 = $6 + $4 = 33290 --> overflow
-            
-                "addi $6, $0, 1", // $6 = 32768 --> overflow
-            
-                "sub $7, $5, $4", // $7 = $5 - $4 = 369
-                "sub $8, $2, $3", // $8 = $2 - $3 = 1419
-                "sub $9, $3, $5", // $9 = $3 - $5 = -2434
-            
-                "addi $10, $0, 32767", // $10 = 32767
-                "and $11, $10, $0", // $11 = 0
-            
-                "addi $12, $0, 32767", // $12 = 32767
-                "andi $12, $12, 0", // $12 = 0
-            
-                "or $14, $10, $0", // $14 = 32767
-            
-                "addi $15, $0, 32767", // $15 = 32767
-            
-                "nor $16, $10, $15", // $16 = -32768
-            
-                "xori $17, $15, 15123", // $17 = 32767 XOR 15123 = 17644
-            
-                "slt $18, $4, $5", // $18 = 1
-                "slt $19, $5, $4", // $19 = 0
-            
-                "slt $22, $2, $3", // $22 = 0
-                "slt $23, $3, $2", // $23 = 1
-            
-                "sgt $20, $4, $5", // $20 = 0
-                "sgt $21, $5, $4", // $21 = 1
-            
-                "sgt $24, $2, $3", // $24 = 1
-                "sgt $23, $3, $2", // $23 = 0
-            
-                "ori $15, $15, 0", // $15 = 32767
-            
-                "sll $29, $2, 2", // $29 = -492
-                "addi $3, $0, 1542",
-                "srl $30, $3, 2", // $30 = -385.5 --> -385
-            
-                "sw $15, 0($0)", // DM[0] = 32767
-                "lw $24, 0($0)", // $24 = 32767
-            
-                "sw $3, 1($0)", // DM[1] = -1542
-                "lw $25, 1($0)", // $25 = -1542
-            
-                "sw $2, 2($0)", // DM[2] = -123
-                "lw $26, 2($0)", // $26 = -123
-            
-                "addi $27, $0, 5", // $27 = 5
-            
-                "LOOP:",
-                "addi $28, $28, 1", // LOOP UNTIL $28 = $27 = 5
-                "bne $27, $28, LOOP",
-            
-                "LOOP2:",
-                "addi $28, $28, -1", // LOOP UNTIL $28 = 0
-                "bne $28, $0, LOOP2",
-            
-                "addi $29, $0, 5",
-            
-                "jal SUBROUTINE",
-                "j SKIP",
-            
-                "SUBROUTINE:",
-                "addi $29, $29, -1",
-                "bne $29, $0, SUBROUTINE",
-                "jr $31",
-            
-                "SKIP:",
-                "addi $30, $0, 25"
+                    "ADDI $5, $0, 5",
+                    "LOOP:",
+                    "ADDI $5, $5, -1",
+                    "BNE $5, $0, LOOP",
+                    "ADDI $7, $0, 5",
+                    "ADDI $6, $0, 0",
+                    "ADDI $22, $0, 420",
+                    "J BRUH",
+                    "ADD $0, $0, $0",
+                    "ADD $0, $0, $0",
+                    "LOOP2:",
+                    "ADDI $6, $6, 1",
+                    "BEQ $6, $7, LOOP2",
+                    "J BROMOMENTO",
+                    "ADD $0, $0, $0",
+                    "ADD $0, $0, $0",
+                    "ADD $0, $0, $0",
+                    "EXIT:",
+                    "J EXIT2",
+                    "ADD $0, $0, $0",
+                    "ADD $0, $0, $0",
+                    "ADD $0, $0, $0",
+                    "BROMOMENTO:",
+                    "J EXIT",
+                    "EXIT2:",
+                    "JR $7",
+                    "BRUH:",
+                    "ADD $0, $0, $0"
             };
-            
-            
-            
-            
+
             assembler.firstPass(program);
 
             ArrayList<String> machineCode = assembler.secondPass();
 
+            System.out.println("Label Addresses:");
+            for (String label : assembler.labelAddresses.keySet()) {
+                int address = assembler.getLabelAddress(label);
+                System.out.printf("Label %s : Address %d\n", label, address);
+            }
+            System.out.println("*****************************************************");
             System.out.println("WIDTH=32;");
             System.out.println("DEPTH=256;");
             System.out.println("ADDRESS_RADIX=UNS;");

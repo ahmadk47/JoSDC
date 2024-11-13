@@ -13,7 +13,8 @@ wire [7:0] nextPC, PCPlus1, branchAdderResult, jumpMuxOut, branchMuxOut;
 wire [4:0] rs, rt, rd, writeRegister, shamt;
 wire [3:0] ALUOp;
 wire [1:0] regDst, memToReg;
-wire pcSrc, jump, branch, memRead, memWrite, ALUSrc, regWrite, zero, xnorOut, branchMuxSel;
+wire pcSrc, jump, branch, memRead, memWrite, ALUSrc, regWrite, zero, xnorOut, branchMuxSel, overflow;
+
 
 assign opCode = instruction[31:26];
 assign rd = instruction[15:11]; 
@@ -62,39 +63,6 @@ mux2x1 #(8) pcMux(.in1(branchMuxOut), .in2(jumpMuxOut), .s(pcSrc), .out(nextPC))
 dataMemory DM(.address(ALUResult[7:0]), .clock(~clk), .data(readData2), .rden(memRead), .wren(memWrite), .q(memoryReadData));
 
 mux3to1 #(32) WBMux(.in1(ALUResult), .in2(memoryReadData), .in3({{24{1'b0}} ,PCPlus1}), .s(memToReg), .out(writeData));
-
-
-//programCounter pc(.clk(clk), .rst(rst), .PCin(nextPC), .PCout(PC));
-//
-//adder PCAdder(.in1(PC), .in2(6'b1), .out(PCPlus1));
-//
-//instructionMemory IM(.address(nextPC), .clock(clk), .q(instruction));
-//
-//controlUnit CU(.opCode(opCode), .funct(funct), 
-//      .RegDst(RegDst), .Branch(Branch), .MemReadEn(MemReadEn), .MemtoReg(MemtoReg),
-//      .ALUOp(ALUOp), .MemWriteEn(MemWriteEn), .RegWriteEn(RegWriteEn), .ALUSrc(ALUSrc));
-//
-//mux2x1 #(5) RFMux(.in1(rt), .in2(rd), .s(RegDst), .out(writeRegister)); // changed from "WriteRegister" to "writeRegister"
-//
-//registerFile RF(.clk(clk), .rst(rst), .we(RegWriteEn), 
-//    .readRegister1(rs), .readRegister2(rt), .writeRegister(writeRegister),
-//    .writeData(writeData), .readData1(readData1), .readData2(readData2));
-// 
-//signextender SignExtend(.in(imm), .out(extImm));
-//
-//mux2x1 #(32) ALUMux(.in1(readData2), .in2(extImm), .s(ALUSrc), .out(ALUin2));
-//
-//ALU alu(.operand1(readData1), .operand2(ALUin2), .shamt(shamt) ,.opSel(ALUOp), .result(ALUResult), .zero(zero));
-//
-//ANDGate branchAnd(.in1(zero), .in2(Branch), .out(PCsrc));
-//
-//adder branchAdder(.in1(PCPlus1), .in2(imm[5:0]), .out(adderResult));
-//
-//dataMemory DM(.address(ALUResult[7:0]), .clock(~clk), .data(readData2), .rden(MemReadEn), .wren(MemWriteEn), .q(memoryReadData));
-//
-//mux2x1 #(32) WBMux(.in1(ALUResult), .in2(memoryReadData), .s(MemtoReg), .out(writeData)); // swapped order of inputs
-//
-//mux2x1 #(6) PCMux(.in1(PCPlus1), .in2(adderResult), .s(PCsrc), .out(nextPC));
 
 
 endmodule 

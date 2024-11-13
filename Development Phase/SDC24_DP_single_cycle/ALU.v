@@ -1,4 +1,4 @@
-module ALU (operand1, operand2, shamt, opSel, result, zero );
+module ALU (operand1, operand2, shamt, opSel, result, zero);
 	
 	parameter data_width = 32;
 	parameter sel_width = 4;
@@ -9,7 +9,6 @@ module ALU (operand1, operand2, shamt, opSel, result, zero );
 	input [data_width - 1 : 0] operand1, operand2;
 	input [sel_width - 1 :0] opSel;
 	input [4:0] shamt;
-	
 	// Outputs
 	// .......
 	
@@ -25,32 +24,47 @@ module ALU (operand1, operand2, shamt, opSel, result, zero );
 	// Perform Operation
 	// .................
 	
+	
+
+	
 	always @ (*) begin
 	
-			result = 32'b0; 
+			result = 32'b0;
 		
 		case(opSel)
 			
-			_ADD: result = operand1 + operand2;
+			_ADD: begin
+				result= operand1 + operand2;
+			end
 			
-			_SUB: result = operand1 - operand2;
+			_SUB: begin
+				result= operand1 - operand2;
+			end
 			
-			_AND: result = operand1 & operand2;
-			
-			_OR : result = operand1 | operand2;
-			
-			_NOR: result = ~(operand1 | operand2);
-			
-			_XOR: result = operand1 ^ operand2;
-			
-			_SLT: result = (operand1 < operand2) ? 1 : 0;
-			
-			_SGT: result = (operand1 > operand2) ? 1 : 0;
-			
-			_SLL: result = operand2 << shamt;
-			
-			_SRL: result = operand2 >> shamt;
-			
+			_AND: begin
+				result = operand1 & operand2;
+			end
+			_OR : begin
+				result = operand1 | operand2;
+			end
+			_NOR: begin
+				result = ~(operand1 | operand2);
+			end
+			_XOR: begin
+				result = operand1 ^ operand2;
+			end
+			_SLT: begin
+				result = ($signed(operand1) < $signed(operand2)) ? 1 : 0;
+			end
+			_SGT: begin 
+				result = ($signed(operand1) > $signed(operand2)) ? 1 : 0;
+			end
+			_SLL: begin
+				result = operand2 << shamt;
+			end
+			_SRL: begin
+				result = operand2 >> shamt;
+			end
 			default:;
 
 		endcase
@@ -62,4 +76,4 @@ module ALU (operand1, operand2, shamt, opSel, result, zero );
 		zero = (result == 32'b0); 
 	end
 
-endmodule
+endmodule 
