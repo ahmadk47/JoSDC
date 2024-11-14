@@ -306,34 +306,7 @@ public class Assembler {
         try {
             Assembler assembler = new Assembler();
             String[] program = {
-                    "ADDI $5, $0, 5",
-                    "LOOP:",
-                    "ADDI $5, $5, -1",
-                    "BNE $5, $0, LOOP",
-                    "ADDI $7, $0, 5",
-                    "ADDI $6, $0, 0",
-                    "ADDI $22, $0, 420",
-                    "J BRUH",
-                    "ADD $0, $0, $0",
-                    "ADD $0, $0, $0",
-                    "LOOP2:",
-                    "ADDI $6, $6, 1",
-                    "BEQ $6, $7, LOOP2",
-                    "J BROMOMENTO",
-                    "ADD $0, $0, $0",
-                    "ADD $0, $0, $0",
-                    "ADD $0, $0, $0",
-                    "EXIT:",
-                    "J EXIT2",
-                    "ADD $0, $0, $0",
-                    "ADD $0, $0, $0",
-                    "ADD $0, $0, $0",
-                    "BROMOMENTO:",
-                    "J EXIT",
-                    "EXIT2:",
-                    "JR $7",
-                    "BRUH:",
-                    "ADD $0, $0, $0"
+                "add $0, $0, $0"
             };
 
             assembler.firstPass(program);
