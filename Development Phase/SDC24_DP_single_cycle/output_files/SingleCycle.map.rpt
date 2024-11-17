@@ -1,5 +1,5 @@
 Analysis & Synthesis report for SingleCycle
-Thu Nov 14 00:09:11 2024
+Fri Nov 15 19:47:21 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -36,12 +36,13 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
  28. Parameter Settings for User Entity Instance: mux3to1:WBMux
  29. altsyncram Parameter Settings by Entity Instance
  30. Port Connectivity Checks: "mux3to1:WBMux"
- 31. Port Connectivity Checks: "mux3to1:RFMux"
- 32. Port Connectivity Checks: "adder:pcAdder"
- 33. Post-Synthesis Netlist Statistics for Top Partition
- 34. Elapsed Time Per Partition
- 35. Analysis & Synthesis Messages
- 36. Analysis & Synthesis Suppressed Messages
+ 31. Port Connectivity Checks: "ALU:alu"
+ 32. Port Connectivity Checks: "mux3to1:RFMux"
+ 33. Port Connectivity Checks: "adder:pcAdder"
+ 34. Post-Synthesis Netlist Statistics for Top Partition
+ 35. Elapsed Time Per Partition
+ 36. Analysis & Synthesis Messages
+ 37. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -68,7 +69,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Nov 14 00:09:11 2024       ;
+; Analysis & Synthesis Status        ; Successful - Fri Nov 15 19:47:21 2024       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; SingleCycle                                 ;
 ; Top-level Entity Name              ; processor                                   ;
@@ -737,6 +738,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------+-------+----------+--------------+
 
 
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:alu"                                                                                ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; overflow ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +-------------------------------------------+
 ; Port Connectivity Checks: "mux3to1:RFMux" ;
 +------+-------+----------+-----------------+
@@ -796,7 +806,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Thu Nov 14 00:09:00 2024
+    Info: Processing started: Fri Nov 15 19:47:09 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SingleCycle -c SingleCycle
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
 Info (12021): Found 2 design units, including 2 entities, in source file muxes.v
@@ -896,10 +906,10 @@ Info (21057): Implemented 3298 device resources after synthesis - the final reso
     Info (21061): Implemented 3224 logic cells
     Info (21064): Implemented 64 RAM segments
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4812 megabytes
-    Info: Processing ended: Thu Nov 14 00:09:11 2024
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:05
+    Info: Peak virtual memory: 4807 megabytes
+    Info: Processing ended: Fri Nov 15 19:47:21 2024
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:06
 
 
 +------------------------------------------+

@@ -1,0 +1,10 @@
+Label Addresses:
+*****************************************************
+WIDTH=32;
+DEPTH=256;
+ADDRESS_RADIX=UNS;
+DATA_RADIX=BIN;
+CONTENT BEGIN
+    0   : 00000000000000000000000000100000;
+    [1..255] : 00000000000000000000000000000000;  -- fill the rest with zeros
+END;

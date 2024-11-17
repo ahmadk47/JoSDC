@@ -1,14 +1,14 @@
 |processor
 clk => clk.IN3
 rst => rst.IN2
-PC[0] << PC[0].DB_MAX_OUTPUT_PORT_TYPE
-PC[1] << PC[1].DB_MAX_OUTPUT_PORT_TYPE
-PC[2] << PC[2].DB_MAX_OUTPUT_PORT_TYPE
-PC[3] << PC[3].DB_MAX_OUTPUT_PORT_TYPE
-PC[4] << PC[4].DB_MAX_OUTPUT_PORT_TYPE
-PC[5] << PC[5].DB_MAX_OUTPUT_PORT_TYPE
-PC[6] << PC[6].DB_MAX_OUTPUT_PORT_TYPE
-PC[7] << PC[7].DB_MAX_OUTPUT_PORT_TYPE
+PC[0] <= PC[0].DB_MAX_OUTPUT_PORT_TYPE
+PC[1] <= PC[1].DB_MAX_OUTPUT_PORT_TYPE
+PC[2] <= PC[2].DB_MAX_OUTPUT_PORT_TYPE
+PC[3] <= PC[3].DB_MAX_OUTPUT_PORT_TYPE
+PC[4] <= PC[4].DB_MAX_OUTPUT_PORT_TYPE
+PC[5] <= PC[5].DB_MAX_OUTPUT_PORT_TYPE
+PC[6] <= PC[6].DB_MAX_OUTPUT_PORT_TYPE
+PC[7] <= PC[7].DB_MAX_OUTPUT_PORT_TYPE
 
 
 |processor|programCounter:pc
@@ -4823,6 +4823,7 @@ opSel[0] => Mux28.IN19
 opSel[0] => Mux29.IN19
 opSel[0] => Mux30.IN19
 opSel[0] => Mux31.IN19
+opSel[0] => Decoder0.IN3
 opSel[1] => Mux0.IN18
 opSel[1] => Mux1.IN18
 opSel[1] => Mux2.IN18
@@ -4855,6 +4856,7 @@ opSel[1] => Mux28.IN18
 opSel[1] => Mux29.IN18
 opSel[1] => Mux30.IN18
 opSel[1] => Mux31.IN18
+opSel[1] => Decoder0.IN2
 opSel[2] => Mux0.IN17
 opSel[2] => Mux1.IN17
 opSel[2] => Mux2.IN17
@@ -4887,6 +4889,7 @@ opSel[2] => Mux28.IN17
 opSel[2] => Mux29.IN17
 opSel[2] => Mux30.IN17
 opSel[2] => Mux31.IN17
+opSel[2] => Decoder0.IN1
 opSel[3] => Mux0.IN16
 opSel[3] => Mux1.IN16
 opSel[3] => Mux2.IN16
@@ -4919,6 +4922,7 @@ opSel[3] => Mux28.IN16
 opSel[3] => Mux29.IN16
 opSel[3] => Mux30.IN16
 opSel[3] => Mux31.IN16
+opSel[3] => Decoder0.IN0
 result[0] <= Mux31.DB_MAX_OUTPUT_PORT_TYPE
 result[1] <= Mux30.DB_MAX_OUTPUT_PORT_TYPE
 result[2] <= Mux29.DB_MAX_OUTPUT_PORT_TYPE
@@ -4952,6 +4956,7 @@ result[29] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
 result[30] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
 result[31] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
 zero <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+overflow <= Selector0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |processor|XNORGate:branchXnor

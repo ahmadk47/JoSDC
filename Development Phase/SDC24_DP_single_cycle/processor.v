@@ -46,7 +46,7 @@ signextender SignExtend(.in(imm), .out(extImm));
 mux2x1 #(32) ALUMux(.in1(readData2), .in2(extImm), .s(ALUSrc), .out(ALUin2));
 
 
-ALU alu(.operand1(readData1), .operand2(ALUin2), .shamt(shamt) ,.opSel(ALUOp), .result(ALUResult), .zero(zero));
+ALU alu(.operand1(readData1), .operand2(ALUin2), .shamt(shamt) ,.opSel(ALUOp), .result(ALUResult), .zero(zero), .overflow(overflow));
 
 XNORGate branchXnor(.out(xnorOut), .in1(instruction[26]), .in2(~zero));
 
