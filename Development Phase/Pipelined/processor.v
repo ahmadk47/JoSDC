@@ -6,13 +6,13 @@ input clk, rst, enable;
 //outputs
 output [7:0] PC;
 
-wire [31:0] instruction, writeData, readData1, readData2, extImm, ALUin2, ALUResult, memoryReadData, memoryReadDataW, instructionD, readData1E, readData2E, extImmE, instructionE, ALUResultM, readData2M, ALUResultW;
+wire [31:0] instruction, writeData, readData1, readData2, extImm, ALUin2, ALUResult, memoryReadData, memoryReadDataW, instructionD, readData1E, readData2E, extImmE, instructionE, ALUResultM, readData2M, ALUResultW, ForwardAMuxOut, ForwardBMuxOut, ForwardBMuxOutM;
 wire [15:0] imm;
 wire [5:0] opCode, funct;
 wire [7:0] nextPC, PCPlus1, branchAdderResult, jumpMuxOut, branchMuxOut, PCPlus1D, PCPlus1E, PCPlus1M, PCPlus1W;
 wire [4:0] rs, rt, rd, rsE, rtE, rdE, writeRegister, shamt, writeRegisterM, writeRegisterW, shamtE;
 wire [3:0] ALUOp, ALUOpE;
-wire [1:0] regDst, memToReg, memToRegE, regDstE, memToRegM, memToRegW;
+wire [1:0] regDst, memToReg, memToRegE, regDstE, memToRegM, memToRegW, ForwardA, ForwardB;
 wire pcSrc, jump, branch, memRead, memWrite, ALUSrc, regWrite, zero, xnorOut, branchMuxSel, overflow, regWriteE, memWriteE, memReadE, ALUSrcE, regWriteM, memWriteM, memReadM, regWriteW;
 
 assign opCode = instructionD[31:26];
@@ -85,16 +85,24 @@ pipe #(136) ID_EX(.D({regWrite, memToReg, memWrite, memRead, ALUOp, regDst, ALUS
  
 // EXECUTE STAGE
 
-mux2x1 #(32) ALUMux(.in1(readData2E), .in2(extImmE), .s(ALUSrcE), .out(ALUin2));
+mux2x1 #(32) ALUMux(.in1(ForwardBMuxOut), .in2(extImmE), .s(ALUSrcE), .out(ALUin2));
 
 
-ALU alu(.operand1(readData1E), .operand2(ALUin2), .shamt(shamtE) ,.opSel(ALUOpE), .result(ALUResult), .overflow(overflow));
+mux3to1 #(32) ForwardAMux(.in1(readData1E), .in2(ALUResultM), .in3(writeData), .s(ForwardA), .out(ForwardAMuxOut));
+mux3to1 #(32) ForwardBMux(.in1(readData2E), .in2(ALUResultM), .in3(writeData), .s(ForwardB), .out(ForwardBMuxOut));
+
+
+ALU alu(.operand1(ForwardAMuxOut), .operand2(ALUin2), .shamt(shamtE) ,.opSel(ALUOpE), .result(ALUResult), .overflow(overflow));
 
 mux3to1 #(5) RFMux(.in1(rtE), .in2(rdE), .in3(5'b11111), .s(regDstE), .out(writeRegister));
 
 
-pipe #(82) EX_MEM(.D({regWriteE, memToRegE, memWriteE, memReadE, PCPlus1E, ALUResult, readData2E, writeRegister}), 
-.Q({regWriteM, memToRegM, memWriteM, memReadM, PCPlus1M, ALUResultM, readData2M, writeRegisterM}), .clk(clk), .reset(rst), .enable(enable));
+
+// module ForwardingUnit (rsE, rtE, writeRegisterM, writeRegisterW, regWriteM, regWriteW, ForwardA, ForwardB);
+ForwardingUnit FU(.rsE(rsE), .rtE(rtE), .writeRegisterM(writeRegisterM), .writeRegisterW(writeRegisterW), .regWriteM(regWriteM), .regWriteW(regWriteW), .ForwardA(ForwardA), .ForwardB(ForwardB));
+
+pipe #(82) EX_MEM(.D({regWriteE, memToRegE, memWriteE, memReadE, PCPlus1E, ALUResult, ForwardBMuxOut, writeRegister}), 
+.Q({regWriteM, memToRegM, memWriteM, memReadM, PCPlus1M, ALUResultM, ForwardBMuxOutM, writeRegisterM}), .clk(clk), .reset(rst), .enable(enable));
 
 
 
@@ -105,7 +113,7 @@ pipe #(82) EX_MEM(.D({regWriteE, memToRegE, memWriteE, memReadE, PCPlus1E, ALURe
 
 // MEMORY STAGE
 
-dataMemory DM(.address(ALUResultM[7:0]), .clock(~clk), .data(readData2M), .rden(memReadM), .wren(memWriteM), .q(memoryReadData));
+dataMemory DM(.address(ALUResultM[7:0]), .clock(~clk), .data(ForwardBMuxOutM), .rden(memReadM), .wren(memWriteM), .q(memoryReadData));
 
 
 pipe #(80) MEM_WB(.D({regWriteM, memToRegM, PCPlus1M, ALUResultM, memoryReadData, writeRegisterM}), 
