@@ -11,9 +11,9 @@ wire [15:0] imm;
 wire [5:0] opCode, funct;
 wire [7:0] nextPC, PCPlus1, branchAdderResult, jumpMuxOut, branchMuxOut, PCPlus1D, PCPlus1E, PCPlus1M, PCPlus1W;
 wire [4:0] rs, rt, rd, rsE, rtE, rdE, writeRegister, shamt, writeRegisterM, writeRegisterW, shamtE;
-wire [3:0] ALUOp, ALUOpE;
-wire [1:0] regDst, memToReg, memToRegE, regDstE, memToRegM, memToRegW, ForwardA, ForwardB;
-wire pcSrc, jump, branch, memRead, memWrite, ALUSrc, regWrite, zero, xnorOut, branchMuxSel, overflow, regWriteE, memWriteE, memReadE, ALUSrcE, regWriteM, memWriteM, memReadM, regWriteW;
+wire [3:0] ALUOp, ALUOpE, ALUOpNew;
+wire [1:0] regDst, memToReg, memToRegE, regDstE, memToRegM, memToRegW, ForwardA, ForwardB,memToRegNew, regDstNew;
+wire pcSrc, jump, branch, memRead, memWrite, ALUSrc, regWrite, zero, xnorOut, branchMuxSel, overflow, regWriteE, memWriteE, memReadE, ALUSrcE, regWriteM, memWriteM, memReadM, regWriteW,Flush,Stall, IFIDReset,EnablePCIFID,pcSrcNew,jumpNew,regWriteNew,memWriteNew, memReadNew,ALUSrcNew, branchNew;
 
 assign opCode = instructionD[31:26];
 assign rd = instructionD[15:11]; 
@@ -27,7 +27,7 @@ assign funct = instructionD[5:0];
 
 // FETCH STAGE
 
-programCounter pc(.clk(clk), .rst(rst), .PCin(nextPC), .PCout(PC));
+programCounter pc(.clk(clk), .rst(rst),.enable(EnablePCIFID), .PCin(nextPC), .PCout(PC));
 
 adder #(8) pcAdder(.in1(PC), .in2(8'b1), .out(PCPlus1));
 
@@ -35,11 +35,11 @@ instructionMemory IM(.address(nextPC), .clock(clk), .q(instruction));
 
 mux2x1 #(8) branchMux(.in1(PCPlus1),.in2(branchAdderResult), .s(branchMuxSel), .out(branchMuxOut));                             
 
-mux2x1 #(8) jumpMux(.in1(readData1[7:0]),.in2(instructionD[7:0]), .s(jump), .out(jumpMuxOut)); 
+mux2x1 #(8) jumpMux(.in1(readData1[7:0]),.in2(instructionD[7:0]), .s(jumpNew), .out(jumpMuxOut)); 
 
-mux2x1 #(8) pcMux(.in1(branchMuxOut), .in2(jumpMuxOut), .s(pcSrc), .out(nextPC));
+mux2x1 #(8) pcMux(.in1(branchMuxOut), .in2(jumpMuxOut), .s(pcSrcNew), .out(nextPC));
 
-pipe #(40) IF_ID(.D({PCPlus1, instruction}), .Q({PCPlus1D, instructionD}), .clk(clk), .reset(rst), .enable(enable));
+pipe #(40) IF_ID(.D({PCPlus1, instruction}), .Q({PCPlus1D, instructionD}), .clk(clk), .reset(IFIDReset), .enable(EnablePCIFID));
 
 
 
@@ -68,14 +68,20 @@ Comparator #(32) branchComparator(.equal(zero), .a(readData1), .b(readData2));
 	
 XNORGate branchXnor(.out(xnorOut), .in1(instructionD[26]), .in2(~zero));
 
-ANDGate branchAnd(.in1(xnorOut), .in2(branch), .out(branchMuxSel));
+ANDGate branchAnd(.in1(xnorOut), .in2(branchNew), .out(branchMuxSel));
 
 adder #(8) branchAdder(.in1(PCPlus1D), .in2(imm[7:0]), .out(branchAdderResult));
 
+HazardDetectionUnit HDU (.Stall(Stall), .Flush(Flush), .takenBranch(branchMuxSel), .pcSrc(pcSrc), .writeRegisterE(writeRegister), .rsD(rs), .rtD(rt), .memReadE(memReadE));
 
+ORGate IfIdReset(.in1(rst), .in2(Flush), .out(IFIDReset));
+
+mux2x1 #(15) CUMux(.in1({pcSrc,jump,regWrite, memToReg, memWrite, memRead, ALUOp, regDst, ALUSrc, branch}), .in2(15'b0), .s(Stall), .out({pcSrcNew,jumpNew,regWriteNew, memToRegNew, memWriteNew, memReadNew, ALUOpNew, regDstNew, ALUSrcNew, branchNew}));
+
+ANDGate holdGate(.in1(~Stall), .in2(enable), .out(EnablePCIFID));
 // CHECK INPUTS AND OUTPUTS
 	
-pipe #(136) ID_EX(.D({regWrite, memToReg, memWrite, memRead, ALUOp, regDst, ALUSrc, PCPlus1D, readData1, readData2, extImm, rs, rt, rd, shamt}),
+pipe #(136) ID_EX(.D({regWriteNew, memToRegNew, memWriteNew, memReadNew, ALUOpNew, regDstNew, ALUSrcNew, PCPlus1D, readData1, readData2, extImm, rs, rt, rd, shamt}),
  .Q({regWriteE, memToRegE, memWriteE, memReadE, ALUOpE, regDstE, ALUSrcE, PCPlus1E, readData1E, readData2E, extImmE, rsE, rtE, rdE, shamtE}), .clk(clk), .reset(rst), .enable(enable));
 
  

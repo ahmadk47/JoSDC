@@ -1,7 +1,7 @@
-module programCounter (clk, rst, PCin, PCout);
+module programCounter (clk, rst, PCin,enable, PCout);
 	
 	//inputs
-	input clk, rst;
+	input clk, rst,enable;
 	input [7:0] PCin;
 	
 	//outputs 
@@ -12,7 +12,7 @@ module programCounter (clk, rst, PCin, PCout);
 		if(~rst) begin
 			PCout <= 8'b11111111;
 		end
-		else begin
+		else if (enable) begin
 			PCout <= PCin;
 		end
 	end

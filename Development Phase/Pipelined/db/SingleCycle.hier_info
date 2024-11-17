@@ -37,6 +37,14 @@ PCin[4] => PCout[4]~reg0.DATAIN
 PCin[5] => PCout[5]~reg0.DATAIN
 PCin[6] => PCout[6]~reg0.DATAIN
 PCin[7] => PCout[7]~reg0.DATAIN
+enable => PCout[0]~reg0.ENA
+enable => PCout[7]~reg0.ENA
+enable => PCout[6]~reg0.ENA
+enable => PCout[5]~reg0.ENA
+enable => PCout[4]~reg0.ENA
+enable => PCout[3]~reg0.ENA
+enable => PCout[2]~reg0.ENA
+enable => PCout[1]~reg0.ENA
 PCout[0] <= PCout[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 PCout[1] <= PCout[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 PCout[2] <= PCout[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
@@ -4518,6 +4526,114 @@ out[4] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
 out[5] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
 out[6] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
 out[7] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|processor|HazardDetectionUnit:HDU
+Stall <= always1.DB_MAX_OUTPUT_PORT_TYPE
+Flush <= Flush.DB_MAX_OUTPUT_PORT_TYPE
+takenBranch => Flush.IN0
+pcSrc => Flush.IN1
+writeRegisterE[0] => Equal0.IN4
+writeRegisterE[0] => Equal1.IN4
+writeRegisterE[0] => Equal2.IN4
+writeRegisterE[1] => Equal0.IN3
+writeRegisterE[1] => Equal1.IN3
+writeRegisterE[1] => Equal2.IN3
+writeRegisterE[2] => Equal0.IN2
+writeRegisterE[2] => Equal1.IN2
+writeRegisterE[2] => Equal2.IN2
+writeRegisterE[3] => Equal0.IN1
+writeRegisterE[3] => Equal1.IN1
+writeRegisterE[3] => Equal2.IN1
+writeRegisterE[4] => Equal0.IN0
+writeRegisterE[4] => Equal1.IN0
+writeRegisterE[4] => Equal2.IN0
+rsD[0] => Equal0.IN9
+rsD[1] => Equal0.IN8
+rsD[2] => Equal0.IN7
+rsD[3] => Equal0.IN6
+rsD[4] => Equal0.IN5
+rtD[0] => Equal1.IN9
+rtD[1] => Equal1.IN8
+rtD[2] => Equal1.IN7
+rtD[3] => Equal1.IN6
+rtD[4] => Equal1.IN5
+memReadE => always1.IN1
+
+
+|processor|ORGate:IfIdReset
+in1 => out.IN0
+in2 => out.IN1
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|processor|mux2x1:CUMux
+in1[0] => out.DATAB
+in1[1] => out.DATAB
+in1[2] => out.DATAB
+in1[3] => out.DATAB
+in1[4] => out.DATAB
+in1[5] => out.DATAB
+in1[6] => out.DATAB
+in1[7] => out.DATAB
+in1[8] => out.DATAB
+in1[9] => out.DATAB
+in1[10] => out.DATAB
+in1[11] => out.DATAB
+in1[12] => out.DATAB
+in1[13] => out.DATAB
+in1[14] => out.DATAB
+in2[0] => out.DATAA
+in2[1] => out.DATAA
+in2[2] => out.DATAA
+in2[3] => out.DATAA
+in2[4] => out.DATAA
+in2[5] => out.DATAA
+in2[6] => out.DATAA
+in2[7] => out.DATAA
+in2[8] => out.DATAA
+in2[9] => out.DATAA
+in2[10] => out.DATAA
+in2[11] => out.DATAA
+in2[12] => out.DATAA
+in2[13] => out.DATAA
+in2[14] => out.DATAA
+s => out.OUTPUTSELECT
+s => out.OUTPUTSELECT
+s => out.OUTPUTSELECT
+s => out.OUTPUTSELECT
+s => out.OUTPUTSELECT
+s => out.OUTPUTSELECT
+s => out.OUTPUTSELECT
+s => out.OUTPUTSELECT
+s => out.OUTPUTSELECT
+s => out.OUTPUTSELECT
+s => out.OUTPUTSELECT
+s => out.OUTPUTSELECT
+s => out.OUTPUTSELECT
+s => out.OUTPUTSELECT
+s => out.OUTPUTSELECT
+out[0] <= out.DB_MAX_OUTPUT_PORT_TYPE
+out[1] <= out.DB_MAX_OUTPUT_PORT_TYPE
+out[2] <= out.DB_MAX_OUTPUT_PORT_TYPE
+out[3] <= out.DB_MAX_OUTPUT_PORT_TYPE
+out[4] <= out.DB_MAX_OUTPUT_PORT_TYPE
+out[5] <= out.DB_MAX_OUTPUT_PORT_TYPE
+out[6] <= out.DB_MAX_OUTPUT_PORT_TYPE
+out[7] <= out.DB_MAX_OUTPUT_PORT_TYPE
+out[8] <= out.DB_MAX_OUTPUT_PORT_TYPE
+out[9] <= out.DB_MAX_OUTPUT_PORT_TYPE
+out[10] <= out.DB_MAX_OUTPUT_PORT_TYPE
+out[11] <= out.DB_MAX_OUTPUT_PORT_TYPE
+out[12] <= out.DB_MAX_OUTPUT_PORT_TYPE
+out[13] <= out.DB_MAX_OUTPUT_PORT_TYPE
+out[14] <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|processor|ANDGate:holdGate
+in1 => out.IN0
+in2 => out.IN1
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |processor|pipe:ID_EX
