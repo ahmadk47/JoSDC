@@ -6,14 +6,25 @@ input clk, rst, enable;
 //outputs
 output [7:0] PC;
 
-wire [31:0] instruction, writeData, readData1, readData2, extImm, ALUin2, ALUResult, memoryReadData, memoryReadDataW, instructionD, readData1E, readData2E, extImmE, instructionE, ALUResultM, readData2M, ALUResultW, ForwardAMuxOut, ForwardBMuxOut, ForwardBMuxOutM;
-wire [15:0] imm;
+wire [31:0] instruction, writeData, readData1, readData2, extImm, ALUin2, ALUResult, memoryReadData,
+ memoryReadDataW, instructionD, readData1E, readData2E, extImmE, instructionE, ALUResultM, readData2M, 
+ ALUResultW, ForwardAMuxOut, ForwardBMuxOut, ForwardBMuxOutM;
+
+ wire [15:0] imm;
+
 wire [5:0] opCode, funct;
+
 wire [7:0] nextPC, PCPlus1, branchAdderResult, jumpMuxOut, branchMuxOut, PCPlus1D, PCPlus1E, PCPlus1M, PCPlus1W;
+
 wire [4:0] rs, rt, rd, rsE, rtE, rdE, writeRegister, shamt, writeRegisterM, writeRegisterW, shamtE;
+
 wire [3:0] ALUOp, ALUOpE, ALUOpNew;
+
 wire [1:0] regDst, memToReg, memToRegE, regDstE, memToRegM, memToRegW, ForwardA, ForwardB,memToRegNew, regDstNew;
-wire pcSrc, jump, branch, memRead, memWrite, ALUSrc, regWrite, zero, xnorOut, branchMuxSel, overflow, regWriteE, memWriteE, memReadE, ALUSrcE, regWriteM, memWriteM, memReadM, regWriteW,Flush,Stall, IFIDReset,EnablePCIFID,pcSrcNew,jumpNew,regWriteNew,memWriteNew, memReadNew,ALUSrcNew, branchNew;
+
+wire pcSrc, jump, branch, memRead, memWrite, ALUSrc, regWrite, zero, xnorOut, branchMuxSel, overflow, regWriteE, 
+memWriteE, memReadE, ALUSrcE, regWriteM, memWriteM, memReadM, regWriteW,Flush,Stall, IFIDReset,EnablePCIFID,pcSrcNew,
+jumpNew,regWriteNew,memWriteNew, memReadNew,ALUSrcNew, branchNew;
 
 assign opCode = instructionD[31:26];
 assign rd = instructionD[15:11]; 
@@ -40,11 +51,6 @@ mux2x1 #(8) jumpMux(.in1(readData1[7:0]),.in2(instructionD[7:0]), .s(jumpNew), .
 mux2x1 #(8) pcMux(.in1(branchMuxOut), .in2(jumpMuxOut), .s(pcSrcNew), .out(nextPC));
 
 pipe #(40) IF_ID(.D({PCPlus1, instruction}), .Q({PCPlus1D, instructionD}), .clk(clk), .reset(IFIDReset), .enable(EnablePCIFID));
-
-
-
-
-
 
 
 
