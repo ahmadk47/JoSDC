@@ -1,4 +1,4 @@
-module BranchPredictionUnit(branch_taken,clk, reset, branch, pc);
+module BranchPredictionUnit(branch_taken,clk, reset, branch, pc, prediction);
 
 	 input clk, reset, branch, branch_taken;
 	 input [7:0] pc;
