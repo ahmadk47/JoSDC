@@ -1,5 +1,5 @@
 Flow report for Pipelined
-Fri Nov 29 18:20:15 2024
+Fri Nov 29 23:48:28 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -41,15 +41,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Fri Nov 29 18:20:15 2024       ;
+; Flow Status                        ; Successful - Fri Nov 29 23:48:28 2024       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; Pipelined                                   ;
 ; Top-level Entity Name              ; processor                                   ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M50DAF484C7G                              ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 4,604 / 49,760 ( 9 % )                      ;
-;     Total combinational functions  ; 4,559 / 49,760 ( 9 % )                      ;
+; Total logic elements               ; 4,608 / 49,760 ( 9 % )                      ;
+;     Total combinational functions  ; 4,554 / 49,760 ( 9 % )                      ;
 ;     Dedicated logic registers      ; 1,757 / 49,760 ( 4 % )                      ;
 ; Total registers                    ; 1757                                        ;
 ; Total pins                         ; 11 / 360 ( 3 % )                            ;
@@ -67,7 +67,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/29/2024 18:19:40 ;
+; Start date & time ; 11/29/2024 23:47:07 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Pipelined           ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------+----------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                      ; Value                                  ; Default Value ; Entity Name ; Section Id     ;
 +--------------------------------------+----------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID                ; 237901786695837.173289358026048        ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID                ; 194042956659574.173291322705132        ; --            ; --          ; --             ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; testbench      ;
 ; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; testbench                              ; --            ; --          ; eda_simulation ;
 ; EDA_OUTPUT_DATA_FORMAT               ; Verilog Hdl                            ; --            ; --          ; eda_simulation ;
@@ -114,12 +114,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:11     ; 1.0                     ; 4840 MB             ; 00:00:07                           ;
-; Fitter               ; 00:00:13     ; 1.7                     ; 5866 MB             ; 00:00:08                           ;
-; Assembler            ; 00:00:02     ; 1.0                     ; 4709 MB             ; 00:00:01                           ;
-; Timing Analyzer      ; 00:00:03     ; 2.5                     ; 4901 MB             ; 00:00:03                           ;
-; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4676 MB             ; 00:00:00                           ;
-; Total                ; 00:00:30     ; --                      ; --                  ; 00:00:19                           ;
+; Analysis & Synthesis ; 00:00:28     ; 1.0                     ; 4822 MB             ; 00:00:20                           ;
+; Fitter               ; 00:00:25     ; 1.5                     ; 5705 MB             ; 00:00:19                           ;
+; Assembler            ; 00:00:03     ; 1.0                     ; 4707 MB             ; 00:00:02                           ;
+; Timing Analyzer      ; 00:00:11     ; 2.1                     ; 4874 MB             ; 00:00:04                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 4675 MB             ; 00:00:01                           ;
+; Total                ; 00:01:09     ; --                      ; --                  ; 00:00:46                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -128,11 +128,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+------------------+------------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; DESKTOP-F668SFB  ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter               ; DESKTOP-F668SFB  ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler            ; DESKTOP-F668SFB  ; Windows 10 ; 10.0       ; x86_64         ;
-; Timing Analyzer      ; DESKTOP-F668SFB  ; Windows 10 ; 10.0       ; x86_64         ;
-; EDA Netlist Writer   ; DESKTOP-F668SFB  ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis ; Ahmad            ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; Ahmad            ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; Ahmad            ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; Ahmad            ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; Ahmad            ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 

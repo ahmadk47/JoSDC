@@ -45,11 +45,11 @@ adder #(8) pcAdder(.in1(PC), .in2(8'b1), .out(PCPlus1));
 
 instructionMemory IM(.address(nextPC), .clock(clk), .q(instruction));
 
-mux2x1 pcMux(.in1(branchMuxOut), .in2(jumpMuxOut), .s(pcSrc), .out(nextPC)); 
+mux2x1 #(8) pcMux(.in1(branchMuxOut), .in2(jumpMuxOut), .s(pcSrcNew), .out(nextPC)); 
 
-mux2x1 jumpMux(.in1(readData1[7:0]), .in2(instructionD[7:0]), .s(jump), .out(jumpMuxOut));
+mux2x1 #(8) jumpMux(.in1(readData1[7:0]), .in2(instructionD[7:0]), .s(jumpNew), .out(jumpMuxOut));
 
-mux2x1 branchMux(.in1(PCPlus1), .in2(branchAdderResult), .s(prediction), .out(branchMuxOut));
+mux2x1 #(8) branchMux(.in1(PCPlus1), .in2(branchAdderResult), .s(prediction), .out(branchMuxOut));
 
 
 pipe #(40) IF_ID(.D({PCPlus1, instruction}), .Q({PCPlus1D, instructionD}), .clk(clk), .reset(IFIDReset), .enable(EnablePCIFID)); // fill pipes top to bottom
@@ -58,7 +58,7 @@ pipe #(40) IF_ID(.D({PCPlus1, instruction}), .Q({PCPlus1D, instructionD}), .clk(
 
 //module BranchPredictionUnit(branch_taken,clk, reset, branch, pc, prediction);
 
-BranchPredictionUnit BPU(.branch_taken(branchTaken), .clk(clk), .reset(rst), .branch(branch), .pc(PC), .prediction(prediction));
+BranchPredictionUnit BPU(.branch_taken(branchTaken), .clk(clk), .reset(rst), .branch(branchNew), .pc(PC), .prediction(prediction));
 
 
 // DECODE STAGE
@@ -84,7 +84,9 @@ ANDGate branchAnd(.in1(xnorOut), .in2(branchNew), .out(branchTaken));           
 
 adder #(8) branchAdder(.in1(PCPlus1D), .in2(imm[7:0]), .out(branchAdderResult));
 
-HazardDetectionUnit HDU (.Stall(Stall), .Flush(Flush), .takenBranch(branchTaken), .pcSrc(pcSrc), .writeRegisterE(writeRegister), .rsD(rs), .rtD(rt), .memReadE(memReadE), .branch(branch)); // FIX HDU
+//module HazardDetectionUnit (Stall, Flush, takenBranch, pcSrc, writeRegisterE, rsD, rtD, memReadE, branch, prediction);
+
+HazardDetectionUnit HDU (.Stall(Stall), .Flush(Flush), .takenBranch(branchTaken), .pcSrc(pcSrcNew), .writeRegisterE(writeRegister), .rsD(rs), .rtD(rt), .memReadE(memReadE), .branch(branchNew), .prediction(prediction)); // FIX HDU
 
 ORGate IfIdReset(.in1(rst), .in2(Flush), .out(IFIDReset));
 
@@ -95,7 +97,7 @@ ANDGate holdGate(.in1(~Stall), .in2(enable), .out(EnablePCIFID));
 // CHECK INPUTS AND OUTPUTS
 	
 pipe #(136) ID_EX(.D({regWriteNew, memToRegNew, memWriteNew, memReadNew, ALUOpNew, regDstNew, ALUSrcNew, PCPlus1D, readData1, readData2, extImm, rs, rt, rd, shamt}),
- .Q({regWriteE, memToRegE, memWriteE, memReadE, ALUOpE, regDstE, ALUSrcE, PCPlus1E, readData1E, readData2E, extImmE, rsE, rtE, rdE, shamtE}), .clk(clk), .reset(rst), .enable(enable));
+ .Q({regWriteE, memToRegE, memWriteE, memReadE, ALUOpE, regDstE, ALUSrcE, PCPlus1E, readData1E, readData2E, extImmE, rsE, rtE, rdE, shamtE}), .clk(clk), .reset(IFIDReset), .enable(enable));
 
  
  

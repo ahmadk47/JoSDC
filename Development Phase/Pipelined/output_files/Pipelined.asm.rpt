@@ -1,5 +1,5 @@
 Assembler report for Pipelined
-Fri Nov 29 18:20:09 2024
+Fri Nov 29 23:48:07 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -10,7 +10,7 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   2. Assembler Summary
   3. Assembler Settings
   4. Assembler Generated Files
-  5. Assembler Device Options: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/output_files/Pipelined.sof
+  5. Assembler Device Options: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/output_files/Pipelined.sof
   6. Assembler Messages
 
 
@@ -38,7 +38,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Fri Nov 29 18:20:09 2024 ;
+; Assembler Status      ; Successful - Fri Nov 29 23:48:07 2024 ;
 ; Revision Name         ; Pipelined                             ;
 ; Top-level Entity Name ; processor                             ;
 ; Family                ; MAX 10                                ;
@@ -53,23 +53,23 @@ https://fpgasoftware.intel.com/eula.
 +--------+---------+---------------+
 
 
-+---------------------------------------------------------------------------------------------------+
-; Assembler Generated Files                                                                         ;
-+---------------------------------------------------------------------------------------------------+
-; File Name                                                                                         ;
-+---------------------------------------------------------------------------------------------------+
-; C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/output_files/Pipelined.sof ;
-+---------------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------+
+; Assembler Generated Files                                                                    ;
++----------------------------------------------------------------------------------------------+
+; File Name                                                                                    ;
++----------------------------------------------------------------------------------------------+
+; C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/output_files/Pipelined.sof ;
++----------------------------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------+
-; Assembler Device Options: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/output_files/Pipelined.sof ;
-+----------------+------------------------------------------------------------------------------------------------------------+
-; Option         ; Setting                                                                                                    ;
-+----------------+------------------------------------------------------------------------------------------------------------+
-; JTAG usercode  ; 0x0059E2AE                                                                                                 ;
-; Checksum       ; 0x0059E2AE                                                                                                 ;
-+----------------+------------------------------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------+
+; Assembler Device Options: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/output_files/Pipelined.sof ;
++----------------+-------------------------------------------------------------------------------------------------------+
+; Option         ; Setting                                                                                               ;
++----------------+-------------------------------------------------------------------------------------------------------+
+; JTAG usercode  ; 0x005A0DB4                                                                                            ;
+; Checksum       ; 0x005A0DB4                                                                                            ;
++----------------+-------------------------------------------------------------------------------------------------------+
 
 
 +--------------------+
@@ -78,14 +78,14 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Fri Nov 29 18:20:07 2024
+    Info: Processing started: Fri Nov 29 23:48:04 2024
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off Pipelined -c Pipelined
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4709 megabytes
-    Info: Processing ended: Fri Nov 29 18:20:09 2024
-    Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:01
+    Info: Peak virtual memory: 4707 megabytes
+    Info: Processing ended: Fri Nov 29 23:48:07 2024
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:02
 
 

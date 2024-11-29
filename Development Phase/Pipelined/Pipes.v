@@ -11,7 +11,7 @@ always @(posedge clk, negedge reset) begin
 if (~reset)
 	Q <= {size{1'b0}};
 	
-else if (enable & reset)
+else if (enable)
 	Q <= D;
 
 else

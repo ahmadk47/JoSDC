@@ -12,7 +12,7 @@ module programCounter (clk, rst, PCin, enable, PCout);
 		if(~rst) begin
 			PCout <= 8'b11111111;
 		end
-		else if (enable & rst) begin
+		else if (enable) begin
 			PCout <= PCin;
 		end
 		else
