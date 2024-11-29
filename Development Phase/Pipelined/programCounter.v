@@ -1,4 +1,4 @@
-module programCounter (clk, rst, PCin,enable, PCout);
+module programCounter (clk, rst, PCin, enable, PCout);
 	
 	//inputs
 	input clk, rst,enable;
@@ -12,9 +12,11 @@ module programCounter (clk, rst, PCin,enable, PCout);
 		if(~rst) begin
 			PCout <= 8'b11111111;
 		end
-		else if (enable) begin
+		else if (enable & rst) begin
 			PCout <= PCin;
 		end
+		else
+		PCout <= PCout;
 	end
 	
 endmodule

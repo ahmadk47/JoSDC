@@ -3,7 +3,7 @@ module BranchPredictionUnit(branch_taken,clk, reset, branch, pc, prediction);
 	 input clk, reset, branch, branch_taken;
 	 input [7:0] pc;
     output reg prediction;
-	
+	 integer i;
    
     reg [1:0] BHT [0:255];
     wire [7:0] index = pc[7:0];
@@ -21,9 +21,9 @@ module BranchPredictionUnit(branch_taken,clk, reset, branch, pc, prediction);
         endcase
     end
 
-    always @(posedge clk or negedge reset) begin
+    always @(posedge clk or negedge reset) begin : block
         if (~reset) begin
-            integer i;
+ 
             for (i = 0; i < 256; i = i + 1) begin
                 BHT[i] <= 2'b00;
             end

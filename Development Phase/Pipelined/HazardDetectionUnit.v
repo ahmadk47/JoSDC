@@ -1,12 +1,12 @@
-module HazardDetectionUnit (Stall, Flush, takenBranch, pcSrc, writeRegisterE, rsD, rtD, memReadE);
- input takenBranch, pcSrc, memReadE;
+module HazardDetectionUnit (Stall, Flush, takenBranch, pcSrc, writeRegisterE, rsD, rtD, memReadE, branch, prediction);
+ input takenBranch, pcSrc, memReadE, branch, prediction;
  input [4:0] writeRegisterE, rsD, rtD;
  output reg Stall, Flush;
 	
 	
 	always @(*) begin
 	
-		Flush = takenBranch | pcSrc;
+		Flush = ((takenBranch ^ prediction) & branch)| pcSrc;
 		
 	end
 	

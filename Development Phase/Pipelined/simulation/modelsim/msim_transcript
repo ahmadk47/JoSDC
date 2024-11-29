@@ -1,5 +1,5 @@
 # Reading pref.tcl
-# do SingleCycle_run_msim_rtl_verilog.do
+# do Pipelined_run_msim_rtl_verilog.do
 # if {[file exists rtl_work]} {
 # 	vdel -lib rtl_work -all
 # }
@@ -10,9 +10,19 @@
 # Copying C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
+# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/Josdc\ phase\ 2/JoSDC/Development\ Phase/Pipelined {C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/BranchPredictionUnit.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 18:11:50 on Nov 29,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined" C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/BranchPredictionUnit.v 
+# -- Compiling module BranchPredictionUnit
+# 
+# Top level modules:
+# 	BranchPredictionUnit
+# End time: 18:11:50 on Nov 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/Josdc\ phase\ 2/JoSDC/Development\ Phase/Pipelined {C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/muxes.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 23:44:33 on Nov 15,2024
+# Start time: 18:11:50 on Nov 29,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined" C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/muxes.v 
 # -- Compiling module mux2x1
 # -- Compiling module mux3to1
@@ -20,171 +30,228 @@
 # Top level modules:
 # 	mux2x1
 # 	mux3to1
-# End time: 23:44:34 on Nov 15,2024, Elapsed time: 0:00:01
+# End time: 18:11:50 on Nov 29,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/Josdc\ phase\ 2/JoSDC/Development\ Phase/Pipelined {C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 23:44:34 on Nov 15,2024
+# Start time: 18:11:50 on Nov 29,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined" C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v 
 # -- Compiling module processor
 # 
 # Top level modules:
 # 	processor
-# End time: 23:44:34 on Nov 15,2024, Elapsed time: 0:00:00
+# End time: 18:11:50 on Nov 29,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/Josdc\ phase\ 2/JoSDC/Development\ Phase/Pipelined {C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/registerFile.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 23:44:34 on Nov 15,2024
+# Start time: 18:11:50 on Nov 29,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined" C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/registerFile.v 
 # -- Compiling module registerFile
 # 
 # Top level modules:
 # 	registerFile
-# End time: 23:44:34 on Nov 15,2024, Elapsed time: 0:00:00
+# End time: 18:11:50 on Nov 29,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/Josdc\ phase\ 2/JoSDC/Development\ Phase/Pipelined {C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/controlUnit.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 23:44:34 on Nov 15,2024
+# Start time: 18:11:50 on Nov 29,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined" C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/controlUnit.v 
 # -- Compiling module controlUnit
 # 
 # Top level modules:
 # 	controlUnit
-# End time: 23:44:34 on Nov 15,2024, Elapsed time: 0:00:00
+# End time: 18:11:50 on Nov 29,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/Josdc\ phase\ 2/JoSDC/Development\ Phase/Pipelined {C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/ALU.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 23:44:34 on Nov 15,2024
+# Start time: 18:11:50 on Nov 29,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined" C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/ALU.v 
 # -- Compiling module ALU
 # 
 # Top level modules:
 # 	ALU
-# End time: 23:44:34 on Nov 15,2024, Elapsed time: 0:00:00
+# End time: 18:11:50 on Nov 29,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/Josdc\ phase\ 2/JoSDC/Development\ Phase/Pipelined {C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/signextender.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 23:44:34 on Nov 15,2024
+# Start time: 18:11:50 on Nov 29,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined" C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/signextender.v 
 # -- Compiling module signextender
 # 
 # Top level modules:
 # 	signextender
-# End time: 23:44:34 on Nov 15,2024, Elapsed time: 0:00:00
+# End time: 18:11:50 on Nov 29,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/Josdc\ phase\ 2/JoSDC/Development\ Phase/Pipelined {C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/programCounter.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 23:44:34 on Nov 15,2024
+# Start time: 18:11:50 on Nov 29,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined" C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/programCounter.v 
 # -- Compiling module programCounter
 # 
 # Top level modules:
 # 	programCounter
-# End time: 23:44:34 on Nov 15,2024, Elapsed time: 0:00:00
+# End time: 18:11:50 on Nov 29,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/Josdc\ phase\ 2/JoSDC/Development\ Phase/Pipelined {C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/adder.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 23:44:34 on Nov 15,2024
+# Start time: 18:11:50 on Nov 29,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined" C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/adder.v 
 # -- Compiling module adder
 # 
 # Top level modules:
 # 	adder
-# End time: 23:44:34 on Nov 15,2024, Elapsed time: 0:00:00
+# End time: 18:11:50 on Nov 29,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/Josdc\ phase\ 2/JoSDC/Development\ Phase/Pipelined {C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/ANDGate.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 23:44:34 on Nov 15,2024
+# Start time: 18:11:50 on Nov 29,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined" C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/ANDGate.v 
 # -- Compiling module ANDGate
 # 
 # Top level modules:
 # 	ANDGate
-# End time: 23:44:34 on Nov 15,2024, Elapsed time: 0:00:00
+# End time: 18:11:50 on Nov 29,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/Josdc\ phase\ 2/JoSDC/Development\ Phase/Pipelined {C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/instructionMemory.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 23:44:34 on Nov 15,2024
+# Start time: 18:11:50 on Nov 29,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined" C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/instructionMemory.v 
 # -- Compiling module instructionMemory
 # 
 # Top level modules:
 # 	instructionMemory
-# End time: 23:44:34 on Nov 15,2024, Elapsed time: 0:00:00
+# End time: 18:11:50 on Nov 29,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/Josdc\ phase\ 2/JoSDC/Development\ Phase/Pipelined {C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/dataMemory.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 23:44:34 on Nov 15,2024
+# Start time: 18:11:50 on Nov 29,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined" C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/dataMemory.v 
 # -- Compiling module dataMemory
 # 
 # Top level modules:
 # 	dataMemory
-# End time: 23:44:34 on Nov 15,2024, Elapsed time: 0:00:00
+# End time: 18:11:50 on Nov 29,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/Josdc\ phase\ 2/JoSDC/Development\ Phase/Pipelined {C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/XNOR.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 23:44:34 on Nov 15,2024
+# Start time: 18:11:50 on Nov 29,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined" C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/XNOR.v 
 # -- Compiling module XNORGate
 # 
 # Top level modules:
 # 	XNORGate
-# End time: 23:44:34 on Nov 15,2024, Elapsed time: 0:00:00
+# End time: 18:11:50 on Nov 29,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/Josdc\ phase\ 2/JoSDC/Development\ Phase/Pipelined {C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/Pipes.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 23:44:34 on Nov 15,2024
+# Start time: 18:11:50 on Nov 29,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined" C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/Pipes.v 
 # -- Compiling module pipe
 # 
 # Top level modules:
 # 	pipe
-# End time: 23:44:34 on Nov 15,2024, Elapsed time: 0:00:00
+# End time: 18:11:50 on Nov 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/Josdc\ phase\ 2/JoSDC/Development\ Phase/Pipelined {C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/Comparator.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 18:11:51 on Nov 29,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined" C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/Comparator.v 
+# -- Compiling module Comparator
+# 
+# Top level modules:
+# 	Comparator
+# End time: 18:11:51 on Nov 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/Josdc\ phase\ 2/JoSDC/Development\ Phase/Pipelined {C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/forwardingUnit.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 18:11:51 on Nov 29,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined" C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/forwardingUnit.v 
+# -- Compiling module ForwardingUnit
+# 
+# Top level modules:
+# 	ForwardingUnit
+# End time: 18:11:51 on Nov 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/Josdc\ phase\ 2/JoSDC/Development\ Phase/Pipelined {C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/HazardDetectionUnit.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 18:11:51 on Nov 29,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined" C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/HazardDetectionUnit.v 
+# -- Compiling module HazardDetectionUnit
+# 
+# Top level modules:
+# 	HazardDetectionUnit
+# End time: 18:11:51 on Nov 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/Josdc\ phase\ 2/JoSDC/Development\ Phase/Pipelined {C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/ORGate.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 18:11:51 on Nov 29,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined" C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/ORGate.v 
+# -- Compiling module ORGate
+# 
+# Top level modules:
+# 	ORGate
+# End time: 18:11:51 on Nov 29,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vlog -vlog01compat -work work +incdir+C:/Users/Saleh/Desktop/Josdc\ phase\ 2/JoSDC/Development\ Phase/Pipelined {C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/testbench.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 23:44:34 on Nov 15,2024
+# Start time: 18:11:51 on Nov 29,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined" C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/testbench.v 
 # -- Compiling module testbench
 # 
 # Top level modules:
 # 	testbench
-# End time: 23:44:35 on Nov 15,2024, Elapsed time: 0:00:01
+# End time: 18:11:51 on Nov 29,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L fiftyfivenm_ver -L rtl_work -L work -voptargs="+acc"  testbench
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L fiftyfivenm_ver -L rtl_work -L work -voptargs=""+acc"" testbench 
-# Start time: 23:44:35 on Nov 15,2024
+# Start time: 18:11:51 on Nov 29,2024
 # Loading work.testbench
 # Loading work.processor
 # Loading work.programCounter
 # Loading work.adder
 # Loading work.instructionMemory
 # Loading altera_mf_ver.altsyncram
-# Loading work.pipe
-# Loading work.controlUnit
-# Loading work.mux3to1
-# Loading work.registerFile
-# Loading work.signextender
 # Loading work.mux2x1
-# Loading work.ALU
+# Loading work.pipe
+# Loading work.BranchPredictionUnit
+# Loading work.signextender
+# Loading work.controlUnit
+# Loading work.registerFile
+# Loading work.Comparator
 # Loading work.XNORGate
 # Loading work.ANDGate
+# Loading work.HazardDetectionUnit
+# Loading work.ORGate
+# Loading work.mux3to1
+# Loading work.ALU
+# Loading work.ForwardingUnit
 # Loading work.dataMemory
 # Loading altera_mf_ver.altsyncram_body
 # Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
 # Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
-# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'uut'.  Expected 4, found 3.
-#    Time: 0 ps  Iteration: 0  Instance: /testbench/uut File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/testbench.v Line: 17
-# ** Warning: (vsim-3722) C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/testbench.v(17): [TFMPC] - Missing connection for port 'enable'.
-# ** Warning: (vsim-3015) [PCDPC] - Port size (40) does not match connection size (33) for port 'Q'. The port definition is at: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/Pipes.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /testbench/uut/IF_ID File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 36
-# ** Warning: (vsim-3015) [PCDPC] - Port size (130) does not match connection size (124) for port 'D'. The port definition is at: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/Pipes.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /testbench/uut/ID_IX File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 51
-# ** Warning: (vsim-3015) [PCDPC] - Port size (130) does not match connection size (124) for port 'Q'. The port definition is at: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/Pipes.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /testbench/uut/ID_IX File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 51
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (8) for port 'in1'. The port definition is at: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/muxes.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/uut/pcMux File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 48
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (8) for port 'in2'. The port definition is at: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/muxes.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/uut/pcMux File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 48
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (8) for port 'out'. The port definition is at: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/muxes.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/uut/pcMux File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 48
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (8) for port 'in1'. The port definition is at: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/muxes.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/uut/jumpMux File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 50
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (8) for port 'in2'. The port definition is at: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/muxes.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/uut/jumpMux File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 50
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (8) for port 'out'. The port definition is at: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/muxes.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/uut/jumpMux File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 50
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (8) for port 'in1'. The port definition is at: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/muxes.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/uut/branchMux File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 52
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (8) for port 'in2'. The port definition is at: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/muxes.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/uut/branchMux File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 52
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (8) for port 'out'. The port definition is at: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/muxes.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/uut/branchMux File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 52
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'HDU'.  Expected 10, found 9.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/uut/HDU File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 87
+# ** Warning: (vsim-3722) C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v(87): [TFMPC] - Missing connection for port 'prediction'.
 # 
 # add wave *
 # view structure
@@ -192,26 +259,8 @@
 # view signals
 # .main_pane.objects.interior.cs.body.tree
 # run -all
-# ERROR: instructionMemoryInitializationFile.mif, line 1, Missing `content begin` statement.
-# ** Note: $stop    : C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/testbench.v(12)
-#    Time: 1004 ns  Iteration: 0  Instance: /testbench
-# Break in Module testbench at C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/testbench.v line 12
-do wave.do
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'uut'.  Expected 4, found 3.
-#    Time: 0 ps  Iteration: 0  Instance: /testbench/uut File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/testbench.v Line: 17
-# ** Warning: (vsim-3722) C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/testbench.v(17): [TFMPC] - Missing connection for port 'enable'.
-# ** Warning: (vsim-3015) [PCDPC] - Port size (40) does not match connection size (33) for port 'Q'. The port definition is at: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/Pipes.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /testbench/uut/IF_ID File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 36
-# ** Warning: (vsim-3015) [PCDPC] - Port size (130) does not match connection size (124) for port 'D'. The port definition is at: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/Pipes.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /testbench/uut/ID_IX File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 51
-# ** Warning: (vsim-3015) [PCDPC] - Port size (130) does not match connection size (124) for port 'Q'. The port definition is at: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/Pipes.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /testbench/uut/ID_IX File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 51
-run -all
-# ERROR: instructionMemoryInitializationFile.mif, line 1, Missing `content begin` statement.
-# ** Note: $stop    : C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/testbench.v(12)
-#    Time: 1004 ns  Iteration: 0  Instance: /testbench
-# Break in Module testbench at C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/testbench.v line 12
-# End time: 23:45:20 on Nov 15,2024, Elapsed time: 0:00:45
-# Errors: 0, Warnings: 5
+# ** Note: $stop    : C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/testbench.v(13)
+#    Time: 360 ns  Iteration: 0  Instance: /testbench
+# Break in Module testbench at C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/testbench.v line 13
+# End time: 18:19:49 on Nov 29,2024, Elapsed time: 0:07:58
+# Errors: 0, Warnings: 11

@@ -10,7 +10,7 @@ wire [31:0] instruction, writeData, readData1, readData2, extImm, ALUin2, ALURes
  memoryReadDataW, instructionD, readData1E, readData2E, extImmE, instructionE, ALUResultM, readData2M, 
  ALUResultW, ForwardAMuxOut, ForwardBMuxOut, ForwardBMuxOutM;
 
- wire [15:0] imm;
+wire [15:0] imm;
 
 wire [5:0] opCode, funct;
 
@@ -22,9 +22,10 @@ wire [3:0] ALUOp, ALUOpE, ALUOpNew;
 
 wire [1:0] regDst, memToReg, memToRegE, regDstE, memToRegM, memToRegW, ForwardA, ForwardB,memToRegNew, regDstNew;
 
-wire pcSrc, jump, branch, memRead, memWrite, ALUSrc, regWrite, zero, xnorOut, branchMuxSel, overflow, regWriteE, 
+wire pcSrc, jump, branch, memRead, memWrite, ALUSrc, regWrite, zero, xnorOut,
+overflow, regWriteE, 
 memWriteE, memReadE, ALUSrcE, regWriteM, memWriteM, memReadM, regWriteW,Flush,Stall, IFIDReset,EnablePCIFID,pcSrcNew,
-jumpNew,regWriteNew,memWriteNew, memReadNew,ALUSrcNew, branchNew;
+jumpNew,regWriteNew,memWriteNew, memReadNew,ALUSrcNew, branchNew, branchTaken, prediction;
 
 assign opCode = instructionD[31:26];
 assign rd = instructionD[15:11]; 
@@ -38,21 +39,26 @@ assign funct = instructionD[5:0];
 
 // FETCH STAGE
 
-programCounter pc(.clk(clk), .rst(rst),.enable(EnablePCIFID), .PCin(nextPC), .PCout(PC));
+programCounter pc(.clk(clk), .rst(rst), .enable(EnablePCIFID), .PCin(nextPC), .PCout(PC)); 
 
 adder #(8) pcAdder(.in1(PC), .in2(8'b1), .out(PCPlus1));
 
 instructionMemory IM(.address(nextPC), .clock(clk), .q(instruction));
 
-mux2x1 #(8) branchMux(.in1(PCPlus1),.in2(branchAdderResult), .s(branchMuxSel), .out(branchMuxOut));                             
+mux2x1 pcMux(.in1(branchMuxOut), .in2(jumpMuxOut), .s(pcSrc), .out(nextPC)); 
 
-mux2x1 #(8) jumpMux(.in1(readData1[7:0]),.in2(instructionD[7:0]), .s(jumpNew), .out(jumpMuxOut)); 
+mux2x1 jumpMux(.in1(readData1[7:0]), .in2(instructionD[7:0]), .s(jump), .out(jumpMuxOut));
 
-mux2x1 #(8) pcMux(.in1(branchMuxOut), .in2(jumpMuxOut), .s(pcSrcNew), .out(nextPC));
-
-pipe #(40) IF_ID(.D({PCPlus1, instruction}), .Q({PCPlus1D, instructionD}), .clk(clk), .reset(IFIDReset), .enable(EnablePCIFID));
+mux2x1 branchMux(.in1(PCPlus1), .in2(branchAdderResult), .s(prediction), .out(branchMuxOut));
 
 
+pipe #(40) IF_ID(.D({PCPlus1, instruction}), .Q({PCPlus1D, instructionD}), .clk(clk), .reset(IFIDReset), .enable(EnablePCIFID)); // fill pipes top to bottom
+
+
+
+//module BranchPredictionUnit(branch_taken,clk, reset, branch, pc, prediction);
+
+BranchPredictionUnit BPU(.branch_taken(branchTaken), .clk(clk), .reset(rst), .branch(branch), .pc(PC), .prediction(prediction));
 
 
 // DECODE STAGE
@@ -74,15 +80,16 @@ Comparator #(32) branchComparator(.equal(zero), .a(readData1), .b(readData2));
 	
 XNORGate branchXnor(.out(xnorOut), .in1(instructionD[26]), .in2(~zero));
 
-ANDGate branchAnd(.in1(xnorOut), .in2(branchNew), .out(branchMuxSel));
+ANDGate branchAnd(.in1(xnorOut), .in2(branchNew), .out(branchTaken));           ///////      branch    check .in2()
 
 adder #(8) branchAdder(.in1(PCPlus1D), .in2(imm[7:0]), .out(branchAdderResult));
 
-HazardDetectionUnit HDU (.Stall(Stall), .Flush(Flush), .takenBranch(branchMuxSel), .pcSrc(pcSrc), .writeRegisterE(writeRegister), .rsD(rs), .rtD(rt), .memReadE(memReadE));
+HazardDetectionUnit HDU (.Stall(Stall), .Flush(Flush), .takenBranch(branchTaken), .pcSrc(pcSrc), .writeRegisterE(writeRegister), .rsD(rs), .rtD(rt), .memReadE(memReadE), .branch(branch)); // FIX HDU
 
 ORGate IfIdReset(.in1(rst), .in2(Flush), .out(IFIDReset));
 
-mux2x1 #(15) CUMux(.in1({pcSrc,jump,regWrite, memToReg, memWrite, memRead, ALUOp, regDst, ALUSrc, branch}), .in2(15'b0), .s(Stall), .out({pcSrcNew,jumpNew,regWriteNew, memToRegNew, memWriteNew, memReadNew, ALUOpNew, regDstNew, ALUSrcNew, branchNew}));
+mux2x1 #(15) CUMux(.in1({pcSrc,jump,regWrite, memToReg, memWrite, memRead, ALUOp, regDst, ALUSrc, branch}), .in2(15'b0), .s(Stall),
+ .out({pcSrcNew, jumpNew, regWriteNew, memToRegNew, memWriteNew, memReadNew, ALUOpNew, regDstNew, ALUSrcNew, branchNew}));
 
 ANDGate holdGate(.in1(~Stall), .in2(enable), .out(EnablePCIFID));
 // CHECK INPUTS AND OUTPUTS
@@ -97,12 +104,13 @@ pipe #(136) ID_EX(.D({regWriteNew, memToRegNew, memWriteNew, memReadNew, ALUOpNe
  
 // EXECUTE STAGE
 
-mux2x1 #(32) ALUMux(.in1(ForwardBMuxOut), .in2(extImmE), .s(ALUSrcE), .out(ALUin2));
 
 
 mux3to1 #(32) ForwardAMux(.in1(readData1E), .in2(ALUResultM), .in3(writeData), .s(ForwardA), .out(ForwardAMuxOut));
+
 mux3to1 #(32) ForwardBMux(.in1(readData2E), .in2(ALUResultM), .in3(writeData), .s(ForwardB), .out(ForwardBMuxOut));
 
+mux2x1 #(32) ALUMux(.in1(ForwardBMuxOut), .in2(extImmE), .s(ALUSrcE), .out(ALUin2));
 
 ALU alu(.operand1(ForwardAMuxOut), .operand2(ALUin2), .shamt(shamtE) ,.opSel(ALUOpE), .result(ALUResult), .overflow(overflow));
 
