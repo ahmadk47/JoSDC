@@ -5,10 +5,10 @@ output reg [size - 1:0] Q;
 
 
 
-always @(posedge clk, negedge reset) begin
+always @(posedge clk, posedge reset) begin
 
 
-if (~reset)
+if (reset)
 	Q <= {size{1'b0}};
 	
 else if (enable)

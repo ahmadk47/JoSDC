@@ -82,7 +82,8 @@ public class Assembler {
                     instructions.add(instruction);
 
                     // Check if it's a pseudo-instruction
-                    if (instruction.startsWith("bltz") || instruction.startsWith("bgez")) {
+                    if (instruction.startsWith("bltz") || instruction.startsWith("bgez")
+                            || instruction.startsWith("BLTZ") || instruction.startsWith("BGEZ")) {
                         currentAddress += 2; // Increment by 2 for expanded pseudo-instruction
                     } else {
                         currentAddress += 1; // Increment by 1 for regular instruction
@@ -92,7 +93,8 @@ public class Assembler {
                 instructions.add(line);
 
                 // Check if it's a pseudo-instruction
-                if (line.startsWith("bltz") || line.startsWith("bgez")) {
+                if (line.startsWith("bltz") || line.startsWith("bgez") ||
+                        line.startsWith("BLTZ") || line.startsWith("BGEZ")) {
                     currentAddress += 2; // Increment by 2 for expanded pseudo-instruction
                 } else {
                     currentAddress += 1; // Increment by 1 for regular instruction
@@ -107,7 +109,8 @@ public class Assembler {
         currentAddress = 0;
 
         for (String instruction : instructions) {
-            if (instruction.startsWith("bltz") || instruction.startsWith("bgez")) {
+            if (instruction.startsWith("bltz") || instruction.startsWith("bgez")
+                    || instruction.startsWith("BLTZ") || instruction.startsWith("BGEZ")) {
                 machineCode.addAll(expandPseudoInstruction(instruction, true));
             } else {
                 String assembled = assemble(instruction, false);
@@ -310,34 +313,65 @@ public class Assembler {
         try {
             Assembler assembler = new Assembler();
             String[] program = {
-                    "ADDI $1, $0, 0xA",
-                    "ORI $2, $0, 0xB",
-                    "XORI $3, $0, 0xC",
-                    "ADD $4, $1, $2",
-                    "SUB $5, $4, $3",
-                    "AND $6, $1, $3",
-                    "OR $7, $2, $3",
-                    "NOR $8, $2, $3",
-                    "XOR $9, $1, $2",
-                    "SLT $10, $1, $2",
-                    "SGT $11, $3, $1",
-                    "SLL $12, $1, 2",
-                    "SRL $13, $2, 1",
-                    "LW $14, 0x0($0)",
-                    "SW $4, 0x0($0)",
-                    "NOP"
+                // Initialize registers with immediate values
+                "ADDI $5, $0, -5",
+                "ADDI $2, $0, 5",
+                "ADDI $3, $0, 5",
+                "ADDI $4, $0, 84",
+
+                // L1
+                "L1:",
+                "BEQ $2, $3, L2",
+                "NOP",             // No operation / SLL $0, $0, 0
+                "JAL L1",
+
+                // L2
+                "L2:",
+                "BNE $2, $3, L3",
+
+                // L3
+                "L3:",
+                "NOP",
+
+                // L4
+                "L4:",
+                "BLTZ $5, L5",
+                "NOP",
+                "JAL L4",
+
+                // L5
+                "L5:",
+                "BGEZ $2, L6",
+                "NOP",
+                "JAL L5",
+
+                // L6
+                "L6:",
+                "JAL L7",
+                "NOP",
+                "JAL L6",
+
+                // L7
+                "L7:",
+                "JR $4",
+                "NOP",
+                "JAL L7",
+
+                // L8
+                "L8:",
+                "NOP" // End of test cases
             };
 
             assembler.firstPass(program);
 
             ArrayList<String> machineCode = assembler.secondPass();
 
-            System.out.println("Label Addresses:");
-            for (String label : assembler.labelAddresses.keySet()) {
-                int address = assembler.getLabelAddress(label);
-                System.out.printf("Label %s : Address %d\n", label, address);
-            }
-            System.out.println("*****************************************************");
+            // System.out.println("Label Addresses:");
+            // for (String label : assembler.labelAddresses.keySet()) {
+            //     int address = assembler.getLabelAddress(label);
+            //     System.out.printf("Label %s : Address %d\n", label, address);
+            // }
+            // System.out.println("*****************************************************");
             System.out.println("WIDTH=32;");
             System.out.println("DEPTH=256;");
             System.out.println("ADDRESS_RADIX=UNS;");

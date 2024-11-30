@@ -19,11 +19,11 @@ module registerFile (clk, rst, we,
 	assign readData1 = registers[readRegister1];
    assign readData2 = registers[readRegister2];
 	
-	always@(posedge clk,  negedge rst) begin : Write_on_register_file_block
+	always@(posedge clk,  posedge rst) begin : Write_on_register_file_block
 	
 		integer i;
 		// Reset the register file
-		if(~rst) begin
+		if(rst) begin
 			for(i=0; i<32; i = i + 1) registers[i] = 0;
 		end
 		// Write to the register file

@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Sat Nov 30 23:18:38 2024
+Analysis & Synthesis Status : Successful - Sun Dec 01 01:43:38 2024
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : Pipelined
 Top-level Entity Name : processor
 Family : MAX 10
-Total logic elements : 5,660
-    Total combinational functions : 4,542
+Total logic elements : 5,664
+    Total combinational functions : 4,546
     Dedicated logic registers : 1,821
 Total registers : 1821
 Total pins : 11

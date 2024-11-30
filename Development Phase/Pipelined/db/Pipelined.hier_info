@@ -1,14 +1,14 @@
 |processor
-clk => clk.IN4
-rst => rst.IN6
-PC[0] << PC[0].DB_MAX_OUTPUT_PORT_TYPE
-PC[1] << PC[1].DB_MAX_OUTPUT_PORT_TYPE
-PC[2] << PC[2].DB_MAX_OUTPUT_PORT_TYPE
-PC[3] << PC[3].DB_MAX_OUTPUT_PORT_TYPE
-PC[4] << PC[4].DB_MAX_OUTPUT_PORT_TYPE
-PC[5] << PC[5].DB_MAX_OUTPUT_PORT_TYPE
-PC[6] << PC[6].DB_MAX_OUTPUT_PORT_TYPE
-PC[7] << PC[7].DB_MAX_OUTPUT_PORT_TYPE
+clk => clk.IN8
+rst => rst.IN7
+PC[0] <= PC[0].DB_MAX_OUTPUT_PORT_TYPE
+PC[1] <= PC[1].DB_MAX_OUTPUT_PORT_TYPE
+PC[2] <= PC[2].DB_MAX_OUTPUT_PORT_TYPE
+PC[3] <= PC[3].DB_MAX_OUTPUT_PORT_TYPE
+PC[4] <= PC[4].DB_MAX_OUTPUT_PORT_TYPE
+PC[5] <= PC[5].DB_MAX_OUTPUT_PORT_TYPE
+PC[6] <= PC[6].DB_MAX_OUTPUT_PORT_TYPE
+PC[7] <= PC[7].DB_MAX_OUTPUT_PORT_TYPE
 enable => enable.IN4
 
 
@@ -845,7 +845,6 @@ reset => Q[36]~reg0.ACLR
 reset => Q[37]~reg0.ACLR
 reset => Q[38]~reg0.ACLR
 reset => Q[39]~reg0.ACLR
-enable => Q[0]~reg0.ENA
 enable => Q[39]~reg0.ENA
 enable => Q[38]~reg0.ENA
 enable => Q[37]~reg0.ENA
@@ -885,6 +884,7 @@ enable => Q[4]~reg0.ENA
 enable => Q[3]~reg0.ENA
 enable => Q[2]~reg0.ENA
 enable => Q[1]~reg0.ENA
+enable => Q[0]~reg0.ENA
 
 
 |processor|BranchPredictionUnit:BPU
@@ -7292,7 +7292,6 @@ reset => Q[132]~reg0.ACLR
 reset => Q[133]~reg0.ACLR
 reset => Q[134]~reg0.ACLR
 reset => Q[135]~reg0.ACLR
-enable => Q[0]~reg0.ENA
 enable => Q[135]~reg0.ENA
 enable => Q[134]~reg0.ENA
 enable => Q[133]~reg0.ENA
@@ -7428,6 +7427,7 @@ enable => Q[4]~reg0.ENA
 enable => Q[3]~reg0.ENA
 enable => Q[2]~reg0.ENA
 enable => Q[1]~reg0.ENA
+enable => Q[0]~reg0.ENA
 
 
 |processor|mux3to1:ForwardAMux
@@ -9066,7 +9066,6 @@ reset => Q[78]~reg0.ACLR
 reset => Q[79]~reg0.ACLR
 reset => Q[80]~reg0.ACLR
 reset => Q[81]~reg0.ACLR
-enable => Q[0]~reg0.ENA
 enable => Q[81]~reg0.ENA
 enable => Q[80]~reg0.ENA
 enable => Q[79]~reg0.ENA
@@ -9148,6 +9147,7 @@ enable => Q[4]~reg0.ENA
 enable => Q[3]~reg0.ENA
 enable => Q[2]~reg0.ENA
 enable => Q[1]~reg0.ENA
+enable => Q[0]~reg0.ENA
 
 
 |processor|dataMemory:DM
@@ -10065,7 +10065,6 @@ reset => Q[76]~reg0.ACLR
 reset => Q[77]~reg0.ACLR
 reset => Q[78]~reg0.ACLR
 reset => Q[79]~reg0.ACLR
-enable => Q[0]~reg0.ENA
 enable => Q[79]~reg0.ENA
 enable => Q[78]~reg0.ENA
 enable => Q[77]~reg0.ENA
@@ -10145,6 +10144,7 @@ enable => Q[4]~reg0.ENA
 enable => Q[3]~reg0.ENA
 enable => Q[2]~reg0.ENA
 enable => Q[1]~reg0.ENA
+enable => Q[0]~reg0.ENA
 
 
 |processor|mux3to1:WBMux

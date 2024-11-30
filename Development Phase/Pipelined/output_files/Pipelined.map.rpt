@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Pipelined
-Sat Nov 30 23:18:38 2024
+Sun Dec 01 01:43:38 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -77,13 +77,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Nov 30 23:18:38 2024       ;
+; Analysis & Synthesis Status        ; Successful - Sun Dec 01 01:43:38 2024       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; Pipelined                                   ;
 ; Top-level Entity Name              ; processor                                   ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 5,660                                       ;
-;     Total combinational functions  ; 4,542                                       ;
+; Total logic elements               ; 5,664                                       ;
+;     Total combinational functions  ; 4,546                                       ;
 ;     Dedicated logic registers      ; 1,821                                       ;
 ; Total registers                    ; 1821                                        ;
 ; Total pins                         ; 11                                          ;
@@ -196,11 +196,11 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.3%      ;
+;     Processor 2            ;   0.2%      ;
 ;     Processor 3            ;   0.2%      ;
-;     Processor 4            ;   0.2%      ;
-;     Processor 5            ;   0.2%      ;
-;     Processor 6            ;   0.2%      ;
+;     Processor 4            ;   0.1%      ;
+;     Processor 5            ;   0.1%      ;
+;     Processor 6            ;   0.1%      ;
 +----------------------------+-------------+
 
 
@@ -248,16 +248,16 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 5,660     ;
+; Estimated Total logic elements              ; 5,664     ;
 ;                                             ;           ;
-; Total combinational functions               ; 4542      ;
+; Total combinational functions               ; 4546      ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 2752      ;
-;     -- 3 input functions                    ; 1474      ;
-;     -- <=2 input functions                  ; 316       ;
+;     -- 4 input functions                    ; 2746      ;
+;     -- 3 input functions                    ; 1482      ;
+;     -- <=2 input functions                  ; 318       ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 4434      ;
+;     -- normal mode                          ; 4438      ;
 ;     -- arithmetic mode                      ; 108       ;
 ;                                             ;           ;
 ; Total registers                             ; 1821      ;
@@ -271,7 +271,7 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
 ; Maximum fan-out                             ; 1885      ;
-; Total fan-out                               ; 25136     ;
+; Total fan-out                               ; 25140     ;
 ; Average fan-out                             ; 3.90      ;
 +---------------------------------------------+-----------+
 
@@ -281,15 +281,15 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------+----------------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                            ; Entity Name          ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------+----------------------+--------------+
-; |processor                                ; 4542 (0)            ; 1821 (0)                  ; 16384       ; 0          ; 0            ; 0       ; 0         ; 11   ; 0            ; 0          ; |processor                                                                                     ; processor            ; work         ;
-;    |ALU:alu|                              ; 581 (581)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|ALU:alu                                                                             ; ALU                  ; work         ;
+; |processor                                ; 4546 (0)            ; 1821 (0)                  ; 16384       ; 0          ; 0            ; 0       ; 0         ; 11   ; 0            ; 0          ; |processor                                                                                     ; processor            ; work         ;
+;    |ALU:alu|                              ; 533 (533)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|ALU:alu                                                                             ; ALU                  ; work         ;
 ;    |ANDGate:branchAnd|                    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|ANDGate:branchAnd                                                                   ; ANDGate              ; work         ;
 ;    |ANDGate:holdGate|                     ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|ANDGate:holdGate                                                                    ; ANDGate              ; work         ;
 ;    |BranchPredictionUnit:BPU|             ; 2165 (2165)         ; 512 (512)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|BranchPredictionUnit:BPU                                                            ; BranchPredictionUnit ; work         ;
 ;    |Comparator:branchComparator|          ; 21 (21)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|Comparator:branchComparator                                                         ; Comparator           ; work         ;
-;    |ForwardingUnit:FU|                    ; 21 (21)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|ForwardingUnit:FU                                                                   ; ForwardingUnit       ; work         ;
-;    |HazardDetectionUnit:HDU|              ; 9 (9)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|HazardDetectionUnit:HDU                                                             ; HazardDetectionUnit  ; work         ;
-;    |ORGate:IfIdReset|                     ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|ORGate:IfIdReset                                                                    ; ORGate               ; work         ;
+;    |ForwardingUnit:FU|                    ; 24 (24)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|ForwardingUnit:FU                                                                   ; ForwardingUnit       ; work         ;
+;    |HazardDetectionUnit:HDU|              ; 10 (10)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|HazardDetectionUnit:HDU                                                             ; HazardDetectionUnit  ; work         ;
+;    |ORGate:IfIdReset|                     ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|ORGate:IfIdReset                                                                    ; ORGate               ; work         ;
 ;    |adder:branchAdder|                    ; 8 (8)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|adder:branchAdder                                                                   ; adder                ; work         ;
 ;    |adder:pcAdder|                        ; 8 (8)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|adder:pcAdder                                                                       ; adder                ; work         ;
 ;    |controlUnit:CU|                       ; 4 (4)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|controlUnit:CU                                                                      ; controlUnit          ; work         ;
@@ -299,19 +299,19 @@ https://fpgasoftware.intel.com/eula.
 ;    |instructionMemory:IM|                 ; 0 (0)               ; 0 (0)                     ; 8192        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|instructionMemory:IM                                                                ; instructionMemory    ; work         ;
 ;       |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 8192        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|instructionMemory:IM|altsyncram:altsyncram_component                                ; altsyncram           ; work         ;
 ;          |altsyncram_hqc1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 8192        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_hqc1:auto_generated ; altsyncram_hqc1      ; work         ;
-;    |mux2x1:ALUMux|                        ; 35 (35)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux2x1:ALUMux                                                                       ; mux2x1               ; work         ;
+;    |mux2x1:ALUMux|                        ; 47 (47)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux2x1:ALUMux                                                                       ; mux2x1               ; work         ;
 ;    |mux2x1:CUMux|                         ; 34 (34)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux2x1:CUMux                                                                        ; mux2x1               ; work         ;
 ;    |mux2x1:pcMux|                         ; 22 (22)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux2x1:pcMux                                                                        ; mux2x1               ; work         ;
-;    |mux3to1:ForwardAMux|                  ; 64 (64)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux3to1:ForwardAMux                                                                 ; mux3to1              ; work         ;
-;    |mux3to1:ForwardBMux|                  ; 82 (82)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux3to1:ForwardBMux                                                                 ; mux3to1              ; work         ;
+;    |mux3to1:ForwardAMux|                  ; 65 (65)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux3to1:ForwardAMux                                                                 ; mux3to1              ; work         ;
+;    |mux3to1:ForwardBMux|                  ; 76 (76)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux3to1:ForwardBMux                                                                 ; mux3to1              ; work         ;
 ;    |mux3to1:RFMux|                        ; 5 (5)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux3to1:RFMux                                                                       ; mux3to1              ; work         ;
 ;    |mux3to1:WBMux|                        ; 40 (40)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux3to1:WBMux                                                                       ; mux3to1              ; work         ;
-;    |pipe:EX_MEM|                          ; 43 (43)             ; 81 (81)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|pipe:EX_MEM                                                                         ; pipe                 ; work         ;
+;    |pipe:EX_MEM|                          ; 90 (90)             ; 81 (81)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|pipe:EX_MEM                                                                         ; pipe                 ; work         ;
 ;    |pipe:ID_EX|                           ; 0 (0)               ; 108 (108)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|pipe:ID_EX                                                                          ; pipe                 ; work         ;
 ;    |pipe:IF_ID|                           ; 0 (0)               ; 40 (40)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|pipe:IF_ID                                                                          ; pipe                 ; work         ;
 ;    |pipe:MEM_WB|                          ; 0 (0)               ; 80 (80)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|pipe:MEM_WB                                                                         ; pipe                 ; work         ;
 ;    |programCounter:pc|                    ; 8 (8)               ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|programCounter:pc                                                                   ; programCounter       ; work         ;
-;    |registerFile:RF|                      ; 1388 (1388)         ; 992 (992)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|registerFile:RF                                                                     ; registerFile         ; work         ;
+;    |registerFile:RF|                      ; 1383 (1383)         ; 992 (992)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|registerFile:RF                                                                     ; registerFile         ; work         ;
 +-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------+----------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -887,19 +887,19 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     ENA CLR           ; 1291                        ;
 ;     ENA CLR SCLR SLD  ; 16                          ;
 ;     ENA CLR SLD       ; 514                         ;
-; cycloneiii_lcell_comb ; 4550                        ;
+; cycloneiii_lcell_comb ; 4554                        ;
 ;     arith             ; 108                         ;
 ;         2 data inputs ; 8                           ;
 ;         3 data inputs ; 100                         ;
-;     normal            ; 4442                        ;
+;     normal            ; 4446                        ;
 ;         1 data inputs ; 17                          ;
-;         2 data inputs ; 299                         ;
-;         3 data inputs ; 1374                        ;
-;         4 data inputs ; 2752                        ;
+;         2 data inputs ; 301                         ;
+;         3 data inputs ; 1382                        ;
+;         4 data inputs ; 2746                        ;
 ; cycloneiii_ram_block  ; 64                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 15.60                       ;
-; Average LUT depth     ; 8.74                        ;
+; Max LUT depth         ; 14.90                       ;
+; Average LUT depth     ; 8.63                        ;
 +-----------------------+-----------------------------+
 
 
@@ -908,7 +908,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:07     ;
+; Top            ; 00:00:06     ;
 +----------------+--------------+
 
 
@@ -918,7 +918,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Sat Nov 30 23:18:25 2024
+    Info: Processing started: Sun Dec 01 01:43:26 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Pipelined -c Pipelined
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file branchpredictionunit.v
@@ -986,24 +986,24 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/alts
 Info (12128): Elaborating entity "altsyncram_hqc1" for hierarchy "instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_hqc1:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12128): Elaborating entity "mux2x1" for hierarchy "mux2x1:pcMux" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 48
 Info (12128): Elaborating entity "pipe" for hierarchy "pipe:IF_ID" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 55
-Info (12128): Elaborating entity "BranchPredictionUnit" for hierarchy "BranchPredictionUnit:BPU" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 61
-Info (12128): Elaborating entity "signextender" for hierarchy "signextender:SignExtend" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 66
-Info (12128): Elaborating entity "controlUnit" for hierarchy "controlUnit:CU" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 70
-Info (12128): Elaborating entity "registerFile" for hierarchy "registerFile:RF" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 76
-Info (12128): Elaborating entity "Comparator" for hierarchy "Comparator:branchComparator" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 79
-Info (12128): Elaborating entity "XNORGate" for hierarchy "XNORGate:branchXnor" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 81
-Info (12128): Elaborating entity "ANDGate" for hierarchy "ANDGate:branchAnd" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 83
-Info (12128): Elaborating entity "HazardDetectionUnit" for hierarchy "HazardDetectionUnit:HDU" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 89
-Info (12128): Elaborating entity "ORGate" for hierarchy "ORGate:IfIdReset" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 91
-Info (12128): Elaborating entity "mux2x1" for hierarchy "mux2x1:CUMux" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 94
-Info (12128): Elaborating entity "pipe" for hierarchy "pipe:ID_EX" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 100
-Info (12128): Elaborating entity "mux3to1" for hierarchy "mux3to1:ForwardAMux" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 111
-Info (12128): Elaborating entity "mux2x1" for hierarchy "mux2x1:ALUMux" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 115
-Info (12128): Elaborating entity "ALU" for hierarchy "ALU:alu" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 117
-Info (12128): Elaborating entity "mux3to1" for hierarchy "mux3to1:RFMux" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 119
-Info (12128): Elaborating entity "ForwardingUnit" for hierarchy "ForwardingUnit:FU" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 124
-Info (12128): Elaborating entity "pipe" for hierarchy "pipe:EX_MEM" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 127
-Info (12128): Elaborating entity "dataMemory" for hierarchy "dataMemory:DM" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 133
+Info (12128): Elaborating entity "BranchPredictionUnit" for hierarchy "BranchPredictionUnit:BPU" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 58
+Info (12128): Elaborating entity "signextender" for hierarchy "signextender:SignExtend" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 63
+Info (12128): Elaborating entity "controlUnit" for hierarchy "controlUnit:CU" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 67
+Info (12128): Elaborating entity "registerFile" for hierarchy "registerFile:RF" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 73
+Info (12128): Elaborating entity "Comparator" for hierarchy "Comparator:branchComparator" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 76
+Info (12128): Elaborating entity "XNORGate" for hierarchy "XNORGate:branchXnor" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 78
+Info (12128): Elaborating entity "ANDGate" for hierarchy "ANDGate:branchAnd" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 80
+Info (12128): Elaborating entity "HazardDetectionUnit" for hierarchy "HazardDetectionUnit:HDU" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 85
+Info (12128): Elaborating entity "ORGate" for hierarchy "ORGate:IfIdReset" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 87
+Info (12128): Elaborating entity "mux2x1" for hierarchy "mux2x1:CUMux" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 90
+Info (12128): Elaborating entity "pipe" for hierarchy "pipe:ID_EX" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 96
+Info (12128): Elaborating entity "mux3to1" for hierarchy "mux3to1:ForwardAMux" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 107
+Info (12128): Elaborating entity "mux2x1" for hierarchy "mux2x1:ALUMux" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 111
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:alu" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 113
+Info (12128): Elaborating entity "mux3to1" for hierarchy "mux3to1:RFMux" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 115
+Info (12128): Elaborating entity "ForwardingUnit" for hierarchy "ForwardingUnit:FU" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 118
+Info (12128): Elaborating entity "pipe" for hierarchy "pipe:EX_MEM" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 121
+Info (12128): Elaborating entity "dataMemory" for hierarchy "dataMemory:DM" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 127
 Info (12128): Elaborating entity "altsyncram" for hierarchy "dataMemory:DM|altsyncram:altsyncram_component" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/dataMemory.v Line: 89
 Info (12130): Elaborated megafunction instantiation "dataMemory:DM|altsyncram:altsyncram_component" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/dataMemory.v Line: 89
 Info (12133): Instantiated megafunction "dataMemory:DM|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/dataMemory.v Line: 89
@@ -1026,23 +1026,23 @@ Info (12133): Instantiated megafunction "dataMemory:DM|altsyncram:altsyncram_com
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_8km1.tdf
     Info (12023): Found entity 1: altsyncram_8km1 File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/db/altsyncram_8km1.tdf Line: 28
 Info (12128): Elaborating entity "altsyncram_8km1" for hierarchy "dataMemory:DM|altsyncram:altsyncram_component|altsyncram_8km1:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "pipe" for hierarchy "pipe:MEM_WB" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 137
+Info (12128): Elaborating entity "pipe" for hierarchy "pipe:MEM_WB" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 131
 Info (13000): Registers with preset signals will power-up high File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/programCounter.v Line: 15
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Info (286030): Timing-Driven Synthesis is running
 Info (144001): Generated suppressed messages file C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/output_files/Pipelined.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 5863 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 5875 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 8 output pins
-    Info (21061): Implemented 5788 logic cells
+    Info (21061): Implemented 5800 logic cells
     Info (21064): Implemented 64 RAM segments
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4858 megabytes
-    Info: Processing ended: Sat Nov 30 23:18:38 2024
-    Info: Elapsed time: 00:00:13
-    Info: Total CPU time (on all processors): 00:00:07
+    Info: Peak virtual memory: 4832 megabytes
+    Info: Processing ended: Sun Dec 01 01:43:38 2024
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:06
 
 
 +------------------------------------------+
