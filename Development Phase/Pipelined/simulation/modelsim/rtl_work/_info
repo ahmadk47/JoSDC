@@ -10,7 +10,7 @@ z2
 cModel Technology
 Z0 dC:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/simulation/modelsim
 vadder
-Z1 !s110 1732985294
+Z1 !s110 1732998578
 !i10b 1
 !s100 <EULQflBn0W6YzHjZ><mC0
 Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
@@ -26,7 +26,7 @@ Z5 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z6 !s108 1732985294.000000
+Z6 !s108 1732998578.000000
 !s107 C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/adder.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined|C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/adder.v|
 !i113 1
@@ -84,7 +84,7 @@ R8
 R9
 n@a@n@d@gate
 vBranchPredictionUnit
-R1
+!s110 1732998577
 !i10b 1
 !s100 =LbJ]B1XfGej:fZB?f;kF3
 R2
@@ -100,7 +100,7 @@ R5
 r1
 !s85 0
 31
-R6
+Z11 !s108 1732998577.000000
 !s107 C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/BranchPredictionUnit.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined|C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/BranchPredictionUnit.v|
 !i113 1
@@ -109,7 +109,7 @@ R8
 R9
 n@branch@prediction@unit
 vComparator
-Z11 !s110 1732985295
+R1
 !i10b 1
 !s100 oeD`FL19XV>R4ze6]>FP>1
 R2
@@ -125,7 +125,7 @@ R5
 r1
 !s85 0
 31
-Z12 !s108 1732985295.000000
+R6
 !s107 C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/Comparator.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined|C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/Comparator.v|
 !i113 1
@@ -159,14 +159,14 @@ R8
 R9
 ncontrol@unit
 vdataMemory
-R11
+R1
 !i10b 1
 !s100 `b@m8UV<>2A2XBlWX5zL40
 R2
 ISiARJ253O0eA_K0NQzH]j2
 R3
 R0
-w1732984281
+w1732997896
 8C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/dataMemory.v
 FC:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/dataMemory.v
 !i122 11
@@ -175,7 +175,7 @@ R5
 r1
 !s85 0
 31
-R12
+R6
 !s107 C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/dataMemory.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined|C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/dataMemory.v|
 !i113 1
@@ -184,7 +184,7 @@ R8
 R9
 ndata@memory
 vForwardingUnit
-R11
+R1
 !i10b 1
 !s100 R8=k@8knI=8eM7b;Sda441
 R2
@@ -200,7 +200,7 @@ R5
 r1
 !s85 0
 31
-R12
+R6
 !s107 C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/forwardingUnit.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined|C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/forwardingUnit.v|
 !i113 1
@@ -209,7 +209,7 @@ R8
 R9
 n@forwarding@unit
 vHazardDetectionUnit
-R11
+R1
 !i10b 1
 !s100 mh]5glgR5c95SBA;0nKU]3
 R2
@@ -225,7 +225,7 @@ R5
 r1
 !s85 0
 31
-R12
+R6
 !s107 C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/HazardDetectionUnit.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined|C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/HazardDetectionUnit.v|
 !i113 1
@@ -234,14 +234,14 @@ R8
 R9
 n@hazard@detection@unit
 vinstructionMemory
-R11
+R1
 !i10b 1
-!s100 JikkHAAzEjH>z6>eJE?fl3
+!s100 `mbSjhHZPAiADjR3`JlgP0
 R2
-I[[;i1nJI9A^bNUmX===B?0
+I1Q2bBGS0z`i^39S;<Rgo80
 R3
 R0
-w1732984187
+w1732997862
 8C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/instructionMemory.v
 FC:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/instructionMemory.v
 !i122 10
@@ -250,7 +250,7 @@ R5
 r1
 !s85 0
 31
-R12
+R6
 !s107 C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/instructionMemory.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined|C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/instructionMemory.v|
 !i113 1
@@ -267,17 +267,17 @@ IZgOGOlHKKKJcJ5e3G:?9@1
 R3
 R0
 R4
-Z13 8C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/muxes.v
-Z14 FC:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/muxes.v
+Z12 8C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/muxes.v
+Z13 FC:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/muxes.v
 !i122 1
 L0 1 13
 R5
 r1
 !s85 0
 31
-R6
-Z15 !s107 C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/muxes.v|
-Z16 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined|C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/muxes.v|
+R11
+Z14 !s107 C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/muxes.v|
+Z15 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined|C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/muxes.v|
 !i113 1
 R7
 R8
@@ -291,23 +291,23 @@ IJkb2T8DV6lU3P@Yog]CBk2
 R3
 R0
 R4
+R12
 R13
-R14
 !i122 1
 L0 16 21
 R5
 r1
 !s85 0
 31
-R6
+R11
+R14
 R15
-R16
 !i113 1
 R7
 R8
 R9
 vORGate
-R11
+Z16 !s110 1732998579
 !i10b 1
 !s100 =GPj@^9[_AOa29DTJS8;10
 R2
@@ -323,7 +323,7 @@ R5
 r1
 !s85 0
 31
-R12
+Z17 !s108 1732998579.000000
 !s107 C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/ORGate.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined|C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/ORGate.v|
 !i113 1
@@ -332,7 +332,7 @@ R8
 R9
 n@o@r@gate
 vpipe
-R11
+R1
 !i10b 1
 !s100 V4TR@maaf]bZ:H_9hoX;50
 R2
@@ -343,12 +343,12 @@ R4
 8C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/Pipes.v
 FC:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/Pipes.v
 !i122 13
-Z17 L0 1 22
+Z18 L0 1 22
 R5
 r1
 !s85 0
 31
-R12
+R6
 !s107 C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/Pipes.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined|C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/Pipes.v|
 !i113 1
@@ -358,16 +358,16 @@ R9
 vprocessor
 R1
 !i10b 1
-!s100 T][RUSVEVdP;RA1<M6=nY3
+!s100 j?4^8hgo2F:WTDaD3Z2Ma1
 R2
-IhGMdAXJ6nV?c6]H;Dbz]K3
+I^Nm3?7]:0mKSnQlhV:HNO1
 R3
 R0
-w1732985173
+w1732998510
 8C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v
 FC:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v
 !i122 2
-L0 1 146
+L0 1 140
 R5
 r1
 !s85 0
@@ -382,16 +382,16 @@ R9
 vprogramCounter
 R1
 !i10b 1
-!s100 @>:4[bZDWi;=_7L_Mh;oe0
+!s100 LmJQ;J2;1z`[35_@KPbZd3
 R2
-If;Ia^:NSGXGkaHKLlW]JM1
+IAER69;R9KjO:K?^1^7CE[2
 R3
 R0
-w1732985280
+w1732996635
 8C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/programCounter.v
 FC:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/programCounter.v
 !i122 7
-R17
+R18
 R5
 r1
 !s85 0
@@ -454,14 +454,14 @@ R7
 R8
 R9
 vtestbench
-R11
+R16
 !i10b 1
 !s100 iP`:3`N;gjgDY8hk[3a2X3
 R2
 IBd7<9PA;XB:T>z_OD]Ab[0
 R3
 R0
-w1732984634
+w1732995853
 8C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/testbench.v
 FC:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/testbench.v
 !i122 18
@@ -470,7 +470,7 @@ R5
 r1
 !s85 0
 31
-R12
+R17
 !s107 C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/testbench.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined|C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/testbench.v|
 !i113 1
@@ -478,7 +478,7 @@ R7
 R8
 R9
 vXNORGate
-R11
+R1
 !i10b 1
 !s100 X7e`Szl3RCEnUg7@GHP8;0
 R2
@@ -494,7 +494,7 @@ R5
 r1
 !s85 0
 31
-R12
+R6
 !s107 C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/XNOR.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined|C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/XNOR.v|
 !i113 1

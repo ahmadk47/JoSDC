@@ -14,7 +14,7 @@ wire [15:0] imm;
 
 wire [5:0] opCode, funct;
 
-wire [7:0] nextPC, PCPlus1, branchAdderResult, jumpMuxOut, branchMuxOut, PCPlus1D, PCPlus1E, PCPlus1M, PCPlus1W;
+wire [7:0] nextPC, PCPlus1, branchAdderResult, jumpMuxOut, branchMuxOut, PCPlus1D, PCPlus1E, PCPlus1M, PCPlus1W, imInput;
 
 wire [4:0] rs, rt, rd, rsE, rtE, rdE, writeRegister, shamt, writeRegisterM, writeRegisterW, shamtE;
 
@@ -43,7 +43,7 @@ programCounter pc(.clk(clk), .rst(rst), .enable(EnablePCIFID), .PCin(nextPC), .P
 
 adder #(8) pcAdder(.in1(PC), .in2(8'b1), .out(PCPlus1));
 
-instructionMemory IM(.address(nextPC), .aclr (~rst), .clock(clk), .q(instruction));
+instructionMemory IM(.address(nextPC), .aclr (~rst), .clock(~clk), .q(instruction));
 
 mux2x1 #(8) pcMux(.in1(branchMuxOut), .in2(jumpMuxOut), .s(pcSrcNew), .out(nextPC)); 
 
@@ -52,11 +52,8 @@ mux2x1 #(8) jumpMux(.in1(readData1[7:0]), .in2(instructionD[7:0]), .s(jumpNew), 
 mux2x1 #(8) branchMux(.in1(PCPlus1), .in2(branchAdderResult), .s(prediction), .out(branchMuxOut));
 
 
-pipe #(40) IF_ID(.D({PCPlus1, instruction}), .Q({PCPlus1D, instructionD}), .clk(~clk), .reset(IFIDReset), .enable(EnablePCIFID)); // fill pipes top to bottom
+pipe #(40) IF_ID(.D({PCPlus1, instruction}), .Q({PCPlus1D, instructionD}), .clk(clk), .reset(IFIDReset), .enable(EnablePCIFID)); // fill pipes top to bottom
 
-
-
-//module BranchPredictionUnit(branch_taken,clk, reset, branch, pc, prediction);
 
 BranchPredictionUnit BPU(.branch_taken(branchTaken), .clk(clk), .reset(rst), .branch(branchNew), .pc(PC), .prediction(prediction));
 
@@ -80,11 +77,10 @@ Comparator #(32) branchComparator(.equal(zero), .a(readData1), .b(readData2));
 	
 XNORGate branchXnor(.out(xnorOut), .in1(instructionD[26]), .in2(~zero));
 
-ANDGate branchAnd(.in1(xnorOut), .in2(branchNew), .out(branchTaken));           ///////      branch    check .in2()
+ANDGate branchAnd(.in1(xnorOut), .in2(branchNew), .out(branchTaken));          
 
 adder #(8) branchAdder(.in1(PCPlus1D), .in2(imm[7:0]), .out(branchAdderResult));
 
-//module HazardDetectionUnit (Stall, Flush, takenBranch, pcSrc, writeRegisterE, rsD, rtD, memReadE, branch, prediction);
 
 HazardDetectionUnit HDU (.Stall(Stall), .Flush(Flush), .takenBranch(branchTaken), .pcSrc(pcSrcNew), .writeRegisterE(writeRegister), .rsD(rs), .rtD(rt), .memReadE(memReadE), .branch(branchNew), .prediction(prediction)); // FIX HDU
 
@@ -119,8 +115,6 @@ ALU alu(.operand1(ForwardAMuxOut), .operand2(ALUin2), .shamt(shamtE) ,.opSel(ALU
 mux3to1 #(5) RFMux(.in1(rtE), .in2(rdE), .in3(5'b11111), .s(regDstE), .out(writeRegister));
 
 
-
-// module ForwardingUnit (rsE, rtE, writeRegisterM, writeRegisterW, regWriteM, regWriteW, ForwardA, ForwardB);
 ForwardingUnit FU(.rsE(rsE), .rtE(rtE), .writeRegisterM(writeRegisterM), .writeRegisterW(writeRegisterW), .regWriteM(regWriteM), .regWriteW(regWriteW), .ForwardA(ForwardA), .ForwardB(ForwardB));
 
 pipe #(82) EX_MEM(.D({regWriteE, memToRegE, memWriteE, memReadE, PCPlus1E, ALUResult, ForwardBMuxOut, writeRegister}), 
