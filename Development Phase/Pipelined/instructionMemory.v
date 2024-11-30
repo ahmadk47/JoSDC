@@ -38,16 +38,19 @@
 `timescale 1 ps / 1 ps
 // synopsys translate_on
 module instructionMemory (
+	aclr,
 	address,
 	clock,
 	q);
 
+	input	  aclr;
 	input	[7:0]  address;
 	input	  clock;
 	output	[31:0]  q;
 `ifndef ALTERA_RESERVED_QIS
 // synopsys translate_off
 `endif
+	tri0	  aclr;
 	tri1	  clock;
 `ifndef ALTERA_RESERVED_QIS
 // synopsys translate_on
@@ -57,10 +60,10 @@ module instructionMemory (
 	wire [31:0] q = sub_wire0[31:0];
 
 	altsyncram	altsyncram_component (
+				.aclr0 (aclr),
 				.address_a (address),
 				.clock0 (clock),
 				.q_a (sub_wire0),
-				.aclr0 (1'b0),
 				.aclr1 (1'b0),
 				.address_b (1'b1),
 				.addressstall_a (1'b0),
@@ -81,17 +84,16 @@ module instructionMemory (
 				.wren_a (1'b0),
 				.wren_b (1'b0));
 	defparam
-		altsyncram_component.address_aclr_a = "NONE",
+		altsyncram_component.address_aclr_a = "CLEAR0",
 		altsyncram_component.clock_enable_input_a = "BYPASS",
 		altsyncram_component.clock_enable_output_a = "BYPASS",
 		altsyncram_component.init_file = "instructionMemoryInitializationFile.mif",
 		altsyncram_component.intended_device_family = "MAX 10",
-		altsyncram_component.lpm_hint = "ENABLE_RUNTIME_MOD=NO",
 		altsyncram_component.lpm_type = "altsyncram",
 		altsyncram_component.numwords_a = 256,
 		altsyncram_component.operation_mode = "ROM",
-		altsyncram_component.outdata_aclr_a = "NONE",
-		altsyncram_component.outdata_reg_a = "UNREGISTERED",
+		altsyncram_component.outdata_aclr_a = "CLEAR0",
+		altsyncram_component.outdata_reg_a = "CLOCK0",
 		altsyncram_component.ram_block_type = "M9K",
 		altsyncram_component.widthad_a = 8,
 		altsyncram_component.width_a = 32,
@@ -104,9 +106,9 @@ endmodule
 // CNX file retrieval info
 // ============================================================
 // Retrieval info: PRIVATE: ADDRESSSTALL_A NUMERIC "0"
-// Retrieval info: PRIVATE: AclrAddr NUMERIC "0"
+// Retrieval info: PRIVATE: AclrAddr NUMERIC "1"
 // Retrieval info: PRIVATE: AclrByte NUMERIC "0"
-// Retrieval info: PRIVATE: AclrOutput NUMERIC "0"
+// Retrieval info: PRIVATE: AclrOutput NUMERIC "1"
 // Retrieval info: PRIVATE: BYTE_ENABLE NUMERIC "0"
 // Retrieval info: PRIVATE: BYTE_SIZE NUMERIC "8"
 // Retrieval info: PRIVATE: BlankMemory NUMERIC "0"
@@ -124,7 +126,7 @@ endmodule
 // Retrieval info: PRIVATE: NUMWORDS_A NUMERIC "256"
 // Retrieval info: PRIVATE: RAM_BLOCK_TYPE NUMERIC "2"
 // Retrieval info: PRIVATE: RegAddr NUMERIC "1"
-// Retrieval info: PRIVATE: RegOutput NUMERIC "0"
+// Retrieval info: PRIVATE: RegOutput NUMERIC "1"
 // Retrieval info: PRIVATE: SYNTH_WRAPPER_GEN_POSTFIX STRING "0"
 // Retrieval info: PRIVATE: SingleClock NUMERIC "1"
 // Retrieval info: PRIVATE: UseDQRAM NUMERIC "0"
@@ -132,24 +134,25 @@ endmodule
 // Retrieval info: PRIVATE: WidthData NUMERIC "32"
 // Retrieval info: PRIVATE: rden NUMERIC "0"
 // Retrieval info: LIBRARY: altera_mf altera_mf.altera_mf_components.all
-// Retrieval info: CONSTANT: ADDRESS_ACLR_A STRING "NONE"
+// Retrieval info: CONSTANT: ADDRESS_ACLR_A STRING "CLEAR0"
 // Retrieval info: CONSTANT: CLOCK_ENABLE_INPUT_A STRING "BYPASS"
 // Retrieval info: CONSTANT: CLOCK_ENABLE_OUTPUT_A STRING "BYPASS"
 // Retrieval info: CONSTANT: INIT_FILE STRING "instructionMemoryInitializationFile.mif"
 // Retrieval info: CONSTANT: INTENDED_DEVICE_FAMILY STRING "MAX 10"
-// Retrieval info: CONSTANT: LPM_HINT STRING "ENABLE_RUNTIME_MOD=NO"
 // Retrieval info: CONSTANT: LPM_TYPE STRING "altsyncram"
 // Retrieval info: CONSTANT: NUMWORDS_A NUMERIC "256"
 // Retrieval info: CONSTANT: OPERATION_MODE STRING "ROM"
-// Retrieval info: CONSTANT: OUTDATA_ACLR_A STRING "NONE"
-// Retrieval info: CONSTANT: OUTDATA_REG_A STRING "UNREGISTERED"
+// Retrieval info: CONSTANT: OUTDATA_ACLR_A STRING "CLEAR0"
+// Retrieval info: CONSTANT: OUTDATA_REG_A STRING "CLOCK0"
 // Retrieval info: CONSTANT: RAM_BLOCK_TYPE STRING "M9K"
 // Retrieval info: CONSTANT: WIDTHAD_A NUMERIC "8"
 // Retrieval info: CONSTANT: WIDTH_A NUMERIC "32"
 // Retrieval info: CONSTANT: WIDTH_BYTEENA_A NUMERIC "1"
+// Retrieval info: USED_PORT: aclr 0 0 0 0 INPUT GND "aclr"
 // Retrieval info: USED_PORT: address 0 0 8 0 INPUT NODEFVAL "address[7..0]"
 // Retrieval info: USED_PORT: clock 0 0 0 0 INPUT VCC "clock"
 // Retrieval info: USED_PORT: q 0 0 32 0 OUTPUT NODEFVAL "q[31..0]"
+// Retrieval info: CONNECT: @aclr0 0 0 0 0 aclr 0 0 0 0
 // Retrieval info: CONNECT: @address_a 0 0 8 0 address 0 0 8 0
 // Retrieval info: CONNECT: @clock0 0 0 0 0 clock 0 0 0 0
 // Retrieval info: CONNECT: q 0 0 32 0 @q_a 0 0 32 0
