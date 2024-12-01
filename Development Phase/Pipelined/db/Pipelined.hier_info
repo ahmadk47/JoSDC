@@ -1,6 +1,6 @@
 |processor
-clk => clk.IN8
-rst => rst.IN6
+clk => clk.IN9
+rst => rst.IN7
 PC[0] << PC[0].DB_MAX_OUTPUT_PORT_TYPE
 PC[1] << PC[1].DB_MAX_OUTPUT_PORT_TYPE
 PC[2] << PC[2].DB_MAX_OUTPUT_PORT_TYPE
@@ -9,7 +9,7 @@ PC[4] << PC[4].DB_MAX_OUTPUT_PORT_TYPE
 PC[5] << PC[5].DB_MAX_OUTPUT_PORT_TYPE
 PC[6] << PC[6].DB_MAX_OUTPUT_PORT_TYPE
 PC[7] << PC[7].DB_MAX_OUTPUT_PORT_TYPE
-enable => enable.IN4
+enable => enable.IN5
 
 
 |processor|programCounter:pc
@@ -5109,7 +5109,7 @@ rst => registers[0][28].ACLR
 rst => registers[0][29].ACLR
 rst => registers[0][30].ACLR
 rst => registers[0][31].ACLR
-we => always0.IN1
+we => always1.IN1
 readRegister1[0] => Mux0.IN4
 readRegister1[0] => Mux1.IN4
 readRegister1[0] => Mux2.IN4
@@ -6596,6 +6596,14 @@ b[28] => Equal0.IN35
 b[29] => Equal0.IN34
 b[30] => Equal0.IN33
 b[31] => Equal0.IN32
+
+
+|processor|pipe:CP
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D[0] => Q.DATAB
+clk => Q[0]~reg0.CLK
+reset => Q.OUTPUTSELECT
+enable => Q.OUTPUTSELECT
 
 
 |processor|XNORGate:branchXnor

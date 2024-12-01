@@ -10,15 +10,20 @@ module registerFile (clk, rst, we,
 	input wire [31:0] writeData;
 	
 	// outputs
-	output wire [31:0] readData1, readData2;
+	output reg[31:0] readData1, readData2;
 	
 	// register file (registers)
 	reg [31:0] registers [0:31];
 	
 	// Read from the register file
-	assign readData1 = registers[readRegister1];
-   assign readData2 = registers[readRegister2];
 	
+
+
+	always@(*) begin
+		 readData1 = registers[readRegister1];
+		 readData2 = registers[readRegister2];	
+	end
+
 	always@(negedge clk,  negedge rst) begin : Write_on_register_file_block
 	
 		integer i;

@@ -25,7 +25,7 @@ wire [1:0] regDst, memToReg, memToRegE, regDstE, memToRegM, memToRegW, ForwardA,
 wire pcSrc, jump, branch, memRead, memWrite, ALUSrc, regWrite, zero, xnorOut,
 overflow, regWriteE, 
 memWriteE, memReadE, ALUSrcE, regWriteM, memWriteM, memReadM, regWriteW,Flush,Stall, IFIDReset,EnablePCIFID,pcSrcNew,
-jumpNew,regWriteNew,memWriteNew, memReadNew,ALUSrcNew, branchNew, branchTaken, prediction;
+jumpNew,regWriteNew,memWriteNew, memReadNew,ALUSrcNew, branchNew, branchTaken, prediction, compOut;
 
 assign opCode = instructionD[31:26];
 assign rd = instructionD[15:11]; 
@@ -73,7 +73,9 @@ registerFile RF(.clk(clk), .rst(rst), .we(regWriteW),
    .writeData(writeData), .readData1(readData1), .readData2(readData2));
 	
 
-Comparator #(32) branchComparator(.equal(zero), .a(readData1), .b(readData2));
+Comparator #(32) branchComparator(.equal(compOut), .a(readData1), .b(readData2));
+
+pipe #(1) CP(.D(compOut), .Q(zero), .clk(clk), .reset(rst), .enable(enable));
 	
 XNORGate branchXnor(.out(xnorOut), .in1(instructionD[26]), .in2(~zero));
 
