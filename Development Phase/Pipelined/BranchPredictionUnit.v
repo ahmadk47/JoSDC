@@ -21,9 +21,9 @@ module BranchPredictionUnit(branch_taken,clk, reset, branch, pc, prediction);
         endcase
     end
 
-    always @(posedge clk or posedge reset) begin : always_block
+    always @(posedge clk ,negedge reset) begin : always_block
 		  integer i;
-        if (reset) begin : if_block
+        if (~reset) begin : if_block
             for (i = 0; i < 256; i = i + 1) begin
                 BHT[i] <= 2'b00;
             end

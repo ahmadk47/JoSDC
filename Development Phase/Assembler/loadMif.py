@@ -1,9 +1,9 @@
 import subprocess
 
 
-assembler_directory = r"C:\Users\Saleh\Desktop\Josdc phase 2\JoSDC\Development Phase\Assembler"
+assembler_directory = r"path to assembler"
 java_file_name = "Assembler"
-output_mif_file = r"C:\Users\Saleh\Desktop\Josdc phase 2\JoSDC\Development Phase\Pipelined\instructionMemoryInitializationFile.mif"
+output_mif_file = r"path to .mif file"
 
 
 subprocess.run(["javac", f"{assembler_directory}\\{java_file_name}.java"], cwd=assembler_directory, check=True)

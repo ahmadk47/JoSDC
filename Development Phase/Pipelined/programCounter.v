@@ -8,8 +8,8 @@ module programCounter (clk, rst, PCin, enable, PCout);
 	output reg [7:0] PCout;
 	
 	//Counter logic
-	always@(posedge clk, posedge rst) begin
-		if(rst) begin
+	always@(posedge clk, negedge rst) begin
+		if(~rst) begin
 			PCout <= 8'd255;
 		end
 		else if (enable) begin

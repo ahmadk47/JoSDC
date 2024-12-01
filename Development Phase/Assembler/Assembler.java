@@ -313,65 +313,40 @@ public class Assembler {
         try {
             Assembler assembler = new Assembler();
             String[] program = {
-                // Initialize registers with immediate values
-                "ADDI $5, $0, -5",
-                "ADDI $2, $0, 5",
-                "ADDI $3, $0, 5",
-                "ADDI $4, $0, 84",
-
-                // L1
-                "L1:",
-                "BEQ $2, $3, L2",
-                "NOP",             // No operation / SLL $0, $0, 0
-                "JAL L1",
-
-                // L2
-                "L2:",
-                "BNE $2, $3, L3",
-
-                // L3
-                "L3:",
-                "NOP",
-
-                // L4
-                "L4:",
-                "BLTZ $5, L5",
-                "NOP",
-                "JAL L4",
-
-                // L5
-                "L5:",
-                "BGEZ $2, L6",
-                "NOP",
-                "JAL L5",
-
-                // L6
-                "L6:",
-                "JAL L7",
-                "NOP",
-                "JAL L6",
-
-                // L7
-                "L7:",
-                "JR $4",
-                "NOP",
-                "JAL L7",
-
-                // L8
-                "L8:",
-                "NOP" // End of test cases
+                    "main: ADDI $1, $0, -5",
+                    "ADDI $2, $0, 5",
+                    "ADDI $3, $0, 5",
+                    "ADDI $4, $0, 84",
+                    "L1: BEQ $2, $3, L2",
+                    "NOP",
+                    "JAL L1",
+                    "L2: BNE $2, $3, L3",
+                    "L3: NOP",
+                    "L4: BLTZ $1, L5",
+                    "NOP",
+                    "JAL L4",
+                    "L5: BGEZ $2, L6",
+                    "NOP",
+                    "JAL L5",
+                    "L6: JAL L7",
+                    "NOP",
+                    "JAL L6",
+                    "L7: JR $4",
+                    "NOP",
+                    "JAL L7",
+                    "L8: NOP"
             };
 
             assembler.firstPass(program);
 
             ArrayList<String> machineCode = assembler.secondPass();
 
-            // System.out.println("Label Addresses:");
-            // for (String label : assembler.labelAddresses.keySet()) {
-            //     int address = assembler.getLabelAddress(label);
-            //     System.out.printf("Label %s : Address %d\n", label, address);
-            // }
-            // System.out.println("*****************************************************");
+            System.out.println("Label Addresses:");
+            for (String label : assembler.labelAddresses.keySet()) {
+                int address = assembler.getLabelAddress(label);
+                System.out.printf("Label %s : Address %d\n", label, address);
+            }
+            System.out.println("*****************************************************");
             System.out.println("WIDTH=32;");
             System.out.println("DEPTH=256;");
             System.out.println("ADDRESS_RADIX=UNS;");
