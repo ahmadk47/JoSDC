@@ -1,5 +1,5 @@
 Fitter report for Pipelined
-Mon Dec 02 00:04:45 2024
+Mon Dec 02 00:59:47 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -29,7 +29,7 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
  21. Global & Other Fast Signals
  22. Non-Global High Fan-Out Signals
  23. Fitter RAM Summary
- 24. |processor|instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_hqc1:auto_generated|ALTSYNCRAM
+ 24. |processor|instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_s3c1:auto_generated|ALTSYNCRAM
  25. |processor|dataMemory:DM|altsyncram:altsyncram_component|altsyncram_8km1:auto_generated|ALTSYNCRAM
  26. Routing Usage Summary
  27. LAB Logic Elements
@@ -70,14 +70,14 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Mon Dec 02 00:04:45 2024       ;
+; Fitter Status                      ; Successful - Mon Dec 02 00:59:47 2024       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; Pipelined                                   ;
 ; Top-level Entity Name              ; processor                                   ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M50DAF484C7G                              ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 4,858 / 49,760 ( 10 % )                     ;
+; Total logic elements               ; 4,855 / 49,760 ( 10 % )                     ;
 ;     Total combinational functions  ; 4,825 / 49,760 ( 10 % )                     ;
 ;     Dedicated logic registers      ; 1,821 / 49,760 ( 4 % )                      ;
 ; Total registers                    ; 1821                                        ;
@@ -154,17 +154,19 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 8           ;
-; Maximum allowed            ; 4           ;
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
 ;                            ;             ;
-; Average used               ; 1.49        ;
-; Maximum used               ; 4           ;
+; Average used               ; 1.66        ;
+; Maximum used               ; 6           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;  16.5%      ;
-;     Processor 3            ;  16.3%      ;
-;     Processor 4            ;  16.2%      ;
+;     Processor 2            ;  13.4%      ;
+;     Processor 3            ;  13.3%      ;
+;     Processor 4            ;  13.2%      ;
+;     Processor 5            ;  13.1%      ;
+;     Processor 6            ;  12.9%      ;
 +----------------------------+-------------+
 
 
@@ -206,7 +208,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------+
 ; Pin-Out File ;
 +--------------+
-The pin-out file can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/output_files/Pipelined.pin.
+The pin-out file can be found in C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/output_files/Pipelined.pin.
 
 
 +----------------------------------------------------------------------------+
@@ -214,16 +216,16 @@ The pin-out file can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Developme
 +---------------------------------------------+------------------------------+
 ; Resource                                    ; Usage                        ;
 +---------------------------------------------+------------------------------+
-; Total logic elements                        ; 4,858 / 49,760 ( 10 % )      ;
-;     -- Combinational with no register       ; 3037                         ;
-;     -- Register only                        ; 33                           ;
-;     -- Combinational with a register        ; 1788                         ;
+; Total logic elements                        ; 4,855 / 49,760 ( 10 % )      ;
+;     -- Combinational with no register       ; 3034                         ;
+;     -- Register only                        ; 30                           ;
+;     -- Combinational with a register        ; 1791                         ;
 ;                                             ;                              ;
 ; Logic element usage by number of LUT inputs ;                              ;
 ;     -- 4 input functions                    ; 2903                         ;
 ;     -- 3 input functions                    ; 1424                         ;
 ;     -- <=2 input functions                  ; 498                          ;
-;     -- Register only                        ; 33                           ;
+;     -- Register only                        ; 30                           ;
 ;                                             ;                              ;
 ; Logic elements by mode                      ;                              ;
 ;     -- normal mode                          ; 4717                         ;
@@ -233,10 +235,10 @@ The pin-out file can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Developme
 ;     -- Dedicated logic registers            ; 1,821 / 49,760 ( 4 % )       ;
 ;     -- I/O registers                        ; 0 / 1,749 ( 0 % )            ;
 ;                                             ;                              ;
-; Total LABs:  partially or completely used   ; 357 / 3,110 ( 11 % )         ;
+; Total LABs:  partially or completely used   ; 348 / 3,110 ( 11 % )         ;
 ; Virtual pins                                ; 0                            ;
 ; I/O pins                                    ; 11 / 360 ( 3 % )             ;
-;     -- Clock pins                           ; 2 / 8 ( 25 % )               ;
+;     -- Clock pins                           ; 4 / 8 ( 50 % )               ;
 ;     -- Dedicated input pins                 ; 1 / 1 ( 100 % )              ;
 ;                                             ;                              ;
 ; M9Ks                                        ; 2 / 182 ( 1 % )              ;
@@ -253,11 +255,11 @@ The pin-out file can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Developme
 ; Remote update blocks                        ; 0 / 1 ( 0 % )                ;
 ; Oscillator blocks                           ; 0 / 1 ( 0 % )                ;
 ; Impedance control blocks                    ; 0 / 1 ( 0 % )                ;
-; Average interconnect usage (total/H/V)      ; 2.9% / 2.7% / 3.0%           ;
-; Peak interconnect usage (total/H/V)         ; 39.4% / 39.2% / 39.7%        ;
+; Average interconnect usage (total/H/V)      ; 2.9% / 2.8% / 3.1%           ;
+; Peak interconnect usage (total/H/V)         ; 30.5% / 31.5% / 32.2%        ;
 ; Maximum fan-out                             ; 1824                         ;
 ; Highest non-global fan-out                  ; 520                          ;
-; Total fan-out                               ; 25041                        ;
+; Total fan-out                               ; 25038                        ;
 ; Average fan-out                             ; 3.73                         ;
 +---------------------------------------------+------------------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
@@ -271,16 +273,16 @@ The pin-out file can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Developme
 +---------------------------------------------+-----------------------+--------------------------------+
 ; Difficulty Clustering Region                ; Low                   ; Low                            ;
 ;                                             ;                       ;                                ;
-; Total logic elements                        ; 4858 / 49760 ( 10 % ) ; 0 / 49760 ( 0 % )              ;
-;     -- Combinational with no register       ; 3037                  ; 0                              ;
-;     -- Register only                        ; 33                    ; 0                              ;
-;     -- Combinational with a register        ; 1788                  ; 0                              ;
+; Total logic elements                        ; 4855 / 49760 ( 10 % ) ; 0 / 49760 ( 0 % )              ;
+;     -- Combinational with no register       ; 3034                  ; 0                              ;
+;     -- Register only                        ; 30                    ; 0                              ;
+;     -- Combinational with a register        ; 1791                  ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Logic element usage by number of LUT inputs ;                       ;                                ;
 ;     -- 4 input functions                    ; 2903                  ; 0                              ;
 ;     -- 3 input functions                    ; 1424                  ; 0                              ;
 ;     -- <=2 input functions                  ; 498                   ; 0                              ;
-;     -- Register only                        ; 33                    ; 0                              ;
+;     -- Register only                        ; 30                    ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Logic elements by mode                      ;                       ;                                ;
 ;     -- normal mode                          ; 4717                  ; 0                              ;
@@ -290,7 +292,7 @@ The pin-out file can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Developme
 ;     -- Dedicated logic registers            ; 1821 / 49760 ( 4 % )  ; 0 / 49760 ( 0 % )              ;
 ;     -- I/O registers                        ; 0                     ; 0                              ;
 ;                                             ;                       ;                                ;
-; Total LABs:  partially or completely used   ; 357 / 3110 ( 11 % )   ; 0 / 3110 ( 0 % )               ;
+; Total LABs:  partially or completely used   ; 348 / 3110 ( 11 % )   ; 0 / 3110 ( 0 % )               ;
 ;                                             ;                       ;                                ;
 ; Virtual pins                                ; 0                     ; 0                              ;
 ; I/O pins                                    ; 11                    ; 0                              ;
@@ -309,8 +311,8 @@ The pin-out file can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Developme
 ;     -- Registered Output Connections        ; 0                     ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Internal Connections                        ;                       ;                                ;
-;     -- Total Connections                    ; 25047                 ; 8                              ;
-;     -- Registered Connections               ; 8104                  ; 0                              ;
+;     -- Total Connections                    ; 25044                 ; 8                              ;
+;     -- Registered Connections               ; 8136                  ; 0                              ;
 ;                                             ;                       ;                                ;
 ; External Connections                        ;                       ;                                ;
 ;     -- Top                                  ; 0                     ; 0                              ;
@@ -343,7 +345,7 @@ The pin-out file can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Developme
 ; Name   ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination Control Block ; Location assigned by ; Slew Rate ;
 +--------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
 ; clk    ; M8    ; 2        ; 0            ; 18           ; 14           ; 1824                  ; 0                  ; yes    ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
-; enable ; E10   ; 8        ; 36           ; 39           ; 21           ; 8                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
+; enable ; H11   ; 8        ; 34           ; 39           ; 14           ; 8                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
 ; rst    ; M9    ; 2        ; 0            ; 18           ; 21           ; 1760                  ; 0                  ; yes    ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
 +--------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
 
@@ -353,14 +355,14 @@ The pin-out file can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Developme
 +-------+-------+----------+--------------+--------------+--------------+-----------------+------------------------+---------------+-----------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-----------------------------------+---------------------------+----------------------------+-----------------------------+----------------------+----------------------+---------------------+
 ; Name  ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Output Register ; Output Enable Register ; Power Up High ; Slew Rate ; PCI I/O Enabled ; Open Drain ; TRI Primitive ; Bus Hold ; Weak Pull Up ; I/O Standard ; Current Strength ; Termination                       ; Termination Control Block ; Output Buffer Pre-emphasis ; Voltage Output Differential ; Location assigned by ; Output Enable Source ; Output Enable Group ;
 +-------+-------+----------+--------------+--------------+--------------+-----------------+------------------------+---------------+-----------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-----------------------------------+---------------------------+----------------------------+-----------------------------+----------------------+----------------------+---------------------+
-; PC[0] ; AB12  ; 4        ; 40           ; 0            ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; PC[1] ; Y14   ; 4        ; 51           ; 0            ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; PC[2] ; Y11   ; 4        ; 36           ; 0            ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; PC[3] ; AA12  ; 4        ; 40           ; 0            ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; PC[4] ; AA16  ; 4        ; 56           ; 0            ; 28           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; PC[5] ; AB13  ; 4        ; 40           ; 0            ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; PC[6] ; V16   ; 4        ; 56           ; 0            ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; PC[7] ; AB20  ; 4        ; 56           ; 0            ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; PC[0] ; P11   ; 3        ; 34           ; 0            ; 28           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; PC[1] ; AB12  ; 4        ; 40           ; 0            ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; PC[2] ; R11   ; 3        ; 31           ; 0            ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; PC[3] ; AB8   ; 3        ; 31           ; 0            ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; PC[4] ; AA8   ; 3        ; 31           ; 0            ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; PC[5] ; AA7   ; 3        ; 29           ; 0            ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; PC[6] ; V9    ; 3        ; 31           ; 0            ; 28           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; PC[7] ; V10   ; 3        ; 31           ; 0            ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
 +-------+-------+----------+--------------+--------------+--------------+-----------------+------------------------+---------------+-----------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-----------------------------------+---------------------------+----------------------------+-----------------------------+----------------------+----------------------+---------------------+
 
 
@@ -388,8 +390,8 @@ The pin-out file can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Developme
 ; 1A       ; 0 / 16 ( 0 % )  ; 2.5V          ; --           ;
 ; 1B       ; 4 / 24 ( 17 % ) ; 2.5V          ; --           ;
 ; 2        ; 2 / 36 ( 6 % )  ; 2.5V          ; --           ;
-; 3        ; 0 / 48 ( 0 % )  ; 2.5V          ; --           ;
-; 4        ; 8 / 48 ( 17 % ) ; 2.5V          ; --           ;
+; 3        ; 7 / 48 ( 15 % ) ; 2.5V          ; --           ;
+; 4        ; 1 / 48 ( 2 % )  ; 2.5V          ; --           ;
 ; 5        ; 0 / 40 ( 0 % )  ; 2.5V          ; --           ;
 ; 6        ; 0 / 60 ( 0 % )  ; 2.5V          ; --           ;
 ; 7        ; 0 / 52 ( 0 % )  ; 2.5V          ; --           ;
@@ -430,16 +432,16 @@ The pin-out file can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Developme
 ; AA4      ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; AA5      ; 157        ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; AA6      ; 156        ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; AA7      ; 158        ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; AA8      ; 165        ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
+; AA7      ; 158        ; 3        ; PC[5]                                          ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
+; AA8      ; 165        ; 3        ; PC[4]                                          ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
 ; AA9      ; 169        ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; AA10     ; 170        ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; AA11     ; 180        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; AA12     ; 182        ; 4        ; PC[3]                                          ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
+; AA12     ; 182        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; AA13     ; 197        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; --       ; --           ;
 ; AA14     ; 201        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; AA15     ; 205        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; AA16     ; 211        ; 4        ; PC[4]                                          ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
+; AA16     ; 211        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; AA17     ; 212        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; AA18     ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; AA19     ; 217        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
@@ -453,19 +455,19 @@ The pin-out file can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Developme
 ; AB5      ; 159        ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; AB6      ; 161        ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; AB7      ; 163        ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; AB8      ; 167        ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
+; AB8      ; 167        ; 3        ; PC[3]                                          ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
 ; AB9      ; 171        ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; AB10     ; 177        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; AB11     ; 179        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; AB12     ; 181        ; 4        ; PC[0]                                          ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
-; AB13     ; 183        ; 4        ; PC[5]                                          ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
+; AB12     ; 181        ; 4        ; PC[1]                                          ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
+; AB13     ; 183        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; AB14     ; 199        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; AB15     ; 203        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; AB16     ; 209        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; AB17     ; 241        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; AB18     ; 243        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; AB19     ; 213        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; AB20     ; 215        ; 4        ; PC[7]                                          ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
+; AB20     ; 215        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; AB21     ; 225        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; AB22     ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; B1       ; 495        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
@@ -543,7 +545,7 @@ The pin-out file can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Developme
 ; E7       ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; E8       ; 488        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; E9       ; 478        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; E10      ; 466        ; 8        ; enable                                         ; input  ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
+; E10      ; 466        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; E11      ; 464        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; E12      ; 429        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; E13      ; 430        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
@@ -610,7 +612,7 @@ The pin-out file can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Developme
 ; H8       ;            ; --       ; VCCA3                                          ; power  ;                       ; 2.5V    ; --         ;                 ; --       ; --           ;
 ; H9       ; 482        ; 8        ; ~ALTERA_nCONFIG~ / RESERVED_INPUT              ; input  ; 2.5 V Schmitt Trigger ;         ; Column I/O ; N               ; no       ; Off          ;
 ; H10      ; 480        ; 8        ; ~ALTERA_CONFIG_SEL~ / RESERVED_INPUT           ; input  ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
-; H11      ; 470        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
+; H11      ; 470        ; 8        ; enable                                         ; input  ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
 ; H12      ; 444        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; H13      ; 432        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; H14      ; 420        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
@@ -742,7 +744,7 @@ The pin-out file can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Developme
 ; P8       ; 96         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; P9       ; 142        ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; P10      ; 154        ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; P11      ; 166        ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
+; P11      ; 166        ; 3        ; PC[0]                                          ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
 ; P12      ; 178        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; P13      ; 198        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; P14      ; 306        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
@@ -764,7 +766,7 @@ The pin-out file can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Developme
 ; R8       ;            ; --       ; VCCA1                                          ; power  ;                       ; 2.5V    ; --         ;                 ; --       ; --           ;
 ; R9       ; 140        ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; R10      ; 152        ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; R11      ; 164        ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
+; R11      ; 164        ; 3        ; PC[2]                                          ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
 ; R12      ; 176        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; R13      ; 196        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; R14      ; 294        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
@@ -828,14 +830,14 @@ The pin-out file can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Developme
 ; V6       ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; V7       ; 136        ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; V8       ; 138        ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; V9       ; 160        ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; V10      ; 162        ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
+; V9       ; 160        ; 3        ; PC[6]                                          ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
+; V10      ; 162        ; 3        ; PC[7]                                          ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
 ; V11      ; 172        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; V12      ; 174        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; V13      ; 192        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; V14      ; 204        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; V15      ; 216        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; V16      ; 210        ; 4        ; PC[6]                                          ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
+; V16      ; 210        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; V17      ; 242        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; V18      ; 280        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; V19      ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
@@ -874,10 +876,10 @@ The pin-out file can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Developme
 ; Y8       ; 143        ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; Y9       ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; Y10      ; 168        ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; Y11      ; 175        ; 4        ; PC[2]                                          ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
+; Y11      ; 175        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; Y12      ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; Y13      ; 200        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; Y14      ; 202        ; 4        ; PC[1]                                          ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
+; Y14      ; 202        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; Y15      ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; Y16      ; 207        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; Y17      ; 214        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
@@ -925,13 +927,13 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +-------------------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+------------------------------------------------------------------------------------------------+----------------------+--------------+
 ; Compilation Hierarchy Node                ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M9Ks ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; ADC blocks ; Full Hierarchy Name                                                                            ; Entity Name          ; Library Name ;
 +-------------------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+------------------------------------------------------------------------------------------------+----------------------+--------------+
-; |processor                                ; 4858 (1)    ; 1821 (0)                  ; 0 (0)         ; 16384       ; 2    ; 1          ; 0            ; 0       ; 0         ; 11   ; 0            ; 3037 (1)     ; 33 (0)            ; 1788 (0)         ; 0          ; |processor                                                                                     ; processor            ; work         ;
+; |processor                                ; 4855 (1)    ; 1821 (0)                  ; 0 (0)         ; 16384       ; 2    ; 1          ; 0            ; 0       ; 0         ; 11   ; 0            ; 3034 (1)     ; 30 (0)            ; 1791 (0)         ; 0          ; |processor                                                                                     ; processor            ; work         ;
 ;    |ALU:alu|                              ; 390 (390)   ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 390 (390)    ; 0 (0)             ; 0 (0)            ; 0          ; |processor|ALU:alu                                                                             ; ALU                  ; work         ;
 ;    |ANDGate:branchAnd|                    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |processor|ANDGate:branchAnd                                                                   ; ANDGate              ; work         ;
 ;    |ANDGate:holdGate|                     ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |processor|ANDGate:holdGate                                                                    ; ANDGate              ; work         ;
 ;    |BranchPredictionUnit:BPU|             ; 2165 (2165) ; 512 (512)                 ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1653 (1653)  ; 0 (0)             ; 512 (512)        ; 0          ; |processor|BranchPredictionUnit:BPU                                                            ; BranchPredictionUnit ; work         ;
 ;    |Comparator:branchComparator|          ; 43 (43)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 43 (43)      ; 0 (0)             ; 0 (0)            ; 0          ; |processor|Comparator:branchComparator                                                         ; Comparator           ; work         ;
-;    |ForwardingUnit:FU|                    ; 21 (21)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 20 (20)      ; 0 (0)             ; 1 (1)            ; 0          ; |processor|ForwardingUnit:FU                                                                   ; ForwardingUnit       ; work         ;
+;    |ForwardingUnit:FU|                    ; 21 (21)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 21 (21)      ; 0 (0)             ; 0 (0)            ; 0          ; |processor|ForwardingUnit:FU                                                                   ; ForwardingUnit       ; work         ;
 ;    |HazardDetectionUnit:HDU|              ; 9 (9)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 9 (9)        ; 0 (0)             ; 0 (0)            ; 0          ; |processor|HazardDetectionUnit:HDU                                                             ; HazardDetectionUnit  ; work         ;
 ;    |ORGate:IfIdReset|                     ; 2 (2)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 0 (0)            ; 0          ; |processor|ORGate:IfIdReset                                                                    ; ORGate               ; work         ;
 ;    |adder:branchAdder|                    ; 8 (8)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 0 (0)            ; 0          ; |processor|adder:branchAdder                                                                   ; adder                ; work         ;
@@ -942,20 +944,20 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ;          |altsyncram_8km1:auto_generated| ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 8192        ; 1    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |processor|dataMemory:DM|altsyncram:altsyncram_component|altsyncram_8km1:auto_generated        ; altsyncram_8km1      ; work         ;
 ;    |instructionMemory:IM|                 ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 8192        ; 1    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |processor|instructionMemory:IM                                                                ; instructionMemory    ; work         ;
 ;       |altsyncram:altsyncram_component|   ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 8192        ; 1    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |processor|instructionMemory:IM|altsyncram:altsyncram_component                                ; altsyncram           ; work         ;
-;          |altsyncram_hqc1:auto_generated| ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 8192        ; 1    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |processor|instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_hqc1:auto_generated ; altsyncram_hqc1      ; work         ;
+;          |altsyncram_s3c1:auto_generated| ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 8192        ; 1    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |processor|instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_s3c1:auto_generated ; altsyncram_s3c1      ; work         ;
 ;    |mux2x1:ALUMux|                        ; 56 (56)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 56 (56)      ; 0 (0)             ; 0 (0)            ; 0          ; |processor|mux2x1:ALUMux                                                                       ; mux2x1               ; work         ;
 ;    |mux2x1:CUMux|                         ; 3 (3)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 3 (3)        ; 0 (0)             ; 0 (0)            ; 0          ; |processor|mux2x1:CUMux                                                                        ; mux2x1               ; work         ;
 ;    |mux2x1:pcMux|                         ; 22 (22)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 22 (22)      ; 0 (0)             ; 0 (0)            ; 0          ; |processor|mux2x1:pcMux                                                                        ; mux2x1               ; work         ;
 ;    |mux3to1:ForwardAMux|                  ; 64 (64)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 64 (64)      ; 0 (0)             ; 0 (0)            ; 0          ; |processor|mux3to1:ForwardAMux                                                                 ; mux3to1              ; work         ;
-;    |mux3to1:ForwardBMux|                  ; 65 (65)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 64 (64)      ; 0 (0)             ; 1 (1)            ; 0          ; |processor|mux3to1:ForwardBMux                                                                 ; mux3to1              ; work         ;
+;    |mux3to1:ForwardBMux|                  ; 65 (65)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 65 (65)      ; 0 (0)             ; 0 (0)            ; 0          ; |processor|mux3to1:ForwardBMux                                                                 ; mux3to1              ; work         ;
 ;    |mux3to1:RFMux|                        ; 5 (5)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 5 (5)        ; 0 (0)             ; 0 (0)            ; 0          ; |processor|mux3to1:RFMux                                                                       ; mux3to1              ; work         ;
 ;    |mux3to1:WBMux|                        ; 40 (40)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 7 (7)        ; 0 (0)             ; 33 (33)          ; 0          ; |processor|mux3to1:WBMux                                                                       ; mux3to1              ; work         ;
 ;    |pipe:EX_MEM|                          ; 321 (321)   ; 81 (81)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 240 (240)    ; 16 (16)           ; 65 (65)          ; 0          ; |processor|pipe:EX_MEM                                                                         ; pipe                 ; work         ;
-;    |pipe:ID_EX|                           ; 135 (135)   ; 108 (108)                 ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 27 (27)      ; 2 (2)             ; 106 (106)        ; 0          ; |processor|pipe:ID_EX                                                                          ; pipe                 ; work         ;
+;    |pipe:ID_EX|                           ; 134 (134)   ; 108 (108)                 ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 26 (26)      ; 1 (1)             ; 107 (107)        ; 0          ; |processor|pipe:ID_EX                                                                          ; pipe                 ; work         ;
 ;    |pipe:IF_ID|                           ; 41 (41)     ; 40 (40)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 40 (40)          ; 0          ; |processor|pipe:IF_ID                                                                          ; pipe                 ; work         ;
 ;    |pipe:MEM_WB|                          ; 110 (110)   ; 80 (80)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 30 (30)      ; 1 (1)             ; 79 (79)          ; 0          ; |processor|pipe:MEM_WB                                                                         ; pipe                 ; work         ;
 ;    |programCounter:pc|                    ; 8 (8)       ; 8 (8)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 8 (8)            ; 0          ; |processor|programCounter:pc                                                                   ; programCounter       ; work         ;
-;    |registerFile:RF|                      ; 1370 (1370) ; 992 (992)                 ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 377 (377)    ; 14 (14)           ; 979 (979)        ; 0          ; |processor|registerFile:RF                                                                     ; registerFile         ; work         ;
+;    |registerFile:RF|                      ; 1367 (1367) ; 992 (992)                 ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 373 (373)    ; 12 (12)           ; 982 (982)        ; 0          ; |processor|registerFile:RF                                                                     ; registerFile         ; work         ;
 +-------------------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+------------------------------------------------------------------------------------------------+----------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -975,7 +977,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; PC[7]  ; Output   ; --            ; --            ; --                    ; --  ; --   ;
 ; clk    ; Input    ; (0) 0 ps      ; --            ; --                    ; --  ; --   ;
 ; rst    ; Input    ; (0) 0 ps      ; (6) 873 ps    ; --                    ; --  ; --   ;
-; enable ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
+; enable ; Input    ; --            ; (6) 868 ps    ; --                    ; --  ; --   ;
 +--------+----------+---------------+---------------+-----------------------+-----+------+
 
 
@@ -1234,14 +1236,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - pipe:EX_MEM|Q~470      ; 1                 ; 6       ;
 ;      - pipe:EX_MEM|Q~471      ; 1                 ; 6       ;
 ; enable                        ;                   ;         ;
-;      - ANDGate:holdGate|out   ; 0                 ; 6       ;
-;      - pipe:ID_EX|Q[58]~3     ; 0                 ; 6       ;
-;      - pipe:ID_EX|Q~5         ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q~197      ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q~217      ; 0                 ; 6       ;
-;      - pipe:ID_EX|Q~116       ; 0                 ; 6       ;
-;      - pipe:ID_EX|Q~117       ; 0                 ; 6       ;
-;      - pipe:IF_ID|Q[0]~42     ; 0                 ; 6       ;
+;      - ANDGate:holdGate|out   ; 1                 ; 6       ;
+;      - pipe:ID_EX|Q[58]~3     ; 1                 ; 6       ;
+;      - pipe:ID_EX|Q~5         ; 1                 ; 6       ;
+;      - pipe:EX_MEM|Q~197      ; 1                 ; 6       ;
+;      - pipe:EX_MEM|Q~217      ; 1                 ; 6       ;
+;      - pipe:ID_EX|Q~116       ; 1                 ; 6       ;
+;      - pipe:ID_EX|Q~117       ; 1                 ; 6       ;
+;      - pipe:IF_ID|Q[0]~42     ; 1                 ; 6       ;
 +-------------------------------+-------------------+---------+
 
 
@@ -1250,48 +1252,48 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
 ; Name                            ; Location           ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +---------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
-; ANDGate:holdGate|out            ; LCCOMB_X38_Y21_N16 ; 14      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; BranchPredictionUnit:BPU|Mux2~0 ; LCCOMB_X50_Y11_N2  ; 512     ; Sync. load   ; no     ; --                   ; --               ; --                        ;
+; ANDGate:holdGate|out            ; LCCOMB_X37_Y19_N16 ; 14      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; BranchPredictionUnit:BPU|Mux2~0 ; LCCOMB_X38_Y10_N4  ; 512     ; Sync. load   ; no     ; --                   ; --               ; --                        ;
 ; clk                             ; PIN_M8             ; 1824    ; Clock        ; yes    ; Global Clock         ; GCLK3            ; --                        ;
-; mux2x1:CUMux|out[0]~2           ; LCCOMB_X38_Y21_N18 ; 514     ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; pipe:EX_MEM|Q[47]~290           ; LCCOMB_X46_Y26_N4  ; 8       ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
-; pipe:EX_MEM|Q[57]~332           ; LCCOMB_X46_Y26_N16 ; 8       ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
-; pipe:EX_MEM|Q[77]               ; FF_X42_Y25_N29     ; 3       ; Read enable  ; no     ; --                   ; --               ; --                        ;
-; pipe:EX_MEM|Q[78]               ; FF_X42_Y25_N9      ; 2       ; Write enable ; no     ; --                   ; --               ; --                        ;
-; pipe:ID_EX|Q[130]               ; FF_X41_Y21_N19     ; 52      ; Sync. load   ; no     ; --                   ; --               ; --                        ;
-; pipe:ID_EX|Q[58]~3              ; LCCOMB_X38_Y21_N20 ; 265     ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; pipe:IF_ID|Q[0]~42              ; LCCOMB_X37_Y21_N12 ; 34      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~10     ; LCCOMB_X29_Y23_N28 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~12     ; LCCOMB_X29_Y23_N6  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~13     ; LCCOMB_X29_Y23_N16 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~14     ; LCCOMB_X29_Y23_N18 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~16     ; LCCOMB_X36_Y27_N20 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~17     ; LCCOMB_X36_Y27_N14 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~18     ; LCCOMB_X36_Y27_N8  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~19     ; LCCOMB_X36_Y27_N26 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~21     ; LCCOMB_X29_Y23_N12 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~22     ; LCCOMB_X29_Y23_N22 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~23     ; LCCOMB_X29_Y23_N24 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~24     ; LCCOMB_X29_Y23_N26 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~25     ; LCCOMB_X36_Y27_N28 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~26     ; LCCOMB_X40_Y27_N18 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~27     ; LCCOMB_X36_Y27_N22 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~28     ; LCCOMB_X29_Y23_N20 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~29     ; LCCOMB_X29_Y23_N14 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~30     ; LCCOMB_X36_Y27_N0  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~31     ; LCCOMB_X36_Y27_N2  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~32     ; LCCOMB_X29_Y23_N8  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~33     ; LCCOMB_X29_Y23_N2  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~34     ; LCCOMB_X39_Y23_N26 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~35     ; LCCOMB_X40_Y27_N28 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~36     ; LCCOMB_X36_Y27_N4  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~37     ; LCCOMB_X36_Y27_N6  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~38     ; LCCOMB_X38_Y23_N30 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~39     ; LCCOMB_X39_Y23_N30 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~5      ; LCCOMB_X36_Y27_N12 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~6      ; LCCOMB_X36_Y27_N30 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~7      ; LCCOMB_X36_Y27_N24 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~8      ; LCCOMB_X36_Y27_N18 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; mux2x1:CUMux|out[0]~2           ; LCCOMB_X39_Y18_N14 ; 514     ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; pipe:EX_MEM|Q[47]~290           ; LCCOMB_X35_Y25_N0  ; 8       ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
+; pipe:EX_MEM|Q[57]~332           ; LCCOMB_X35_Y25_N20 ; 8       ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
+; pipe:EX_MEM|Q[77]               ; FF_X40_Y25_N27     ; 3       ; Read enable  ; no     ; --                   ; --               ; --                        ;
+; pipe:EX_MEM|Q[78]               ; FF_X41_Y25_N25     ; 2       ; Write enable ; no     ; --                   ; --               ; --                        ;
+; pipe:ID_EX|Q[130]               ; FF_X43_Y19_N17     ; 52      ; Sync. load   ; no     ; --                   ; --               ; --                        ;
+; pipe:ID_EX|Q[58]~3              ; LCCOMB_X43_Y19_N26 ; 265     ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; pipe:IF_ID|Q[0]~42              ; LCCOMB_X39_Y19_N24 ; 34      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~10     ; LCCOMB_X45_Y26_N8  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~12     ; LCCOMB_X44_Y26_N22 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~13     ; LCCOMB_X45_Y26_N18 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~14     ; LCCOMB_X45_Y26_N12 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~16     ; LCCOMB_X45_Y26_N6  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~17     ; LCCOMB_X47_Y26_N22 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~18     ; LCCOMB_X47_Y26_N8  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~19     ; LCCOMB_X47_Y26_N2  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~21     ; LCCOMB_X47_Y26_N4  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~22     ; LCCOMB_X47_Y26_N6  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~23     ; LCCOMB_X47_Y26_N0  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~24     ; LCCOMB_X45_Y26_N24 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~25     ; LCCOMB_X47_Y26_N10 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~26     ; LCCOMB_X44_Y26_N20 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~27     ; LCCOMB_X45_Y26_N10 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~28     ; LCCOMB_X45_Y26_N4  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~29     ; LCCOMB_X45_Y26_N14 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~30     ; LCCOMB_X47_Y26_N12 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~31     ; LCCOMB_X47_Y26_N14 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~32     ; LCCOMB_X45_Y26_N16 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~33     ; LCCOMB_X45_Y26_N2  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~34     ; LCCOMB_X45_Y26_N28 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~35     ; LCCOMB_X45_Y26_N22 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~36     ; LCCOMB_X45_Y26_N0  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~37     ; LCCOMB_X45_Y26_N26 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~38     ; LCCOMB_X45_Y26_N20 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~39     ; LCCOMB_X44_Y26_N30 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~5      ; LCCOMB_X47_Y26_N30 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~6      ; LCCOMB_X47_Y26_N16 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~7      ; LCCOMB_X47_Y26_N26 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~8      ; LCCOMB_X47_Y26_N28 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
 ; rst                             ; PIN_M9             ; 248     ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
 ; rst                             ; PIN_M9             ; 1513    ; Async. clear ; yes    ; Global Clock         ; GCLK4            ; --                        ;
 +---------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
@@ -1324,15 +1326,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+------+-----------------------------------------+----------------+----------------------+------------------------+------------------------+----------+------------------------+---------------+
 ; Name                                                                                           ; Type ; Mode        ; Clock Mode   ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Port A Input Registers ; Port A Output Registers ; Port B Input Registers ; Port B Output Registers ; Size ; Implementation Port A Depth ; Implementation Port A Width ; Implementation Port B Depth ; Implementation Port B Width ; Implementation Bits ; M9Ks ; MIF                                     ; Location       ; Mixed Width RDW Mode ; Port A RDW Mode        ; Port B RDW Mode        ; ECC Mode ; ECC Pipeline Registers ; Fits in MLABs ;
 +------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+------+-----------------------------------------+----------------+----------------------+------------------------+------------------------+----------+------------------------+---------------+
-; dataMemory:DM|altsyncram:altsyncram_component|altsyncram_8km1:auto_generated|ALTSYNCRAM        ; M9K  ; Single Port ; Single Clock ; 256          ; 32           ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 8192 ; 256                         ; 32                          ; --                          ; --                          ; 8192                ; 1    ; dataMemoryInitializationFile.mif        ; M9K_X53_Y25_N0 ; Don't care           ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
-; instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_hqc1:auto_generated|ALTSYNCRAM ; M9K  ; ROM         ; Single Clock ; 256          ; 32           ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 8192 ; 256                         ; 32                          ; --                          ; --                          ; 8192                ; 1    ; instructionMemoryInitializationFile.mif ; M9K_X33_Y21_N0 ; Don't care           ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
+; dataMemory:DM|altsyncram:altsyncram_component|altsyncram_8km1:auto_generated|ALTSYNCRAM        ; M9K  ; Single Port ; Single Clock ; 256          ; 32           ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 8192 ; 256                         ; 32                          ; --                          ; --                          ; 8192                ; 1    ; dataMemoryInitializationFile.mif        ; M9K_X33_Y25_N0 ; Don't care           ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
+; instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_s3c1:auto_generated|ALTSYNCRAM ; M9K  ; ROM         ; Single Clock ; 256          ; 32           ; --           ; --           ; yes                    ; yes                     ; --                     ; --                      ; 8192 ; 256                         ; 32                          ; --                          ; --                          ; 8192                ; 1    ; instructionMemoryInitializationFile.mif ; M9K_X33_Y19_N0 ; Don't care           ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
 +------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+------+-----------------------------------------+----------------+----------------------+------------------------+------------------------+----------+------------------------+---------------+
 Note: Fitter may spread logical memories into multiple blocks to improve timing. The actual required RAM blocks can be found in the Fitter Resource Usage section.
 
 
 RAM content values are presented in the following format: (Binary) (Octal) (Decimal) (Hexadecimal) 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; |processor|instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_hqc1:auto_generated|ALTSYNCRAM                                                                                                                                                        ;
+; |processor|instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_s3c1:auto_generated|ALTSYNCRAM                                                                                                                                                        ;
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ;   Addr   ;              +0              ;              +1              ;              +2              ;              +3              ;              +4              ;              +5              ;              +6              ;              +7              ;
 +----------+------------------------------+------------------------------+------------------------------+------------------------------+------------------------------+------------------------------+------------------------------+------------------------------+
@@ -1415,176 +1417,175 @@ RAM content values are presented in the following format: (Binary) (Octal) (Deci
 +-----------------------+-------------------------+
 ; Routing Resource Type ; Usage                   ;
 +-----------------------+-------------------------+
-; Block interconnects   ; 6,812 / 148,641 ( 5 % ) ;
-; C16 interconnects     ; 32 / 5,382 ( < 1 % )    ;
-; C4 interconnects      ; 3,461 / 106,704 ( 3 % ) ;
-; Direct links          ; 621 / 148,641 ( < 1 % ) ;
+; Block interconnects   ; 6,827 / 148,641 ( 5 % ) ;
+; C16 interconnects     ; 28 / 5,382 ( < 1 % )    ;
+; C4 interconnects      ; 3,512 / 106,704 ( 3 % ) ;
+; Direct links          ; 600 / 148,641 ( < 1 % ) ;
 ; Global clocks         ; 2 / 20 ( 10 % )         ;
-; Local interconnects   ; 3,396 / 49,760 ( 7 % )  ;
+; Local interconnects   ; 3,438 / 49,760 ( 7 % )  ;
 ; NSLEEPs               ; 0 / 500 ( 0 % )         ;
-; R24 interconnects     ; 50 / 5,406 ( < 1 % )    ;
-; R4 interconnects      ; 4,276 / 147,764 ( 3 % ) ;
+; R24 interconnects     ; 49 / 5,406 ( < 1 % )    ;
+; R4 interconnects      ; 4,368 / 147,764 ( 3 % ) ;
 +-----------------------+-------------------------+
 
 
 +-----------------------------------------------------------------------------+
 ; LAB Logic Elements                                                          ;
 +---------------------------------------------+-------------------------------+
-; Number of Logic Elements  (Average = 13.61) ; Number of LABs  (Total = 357) ;
+; Number of Logic Elements  (Average = 13.95) ; Number of LABs  (Total = 348) ;
 +---------------------------------------------+-------------------------------+
-; 1                                           ; 18                            ;
-; 2                                           ; 10                            ;
-; 3                                           ; 6                             ;
-; 4                                           ; 4                             ;
-; 5                                           ; 4                             ;
-; 6                                           ; 0                             ;
-; 7                                           ; 5                             ;
-; 8                                           ; 2                             ;
+; 1                                           ; 15                            ;
+; 2                                           ; 6                             ;
+; 3                                           ; 4                             ;
+; 4                                           ; 3                             ;
+; 5                                           ; 3                             ;
+; 6                                           ; 3                             ;
+; 7                                           ; 0                             ;
+; 8                                           ; 3                             ;
 ; 9                                           ; 2                             ;
-; 10                                          ; 2                             ;
-; 11                                          ; 4                             ;
-; 12                                          ; 9                             ;
-; 13                                          ; 13                            ;
-; 14                                          ; 22                            ;
-; 15                                          ; 48                            ;
-; 16                                          ; 208                           ;
+; 10                                          ; 5                             ;
+; 11                                          ; 3                             ;
+; 12                                          ; 6                             ;
+; 13                                          ; 7                             ;
+; 14                                          ; 28                            ;
+; 15                                          ; 69                            ;
+; 16                                          ; 191                           ;
 +---------------------------------------------+-------------------------------+
 
 
 +--------------------------------------------------------------------+
 ; LAB-wide Signals                                                   ;
 +------------------------------------+-------------------------------+
-; LAB-wide Signals  (Average = 2.78) ; Number of LABs  (Total = 357) ;
+; LAB-wide Signals  (Average = 2.80) ; Number of LABs  (Total = 348) ;
 +------------------------------------+-------------------------------+
-; 1 Async. clear                     ; 245                           ;
-; 1 Clock                            ; 297                           ;
-; 1 Clock enable                     ; 183                           ;
-; 1 Sync. clear                      ; 20                            ;
-; 1 Sync. load                       ; 141                           ;
-; 2 Clock enables                    ; 107                           ;
+; 1 Async. clear                     ; 236                           ;
+; 1 Clock                            ; 290                           ;
+; 1 Clock enable                     ; 181                           ;
+; 1 Sync. clear                      ; 19                            ;
+; 1 Sync. load                       ; 144                           ;
+; 2 Clock enables                    ; 104                           ;
 +------------------------------------+-------------------------------+
 
 
 +------------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                          ;
 +----------------------------------------------+-------------------------------+
-; Number of Signals Sourced  (Average = 18.52) ; Number of LABs  (Total = 357) ;
+; Number of Signals Sourced  (Average = 18.99) ; Number of LABs  (Total = 348) ;
 +----------------------------------------------+-------------------------------+
 ; 0                                            ; 2                             ;
-; 1                                            ; 15                            ;
-; 2                                            ; 13                            ;
-; 3                                            ; 2                             ;
-; 4                                            ; 4                             ;
+; 1                                            ; 14                            ;
+; 2                                            ; 6                             ;
+; 3                                            ; 4                             ;
+; 4                                            ; 2                             ;
 ; 5                                            ; 0                             ;
-; 6                                            ; 4                             ;
-; 7                                            ; 4                             ;
+; 6                                            ; 3                             ;
+; 7                                            ; 1                             ;
 ; 8                                            ; 2                             ;
-; 9                                            ; 3                             ;
+; 9                                            ; 1                             ;
 ; 10                                           ; 2                             ;
 ; 11                                           ; 0                             ;
-; 12                                           ; 1                             ;
-; 13                                           ; 2                             ;
-; 14                                           ; 2                             ;
-; 15                                           ; 9                             ;
-; 16                                           ; 31                            ;
+; 12                                           ; 4                             ;
+; 13                                           ; 3                             ;
+; 14                                           ; 4                             ;
+; 15                                           ; 15                            ;
+; 16                                           ; 25                            ;
 ; 17                                           ; 16                            ;
-; 18                                           ; 20                            ;
-; 19                                           ; 27                            ;
-; 20                                           ; 92                            ;
-; 21                                           ; 34                            ;
-; 22                                           ; 6                             ;
+; 18                                           ; 24                            ;
+; 19                                           ; 37                            ;
+; 20                                           ; 74                            ;
+; 21                                           ; 31                            ;
+; 22                                           ; 11                            ;
 ; 23                                           ; 5                             ;
-; 24                                           ; 8                             ;
-; 25                                           ; 4                             ;
-; 26                                           ; 4                             ;
+; 24                                           ; 6                             ;
+; 25                                           ; 1                             ;
+; 26                                           ; 6                             ;
 ; 27                                           ; 3                             ;
-; 28                                           ; 3                             ;
-; 29                                           ; 4                             ;
-; 30                                           ; 3                             ;
-; 31                                           ; 0                             ;
-; 32                                           ; 32                            ;
+; 28                                           ; 6                             ;
+; 29                                           ; 1                             ;
+; 30                                           ; 7                             ;
+; 31                                           ; 7                             ;
+; 32                                           ; 25                            ;
 +----------------------------------------------+-------------------------------+
 
 
 +---------------------------------------------------------------------------------+
 ; LAB Signals Sourced Out                                                         ;
 +-------------------------------------------------+-------------------------------+
-; Number of Signals Sourced Out  (Average = 7.38) ; Number of LABs  (Total = 357) ;
+; Number of Signals Sourced Out  (Average = 7.41) ; Number of LABs  (Total = 348) ;
 +-------------------------------------------------+-------------------------------+
 ; 0                                               ; 2                             ;
-; 1                                               ; 24                            ;
-; 2                                               ; 49                            ;
-; 3                                               ; 45                            ;
-; 4                                               ; 37                            ;
-; 5                                               ; 19                            ;
-; 6                                               ; 20                            ;
-; 7                                               ; 24                            ;
-; 8                                               ; 19                            ;
-; 9                                               ; 11                            ;
-; 10                                              ; 19                            ;
-; 11                                              ; 16                            ;
-; 12                                              ; 7                             ;
-; 13                                              ; 5                             ;
-; 14                                              ; 6                             ;
+; 1                                               ; 23                            ;
+; 2                                               ; 46                            ;
+; 3                                               ; 50                            ;
+; 4                                               ; 30                            ;
+; 5                                               ; 23                            ;
+; 6                                               ; 19                            ;
+; 7                                               ; 12                            ;
+; 8                                               ; 28                            ;
+; 9                                               ; 18                            ;
+; 10                                              ; 7                             ;
+; 11                                              ; 11                            ;
+; 12                                              ; 8                             ;
+; 13                                              ; 8                             ;
+; 14                                              ; 12                            ;
 ; 15                                              ; 4                             ;
-; 16                                              ; 24                            ;
-; 17                                              ; 2                             ;
-; 18                                              ; 3                             ;
-; 19                                              ; 3                             ;
-; 20                                              ; 6                             ;
-; 21                                              ; 0                             ;
+; 16                                              ; 18                            ;
+; 17                                              ; 3                             ;
+; 18                                              ; 7                             ;
+; 19                                              ; 1                             ;
+; 20                                              ; 7                             ;
+; 21                                              ; 3                             ;
 ; 22                                              ; 1                             ;
 ; 23                                              ; 2                             ;
-; 24                                              ; 7                             ;
-; 25                                              ; 0                             ;
-; 26                                              ; 2                             ;
+; 24                                              ; 4                             ;
+; 25                                              ; 1                             ;
 +-------------------------------------------------+-------------------------------+
 
 
 +------------------------------------------------------------------------------+
 ; LAB Distinct Inputs                                                          ;
 +----------------------------------------------+-------------------------------+
-; Number of Distinct Inputs  (Average = 18.94) ; Number of LABs  (Total = 357) ;
+; Number of Distinct Inputs  (Average = 19.27) ; Number of LABs  (Total = 348) ;
 +----------------------------------------------+-------------------------------+
 ; 0                                            ; 0                             ;
 ; 1                                            ; 0                             ;
-; 2                                            ; 6                             ;
-; 3                                            ; 3                             ;
-; 4                                            ; 8                             ;
+; 2                                            ; 0                             ;
+; 3                                            ; 5                             ;
+; 4                                            ; 10                            ;
 ; 5                                            ; 0                             ;
-; 6                                            ; 2                             ;
-; 7                                            ; 5                             ;
-; 8                                            ; 2                             ;
-; 9                                            ; 4                             ;
-; 10                                           ; 7                             ;
-; 11                                           ; 27                            ;
-; 12                                           ; 12                            ;
-; 13                                           ; 16                            ;
-; 14                                           ; 25                            ;
-; 15                                           ; 37                            ;
-; 16                                           ; 29                            ;
+; 6                                            ; 0                             ;
+; 7                                            ; 3                             ;
+; 8                                            ; 7                             ;
+; 9                                            ; 2                             ;
+; 10                                           ; 10                            ;
+; 11                                           ; 25                            ;
+; 12                                           ; 16                            ;
+; 13                                           ; 21                            ;
+; 14                                           ; 22                            ;
+; 15                                           ; 26                            ;
+; 16                                           ; 31                            ;
 ; 17                                           ; 14                            ;
-; 18                                           ; 8                             ;
-; 19                                           ; 5                             ;
-; 20                                           ; 10                            ;
-; 21                                           ; 9                             ;
-; 22                                           ; 10                            ;
-; 23                                           ; 4                             ;
-; 24                                           ; 11                            ;
-; 25                                           ; 12                            ;
-; 26                                           ; 7                             ;
-; 27                                           ; 12                            ;
-; 28                                           ; 6                             ;
-; 29                                           ; 5                             ;
-; 30                                           ; 16                            ;
-; 31                                           ; 10                            ;
-; 32                                           ; 6                             ;
-; 33                                           ; 6                             ;
+; 18                                           ; 5                             ;
+; 19                                           ; 7                             ;
+; 20                                           ; 4                             ;
+; 21                                           ; 6                             ;
+; 22                                           ; 11                            ;
+; 23                                           ; 7                             ;
+; 24                                           ; 15                            ;
+; 25                                           ; 9                             ;
+; 26                                           ; 8                             ;
+; 27                                           ; 8                             ;
+; 28                                           ; 8                             ;
+; 29                                           ; 8                             ;
+; 30                                           ; 6                             ;
+; 31                                           ; 7                             ;
+; 32                                           ; 8                             ;
+; 33                                           ; 12                            ;
 ; 34                                           ; 5                             ;
-; 35                                           ; 9                             ;
-; 36                                           ; 4                             ;
-; 37                                           ; 2                             ;
-; 38                                           ; 2                             ;
+; 35                                           ; 4                             ;
+; 36                                           ; 7                             ;
+; 37                                           ; 5                             ;
+; 38                                           ; 5                             ;
 +----------------------------------------------+-------------------------------+
 
 
@@ -1703,7 +1704,7 @@ RAM content values are presented in the following format: (Binary) (Octal) (Deci
 +-----------------+
 ; Fitter Messages ;
 +-----------------+
-Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
 Info (119006): Selected device 10M50DAF484C7G for design "Pipelined"
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
@@ -1745,21 +1746,21 @@ Info (332111): Found 1 clocks
     Info (332111):   Period   Clock Name
     Info (332111): ======== ============
     Info (332111):   29.000          clk
-Info (176353): Automatically promoted node clk~input (placed in PIN M8 (CLK1n, DIFFIO_RX_L36n, DIFFOUT_L36n, High_Speed)) File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/processor.v Line: 4
+Info (176353): Automatically promoted node clk~input (placed in PIN M8 (CLK1n, DIFFIO_RX_L36n, DIFFOUT_L36n, High_Speed)) File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 4
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G3
-Info (176353): Automatically promoted node rst~input (placed in PIN M9 (CLK1p, DIFFIO_RX_L36p, DIFFOUT_L36p, High_Speed)) File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/processor.v Line: 4
+Info (176353): Automatically promoted node rst~input (placed in PIN M9 (CLK1p, DIFFIO_RX_L36p, DIFFOUT_L36p, High_Speed)) File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 4
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G4
     Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
-        Info (176357): Destination node pipe:ID_EX|Q[126] File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/Pipes.v Line: 8
-        Info (176357): Destination node pipe:EX_MEM|Q[37] File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/Pipes.v Line: 8
-        Info (176357): Destination node pipe:EX_MEM|Q[38] File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/Pipes.v Line: 8
-        Info (176357): Destination node pipe:EX_MEM|Q[39] File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/Pipes.v Line: 8
-        Info (176357): Destination node pipe:EX_MEM|Q[40] File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/Pipes.v Line: 8
-        Info (176357): Destination node pipe:EX_MEM|Q[68] File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/Pipes.v Line: 8
-        Info (176357): Destination node pipe:EX_MEM|Q[67] File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/Pipes.v Line: 8
-        Info (176357): Destination node pipe:EX_MEM|Q[66] File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/Pipes.v Line: 8
-        Info (176357): Destination node pipe:EX_MEM|Q[65] File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/Pipes.v Line: 8
-        Info (176357): Destination node pipe:ID_EX|Q[130] File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/Pipes.v Line: 8
+        Info (176357): Destination node pipe:ID_EX|Q[126] File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/Pipes.v Line: 8
+        Info (176357): Destination node pipe:EX_MEM|Q[37] File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/Pipes.v Line: 8
+        Info (176357): Destination node pipe:EX_MEM|Q[38] File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/Pipes.v Line: 8
+        Info (176357): Destination node pipe:EX_MEM|Q[39] File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/Pipes.v Line: 8
+        Info (176357): Destination node pipe:EX_MEM|Q[40] File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/Pipes.v Line: 8
+        Info (176357): Destination node pipe:EX_MEM|Q[68] File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/Pipes.v Line: 8
+        Info (176357): Destination node pipe:EX_MEM|Q[67] File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/Pipes.v Line: 8
+        Info (176357): Destination node pipe:EX_MEM|Q[66] File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/Pipes.v Line: 8
+        Info (176357): Destination node pipe:EX_MEM|Q[65] File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/Pipes.v Line: 8
+        Info (176357): Destination node pipe:ID_EX|Q[130] File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/Pipes.v Line: 8
         Info (176358): Non-global destination nodes limited to 10 nodes
 Info (176233): Starting register packing
 Info (176235): Finished register packing
@@ -1778,37 +1779,37 @@ Info (176215): I/O bank details before I/O pin placement
         Info (176213): I/O bank number 6 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  60 pins available
         Info (176213): I/O bank number 7 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  52 pins available
         Info (176213): I/O bank number 8 does not use VREF pins and has undetermined VCCIO pins. 4 total pin(s) used --  32 pins available
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:05
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:02
 Info (14896): Fitter has disabled Advanced Physical Optimization because it is not supported for the current family.
 Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:01
 Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
-Info (170192): Fitter placement operations ending: elapsed time is 00:00:04
+Info (170192): Fitter placement operations ending: elapsed time is 00:00:01
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 2% of the available device resources
-    Info (170196): Router estimated peak interconnect usage is 32% of the available device resources in the region that extends from location X33_Y22 to location X44_Y32
+    Info (170196): Router estimated peak interconnect usage is 26% of the available device resources in the region that extends from location X33_Y22 to location X44_Y32
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
     Info (170200): Optimizations that may affect the design's timing were skipped
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:03
-Info (11888): Total time spent on timing analysis during the Fitter is 2.37 seconds.
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
+Info (11888): Total time spent on timing analysis during the Fitter is 0.81 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:06
-Info (144001): Generated suppressed messages file C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/output_files/Pipelined.fit.smsg
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:03
+Info (144001): Generated suppressed messages file C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/output_files/Pipelined.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 5705 megabytes
-    Info: Processing ended: Mon Dec 02 00:04:47 2024
-    Info: Elapsed time: 00:00:28
-    Info: Total CPU time (on all processors): 00:00:15
+    Info: Peak virtual memory: 5839 megabytes
+    Info: Processing ended: Mon Dec 02 00:59:48 2024
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:09
 
 
 +----------------------------+
 ; Fitter Suppressed Messages ;
 +----------------------------+
-The suppressed messages can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/output_files/Pipelined.fit.smsg.
+The suppressed messages can be found in C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/output_files/Pipelined.fit.smsg.
 
 

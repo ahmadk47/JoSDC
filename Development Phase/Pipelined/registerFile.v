@@ -19,7 +19,7 @@ module registerFile (clk, rst, we,
 	assign readData1 = registers[readRegister1];
    assign readData2 = registers[readRegister2];
 	
-	always@(posedge clk,  negedge rst) begin : Write_on_register_file_block
+	always@(negedge clk,  negedge rst) begin : Write_on_register_file_block
 	
 		integer i;
 		// Reset the register file

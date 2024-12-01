@@ -1,5 +1,5 @@
 Analysis & Elaboration report for Pipelined
-Mon Dec 02 00:26:08 2024
+Mon Dec 02 01:25:16 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -67,7 +67,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Elaboration Summary                                                   ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Elaboration Status      ; Successful - Mon Dec 02 00:26:08 2024       ;
+; Analysis & Elaboration Status      ; Successful - Mon Dec 02 01:25:16 2024       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; Pipelined                                   ;
 ; Top-level Entity Name              ; processor                                   ;
@@ -91,8 +91,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 8           ;
-; Maximum allowed            ; 4           ;
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
 ; Maximum used               ; 1           ;
@@ -635,55 +635,55 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Mon Dec 02 00:25:56 2024
+    Info: Processing started: Mon Dec 02 01:25:10 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Pipelined -c Pipelined --analysis_and_elaboration
-Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file branchpredictionunit.v
-    Info (12023): Found entity 1: BranchPredictionUnit File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/BranchPredictionUnit.v Line: 1
+    Info (12023): Found entity 1: BranchPredictionUnit File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/BranchPredictionUnit.v Line: 1
 Info (12021): Found 2 design units, including 2 entities, in source file muxes.v
-    Info (12023): Found entity 1: mux2x1 File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/muxes.v Line: 1
-    Info (12023): Found entity 2: mux3to1 File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/muxes.v Line: 16
+    Info (12023): Found entity 1: mux2x1 File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/muxes.v Line: 1
+    Info (12023): Found entity 2: mux3to1 File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/muxes.v Line: 16
 Info (12021): Found 1 design units, including 1 entities, in source file testbench.v
-    Info (12023): Found entity 1: testbench File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/testbench.v Line: 2
+    Info (12023): Found entity 1: testbench File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/testbench.v Line: 2
 Info (12021): Found 1 design units, including 1 entities, in source file processor.v
-    Info (12023): Found entity 1: processor File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/processor.v Line: 1
+    Info (12023): Found entity 1: processor File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file registerfile.v
-    Info (12023): Found entity 1: registerFile File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/registerFile.v Line: 3
+    Info (12023): Found entity 1: registerFile File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/registerFile.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file controlunit.v
-    Info (12023): Found entity 1: controlUnit File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/controlUnit.v Line: 1
+    Info (12023): Found entity 1: controlUnit File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/controlUnit.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file alu.v
-    Info (12023): Found entity 1: ALU File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/ALU.v Line: 1
+    Info (12023): Found entity 1: ALU File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/ALU.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file signextender.v
-    Info (12023): Found entity 1: signextender File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/signextender.v Line: 4
+    Info (12023): Found entity 1: signextender File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/signextender.v Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file programcounter.v
-    Info (12023): Found entity 1: programCounter File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/programCounter.v Line: 1
+    Info (12023): Found entity 1: programCounter File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/programCounter.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file adder.v
-    Info (12023): Found entity 1: adder File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/adder.v Line: 3
+    Info (12023): Found entity 1: adder File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/adder.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file andgate.v
-    Info (12023): Found entity 1: ANDGate File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/ANDGate.v Line: 1
+    Info (12023): Found entity 1: ANDGate File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/ANDGate.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file instructionmemory.v
-    Info (12023): Found entity 1: instructionMemory File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/instructionMemory.v Line: 40
+    Info (12023): Found entity 1: instructionMemory File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/instructionMemory.v Line: 40
 Info (12021): Found 1 design units, including 1 entities, in source file datamemory.v
-    Info (12023): Found entity 1: dataMemory File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/dataMemory.v Line: 40
+    Info (12023): Found entity 1: dataMemory File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/dataMemory.v Line: 40
 Info (12021): Found 1 design units, including 1 entities, in source file xnor.v
-    Info (12023): Found entity 1: XNORGate File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/XNOR.v Line: 1
+    Info (12023): Found entity 1: XNORGate File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/XNOR.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file pipes.v
-    Info (12023): Found entity 1: pipe File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/Pipes.v Line: 1
+    Info (12023): Found entity 1: pipe File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/Pipes.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file comparator.v
-    Info (12023): Found entity 1: Comparator File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/Comparator.v Line: 1
+    Info (12023): Found entity 1: Comparator File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/Comparator.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file forwardingunit.v
-    Info (12023): Found entity 1: ForwardingUnit File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/forwardingUnit.v Line: 1
+    Info (12023): Found entity 1: ForwardingUnit File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/forwardingUnit.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file hazarddetectionunit.v
-    Info (12023): Found entity 1: HazardDetectionUnit File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/HazardDetectionUnit.v Line: 1
+    Info (12023): Found entity 1: HazardDetectionUnit File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/HazardDetectionUnit.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file orgate.v
-    Info (12023): Found entity 1: ORGate File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/ORGate.v Line: 1
+    Info (12023): Found entity 1: ORGate File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/ORGate.v Line: 1
 Info (12127): Elaborating entity "processor" for the top level hierarchy
-Info (12128): Elaborating entity "programCounter" for hierarchy "programCounter:pc" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/processor.v Line: 42
-Info (12128): Elaborating entity "adder" for hierarchy "adder:pcAdder" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/processor.v Line: 44
-Info (12128): Elaborating entity "instructionMemory" for hierarchy "instructionMemory:IM" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/processor.v Line: 46
-Info (12128): Elaborating entity "altsyncram" for hierarchy "instructionMemory:IM|altsyncram:altsyncram_component" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/instructionMemory.v Line: 85
-Info (12130): Elaborated megafunction instantiation "instructionMemory:IM|altsyncram:altsyncram_component" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/instructionMemory.v Line: 85
-Info (12133): Instantiated megafunction "instructionMemory:IM|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/instructionMemory.v Line: 85
+Info (12128): Elaborating entity "programCounter" for hierarchy "programCounter:pc" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 42
+Info (12128): Elaborating entity "adder" for hierarchy "adder:pcAdder" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 44
+Info (12128): Elaborating entity "instructionMemory" for hierarchy "instructionMemory:IM" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 46
+Info (12128): Elaborating entity "altsyncram" for hierarchy "instructionMemory:IM|altsyncram:altsyncram_component" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/instructionMemory.v Line: 85
+Info (12130): Elaborated megafunction instantiation "instructionMemory:IM|altsyncram:altsyncram_component" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/instructionMemory.v Line: 85
+Info (12133): Instantiated megafunction "instructionMemory:IM|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/instructionMemory.v Line: 85
     Info (12134): Parameter "address_aclr_a" = "CLEAR0"
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
@@ -699,31 +699,31 @@ Info (12133): Instantiated megafunction "instructionMemory:IM|altsyncram:altsync
     Info (12134): Parameter "width_a" = "32"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_hqc1.tdf
-    Info (12023): Found entity 1: altsyncram_hqc1 File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/db/altsyncram_hqc1.tdf Line: 28
-Info (12128): Elaborating entity "altsyncram_hqc1" for hierarchy "instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_hqc1:auto_generated" File: d:/quartuslite/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "mux2x1" for hierarchy "mux2x1:pcMux" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/processor.v Line: 48
-Info (12128): Elaborating entity "pipe" for hierarchy "pipe:IF_ID" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/processor.v Line: 55
-Info (12128): Elaborating entity "BranchPredictionUnit" for hierarchy "BranchPredictionUnit:BPU" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/processor.v Line: 58
-Info (12128): Elaborating entity "signextender" for hierarchy "signextender:SignExtend" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/processor.v Line: 63
-Info (12128): Elaborating entity "controlUnit" for hierarchy "controlUnit:CU" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/processor.v Line: 67
-Info (12128): Elaborating entity "registerFile" for hierarchy "registerFile:RF" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/processor.v Line: 73
-Info (12128): Elaborating entity "Comparator" for hierarchy "Comparator:branchComparator" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/processor.v Line: 76
-Info (12128): Elaborating entity "XNORGate" for hierarchy "XNORGate:branchXnor" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/processor.v Line: 78
-Info (12128): Elaborating entity "ANDGate" for hierarchy "ANDGate:branchAnd" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/processor.v Line: 80
-Info (12128): Elaborating entity "HazardDetectionUnit" for hierarchy "HazardDetectionUnit:HDU" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/processor.v Line: 85
-Info (12128): Elaborating entity "ORGate" for hierarchy "ORGate:IfIdReset" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/processor.v Line: 87
-Info (12128): Elaborating entity "mux2x1" for hierarchy "mux2x1:CUMux" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/processor.v Line: 90
-Info (12128): Elaborating entity "pipe" for hierarchy "pipe:ID_EX" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/processor.v Line: 96
-Info (12128): Elaborating entity "mux3to1" for hierarchy "mux3to1:ForwardAMux" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/processor.v Line: 107
-Info (12128): Elaborating entity "mux2x1" for hierarchy "mux2x1:ALUMux" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/processor.v Line: 111
-Info (12128): Elaborating entity "ALU" for hierarchy "ALU:alu" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/processor.v Line: 113
-Info (12128): Elaborating entity "mux3to1" for hierarchy "mux3to1:RFMux" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/processor.v Line: 115
-Info (12128): Elaborating entity "ForwardingUnit" for hierarchy "ForwardingUnit:FU" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/processor.v Line: 118
-Info (12128): Elaborating entity "pipe" for hierarchy "pipe:EX_MEM" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/processor.v Line: 121
-Info (12128): Elaborating entity "dataMemory" for hierarchy "dataMemory:DM" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/processor.v Line: 127
-Info (12128): Elaborating entity "altsyncram" for hierarchy "dataMemory:DM|altsyncram:altsyncram_component" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/dataMemory.v Line: 89
-Info (12130): Elaborated megafunction instantiation "dataMemory:DM|altsyncram:altsyncram_component" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/dataMemory.v Line: 89
-Info (12133): Instantiated megafunction "dataMemory:DM|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/dataMemory.v Line: 89
+    Info (12023): Found entity 1: altsyncram_hqc1 File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/db/altsyncram_hqc1.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_hqc1" for hierarchy "instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_hqc1:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "mux2x1" for hierarchy "mux2x1:pcMux" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 48
+Info (12128): Elaborating entity "pipe" for hierarchy "pipe:IF_ID" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 55
+Info (12128): Elaborating entity "BranchPredictionUnit" for hierarchy "BranchPredictionUnit:BPU" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 58
+Info (12128): Elaborating entity "signextender" for hierarchy "signextender:SignExtend" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 63
+Info (12128): Elaborating entity "controlUnit" for hierarchy "controlUnit:CU" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 67
+Info (12128): Elaborating entity "registerFile" for hierarchy "registerFile:RF" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 73
+Info (12128): Elaborating entity "Comparator" for hierarchy "Comparator:branchComparator" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 76
+Info (12128): Elaborating entity "XNORGate" for hierarchy "XNORGate:branchXnor" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 78
+Info (12128): Elaborating entity "ANDGate" for hierarchy "ANDGate:branchAnd" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 80
+Info (12128): Elaborating entity "HazardDetectionUnit" for hierarchy "HazardDetectionUnit:HDU" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 85
+Info (12128): Elaborating entity "ORGate" for hierarchy "ORGate:IfIdReset" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 87
+Info (12128): Elaborating entity "mux2x1" for hierarchy "mux2x1:CUMux" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 90
+Info (12128): Elaborating entity "pipe" for hierarchy "pipe:ID_EX" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 96
+Info (12128): Elaborating entity "mux3to1" for hierarchy "mux3to1:ForwardAMux" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 107
+Info (12128): Elaborating entity "mux2x1" for hierarchy "mux2x1:ALUMux" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 111
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:alu" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 113
+Info (12128): Elaborating entity "mux3to1" for hierarchy "mux3to1:RFMux" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 115
+Info (12128): Elaborating entity "ForwardingUnit" for hierarchy "ForwardingUnit:FU" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 118
+Info (12128): Elaborating entity "pipe" for hierarchy "pipe:EX_MEM" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 121
+Info (12128): Elaborating entity "dataMemory" for hierarchy "dataMemory:DM" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 127
+Info (12128): Elaborating entity "altsyncram" for hierarchy "dataMemory:DM|altsyncram:altsyncram_component" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/dataMemory.v Line: 89
+Info (12130): Elaborated megafunction instantiation "dataMemory:DM|altsyncram:altsyncram_component" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/dataMemory.v Line: 89
+Info (12133): Instantiated megafunction "dataMemory:DM|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/dataMemory.v Line: 89
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
     Info (12134): Parameter "init_file" = "dataMemoryInitializationFile.mif"
@@ -741,20 +741,20 @@ Info (12133): Instantiated megafunction "dataMemory:DM|altsyncram:altsyncram_com
     Info (12134): Parameter "width_a" = "32"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_8km1.tdf
-    Info (12023): Found entity 1: altsyncram_8km1 File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/db/altsyncram_8km1.tdf Line: 28
-Info (12128): Elaborating entity "altsyncram_8km1" for hierarchy "dataMemory:DM|altsyncram:altsyncram_component|altsyncram_8km1:auto_generated" File: d:/quartuslite/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "pipe" for hierarchy "pipe:MEM_WB" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/processor.v Line: 131
-Info (144001): Generated suppressed messages file C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/output_files/Pipelined.map.smsg
+    Info (12023): Found entity 1: altsyncram_8km1 File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/db/altsyncram_8km1.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_8km1" for hierarchy "dataMemory:DM|altsyncram:altsyncram_component|altsyncram_8km1:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "pipe" for hierarchy "pipe:MEM_WB" File: C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/processor.v Line: 131
+Info (144001): Generated suppressed messages file C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/output_files/Pipelined.map.smsg
 Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4750 megabytes
-    Info: Processing ended: Mon Dec 02 00:26:08 2024
-    Info: Elapsed time: 00:00:12
-    Info: Total CPU time (on all processors): 00:00:10
+    Info: Peak virtual memory: 4745 megabytes
+    Info: Processing ended: Mon Dec 02 01:25:16 2024
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:05
 
 
 +--------------------------------------------+
 ; Analysis & Elaboration Suppressed Messages ;
 +--------------------------------------------+
-The suppressed messages can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/output_files/Pipelined.map.smsg.
+The suppressed messages can be found in C:/Users/Saleh/Desktop/Josdc phase 2/JoSDC/Development Phase/Pipelined/output_files/Pipelined.map.smsg.
 
 

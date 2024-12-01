@@ -93,7 +93,7 @@ ANDGate holdGate(.in1(~Stall), .in2(enable), .out(EnablePCIFID));
 // CHECK INPUTS AND OUTPUTS
 	
 pipe #(136) ID_EX(.D({regWriteNew, memToRegNew, memWriteNew, memReadNew, ALUOpNew, regDstNew, ALUSrcNew, PCPlus1D, readData1, readData2, extImm, rs, rt, rd, shamt}),
- .Q({regWriteE, memToRegE, memWriteE, memReadE, ALUOpE, regDstE, ALUSrcE, PCPlus1E, readData1E, readData2E, extImmE, rsE, rtE, rdE, shamtE}), .clk(~clk), .reset(rst), .enable(enable));
+ .Q({regWriteE, memToRegE, memWriteE, memReadE, ALUOpE, regDstE, ALUSrcE, PCPlus1E, readData1E, readData2E, extImmE, rsE, rtE, rdE, shamtE}), .clk(clk), .reset(rst), .enable(enable));
 
  
  
@@ -118,7 +118,7 @@ mux3to1 #(5) RFMux(.in1(rtE), .in2(rdE), .in3(5'b11111), .s(regDstE), .out(write
 ForwardingUnit FU(.rsE(rsE), .rtE(rtE), .writeRegisterM(writeRegisterM), .writeRegisterW(writeRegisterW), .regWriteM(regWriteM), .regWriteW(regWriteW), .ForwardA(ForwardA), .ForwardB(ForwardB));
 
 pipe #(82) EX_MEM(.D({regWriteE, memToRegE, memWriteE, memReadE, PCPlus1E, ALUResult, ForwardBMuxOut, writeRegister}), 
-.Q({regWriteM, memToRegM, memWriteM, memReadM, PCPlus1M, ALUResultM, ForwardBMuxOutM, writeRegisterM}), .clk(~clk), .reset(rst), .enable(enable));
+.Q({regWriteM, memToRegM, memWriteM, memReadM, PCPlus1M, ALUResultM, ForwardBMuxOutM, writeRegisterM}), .clk(clk), .reset(rst), .enable(enable));
 
 
 
@@ -128,7 +128,7 @@ dataMemory DM(.address(ALUResultM[7:0]), .clock(~clk), .data(ForwardBMuxOutM), .
 
 
 pipe #(80) MEM_WB(.D({regWriteM, memToRegM, PCPlus1M, ALUResultM, memoryReadData, writeRegisterM}), 
-.Q({regWriteW, memToRegW, PCPlus1W, ALUResultW, memoryReadDataW, writeRegisterW}), .clk(~clk), .reset(rst), .enable(enable));
+.Q({regWriteW, memToRegW, PCPlus1W, ALUResultW, memoryReadDataW, writeRegisterW}), .clk(clk), .reset(rst), .enable(enable));
 
 
 

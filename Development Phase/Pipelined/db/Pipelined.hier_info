@@ -1,5 +1,5 @@
 |processor
-clk => clk.IN5
+clk => clk.IN8
 rst => rst.IN6
 PC[0] << PC[0].DB_MAX_OUTPUT_PORT_TYPE
 PC[1] << PC[1].DB_MAX_OUTPUT_PORT_TYPE
