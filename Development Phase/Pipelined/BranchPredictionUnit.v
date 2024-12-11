@@ -7,7 +7,7 @@ module BranchPredictionUnit(branch_taken,clk, reset, branch, pc, prediction, bra
 	 
    
     reg [1:0] BHT [0:255];
-    wire [7:0] index = pc[7:0];
+    wire [5:0] index = pc[5:0];
     always @(*) begin
 		if (~Stall) begin
         case (BHT[index])
@@ -33,7 +33,7 @@ module BranchPredictionUnit(branch_taken,clk, reset, branch, pc, prediction, bra
 				CorrectedPC <= pcPlus1;
 			end
 			else begin 
-				CorrectedPC <= CorrectedPC;
+				CorrectedPC <= 0;
 			end
     end
 

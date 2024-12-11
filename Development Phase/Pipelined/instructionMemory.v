@@ -40,20 +40,17 @@
 module instructionMemory (
 	aclr,
 	address,
-	addressstall_a,
 	clock,
 	q);
 
 	input	  aclr;
 	input	[7:0]  address;
-	input	  addressstall_a;
 	input	  clock;
 	output	[31:0]  q;
 `ifndef ALTERA_RESERVED_QIS
 // synopsys translate_off
 `endif
 	tri0	  aclr;
-	tri0	  addressstall_a;
 	tri1	  clock;
 `ifndef ALTERA_RESERVED_QIS
 // synopsys translate_on
@@ -65,11 +62,11 @@ module instructionMemory (
 	altsyncram	altsyncram_component (
 				.aclr0 (aclr),
 				.address_a (address),
-				.addressstall_a (addressstall_a),
 				.clock0 (clock),
 				.q_a (sub_wire0),
 				.aclr1 (1'b0),
 				.address_b (1'b1),
+				.addressstall_a (1'b0),
 				.addressstall_b (1'b0),
 				.byteena_a (1'b1),
 				.byteena_b (1'b1),
@@ -108,7 +105,7 @@ endmodule
 // ============================================================
 // CNX file retrieval info
 // ============================================================
-// Retrieval info: PRIVATE: ADDRESSSTALL_A NUMERIC "1"
+// Retrieval info: PRIVATE: ADDRESSSTALL_A NUMERIC "0"
 // Retrieval info: PRIVATE: AclrAddr NUMERIC "1"
 // Retrieval info: PRIVATE: AclrByte NUMERIC "0"
 // Retrieval info: PRIVATE: AclrOutput NUMERIC "1"
@@ -153,12 +150,10 @@ endmodule
 // Retrieval info: CONSTANT: WIDTH_BYTEENA_A NUMERIC "1"
 // Retrieval info: USED_PORT: aclr 0 0 0 0 INPUT GND "aclr"
 // Retrieval info: USED_PORT: address 0 0 8 0 INPUT NODEFVAL "address[7..0]"
-// Retrieval info: USED_PORT: addressstall_a 0 0 0 0 INPUT GND "addressstall_a"
 // Retrieval info: USED_PORT: clock 0 0 0 0 INPUT VCC "clock"
 // Retrieval info: USED_PORT: q 0 0 32 0 OUTPUT NODEFVAL "q[31..0]"
 // Retrieval info: CONNECT: @aclr0 0 0 0 0 aclr 0 0 0 0
 // Retrieval info: CONNECT: @address_a 0 0 8 0 address 0 0 8 0
-// Retrieval info: CONNECT: @addressstall_a 0 0 0 0 addressstall_a 0 0 0 0
 // Retrieval info: CONNECT: @clock0 0 0 0 0 clock 0 0 0 0
 // Retrieval info: CONNECT: q 0 0 32 0 @q_a 0 0 32 0
 // Retrieval info: GEN_FILE: TYPE_NORMAL instructionMemory.v TRUE
