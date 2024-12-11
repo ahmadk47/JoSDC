@@ -1,13 +1,15 @@
-module BranchPredictionUnit(branch_taken,clk, reset, branch, pc, prediction);
+module BranchPredictionUnit(branch_taken,clk, reset, branch, pc, prediction, branchAdderResult, pcPlus1, CorrectedPC, Stall);
 
-	 input clk, reset, branch, branch_taken;
-	 input [7:0] pc;
+	 input clk, reset, branch, branch_taken, Stall;
+	 input [7:0] pc, branchAdderResult, pcPlus1;
     output reg prediction;
+	 output reg [7:0] CorrectedPC;
 	 
    
     reg [1:0] BHT [0:255];
     wire [7:0] index = pc[7:0];
     always @(*) begin
+		if (~Stall) begin
         case (BHT[index])
             2'b11: 
 					prediction = 1'b1; 	// Strongly Taken
@@ -19,6 +21,20 @@ module BranchPredictionUnit(branch_taken,clk, reset, branch, pc, prediction);
 					prediction = 1'b0; 	// Strongly Not Taken
             default: prediction = 1'b0;
         endcase
+		end
+		else begin
+			prediction = 0;
+			end
+		  
+		   if (branch_taken & !prediction) begin
+				CorrectedPC <= branchAdderResult;
+			end
+			else if (!branch_taken & prediction) begin
+				CorrectedPC <= pcPlus1;
+			end
+			else begin 
+				CorrectedPC <= CorrectedPC;
+			end
     end
 
     always @(posedge clk ,negedge reset) begin : always_block
@@ -48,6 +64,8 @@ module BranchPredictionUnit(branch_taken,clk, reset, branch, pc, prediction);
 						end
 				endcase
         end
+		  
+		 
     end
 
 endmodule 

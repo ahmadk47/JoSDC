@@ -1,9 +1,10 @@
-module ForwardingUnit (rsE, rtE, writeRegisterM, writeRegisterW, regWriteM, regWriteW, ForwardA, ForwardB);
+module ForwardingUnit (rsD, rtD, rsE, rtE, writeRegisterM, writeRegisterW, regWriteM, regWriteW, ForwardA, ForwardB, ForwardAD, ForwardBD);
 
-input [4:0] rsE, rtE;       
+input [4:0] rsE, rtE,rsD, rtD;       
 input [4:0] writeRegisterM, writeRegisterW;
 input regWriteM, regWriteW;            
 output reg [1:0] ForwardA, ForwardB;
+output reg ForwardAD, ForwardBD;
 
 
 
@@ -13,6 +14,8 @@ always @(*) begin
 	ForwardB[0] = 1'b0;
 	ForwardA[1] = 1'b0;
 	ForwardB[1] = 1'b0;
+	ForwardAD = 0;
+	ForwardBD = 0;
 	
 if (regWriteM && (writeRegisterM == rsE) && (writeRegisterM != 0))
 	ForwardA[0] = 1;
@@ -25,6 +28,11 @@ if (regWriteW && (writeRegisterW == rsE) && (writeRegisterM != rsE || regWriteM 
 	
 if (regWriteW && (writeRegisterW == rtE) && (writeRegisterM != rtE || regWriteM == 0) && (writeRegisterW != 0))
 	ForwardB[1] = 1;
+	
+if ((rsD!=0) & (rsD==writeRegisterM) & (writeRegisterM!=0) & regWriteM)
+	ForwardAD = 1;
+if ((rtD!=0) & (rtD==writeRegisterM) & (writeRegisterM!=0) & regWriteM)
+	ForwardBD = 1;
 end
 
 

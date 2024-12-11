@@ -11,11 +11,11 @@ always @(posedge clk) begin
 if (~reset)
 	Q <= {size{1'b0}};
 	
-else if (enable)
-	Q <= D;
+else if (~enable)
+	Q <= Q;
 
 else
-	Q <= Q;
+	Q <= D;
 
 end 
 

@@ -313,28 +313,18 @@ public class Assembler {
         try {
             Assembler assembler = new Assembler();
             String[] program = {
-                    "main: ADDI $1, $0, -5",
-                    "ADDI $2, $0, 5",
-                    "ADDI $3, $0, 5",
-                    "ADDI $4, $0, 84",
-                    "L1: BEQ $2, $3, L2",
-                    "NOP",
-                    "JAL L1",
-                    "L2: BNE $2, $3, L3",
-                    "L3: NOP",
-                    "L4: BLTZ $1, L5",
-                    "NOP",
-                    "JAL L4",
-                    "L5: BGEZ $2, L6",
-                    "NOP",
-                    "JAL L5",
-                    "L6: JAL L7",
-                    "NOP",
-                    "JAL L6",
-                    "L7: JR $4",
-                    "NOP",
-                    "JAL L7",
-                    "L8: NOP"
+                    "main:",
+                    "ORI $2, $0, 0x1",
+                    "ORI $3, $0, 0x0",
+                    "ORI $4, $0, 0xA",
+                    "SUM_LOOP:",
+                    "ADD $3, $3, $2",
+                    "ADDI $2, $2, 1",
+                    "SLT $5, $4, $2",
+                    "BEQ $5, $0, SUM_LOOP",
+                    "SW $3, 0x0($0)",
+                    "END:",
+                    "NOP"
             };
 
             assembler.firstPass(program);

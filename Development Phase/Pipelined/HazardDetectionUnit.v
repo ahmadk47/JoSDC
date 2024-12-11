@@ -1,12 +1,13 @@
-module HazardDetectionUnit (Stall, Flush, takenBranch, pcSrc, writeRegisterE, rsD, rtD, memReadE, branch, prediction);
- input takenBranch, pcSrc, memReadE, branch, prediction;
- input [4:0] writeRegisterE, rsD, rtD;
- output reg Stall, Flush;
+module HazardDetectionUnit (Stall, Flush, CPCSignal, takenBranch, pcSrc, writeRegisterE, writeRegisterM, rsD, rtD, memReadE, branch, prediction, regWriteE, memToRegM);
+ input takenBranch, pcSrc, memReadE, branch, prediction, regWriteE;
+ input [1:0] memToRegM;
+ input [4:0] writeRegisterE, writeRegisterM, rsD, rtD;
+ output reg Stall, Flush,CPCSignal;
 	
 	
 	always @(*) begin
 	
-		Flush = ((takenBranch ^ prediction) & branch)| pcSrc;
+		Flush =pcSrc ;
 		
 	end
 	
@@ -15,6 +16,13 @@ module HazardDetectionUnit (Stall, Flush, takenBranch, pcSrc, writeRegisterE, rs
 		if (memReadE && (writeRegisterE == rsD || writeRegisterE == rtD) && (writeRegisterE != 5'b0)) begin
 			Stall = 1;
 		end
+		else if (branch && (regWriteE && (writeRegisterE ==rsD || writeRegisterE ==rtD )) || (memToRegM && (writeRegisterM ==rsD || writeRegisterM ==rtD))) begin
+			Stall = 1;
+		end
+	end
+	
+	always @(*) begin 
+		CPCSignal = (takenBranch ^ prediction) & branch | Stall;
 		
 	end
 
