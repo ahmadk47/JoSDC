@@ -37,18 +37,15 @@ add wave -noupdate /testbench/uut/EnablePCIFID
 add wave -noupdate /testbench/uut/Stall
 add wave -noupdate /testbench/uut/branch
 add wave -noupdate /testbench/uut/Flush
-add wave -noupdate -radix unsigned /testbench/uut/nextPC
-add wave -noupdate -radix unsigned /testbench/uut/PCPlus1
-add wave -noupdate -radix unsigned /testbench/uut/PCPlus1D
-add wave -noupdate -radix unsigned /testbench/uut/PCPlus1E
-add wave -noupdate -radix unsigned /testbench/uut/PCPlus1M
-add wave -noupdate -radix unsigned /testbench/uut/PCPlus1W
-add wave -noupdate -radix unsigned /testbench/uut/CorrectedPC
-add wave -noupdate -radix unsigned /testbench/uut/CPC
-add wave -noupdate -radix unsigned /testbench/uut/pc/PCin
-add wave -noupdate -radix unsigned /testbench/uut/pc/PCout
+add wave -noupdate -radix unsigned /testbench/uut/BPU/prediction
+add wave -noupdate -radix unsigned /testbench/uut/BPU/BHT
+add wave -noupdate -radix unsigned /testbench/uut/BPU/index
+add wave -noupdate /testbench/uut/CorrectedPC
+add wave -noupdate -radix unsigned /testbench/uut/BPU/pc
+add wave -noupdate -radix unsigned /testbench/uut/BPU/pcD
+add wave -noupdate -radix unsigned /testbench/uut/BPU/CorrectedPC
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {94656 ps} 0}
+WaveRestoreCursors {{Cursor 1} {207565 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 213
 configure wave -valuecolwidth 100
@@ -64,4 +61,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ps} {122625 ps}
+WaveRestoreZoom {589507 ps} {712132 ps}

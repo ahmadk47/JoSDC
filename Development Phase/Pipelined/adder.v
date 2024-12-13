@@ -8,6 +8,6 @@ module adder #(parameter size = 8) (in1, in2, out);
 	output wire [size-1:0] out;
 	
 	// summation
-	assign out = in1 + in2;
+	assign out = in1 + $signed(in2);
 
 endmodule

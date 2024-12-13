@@ -1,4 +1,5 @@
 from copy import deepcopy
+
 MEM_SIZE = 256
 
 
@@ -44,8 +45,6 @@ class ID_EX:
         self.rt = 0
         self.rd = 0
         self.shamt = 0
-        self.forward_B_mux_out = 0
-        self.write_register = 0
 
     def flush(self):
         self.__init__()
@@ -66,6 +65,7 @@ class State:
         self.id_ex = ID_EX()
         self.ex_mem = EX_MEM()
         self.mem_wb = MEM_WB()
+        self.corrected_pc = -1
 
     def print(self):
         pass
@@ -78,7 +78,7 @@ class RF:
             self.registers.append(0)
 
     def read_rf(self, reg_num):
-        return self.registers[reg_num]
+        return int(self.registers[reg_num])
 
     def write_rf(self, reg_num, write_data):
         if reg_num != 0:
@@ -89,27 +89,37 @@ class RF:
             for i in range(32):
                 f.write(str(self.registers[i]) + '\n')
 
+    def print_rf(self):
+        print(f'RF: {" ".join(map(str, self.registers))}')
+
 
 class DataMem:
     def __init__(self):
-        with open('data_mem.txt', 'w') as f:
-            for i in range(MEM_SIZE):
-                f.write(str(0) + '\n')
+        # with open('data_mem.txt', 'w') as f:
+        #     for i in range(MEM_SIZE):
+        #         f.write(str(0) + '\n')
+        pass
 
     @staticmethod
-    def write_dm(address=None, data=None):
+    def write_dm(address, data):
         with open('data_mem.txt', 'r') as f:
             read_data = f.read().split('\n')
         read_data[address] = str(data)
         with open('data_mem.txt', 'w') as f:
-            for line in read_data:
-                f.write(line+'\n')
+            for idx, line in enumerate(read_data):
+                if idx < len(read_data)-1:
+                    f.write(f'{line}\n')
+                else:
+                    f.write(line)
 
     @staticmethod
     def read_dm(address):
         with open('data_mem.txt', 'r') as f:
-            read_data = f.readlines()
-            return int(read_data[address])
+            try:
+                read_data = f.readlines()
+                return int(read_data[address])
+            except ValueError:
+                print(f'{address = }')
 
 
 class InsMem:
@@ -175,7 +185,7 @@ def alu(operand1, operand2, alu_shamt, op_sel):
 
     match op_sel:
         case 0:  # add
-            result = (operand1 + operand2) % 2**32
+            result = operand1 + operand2
         case 1:  # sub
             result = operand1 - operand2
         case 2:  # and
@@ -191,7 +201,7 @@ def alu(operand1, operand2, alu_shamt, op_sel):
         case 7:  # xor
             result = operand1 ^ operand2
         case 8:  # sll
-            result = (operand2 << alu_shamt) % 2**32
+            result = (operand2 << alu_shamt) & (2 ** 32 - 1)
         case 9:  # srl
             result = operand2 >> alu_shamt
 
@@ -214,7 +224,6 @@ def cu(cu_op_code, cu_funct, cu_stall):
     cu_op_code = hex(int(cu_op_code, 2))
     cu_funct = hex(int(cu_funct, 2))
     if cu_op_code == '0x0':  # R-TYPE
-        print('R_TYPE')
         control_unit.update({'reg_dst': 1,
                              'branch': 0,
                              'mem_read': 0,
@@ -301,37 +310,57 @@ def cu(cu_op_code, cu_funct, cu_stall):
     return control_unit
 
 
-def forward(rs_E, rt_E, write_register_M, write_register_W, reg_write_M, reg_write_W):
-    forwardA = 0
-    forwardB = 0
+def forward_e(rs_E, rt_E, write_register_M, write_register_W, reg_write_M, reg_write_W):
+    forwardAE = 0
+    forwardBE = 0
 
     if reg_write_M and write_register_M == rs_E and write_register_M != 0:
-        forwardA = 1
+        forwardAE = 1
     elif reg_write_W and write_register_W == rs_E and write_register_W != 0:
-        forwardA = 2
+        forwardAE = 2
 
     if reg_write_M and write_register_M == rt_E and write_register_M != 0:
-        forwardB = 1
+        forwardBE = 1
     elif reg_write_W and write_register_W == rt_E and write_register_W != 0:
-        forwardB = 2
+        forwardBE = 2
+    return forwardAE, forwardBE
 
-    return forwardA, forwardB
+
+def forward_d(rs_D, rt_D, write_register_M, reg_write_M):
+    forwardAD = 0
+    forwardBD = 0
+    if reg_write_M and rs_D == write_register_M and rs_D != 0:
+        forwardAD = 1
+    if reg_write_M and rt_D == write_register_M and rt_D != 0:
+        forwardBD = 1
+    return forwardAD, forwardBD
 
 
-def hazard_stall(mem_read_E, write_register_E, rs_D, rt_D):
+def hazard_stall_lw(mem_read_E, write_register_E, rs_D, rt_D):
     if write_register_E and mem_read_E:
         if write_register_E == rs_D or write_register_E == rt_D:
+            print("DATA HAZARD DETECTED!\n\n\n\n")
             return 1
     return 0
 
 
-def hazard_flush(taken_branch, pc_src, h_prediction, h_branch):
-    return ((taken_branch ^ h_prediction) & h_branch) | pc_src
+def hazard_stall_branch(branch_D, reg_write_E, mem_to_reg_M, write_register_E, write_register_M, rs_D, rt_D):
+    if branch_D:
+        if reg_write_E and (write_register_E == rs_D or write_register_E == rt_D):
+            print("DATA HAZARD DETECTED!\n\n\n\n")
+            return 1
+        if mem_to_reg_M and (write_register_M == rs_D or write_register_M == rt_D):
+            print("DATA HAZARD DETECTED!\n\n\n\n")
+            return 1
+    return 0
+
+
+def hazard_flush(taken_branch, h_prediction, h_branch, h_stall):
+    return (taken_branch ^ h_prediction) & h_branch & ~h_stall
 
 
 rf = RF()
 state = State()
-new_state = State()
 data_mem = DataMem()
 ins_mem = InsMem()
 pc = PC()
@@ -340,11 +369,14 @@ branch_predictor = BPU()
 cycle = 0
 enable = True
 reset = False
+flush = 0
 
-for j in range(25):
+while True:
+    new_state = State()
     print(f'cycle: {cycle}')
+    print(f'pc: {pc.cur_pc}')
     # --------------------WB STAGE------------------ #
-    WB_data = None
+    WB_data = 0
     if state.mem_wb.reg_write == 1:
         WB_data = mux(sel=state.mem_wb.mem_to_reg,
                       in1=state.mem_wb.alu_result,
@@ -365,30 +397,30 @@ for j in range(25):
     new_state.mem_wb.write_register = state.ex_mem.write_register
 
     # --------------------FORWARDING------------------ #
-    forward_A, forward_B = forward(rs_E=state.id_ex.rs,
-                                   rt_E=state.id_ex.rt,
-                                   write_register_M=state.ex_mem.write_register,
-                                   write_register_W=state.mem_wb.write_register,
-                                   reg_write_M=state.ex_mem.reg_write,
-                                   reg_write_W=state.mem_wb.reg_write)
+    forward_A_E, forward_B_E = forward_e(rs_E=state.id_ex.rs,
+                                         rt_E=state.id_ex.rt,
+                                         write_register_M=state.ex_mem.write_register,
+                                         write_register_W=state.mem_wb.write_register,
+                                         reg_write_M=state.ex_mem.reg_write,
+                                         reg_write_W=state.mem_wb.reg_write)
 
     # --------------------EX STAGE------------------ #
-    forward_mux_A = mux(sel=forward_A,
-                        in1=state.id_ex.read_data1,
-                        in2=state.ex_mem.alu_result,
-                        in3=WB_data)
+    forward_mux_A_E = mux(sel=forward_A_E,
+                          in1=state.id_ex.read_data1,
+                          in2=state.ex_mem.alu_result,
+                          in3=WB_data)
 
-    print(f'EX: forward_mux_A: {forward_mux_A}')
+    print(f'EX: forward_mux_A_E: {forward_mux_A_E}')
 
-    forward_mux_B = mux(sel=forward_B,
-                        in1=state.id_ex.read_data2,
-                        in2=state.ex_mem.alu_result,
-                        in3=WB_data)
+    forward_mux_B_E = mux(sel=forward_B_E,
+                          in1=state.id_ex.read_data2,
+                          in2=state.ex_mem.alu_result,
+                          in3=WB_data)
 
-    print(f'EX: forward_mux_B: {forward_mux_B}')
+    print(f'EX: forward_mux_B_E: {forward_mux_B_E}')
 
     alu_mux = mux(sel=state.id_ex.alu_src,
-                  in1=forward_mux_B,
+                  in1=forward_mux_B_E,
                   in2=state.id_ex.ext_imm)
 
     reg_dst_mux = mux(sel=state.id_ex.reg_dst,
@@ -396,7 +428,7 @@ for j in range(25):
                       in2=state.id_ex.rd,
                       in3=31)
 
-    alu_result, overflow = alu(operand1=forward_mux_A,
+    alu_result, overflow = alu(operand1=forward_mux_A_E,
                                operand2=alu_mux,
                                alu_shamt=state.id_ex.shamt,
                                op_sel=state.id_ex.alu_op)
@@ -407,7 +439,7 @@ for j in range(25):
     new_state.ex_mem.mem_write = state.id_ex.mem_write
     new_state.ex_mem.mem_read = state.id_ex.mem_read
     new_state.ex_mem.pc_plus_1 = state.id_ex.pc_plus_1
-    new_state.ex_mem.forward_B_mux_out = forward_mux_B
+    new_state.ex_mem.forward_B_mux_out = forward_mux_B_E
     new_state.ex_mem.write_register = reg_dst_mux
 
     # --------------------ID STAGE------------------ #
@@ -418,31 +450,61 @@ for j in range(25):
     rd = int(state.if_id.instruction[16:21], 2)
     shamt = int(state.if_id.instruction[21:26], 2)
     imm = int(state.if_id.instruction[-16:], 2)
+    if imm >> 15 == 1:
+        imm = imm - 2**16
 
     print(f'ID: instruction: {state.if_id.instruction}')
-    print(op_code, funct, rs, rt, rd, shamt, imm)
+    print(f'ID: {op_code = }, {funct = }, {rs = }, {rt = }, {rd = }, {shamt = }, {imm = }')
     print(f'EX: alu_result: {alu_result}')
 
-    stall = hazard_stall(mem_read_E=state.id_ex.mem_read,
-                         write_register_E=state.id_ex.write_register,
-                         rs_D=rs,
-                         rt_D=rt)
+    print(f'EX: write_register_E: {reg_dst_mux}')
+    stall = hazard_stall_lw(mem_read_E=state.id_ex.mem_read,
+                            write_register_E=reg_dst_mux,
+                            rs_D=rs,
+                            rt_D=rt)
 
     control_signals = cu(cu_op_code=op_code, cu_funct=funct, cu_stall=stall)
 
-    print(control_signals)
+    print(f'ID: {control_signals}')
 
     branch = control_signals.get('branch')
-    I_26 = op_code[:-1]
+
+    stall = stall | hazard_stall_branch(branch_D=branch,
+                                        reg_write_E=state.id_ex.reg_write,
+                                        mem_to_reg_M=state.ex_mem.mem_to_reg,
+                                        write_register_E=reg_dst_mux,
+                                        write_register_M=state.ex_mem.write_register,
+                                        rs_D=rs,
+                                        rt_D=rt)
+
+    I_26 = int(op_code[-1])
 
     read_data1 = rf.read_rf(rs)
     read_data2 = rf.read_rf(rt)
 
-    branch_taken = branch & ~(int(I_26) ^ ~(read_data1 == read_data2))
-    branch_adder = state.if_id.pc_plus_1 + imm
+    forward_A_D, forward_B_D = forward_d(rs_D=rs,
+                                         rt_D=rt,
+                                         write_register_M=state.ex_mem.write_register,
+                                         reg_write_M=state.ex_mem.reg_write)
+
+    forward_mux_A_D = mux(sel=forward_A_D,
+                          in1=read_data1,
+                          in2=state.ex_mem.alu_result)
+
+    forward_mux_B_D = mux(sel=forward_B_D,
+                          in1=read_data2,
+                          in2=state.ex_mem.alu_result)
+
+    print(f'ID: forward_mux_A_D: {forward_mux_A_D}')
+    print(f'ID: forward_mux_B_D: {forward_mux_B_D}')
+    branch_taken = branch & ~(I_26 ^ ~(forward_mux_A_D == forward_mux_B_D))
 
     prediction = branch_predictor.predict(bpu_pc=pc.cur_pc)
-    branch_predictor.update(bpu_pc=pc.cur_pc, taken_branch=branch_taken)
+    if not stall:
+        branch_predictor.update(bpu_pc=pc.cur_pc, taken_branch=branch_taken)
+
+    print(f'{prediction = }')
+    print(f'{branch_taken = }')
 
     new_state.id_ex.reg_write = control_signals.get('reg_write')
     new_state.id_ex.mem_to_reg = control_signals.get('mem_to_reg')
@@ -460,18 +522,11 @@ for j in range(25):
     new_state.id_ex.rd = rd
     new_state.id_ex.shamt = shamt
 
-    flush = hazard_flush(taken_branch=branch_taken,
-                         pc_src=control_signals.get('pc_src'),
-                         h_prediction=prediction,
-                         h_branch=branch)
-    if reset or flush:
-        state.id_ex.flush()
-        new_state.id_ex.flush()
-
     # --------------------IF STAGE------------------ #
-    pc_plus_1 = (pc.cur_pc + 1) % 256
-    jump_mux = mux(sel=control_signals.get('jump'), in1=read_data2 % 256, in2=state.if_id.instruction[-8:])
-    branch_mux = mux(sel=0, in1=pc_plus_1, in2=branch_adder)  # fix select line
+    pc_plus_1 = (pc.cur_pc + 1) & 255
+    branch_adder = pc_plus_1 + imm
+    jump_mux = mux(sel=control_signals.get('jump'), in1=read_data1 & 255, in2=int(state.if_id.instruction[-8:], 2))
+    branch_mux = mux(sel=prediction, in1=pc_plus_1, in2=branch_adder)
     next_pc = mux(sel=control_signals.get('pc_src'), in1=branch_mux, in2=jump_mux)
     instruction = ins_mem.get_instruction(address=next_pc)
     print(f'IF: instruction: {instruction}')
@@ -483,20 +538,44 @@ for j in range(25):
     else:
         new_state.if_id.pc_plus_1 = state.if_id.pc_plus_1
         new_state.if_id.instruction = state.if_id.instruction
-    pc.update_pc(next_pc, enable_pc_IF_ID)
+    print(f'{state.corrected_pc = }')
+    if flush:
+        pc.update_pc(state.corrected_pc, enable)
+        new_state.if_id.instruction = ins_mem.get_instruction(address=state.corrected_pc)
+    else:
+        pc.update_pc(next_pc, enable_pc_IF_ID)
+
+    flush = hazard_flush(taken_branch=branch_taken,
+                         h_prediction=prediction,
+                         h_branch=branch,
+                         h_stall=stall)
+
+    print(f'{flush = }')
+
+    if stall:
+        new_state.id_ex.flush()
 
     if reset or flush:
-        state.if_id.flush()
         new_state.if_id.flush()
+
+    if flush and branch_taken == 0:
+        new_state.corrected_pc = pc_plus_1
+    elif flush and branch_taken == 1:
+        new_state.corrected_pc = branch_adder
 
     cycle += 1
     state.print()
+    rf.print_rf()
     state = deepcopy(new_state)
-
     print()
+
+    if pc.cur_pc == 255:
+        break
 
 rf.out_rf()
 
-# TODO: add nops
-# TODO: immediate, sign extension or no?
 # TODO: write overflow in ALU
+# TODO: check pc-src in flushing
+# TODO: handle flushes
+# TODO: handle misprediction
+# TODO: do we need to flush ID/EX?

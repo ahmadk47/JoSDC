@@ -1,13 +1,14 @@
-module BranchPredictionUnit(branch_taken,clk, reset, branch, pc, prediction, branchAdderResult, pcPlus1, CorrectedPC, Stall);
+module BranchPredictionUnit(branch_taken,clk, reset, branch, pc,pcD, prediction,predictionD, branchAdderResult, CorrectedPC, Stall);
 
-	 input clk, reset, branch, branch_taken, Stall;
-	 input [7:0] pc, branchAdderResult, pcPlus1;
+	 input clk, reset, branch, branch_taken, Stall,predictionD;
+	 input [7:0] pc, branchAdderResult,pcD;
     output reg prediction;
 	 output reg [7:0] CorrectedPC;
 	 
    
     reg [1:0] BHT [0:255];
     wire [5:0] index = pc[5:0];
+	 wire [5:0] index2 = pcD[5:0];
     always @(*) begin
 		if (~Stall) begin
         case (BHT[index])
@@ -21,19 +22,20 @@ module BranchPredictionUnit(branch_taken,clk, reset, branch, pc, prediction, bra
 					prediction = 1'b0; 	// Strongly Not Taken
             default: prediction = 1'b0;
         endcase
+		   if (branch_taken & !predictionD) begin
+				CorrectedPC <= branchAdderResult;
+			end
+			else if (!branch_taken & predictionD) begin
+				CorrectedPC <= pcD+6'b1;
+			end
+			else if (branch_taken & predictionD)begin 
+				CorrectedPC <= branchAdderResult; 
+			end
+			else
+				CorrectedPC <= pcD+6'b1;
 		end
 		else begin
 			prediction = 0;
-			end
-		  
-		   if (branch_taken & !prediction) begin
-				CorrectedPC <= branchAdderResult;
-			end
-			else if (!branch_taken & prediction) begin
-				CorrectedPC <= pcPlus1;
-			end
-			else begin 
-				CorrectedPC <= 0;
 			end
     end
 
@@ -45,22 +47,22 @@ module BranchPredictionUnit(branch_taken,clk, reset, branch, pc, prediction, bra
             end
         end 
 		  else if (branch) begin
-            case (BHT[index])
+            case (BHT[index2])
                 2'b11: 
 						begin
-							BHT[index] <= branch_taken ? 2'b11 : 2'b10;
+							BHT[index2] <= branch_taken ? 2'b11 : 2'b10;
 						end
                 2'b10: 
 						begin
-							BHT[index] <= branch_taken ? 2'b11 : 2'b01;
+							BHT[index2] <= branch_taken ? 2'b11 : 2'b01;
 						end
                 2'b01:
 						begin
-							BHT[index] <= branch_taken ? 2'b10 : 2'b00;
+							BHT[index2] <= branch_taken ? 2'b10 : 2'b00;
 						end
 					 2'b00:
 						begin
-							BHT[index] <= branch_taken ? 2'b01 : 2'b00;
+							BHT[index2] <= branch_taken ? 2'b01 : 2'b00;
 						end
 				endcase
         end
