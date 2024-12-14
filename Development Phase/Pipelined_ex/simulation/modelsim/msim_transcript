@@ -1,0 +1,104 @@
+# Reading pref.tcl
+# do Pipelined_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying D:/QuartusLite/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development\ Phase/Pipelined_ex {C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/BranchPredictionUnit.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 02:49:03 on Dec 14,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex" C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/BranchPredictionUnit.v 
+# -- Compiling module BranchPredictionUnit
+# 
+# Top level modules:
+# 	BranchPredictionUnit
+# End time: 02:49:04 on Dec 14,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development\ Phase/Pipelined_ex {C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/muxes.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 02:49:04 on Dec 14,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex" C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/muxes.v 
+# -- Compiling module mux2x1
+# -- Compiling module mux3to1
+# 
+# Top level modules:
+# 	mux2x1
+# 	mux3to1
+# End time: 02:49:04 on Dec 14,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development\ Phase/Pipelined_ex {C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/processor.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 02:49:04 on Dec 14,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex" C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/processor.v 
+# -- Compiling module processor
+# 
+# Top level modules:
+# 	processor
+# End time: 02:49:04 on Dec 14,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development\ Phase/Pipelined_ex {C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/registerFile.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 02:49:04 on Dec 14,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex" C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/registerFile.v 
+# -- Compiling module registerFile
+# 
+# Top level modules:
+# 	registerFile
+# End time: 02:49:04 on Dec 14,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development\ Phase/Pipelined_ex {C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/controlUnit.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 02:49:04 on Dec 14,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex" C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/controlUnit.v 
+# -- Compiling module controlUnit
+# 
+# Top level modules:
+# 	controlUnit
+# End time: 02:49:04 on Dec 14,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development\ Phase/Pipelined_ex {C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/ALU.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 02:49:04 on Dec 14,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex" C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/ALU.v 
+# -- Compiling module ALU
+# 
+# Top level modules:
+# 	ALU
+# End time: 02:49:04 on Dec 14,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development\ Phase/Pipelined_ex {C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/signextender.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 02:49:04 on Dec 14,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex" C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/signextender.v 
+# -- Compiling module signextender
+# 
+# Top level modules:
+# 	signextender
+# End time: 02:49:04 on Dec 14,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development\ Phase/Pipelined_ex {C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/programCounter.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 02:49:05 on Dec 14,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex" C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/programCounter.v 
+# -- Compiling module programCounter
+# 
+# Top level modules:
+# 	programCounter
+# End time: 02:49:05 on Dec 14,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development\ Phase/Pipelined_ex {C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/adder.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 02:49:05 on Dec 14,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex" C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/adder.v 
+# -- Compiling module adder
+# 
+# Top level modules:
+# 	adder
+# End time: 02:49:05 on Dec 14,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
