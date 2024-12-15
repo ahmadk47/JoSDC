@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Pipelined
-Sun Dec 15 17:42:56 2024
+Sun Dec 15 20:50:38 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -68,15 +68,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Dec 15 17:42:56 2024       ;
+; Analysis & Synthesis Status        ; Successful - Sun Dec 15 20:50:38 2024       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; Pipelined                                   ;
 ; Top-level Entity Name              ; processor                                   ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 4,071                                       ;
-;     Total combinational functions  ; 3,070                                       ;
-;     Dedicated logic registers      ; 1,590                                       ;
-; Total registers                    ; 1590                                        ;
+; Total logic elements               ; 4,076                                       ;
+;     Total combinational functions  ; 3,074                                       ;
+;     Dedicated logic registers      ; 1,594                                       ;
+; Total registers                    ; 1594                                        ;
 ; Total pins                         ; 11                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 16,384                                      ;
@@ -179,58 +179,60 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 8           ;
-; Maximum allowed            ; 4           ;
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
 ;                            ;             ;
 ; Average used               ; 1.01        ;
-; Maximum used               ; 4           ;
+; Maximum used               ; 6           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.2%      ;
 ;     Processor 3            ;   0.2%      ;
 ;     Processor 4            ;   0.2%      ;
+;     Processor 5            ;   0.1%      ;
+;     Processor 6            ;   0.1%      ;
 +----------------------------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                                ;
-+-----------------------------------------+-----------------+----------------------------------+--------------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path        ; Used in Netlist ; File Type                        ; File Name with Absolute Path                                                                                 ; Library ;
-+-----------------------------------------+-----------------+----------------------------------+--------------------------------------------------------------------------------------------------------------+---------+
-; BranchPredictionUnit.v                  ; yes             ; User Verilog HDL File            ; C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/BranchPredictionUnit.v                  ;         ;
-; muxes.v                                 ; yes             ; User Verilog HDL File            ; C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/muxes.v                                 ;         ;
-; processor.v                             ; yes             ; User Verilog HDL File            ; C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/processor.v                             ;         ;
-; registerFile.v                          ; yes             ; User Verilog HDL File            ; C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/registerFile.v                          ;         ;
-; controlUnit.v                           ; yes             ; User Verilog HDL File            ; C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/controlUnit.v                           ;         ;
-; ALU.v                                   ; yes             ; User Verilog HDL File            ; C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/ALU.v                                   ;         ;
-; signextender.v                          ; yes             ; User Verilog HDL File            ; C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/signextender.v                          ;         ;
-; programCounter.v                        ; yes             ; User Verilog HDL File            ; C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/programCounter.v                        ;         ;
-; adder.v                                 ; yes             ; User Verilog HDL File            ; C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/adder.v                                 ;         ;
-; ANDGate.v                               ; yes             ; User Verilog HDL File            ; C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/ANDGate.v                               ;         ;
-; instructionMemoryInitializationFile.mif ; yes             ; User Memory Initialization File  ; C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/instructionMemoryInitializationFile.mif ;         ;
-; dataMemoryInitializationFile.mif        ; yes             ; User Memory Initialization File  ; C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/dataMemoryInitializationFile.mif        ;         ;
-; instructionMemory.v                     ; yes             ; User Wizard-Generated File       ; C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/instructionMemory.v                     ;         ;
-; dataMemory.v                            ; yes             ; User Wizard-Generated File       ; C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/dataMemory.v                            ;         ;
-; XNOR.v                                  ; yes             ; User Verilog HDL File            ; C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/XNOR.v                                  ;         ;
-; Pipes.v                                 ; yes             ; User Verilog HDL File            ; C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/Pipes.v                                 ;         ;
-; Comparator.v                            ; yes             ; User Verilog HDL File            ; C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/Comparator.v                            ;         ;
-; forwardingUnit.v                        ; yes             ; User Verilog HDL File            ; C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/forwardingUnit.v                        ;         ;
-; HazardDetectionUnit.v                   ; yes             ; User Verilog HDL File            ; C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/HazardDetectionUnit.v                   ;         ;
-; ORGate.v                                ; yes             ; User Verilog HDL File            ; C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/ORGate.v                                ;         ;
-; pcCorrection.v                          ; yes             ; User Verilog HDL File            ; C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/pcCorrection.v                          ;         ;
-; altsyncram.tdf                          ; yes             ; Megafunction                     ; d:/quartuslite/quartus/libraries/megafunctions/altsyncram.tdf                                                ;         ;
-; stratix_ram_block.inc                   ; yes             ; Megafunction                     ; d:/quartuslite/quartus/libraries/megafunctions/stratix_ram_block.inc                                         ;         ;
-; lpm_mux.inc                             ; yes             ; Megafunction                     ; d:/quartuslite/quartus/libraries/megafunctions/lpm_mux.inc                                                   ;         ;
-; lpm_decode.inc                          ; yes             ; Megafunction                     ; d:/quartuslite/quartus/libraries/megafunctions/lpm_decode.inc                                                ;         ;
-; aglobal201.inc                          ; yes             ; Megafunction                     ; d:/quartuslite/quartus/libraries/megafunctions/aglobal201.inc                                                ;         ;
-; a_rdenreg.inc                           ; yes             ; Megafunction                     ; d:/quartuslite/quartus/libraries/megafunctions/a_rdenreg.inc                                                 ;         ;
-; altrom.inc                              ; yes             ; Megafunction                     ; d:/quartuslite/quartus/libraries/megafunctions/altrom.inc                                                    ;         ;
-; altram.inc                              ; yes             ; Megafunction                     ; d:/quartuslite/quartus/libraries/megafunctions/altram.inc                                                    ;         ;
-; altdpram.inc                            ; yes             ; Megafunction                     ; d:/quartuslite/quartus/libraries/megafunctions/altdpram.inc                                                  ;         ;
-; db/altsyncram_n9e1.tdf                  ; yes             ; Auto-Generated Megafunction      ; C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/db/altsyncram_n9e1.tdf                  ;         ;
-; db/altsyncram_8km1.tdf                  ; yes             ; Auto-Generated Megafunction      ; C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/db/altsyncram_8km1.tdf                  ;         ;
-+-----------------------------------------+-----------------+----------------------------------+--------------------------------------------------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                             ;
++-----------------------------------------+-----------------+----------------------------------+-----------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path        ; Used in Netlist ; File Type                        ; File Name with Absolute Path                                                                              ; Library ;
++-----------------------------------------+-----------------+----------------------------------+-----------------------------------------------------------------------------------------------------------+---------+
+; BranchPredictionUnit.v                  ; yes             ; User Verilog HDL File            ; C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/BranchPredictionUnit.v                  ;         ;
+; muxes.v                                 ; yes             ; User Verilog HDL File            ; C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/muxes.v                                 ;         ;
+; processor.v                             ; yes             ; User Verilog HDL File            ; C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/processor.v                             ;         ;
+; registerFile.v                          ; yes             ; User Verilog HDL File            ; C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/registerFile.v                          ;         ;
+; controlUnit.v                           ; yes             ; User Verilog HDL File            ; C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/controlUnit.v                           ;         ;
+; ALU.v                                   ; yes             ; User Verilog HDL File            ; C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/ALU.v                                   ;         ;
+; signextender.v                          ; yes             ; User Verilog HDL File            ; C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/signextender.v                          ;         ;
+; programCounter.v                        ; yes             ; User Verilog HDL File            ; C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/programCounter.v                        ;         ;
+; adder.v                                 ; yes             ; User Verilog HDL File            ; C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/adder.v                                 ;         ;
+; ANDGate.v                               ; yes             ; User Verilog HDL File            ; C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/ANDGate.v                               ;         ;
+; instructionMemoryInitializationFile.mif ; yes             ; User Memory Initialization File  ; C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/instructionMemoryInitializationFile.mif ;         ;
+; dataMemoryInitializationFile.mif        ; yes             ; User Memory Initialization File  ; C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/dataMemoryInitializationFile.mif        ;         ;
+; instructionMemory.v                     ; yes             ; User Wizard-Generated File       ; C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/instructionMemory.v                     ;         ;
+; dataMemory.v                            ; yes             ; User Wizard-Generated File       ; C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/dataMemory.v                            ;         ;
+; XNOR.v                                  ; yes             ; User Verilog HDL File            ; C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/XNOR.v                                  ;         ;
+; Pipes.v                                 ; yes             ; User Verilog HDL File            ; C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/Pipes.v                                 ;         ;
+; Comparator.v                            ; yes             ; User Verilog HDL File            ; C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/Comparator.v                            ;         ;
+; forwardingUnit.v                        ; yes             ; User Verilog HDL File            ; C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/forwardingUnit.v                        ;         ;
+; HazardDetectionUnit.v                   ; yes             ; User Verilog HDL File            ; C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/HazardDetectionUnit.v                   ;         ;
+; ORGate.v                                ; yes             ; User Verilog HDL File            ; C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/ORGate.v                                ;         ;
+; pcCorrection.v                          ; yes             ; User Verilog HDL File            ; C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/pcCorrection.v                          ;         ;
+; altsyncram.tdf                          ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf                                     ;         ;
+; stratix_ram_block.inc                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/stratix_ram_block.inc                              ;         ;
+; lpm_mux.inc                             ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_mux.inc                                        ;         ;
+; lpm_decode.inc                          ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_decode.inc                                     ;         ;
+; aglobal201.inc                          ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc                                     ;         ;
+; a_rdenreg.inc                           ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/a_rdenreg.inc                                      ;         ;
+; altrom.inc                              ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altrom.inc                                         ;         ;
+; altram.inc                              ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altram.inc                                         ;         ;
+; altdpram.inc                            ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altdpram.inc                                       ;         ;
+; db/altsyncram_n9e1.tdf                  ; yes             ; Auto-Generated Megafunction      ; C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/db/altsyncram_n9e1.tdf                  ;         ;
+; db/altsyncram_8km1.tdf                  ; yes             ; Auto-Generated Megafunction      ; C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/db/altsyncram_8km1.tdf                  ;         ;
++-----------------------------------------+-----------------+----------------------------------+-----------------------------------------------------------------------------------------------------------+---------+
 
 
 +---------------------------------------------------------+
@@ -238,20 +240,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 4,071     ;
+; Estimated Total logic elements              ; 4,076     ;
 ;                                             ;           ;
-; Total combinational functions               ; 3070      ;
+; Total combinational functions               ; 3074      ;
 ; Logic element usage by number of LUT inputs ;           ;
 ;     -- 4 input functions                    ; 2110      ;
-;     -- 3 input functions                    ; 904       ;
+;     -- 3 input functions                    ; 908       ;
 ;     -- <=2 input functions                  ; 56        ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 2932      ;
+;     -- normal mode                          ; 2936      ;
 ;     -- arithmetic mode                      ; 138       ;
 ;                                             ;           ;
-; Total registers                             ; 1590      ;
-;     -- Dedicated logic registers            ; 1590      ;
+; Total registers                             ; 1594      ;
+;     -- Dedicated logic registers            ; 1594      ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
 ; I/O pins                                    ; 11        ;
@@ -260,8 +262,8 @@ https://fpgasoftware.intel.com/eula.
 ; Embedded Multiplier 9-bit elements          ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 1654      ;
-; Total fan-out                               ; 18120     ;
+; Maximum fan-out                             ; 1658      ;
+; Total fan-out                               ; 18142     ;
 ; Average fan-out                             ; 3.82      ;
 +---------------------------------------------+-----------+
 
@@ -271,11 +273,11 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------+----------------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                            ; Entity Name          ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------+----------------------+--------------+
-; |processor                                ; 3070 (265)          ; 1590 (0)                  ; 16384       ; 0          ; 0            ; 0       ; 0         ; 11   ; 0            ; 0          ; |processor                                                                                     ; processor            ; work         ;
+; |processor                                ; 3074 (265)          ; 1594 (0)                  ; 16384       ; 0          ; 0            ; 0       ; 0         ; 11   ; 0            ; 0          ; |processor                                                                                     ; processor            ; work         ;
 ;    |ALU:alu|                              ; 645 (645)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|ALU:alu                                                                             ; ALU                  ; work         ;
 ;    |ANDGate:branchAnd|                    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|ANDGate:branchAnd                                                                   ; ANDGate              ; work         ;
 ;    |ANDGate:holdGate|                     ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|ANDGate:holdGate                                                                    ; ANDGate              ; work         ;
-;    |BranchPredictionUnit:BPU|             ; 404 (404)           ; 128 (128)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|BranchPredictionUnit:BPU                                                            ; BranchPredictionUnit ; work         ;
+;    |BranchPredictionUnit:BPU|             ; 408 (408)           ; 128 (128)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|BranchPredictionUnit:BPU                                                            ; BranchPredictionUnit ; work         ;
 ;    |Comparator:comp|                      ; 24 (24)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|Comparator:comp                                                                     ; Comparator           ; work         ;
 ;    |ForwardingUnit:FU|                    ; 25 (25)             ; 2 (2)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|ForwardingUnit:FU                                                                   ; ForwardingUnit       ; work         ;
 ;    |HazardDetectionUnit:HDU|              ; 10 (10)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|HazardDetectionUnit:HDU                                                             ; HazardDetectionUnit  ; work         ;
@@ -290,7 +292,7 @@ https://fpgasoftware.intel.com/eula.
 ;       |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 8192        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|instructionMemory:IM|altsyncram:altsyncram_component                                ; altsyncram           ; work         ;
 ;          |altsyncram_n9e1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 8192        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_n9e1:auto_generated ; altsyncram_n9e1      ; work         ;
 ;    |mux2x1:CUMux|                         ; 38 (38)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux2x1:CUMux                                                                        ; mux2x1               ; work         ;
-;    |pipe:EX_MEM|                          ; 54 (54)             ; 143 (143)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|pipe:EX_MEM                                                                         ; pipe                 ; work         ;
+;    |pipe:EX_MEM|                          ; 54 (54)             ; 147 (147)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|pipe:EX_MEM                                                                         ; pipe                 ; work         ;
 ;    |pipe:ID_EX|                           ; 115 (115)           ; 125 (125)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|pipe:ID_EX                                                                          ; pipe                 ; work         ;
 ;    |pipe:IF_ID|                           ; 55 (55)             ; 112 (112)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|pipe:IF_ID                                                                          ; pipe                 ; work         ;
 ;    |pipe:MEM_WB|                          ; 85 (85)             ; 80 (80)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|pipe:MEM_WB                                                                         ; pipe                 ; work         ;
@@ -382,12 +384,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 1590  ;
-; Number of registers using Synchronous Clear  ; 329   ;
-; Number of registers using Synchronous Load   ; 121   ;
+; Total registers                              ; 1594  ;
+; Number of registers using Synchronous Clear  ; 333   ;
+; Number of registers using Synchronous Load   ; 119   ;
 ; Number of registers using Asynchronous Clear ; 1126  ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 1233  ;
+; Number of registers using Clock Enable       ; 1235  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -472,350 +474,358 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------------------+---------+
 
 
-+-----------------------------------------------------------------------------------+
-; Physical Synthesis Netlist Optimizations                                          ;
-+------------------------------------------+------------------+---------------------+
-; Node                                     ; Action           ; Reason              ;
-+------------------------------------------+------------------+---------------------+
-; ALU:alu|Mux2~4_Duplicate_11              ; Retimed Register ; Timing optimization ;
-; CPC[0]~15                                ; Modified         ; Timing optimization ;
-; ForwardingUnit:FU|Equal0~0               ; Deleted          ; Timing optimization ;
-; ForwardingUnit:FU|Equal0~0_OTERM381      ; Retimed Register ; Timing optimization ;
-; ForwardingUnit:FU|Equal0~0_RTM0383       ; Modified         ; Timing optimization ;
-; ForwardingUnit:FU|Equal0~0_RTM0383       ; Retimed Register ; Timing optimization ;
-; ForwardingUnit:FU|Equal0~1               ; Modified         ; Timing optimization ;
-; ForwardingUnit:FU|Equal0~1_RTM0382       ; Modified         ; Timing optimization ;
-; ForwardingUnit:FU|ForwardA[1]~1_OTERM387 ; Retimed Register ; Timing optimization ;
-; Mux59~3                                  ; Modified         ; Timing optimization ;
-; Mux60~3                                  ; Modified         ; Timing optimization ;
-; Mux61~3                                  ; Modified         ; Timing optimization ;
-; Mux62~3                                  ; Modified         ; Timing optimization ;
-; Mux63~3                                  ; Modified         ; Timing optimization ;
-; adder:pcAdder|out[0]~0                   ; Modified         ; Timing optimization ;
-; pipe:EX_MEM|Q[0]_NEW415_RTM0417          ; Modified         ; Timing optimization ;
-; pipe:EX_MEM|Q[0]_OTERM416                ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[1]_NEW418_RTM0420          ; Modified         ; Timing optimization ;
-; pipe:EX_MEM|Q[1]_OTERM419                ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[2]_NEW432_RTM0434          ; Modified         ; Timing optimization ;
-; pipe:EX_MEM|Q[2]_OTERM433                ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[3]_NEW429_RTM0431          ; Modified         ; Timing optimization ;
-; pipe:EX_MEM|Q[3]_OTERM430                ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[4]_NEW393_RTM0395          ; Modified         ; Timing optimization ;
-; pipe:EX_MEM|Q[4]_OTERM394                ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[37]                        ; Deleted          ; Timing optimization ;
-; pipe:EX_MEM|Q[37]_OTERM249_OTERM458      ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[37]_OTERM249_OTERM460      ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[37]_OTERM249_OTERM462      ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[37]_OTERM251               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[40]                        ; Deleted          ; Timing optimization ;
-; pipe:EX_MEM|Q[40]_OTERM205               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[40]_OTERM207               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[40]_OTERM209               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[40]_OTERM211               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[41]                        ; Deleted          ; Timing optimization ;
-; pipe:EX_MEM|Q[41]_OTERM259               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[41]_OTERM261               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[42]                        ; Deleted          ; Timing optimization ;
-; pipe:EX_MEM|Q[42]_OTERM177               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[42]_OTERM179               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[42]_OTERM181               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[43]                        ; Deleted          ; Timing optimization ;
-; pipe:EX_MEM|Q[43]_OTERM351               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[43]_OTERM353               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[43]_OTERM355               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[44]                        ; Deleted          ; Timing optimization ;
-; pipe:EX_MEM|Q[44]_OTERM319_OTERM468      ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[44]_OTERM319_OTERM470      ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[44]_OTERM321               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[44]_OTERM323               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[45]                        ; Deleted          ; Timing optimization ;
-; pipe:EX_MEM|Q[45]_OTERM331               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[45]_OTERM333               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[45]_OTERM335               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[47]                        ; Deleted          ; Timing optimization ;
-; pipe:EX_MEM|Q[47]_OTERM325               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[47]_OTERM327               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[47]_OTERM329               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[48]                        ; Deleted          ; Timing optimization ;
-; pipe:EX_MEM|Q[48]_OTERM291               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[48]_OTERM293               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[48]_OTERM295               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[49]                        ; Deleted          ; Timing optimization ;
-; pipe:EX_MEM|Q[49]_OTERM285_OTERM464      ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[49]_OTERM285_OTERM466      ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[49]_OTERM287               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[49]_OTERM289               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[50]                        ; Deleted          ; Timing optimization ;
-; pipe:EX_MEM|Q[50]_OTERM253               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[50]_OTERM255               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[50]_OTERM257               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[51]                        ; Deleted          ; Timing optimization ;
-; pipe:EX_MEM|Q[51]_OTERM237               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[51]_OTERM239               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[51]_OTERM241               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[53]                        ; Deleted          ; Timing optimization ;
-; pipe:EX_MEM|Q[53]_OTERM169               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[53]_OTERM171               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[53]_OTERM173               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[53]_OTERM175               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[55]                        ; Deleted          ; Timing optimization ;
-; pipe:EX_MEM|Q[55]_OTERM313               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[55]_OTERM315               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[55]_OTERM317               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[56]                        ; Deleted          ; Timing optimization ;
-; pipe:EX_MEM|Q[56]_OTERM269               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[56]_OTERM271               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[56]_OTERM273               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[57]                        ; Deleted          ; Timing optimization ;
-; pipe:EX_MEM|Q[57]_OTERM263               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[57]_OTERM265               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[57]_OTERM267               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[58]                        ; Deleted          ; Timing optimization ;
-; pipe:EX_MEM|Q[58]_OTERM213               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[58]_OTERM215               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[58]_OTERM217               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[59]                        ; Deleted          ; Timing optimization ;
-; pipe:EX_MEM|Q[59]_OTERM275               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[59]_OTERM277               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[59]_OTERM279               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[60]                        ; Deleted          ; Timing optimization ;
-; pipe:EX_MEM|Q[60]_OTERM231_OTERM452      ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[60]_OTERM231_OTERM454      ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[60]_OTERM231_OTERM456      ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[60]_OTERM233               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[60]_OTERM235               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[62]                        ; Deleted          ; Timing optimization ;
-; pipe:EX_MEM|Q[62]_OTERM337               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[62]_OTERM339               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[62]_OTERM341               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[63]                        ; Deleted          ; Timing optimization ;
-; pipe:EX_MEM|Q[63]_OTERM161               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[63]_OTERM163               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[63]_OTERM165               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[63]_OTERM167               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[64]                        ; Deleted          ; Timing optimization ;
-; pipe:EX_MEM|Q[64]_OTERM243               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[64]_OTERM245               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[64]_OTERM247               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[65]                        ; Deleted          ; Timing optimization ;
-; pipe:EX_MEM|Q[65]_OTERM183_OTERM446      ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[65]_OTERM183_OTERM448      ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[65]_OTERM183_OTERM450      ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[65]_OTERM185               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[65]_OTERM187               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[66]                        ; Deleted          ; Timing optimization ;
-; pipe:EX_MEM|Q[66]_OTERM129               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[66]_OTERM131               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[66]_OTERM133               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[66]_OTERM135_OTERM442      ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[66]_OTERM135_OTERM444      ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[68]                        ; Deleted          ; Timing optimization ;
-; pipe:EX_MEM|Q[68]_OTERM145               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[68]_OTERM147               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[68]_OTERM149               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[68]_OTERM151               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q[81]_NEW388_RTM0390         ; Modified         ; Timing optimization ;
-; pipe:EX_MEM|Q[81]_OTERM389               ; Retimed Register ; Timing optimization ;
-; pipe:EX_MEM|Q~0                          ; Deleted          ; Timing optimization ;
-; pipe:EX_MEM|Q~4                          ; Deleted          ; Timing optimization ;
-; pipe:ID_EX|Q[10]_OTERM424                ; Retimed Register ; Timing optimization ;
-; pipe:ID_EX|Q[11]_OTERM422                ; Retimed Register ; Timing optimization ;
-; pipe:ID_EX|Q[12]_OTERM408                ; Retimed Register ; Timing optimization ;
-; pipe:ID_EX|Q[13]_OTERM410                ; Retimed Register ; Timing optimization ;
-; pipe:ID_EX|Q[14]_OTERM392                ; Retimed Register ; Timing optimization ;
-; pipe:ID_EX|Q[15]_OTERM428                ; Retimed Register ; Timing optimization ;
-; pipe:ID_EX|Q[16]_OTERM426                ; Retimed Register ; Timing optimization ;
-; pipe:ID_EX|Q[17]_OTERM412                ; Retimed Register ; Timing optimization ;
-; pipe:ID_EX|Q[18]_OTERM414                ; Retimed Register ; Timing optimization ;
-; pipe:ID_EX|Q[19]_OTERM397                ; Retimed Register ; Timing optimization ;
-; pipe:ID_EX|Q~60                          ; Deleted          ; Timing optimization ;
-; pipe:ID_EX|Q~61                          ; Deleted          ; Timing optimization ;
-; pipe:ID_EX|Q~62                          ; Deleted          ; Timing optimization ;
-; pipe:ID_EX|Q~63                          ; Deleted          ; Timing optimization ;
-; pipe:ID_EX|Q~64                          ; Deleted          ; Timing optimization ;
-; pipe:ID_EX|Q~66                          ; Deleted          ; Timing optimization ;
-; pipe:ID_EX|Q~67                          ; Deleted          ; Timing optimization ;
-; pipe:ID_EX|Q~68                          ; Deleted          ; Timing optimization ;
-; pipe:ID_EX|Q~69                          ; Deleted          ; Timing optimization ;
-; pipe:ID_EX|Q~70                          ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[0]                          ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[0]_OTERM305                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[0]_OTERM307                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[1]                          ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[1]_OTERM197                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[1]_OTERM199                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[2]                          ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[2]_OTERM301                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[2]_OTERM303                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[3]                          ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[3]_OTERM189                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[3]_OTERM191                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[4]                          ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[4]_OTERM297                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[4]_OTERM299                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[5]                          ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[5]_OTERM193                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[5]_OTERM195                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[6]                          ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[6]_OTERM141                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[6]_OTERM143                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[7]                          ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[7]_OTERM137                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[7]_OTERM139                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[8]                          ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[8]_OTERM117                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[8]_OTERM119                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[9]                          ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[9]_OTERM113                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[9]_OTERM115                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[10]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[10]_OTERM109                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[10]_OTERM111                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[11]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[11]_OTERM121                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[11]_OTERM123                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[12]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[12]_OTERM125                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[12]_OTERM127                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[13]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[13]_OTERM101                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[13]_OTERM103                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[14]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[14]_OTERM105                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[14]_OTERM107                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[15]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[15]_OTERM97                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[15]_OTERM99                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[16]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[16]_OTERM361                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[16]_OTERM363                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[17]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[17]_OTERM357                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[17]_OTERM359                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[18]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[18]_OTERM347                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[18]_OTERM349                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[19]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[19]_OTERM343                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[19]_OTERM345                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[20]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[20]_OTERM281                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[20]_OTERM283                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[21]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[21]_OTERM369                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[21]_OTERM371                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[22]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[22]_OTERM365                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[22]_OTERM367                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[23]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[23]_OTERM377                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[23]_OTERM379                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[24]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[24]_OTERM373                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[24]_OTERM375                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[25]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[25]_OTERM309                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[25]_OTERM311                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[26]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[26]_OTERM157                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[26]_OTERM159                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[27]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[27]_OTERM153                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[27]_OTERM155                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[28]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[28]_OTERM227                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[28]_OTERM229                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[29]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[29]_OTERM219                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[29]_OTERM221                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[30]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[30]_OTERM223                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[30]_OTERM225                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[31]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[31]_OTERM201                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[31]_OTERM203                ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[32]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[32]_OTERM1                  ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[32]_OTERM3                  ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[32]_OTERM5                  ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[32]_OTERM7                  ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[33]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[33]_OTERM61                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[33]_OTERM63                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[34]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[34]_OTERM57                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[34]_OTERM59                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[35]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[35]_OTERM49                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[35]_OTERM51                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[36]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[36]_OTERM41                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[36]_OTERM43                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[37]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[37]_OTERM33                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[37]_OTERM35                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[38]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[38]_OTERM25                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[38]_OTERM27                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[39]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[39]_OTERM17                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[39]_OTERM19                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[40]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[40]_OTERM9                  ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[40]_OTERM11                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[41]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[41]_OTERM93                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[41]_OTERM95                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[42]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[42]_OTERM89                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[42]_OTERM91                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[43]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[43]_OTERM85                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[43]_OTERM87                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[44]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[44]_OTERM81                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[44]_OTERM83                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[45]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[45]_OTERM73                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[45]_OTERM75                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[46]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[46]_OTERM77                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[46]_OTERM79                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[49]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[49]_OTERM69                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[49]_OTERM71                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[50]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[50]_OTERM65                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[50]_OTERM67                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[51]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[51]_OTERM53                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[51]_OTERM55                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[52]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[52]_OTERM45                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[52]_OTERM47                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[53]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[53]_OTERM37                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[53]_OTERM39                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[54]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[54]_OTERM29                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[54]_OTERM31                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[55]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[55]_OTERM21                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[55]_OTERM23                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[56]                         ; Deleted          ; Timing optimization ;
-; pipe:IF_ID|Q[56]_OTERM13                 ; Retimed Register ; Timing optimization ;
-; pipe:IF_ID|Q[56]_OTERM15                 ; Retimed Register ; Timing optimization ;
-; pipe:MEM_WB|Q[0]_NEW435_RTM0437          ; Modified         ; Timing optimization ;
-; pipe:MEM_WB|Q[0]_OTERM436                ; Retimed Register ; Timing optimization ;
-; pipe:MEM_WB|Q[1]_NEW438_RTM0440          ; Modified         ; Timing optimization ;
-; pipe:MEM_WB|Q[1]_OTERM439                ; Retimed Register ; Timing optimization ;
-; pipe:MEM_WB|Q[2]_NEW404_RTM0406          ; Modified         ; Timing optimization ;
-; pipe:MEM_WB|Q[2]_OTERM405                ; Retimed Register ; Timing optimization ;
-; pipe:MEM_WB|Q[3]_NEW401_RTM0403          ; Modified         ; Timing optimization ;
-; pipe:MEM_WB|Q[3]_OTERM402                ; Retimed Register ; Timing optimization ;
-; pipe:MEM_WB|Q[4]_NEW398_RTM0400          ; Modified         ; Timing optimization ;
-; pipe:MEM_WB|Q[4]_OTERM399                ; Retimed Register ; Timing optimization ;
-+------------------------------------------+------------------+---------------------+
++---------------------------------------------------------------------------------------+
+; Physical Synthesis Netlist Optimizations                                              ;
++----------------------------------------------+------------------+---------------------+
+; Node                                         ; Action           ; Reason              ;
++----------------------------------------------+------------------+---------------------+
+; ALU:alu|Mux2~4_Duplicate_11                  ; Retimed Register ; Timing optimization ;
+; BranchPredictionUnit:BPU|BHT[63][0]_OTERM389 ; Retimed Register ; Timing optimization ;
+; BranchPredictionUnit:BPU|BHT[63][0]_OTERM488 ; Retimed Register ; Timing optimization ;
+; BranchPredictionUnit:BPU|BHT[63][1]_OTERM391 ; Retimed Register ; Timing optimization ;
+; BranchPredictionUnit:BPU|BHT[63][1]_OTERM490 ; Retimed Register ; Timing optimization ;
+; CPC[0]~15                                    ; Modified         ; Timing optimization ;
+; ForwardingUnit:FU|Equal0~0                   ; Deleted          ; Timing optimization ;
+; ForwardingUnit:FU|Equal0~0_OTERM375          ; Retimed Register ; Timing optimization ;
+; ForwardingUnit:FU|Equal0~0_RTM0377           ; Modified         ; Timing optimization ;
+; ForwardingUnit:FU|Equal0~0_RTM0377           ; Retimed Register ; Timing optimization ;
+; ForwardingUnit:FU|Equal0~1                   ; Modified         ; Timing optimization ;
+; ForwardingUnit:FU|Equal0~1_RTM0376           ; Modified         ; Timing optimization ;
+; ForwardingUnit:FU|ForwardA[1]~1_OTERM379     ; Retimed Register ; Timing optimization ;
+; Mux59~3                                      ; Modified         ; Timing optimization ;
+; Mux60~3                                      ; Modified         ; Timing optimization ;
+; Mux61~3                                      ; Modified         ; Timing optimization ;
+; Mux62~3                                      ; Modified         ; Timing optimization ;
+; Mux63~3                                      ; Modified         ; Timing optimization ;
+; adder:pcAdder|out[0]~0                       ; Modified         ; Timing optimization ;
+; pipe:EX_MEM|Q[0]_NEW419_RTM0421              ; Modified         ; Timing optimization ;
+; pipe:EX_MEM|Q[0]_OTERM420                    ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[1]_NEW422_RTM0424              ; Modified         ; Timing optimization ;
+; pipe:EX_MEM|Q[1]_OTERM423                    ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[2]_NEW436_RTM0438              ; Modified         ; Timing optimization ;
+; pipe:EX_MEM|Q[2]_OTERM437                    ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[3]_NEW433_RTM0435              ; Modified         ; Timing optimization ;
+; pipe:EX_MEM|Q[3]_OTERM434                    ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[4]_NEW404_RTM0406              ; Modified         ; Timing optimization ;
+; pipe:EX_MEM|Q[4]_OTERM405                    ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[37]                            ; Deleted          ; Timing optimization ;
+; pipe:EX_MEM|Q[37]_OTERM249_OTERM470          ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[37]_OTERM249_OTERM472          ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[37]_OTERM251                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[40]                            ; Deleted          ; Timing optimization ;
+; pipe:EX_MEM|Q[40]_OTERM205                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[40]_OTERM207                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[40]_OTERM209                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[40]_OTERM211                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[41]                            ; Deleted          ; Timing optimization ;
+; pipe:EX_MEM|Q[41]_OTERM259                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[41]_OTERM261                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[42]                            ; Deleted          ; Timing optimization ;
+; pipe:EX_MEM|Q[42]_OTERM177                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[42]_OTERM179                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[42]_OTERM181                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[43]                            ; Deleted          ; Timing optimization ;
+; pipe:EX_MEM|Q[43]_OTERM355                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[43]_OTERM357                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[43]_OTERM359                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[44]                            ; Deleted          ; Timing optimization ;
+; pipe:EX_MEM|Q[44]_OTERM319_OTERM484          ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[44]_OTERM319_OTERM486          ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[44]_OTERM321                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[44]_OTERM323                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[45]                            ; Deleted          ; Timing optimization ;
+; pipe:EX_MEM|Q[45]_OTERM331                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[45]_OTERM333                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[45]_OTERM335                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[47]                            ; Deleted          ; Timing optimization ;
+; pipe:EX_MEM|Q[47]_OTERM325                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[47]_OTERM327                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[47]_OTERM329                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[48]                            ; Deleted          ; Timing optimization ;
+; pipe:EX_MEM|Q[48]_OTERM291                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[48]_OTERM293                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[48]_OTERM295                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[49]                            ; Deleted          ; Timing optimization ;
+; pipe:EX_MEM|Q[49]_OTERM285_OTERM480          ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[49]_OTERM285_OTERM482          ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[49]_OTERM287                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[49]_OTERM289                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[50]                            ; Deleted          ; Timing optimization ;
+; pipe:EX_MEM|Q[50]_OTERM253                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[50]_OTERM255                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[50]_OTERM257                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[51]                            ; Deleted          ; Timing optimization ;
+; pipe:EX_MEM|Q[51]_OTERM233                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[51]_OTERM235                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[51]_OTERM237                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[53]                            ; Deleted          ; Timing optimization ;
+; pipe:EX_MEM|Q[53]_OTERM169                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[53]_OTERM171                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[53]_OTERM173                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[53]_OTERM175                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[55]                            ; Deleted          ; Timing optimization ;
+; pipe:EX_MEM|Q[55]_OTERM313                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[55]_OTERM315                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[55]_OTERM317                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[56]                            ; Deleted          ; Timing optimization ;
+; pipe:EX_MEM|Q[56]_OTERM269_OTERM474          ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[56]_OTERM269_OTERM476          ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[56]_OTERM269_OTERM478          ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[56]_OTERM271                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[56]_OTERM273                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[57]                            ; Deleted          ; Timing optimization ;
+; pipe:EX_MEM|Q[57]_OTERM263                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[57]_OTERM265                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[57]_OTERM267                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[58]                            ; Deleted          ; Timing optimization ;
+; pipe:EX_MEM|Q[58]_OTERM217                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[58]_OTERM219                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[58]_OTERM221                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[59]                            ; Deleted          ; Timing optimization ;
+; pipe:EX_MEM|Q[59]_OTERM275                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[59]_OTERM277                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[59]_OTERM279                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[60]                            ; Deleted          ; Timing optimization ;
+; pipe:EX_MEM|Q[60]_OTERM227_OTERM464          ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[60]_OTERM227_OTERM466          ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[60]_OTERM227_OTERM468          ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[60]_OTERM229                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[60]_OTERM231                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[62]                            ; Deleted          ; Timing optimization ;
+; pipe:EX_MEM|Q[62]_OTERM337                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[62]_OTERM339                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[62]_OTERM341                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[63]                            ; Deleted          ; Timing optimization ;
+; pipe:EX_MEM|Q[63]_OTERM161                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[63]_OTERM163                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[63]_OTERM165                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[63]_OTERM167                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[64]                            ; Deleted          ; Timing optimization ;
+; pipe:EX_MEM|Q[64]_OTERM243                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[64]_OTERM245                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[64]_OTERM247                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[65]                            ; Deleted          ; Timing optimization ;
+; pipe:EX_MEM|Q[65]_OTERM183_OTERM458          ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[65]_OTERM183_OTERM460          ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[65]_OTERM183_OTERM462          ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[65]_OTERM185                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[65]_OTERM187                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[66]                            ; Deleted          ; Timing optimization ;
+; pipe:EX_MEM|Q[66]_OTERM129                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[66]_OTERM131                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[66]_OTERM133                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[66]_OTERM135_OTERM454          ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[66]_OTERM135_OTERM456          ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[68]                            ; Deleted          ; Timing optimization ;
+; pipe:EX_MEM|Q[68]_OTERM145                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[68]_OTERM147                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[68]_OTERM149_OTERM446          ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[68]_OTERM149_OTERM448          ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[68]_OTERM149_OTERM450          ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[68]_OTERM149_OTERM452          ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[68]_OTERM151                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q[81]_NEW401_RTM0403             ; Modified         ; Timing optimization ;
+; pipe:EX_MEM|Q[81]_OTERM402                   ; Retimed Register ; Timing optimization ;
+; pipe:EX_MEM|Q~0                              ; Deleted          ; Timing optimization ;
+; pipe:EX_MEM|Q~4                              ; Deleted          ; Timing optimization ;
+; pipe:ID_EX|Q[10]_OTERM428                    ; Retimed Register ; Timing optimization ;
+; pipe:ID_EX|Q[11]_OTERM426                    ; Retimed Register ; Timing optimization ;
+; pipe:ID_EX|Q[12]_OTERM395                    ; Retimed Register ; Timing optimization ;
+; pipe:ID_EX|Q[13]_OTERM393                    ; Retimed Register ; Timing optimization ;
+; pipe:ID_EX|Q[14]_OTERM400                    ; Retimed Register ; Timing optimization ;
+; pipe:ID_EX|Q[15]_OTERM432                    ; Retimed Register ; Timing optimization ;
+; pipe:ID_EX|Q[16]_OTERM430                    ; Retimed Register ; Timing optimization ;
+; pipe:ID_EX|Q[17]_OTERM416                    ; Retimed Register ; Timing optimization ;
+; pipe:ID_EX|Q[18]_OTERM418                    ; Retimed Register ; Timing optimization ;
+; pipe:ID_EX|Q[19]_OTERM408                    ; Retimed Register ; Timing optimization ;
+; pipe:ID_EX|Q~60                              ; Deleted          ; Timing optimization ;
+; pipe:ID_EX|Q~61                              ; Deleted          ; Timing optimization ;
+; pipe:ID_EX|Q~62                              ; Deleted          ; Timing optimization ;
+; pipe:ID_EX|Q~63                              ; Deleted          ; Timing optimization ;
+; pipe:ID_EX|Q~64                              ; Deleted          ; Timing optimization ;
+; pipe:ID_EX|Q~66                              ; Deleted          ; Timing optimization ;
+; pipe:ID_EX|Q~67                              ; Deleted          ; Timing optimization ;
+; pipe:ID_EX|Q~68                              ; Deleted          ; Timing optimization ;
+; pipe:ID_EX|Q~69                              ; Deleted          ; Timing optimization ;
+; pipe:ID_EX|Q~70                              ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[0]                              ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[0]_OTERM297                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[0]_OTERM299                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[1]                              ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[1]_OTERM193                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[1]_OTERM195                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[2]                              ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[2]_OTERM301                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[2]_OTERM303                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[3]                              ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[3]_OTERM189                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[3]_OTERM191                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[4]                              ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[4]_OTERM305                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[4]_OTERM307                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[5]                              ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[5]_OTERM197                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[5]_OTERM199                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[6]                              ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[6]_OTERM141                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[6]_OTERM143                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[7]                              ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[7]_OTERM137                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[7]_OTERM139                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[8]                              ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[8]_OTERM49                      ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[8]_OTERM51                      ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[9]                              ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[9]_OTERM45                      ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[9]_OTERM47                      ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[10]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[10]_OTERM41                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[10]_OTERM43                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[11]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[11]_OTERM53                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[11]_OTERM55                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[12]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[12]_OTERM57                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[12]_OTERM59                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[13]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[13]_OTERM33                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[13]_OTERM35                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[14]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[14]_OTERM37                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[14]_OTERM39                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[15]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[15]_OTERM29                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[15]_OTERM31                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[16]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[16]_OTERM361                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[16]_OTERM363                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[17]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[17]_OTERM351                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[17]_OTERM353                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[18]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[18]_OTERM343                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[18]_OTERM345                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[19]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[19]_OTERM347                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[19]_OTERM349                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[20]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[20]_OTERM281                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[20]_OTERM283                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[21]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[21]_OTERM369                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[21]_OTERM371                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[22]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[22]_OTERM365                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[22]_OTERM367                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[23]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[23]_OTERM385                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[23]_OTERM387                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[24]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[24]_OTERM381                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[24]_OTERM383                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[25]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[25]_OTERM309                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[25]_OTERM311                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[26]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[26]_OTERM157                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[26]_OTERM159                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[27]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[27]_OTERM153                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[27]_OTERM155                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[28]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[28]_OTERM223                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[28]_OTERM225                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[29]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[29]_OTERM213                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[29]_OTERM215                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[30]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[30]_OTERM239                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[30]_OTERM241                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[31]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[31]_OTERM201                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[31]_OTERM203                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[32]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[32]_OTERM61                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[32]_OTERM63                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[33]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[33]_OTERM121                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[33]_OTERM123                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[34]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[34]_OTERM113                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[34]_OTERM115                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[35]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[35]_OTERM105                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[35]_OTERM107                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[36]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[36]_OTERM97                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[36]_OTERM99                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[37]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[37]_OTERM89                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[37]_OTERM91                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[38]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[38]_OTERM81                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[38]_OTERM83                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[39]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[39]_OTERM73                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[39]_OTERM75                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[40]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[40]_OTERM65                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[40]_OTERM67                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[41]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[41]_OTERM25                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[41]_OTERM27                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[42]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[42]_OTERM21                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[42]_OTERM23                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[43]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[43]_OTERM17                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[43]_OTERM19                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[44]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[44]_OTERM13                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[44]_OTERM15                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[45]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[45]_OTERM1                      ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[45]_OTERM3                      ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[45]_OTERM5                      ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[45]_OTERM7                      ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[46]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[46]_OTERM9                      ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[46]_OTERM11                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[49]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[49]_OTERM125                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[49]_OTERM127                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[50]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[50]_OTERM117                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[50]_OTERM119                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[51]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[51]_OTERM109                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[51]_OTERM111                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[52]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[52]_OTERM101                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[52]_OTERM103                    ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[53]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[53]_OTERM93                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[53]_OTERM95                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[54]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[54]_OTERM85                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[54]_OTERM87                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[55]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[55]_OTERM77                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[55]_OTERM79                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[56]                             ; Deleted          ; Timing optimization ;
+; pipe:IF_ID|Q[56]_OTERM69                     ; Retimed Register ; Timing optimization ;
+; pipe:IF_ID|Q[56]_OTERM71                     ; Retimed Register ; Timing optimization ;
+; pipe:MEM_WB|Q[0]_NEW439_RTM0441              ; Modified         ; Timing optimization ;
+; pipe:MEM_WB|Q[0]_OTERM440                    ; Retimed Register ; Timing optimization ;
+; pipe:MEM_WB|Q[1]_NEW442_RTM0444              ; Modified         ; Timing optimization ;
+; pipe:MEM_WB|Q[1]_OTERM443                    ; Retimed Register ; Timing optimization ;
+; pipe:MEM_WB|Q[2]_NEW412_RTM0414              ; Modified         ; Timing optimization ;
+; pipe:MEM_WB|Q[2]_OTERM413                    ; Retimed Register ; Timing optimization ;
+; pipe:MEM_WB|Q[3]_NEW409_RTM0411              ; Modified         ; Timing optimization ;
+; pipe:MEM_WB|Q[3]_OTERM410                    ; Retimed Register ; Timing optimization ;
+; pipe:MEM_WB|Q[4]_NEW396_RTM0398              ; Modified         ; Timing optimization ;
+; pipe:MEM_WB|Q[4]_OTERM397                    ; Retimed Register ; Timing optimization ;
++----------------------------------------------+------------------+---------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1186,27 +1196,26 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 11                          ;
-; cycloneiii_ff         ; 1590                        ;
+; cycloneiii_ff         ; 1594                        ;
 ;     ENA CLR           ; 1063                        ;
 ;     ENA CLR SLD       ; 63                          ;
-;     ENA SCLR          ; 105                         ;
-;     ENA SLD           ; 2                           ;
+;     ENA SCLR          ; 109                         ;
 ;     SCLR              ; 168                         ;
 ;     SCLR SLD          ; 56                          ;
-;     plain             ; 133                         ;
-; cycloneiii_lcell_comb ; 3078                        ;
+;     plain             ; 135                         ;
+; cycloneiii_lcell_comb ; 3082                        ;
 ;     arith             ; 138                         ;
 ;         2 data inputs ; 7                           ;
 ;         3 data inputs ; 131                         ;
-;     normal            ; 2940                        ;
+;     normal            ; 2944                        ;
 ;         1 data inputs ; 17                          ;
 ;         2 data inputs ; 40                          ;
-;         3 data inputs ; 773                         ;
+;         3 data inputs ; 777                         ;
 ;         4 data inputs ; 2110                        ;
 ; cycloneiii_ram_block  ; 64                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 14.00                       ;
-; Average LUT depth     ; 6.93                        ;
+; Average LUT depth     ; 6.97                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1215,7 +1224,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:11     ;
+; Top            ; 00:00:05     ;
 +----------------+--------------+
 
 
@@ -1225,58 +1234,58 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Sun Dec 15 17:42:31 2024
+    Info: Processing started: Sun Dec 15 20:50:26 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Pipelined -c Pipelined
 Info (16303): Aggressive Performance optimization mode selected -- timing performance will be prioritized at the potential cost of increased logic area and compilation time
-Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file branchpredictionunit.v
-    Info (12023): Found entity 1: BranchPredictionUnit File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/BranchPredictionUnit.v Line: 1
+    Info (12023): Found entity 1: BranchPredictionUnit File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/BranchPredictionUnit.v Line: 1
 Info (12021): Found 2 design units, including 2 entities, in source file muxes.v
-    Info (12023): Found entity 1: mux2x1 File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/muxes.v Line: 1
-    Info (12023): Found entity 2: mux3to1 File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/muxes.v Line: 16
+    Info (12023): Found entity 1: mux2x1 File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/muxes.v Line: 1
+    Info (12023): Found entity 2: mux3to1 File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/muxes.v Line: 16
 Info (12021): Found 1 design units, including 1 entities, in source file testbench.v
-    Info (12023): Found entity 1: testbench File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/testbench.v Line: 2
+    Info (12023): Found entity 1: testbench File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/testbench.v Line: 2
 Info (12021): Found 1 design units, including 1 entities, in source file processor.v
-    Info (12023): Found entity 1: processor File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 1
+    Info (12023): Found entity 1: processor File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file registerfile.v
-    Info (12023): Found entity 1: registerFile File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/registerFile.v Line: 3
+    Info (12023): Found entity 1: registerFile File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/registerFile.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file controlunit.v
-    Info (12023): Found entity 1: controlUnit File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/controlUnit.v Line: 1
+    Info (12023): Found entity 1: controlUnit File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/controlUnit.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file alu.v
-    Info (12023): Found entity 1: ALU File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/ALU.v Line: 1
+    Info (12023): Found entity 1: ALU File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/ALU.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file signextender.v
-    Info (12023): Found entity 1: signextender File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/signextender.v Line: 4
+    Info (12023): Found entity 1: signextender File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/signextender.v Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file programcounter.v
-    Info (12023): Found entity 1: programCounter File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/programCounter.v Line: 1
+    Info (12023): Found entity 1: programCounter File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/programCounter.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file adder.v
-    Info (12023): Found entity 1: adder File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/adder.v Line: 3
+    Info (12023): Found entity 1: adder File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/adder.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file andgate.v
-    Info (12023): Found entity 1: ANDGate File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/ANDGate.v Line: 1
+    Info (12023): Found entity 1: ANDGate File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/ANDGate.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file instructionmemory.v
-    Info (12023): Found entity 1: instructionMemory File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/instructionMemory.v Line: 40
+    Info (12023): Found entity 1: instructionMemory File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/instructionMemory.v Line: 40
 Info (12021): Found 1 design units, including 1 entities, in source file datamemory.v
-    Info (12023): Found entity 1: dataMemory File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/dataMemory.v Line: 40
+    Info (12023): Found entity 1: dataMemory File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/dataMemory.v Line: 40
 Info (12021): Found 1 design units, including 1 entities, in source file xnor.v
-    Info (12023): Found entity 1: XNORGate File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/XNOR.v Line: 1
+    Info (12023): Found entity 1: XNORGate File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/XNOR.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file pipes.v
-    Info (12023): Found entity 1: pipe File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/Pipes.v Line: 1
+    Info (12023): Found entity 1: pipe File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/Pipes.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file comparator.v
-    Info (12023): Found entity 1: Comparator File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/Comparator.v Line: 1
+    Info (12023): Found entity 1: Comparator File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/Comparator.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file forwardingunit.v
-    Info (12023): Found entity 1: ForwardingUnit File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/forwardingUnit.v Line: 1
+    Info (12023): Found entity 1: ForwardingUnit File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/forwardingUnit.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file hazarddetectionunit.v
-    Info (12023): Found entity 1: HazardDetectionUnit File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/HazardDetectionUnit.v Line: 1
+    Info (12023): Found entity 1: HazardDetectionUnit File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/HazardDetectionUnit.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file orgate.v
-    Info (12023): Found entity 1: ORGate File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/ORGate.v Line: 1
+    Info (12023): Found entity 1: ORGate File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/ORGate.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file pccorrection.v
-    Info (12023): Found entity 1: pcCorrection File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/pcCorrection.v Line: 1
+    Info (12023): Found entity 1: pcCorrection File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/pcCorrection.v Line: 1
 Info (12127): Elaborating entity "processor" for the top level hierarchy
-Info (12128): Elaborating entity "programCounter" for hierarchy "programCounter:pc" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 84
-Info (12128): Elaborating entity "adder" for hierarchy "adder:pcAdder" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 86
-Info (12128): Elaborating entity "instructionMemory" for hierarchy "instructionMemory:IM" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 90
-Info (12128): Elaborating entity "altsyncram" for hierarchy "instructionMemory:IM|altsyncram:altsyncram_component" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/instructionMemory.v Line: 88
-Info (12130): Elaborated megafunction instantiation "instructionMemory:IM|altsyncram:altsyncram_component" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/instructionMemory.v Line: 88
-Info (12133): Instantiated megafunction "instructionMemory:IM|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/instructionMemory.v Line: 88
+Info (12128): Elaborating entity "programCounter" for hierarchy "programCounter:pc" File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 88
+Info (12128): Elaborating entity "adder" for hierarchy "adder:pcAdder" File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 90
+Info (12128): Elaborating entity "instructionMemory" for hierarchy "instructionMemory:IM" File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 94
+Info (12128): Elaborating entity "altsyncram" for hierarchy "instructionMemory:IM|altsyncram:altsyncram_component" File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/instructionMemory.v Line: 88
+Info (12130): Elaborated megafunction instantiation "instructionMemory:IM|altsyncram:altsyncram_component" File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/instructionMemory.v Line: 88
+Info (12133): Instantiated megafunction "instructionMemory:IM|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/instructionMemory.v Line: 88
     Info (12134): Parameter "address_aclr_a" = "CLEAR0"
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
@@ -1292,28 +1301,28 @@ Info (12133): Instantiated megafunction "instructionMemory:IM|altsyncram:altsync
     Info (12134): Parameter "width_a" = "32"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_n9e1.tdf
-    Info (12023): Found entity 1: altsyncram_n9e1 File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/db/altsyncram_n9e1.tdf Line: 28
-Info (12128): Elaborating entity "altsyncram_n9e1" for hierarchy "instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_n9e1:auto_generated" File: d:/quartuslite/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "BranchPredictionUnit" for hierarchy "BranchPredictionUnit:BPU" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 92
-Info (12128): Elaborating entity "pipe" for hierarchy "pipe:IF_ID" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 94
-Info (12128): Elaborating entity "signextender" for hierarchy "signextender:SignExtend" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 100
-Info (12128): Elaborating entity "controlUnit" for hierarchy "controlUnit:CU" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 104
-Info (12128): Elaborating entity "registerFile" for hierarchy "registerFile:RF" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 108
-Info (12128): Elaborating entity "mux2x1" for hierarchy "mux2x1:CUMux" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 111
-Info (12128): Elaborating entity "pipe" for hierarchy "pipe:ID_EX" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 115
-Info (12128): Elaborating entity "HazardDetectionUnit" for hierarchy "HazardDetectionUnit:HDU" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 120
-Info (12128): Elaborating entity "ANDGate" for hierarchy "ANDGate:holdGate" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 122
-Info (12128): Elaborating entity "ORGate" for hierarchy "ORGate:resetGate" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 124
-Info (12128): Elaborating entity "ALU" for hierarchy "ALU:alu" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 160
-Info (12128): Elaborating entity "Comparator" for hierarchy "Comparator:comp" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 172
-Info (12128): Elaborating entity "XNORGate" for hierarchy "XNORGate:branchXnor" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 174
-Info (12128): Elaborating entity "pcCorrection" for hierarchy "pcCorrection:pcCorr" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 178
-Info (12128): Elaborating entity "ForwardingUnit" for hierarchy "ForwardingUnit:FU" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 183
-Info (12128): Elaborating entity "pipe" for hierarchy "pipe:EX_MEM" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 187
-Info (12128): Elaborating entity "dataMemory" for hierarchy "dataMemory:DM" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 192
-Info (12128): Elaborating entity "altsyncram" for hierarchy "dataMemory:DM|altsyncram:altsyncram_component" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/dataMemory.v Line: 89
-Info (12130): Elaborated megafunction instantiation "dataMemory:DM|altsyncram:altsyncram_component" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/dataMemory.v Line: 89
-Info (12133): Instantiated megafunction "dataMemory:DM|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/dataMemory.v Line: 89
+    Info (12023): Found entity 1: altsyncram_n9e1 File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/db/altsyncram_n9e1.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_n9e1" for hierarchy "instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_n9e1:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "BranchPredictionUnit" for hierarchy "BranchPredictionUnit:BPU" File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 96
+Info (12128): Elaborating entity "pipe" for hierarchy "pipe:IF_ID" File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 98
+Info (12128): Elaborating entity "signextender" for hierarchy "signextender:SignExtend" File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 104
+Info (12128): Elaborating entity "controlUnit" for hierarchy "controlUnit:CU" File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 108
+Info (12128): Elaborating entity "registerFile" for hierarchy "registerFile:RF" File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 112
+Info (12128): Elaborating entity "mux2x1" for hierarchy "mux2x1:CUMux" File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 115
+Info (12128): Elaborating entity "pipe" for hierarchy "pipe:ID_EX" File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 119
+Info (12128): Elaborating entity "HazardDetectionUnit" for hierarchy "HazardDetectionUnit:HDU" File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 124
+Info (12128): Elaborating entity "ANDGate" for hierarchy "ANDGate:holdGate" File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 126
+Info (12128): Elaborating entity "ORGate" for hierarchy "ORGate:resetGate" File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 128
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:alu" File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 164
+Info (12128): Elaborating entity "Comparator" for hierarchy "Comparator:comp" File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 176
+Info (12128): Elaborating entity "XNORGate" for hierarchy "XNORGate:branchXnor" File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 178
+Info (12128): Elaborating entity "pcCorrection" for hierarchy "pcCorrection:pcCorr" File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 182
+Info (12128): Elaborating entity "ForwardingUnit" for hierarchy "ForwardingUnit:FU" File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 187
+Info (12128): Elaborating entity "pipe" for hierarchy "pipe:EX_MEM" File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 191
+Info (12128): Elaborating entity "dataMemory" for hierarchy "dataMemory:DM" File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 196
+Info (12128): Elaborating entity "altsyncram" for hierarchy "dataMemory:DM|altsyncram:altsyncram_component" File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/dataMemory.v Line: 89
+Info (12130): Elaborated megafunction instantiation "dataMemory:DM|altsyncram:altsyncram_component" File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/dataMemory.v Line: 89
+Info (12133): Instantiated megafunction "dataMemory:DM|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/dataMemory.v Line: 89
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
     Info (12134): Parameter "init_file" = "dataMemoryInitializationFile.mif"
@@ -1331,10 +1340,10 @@ Info (12133): Instantiated megafunction "dataMemory:DM|altsyncram:altsyncram_com
     Info (12134): Parameter "width_a" = "32"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_8km1.tdf
-    Info (12023): Found entity 1: altsyncram_8km1 File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/db/altsyncram_8km1.tdf Line: 28
-Info (12128): Elaborating entity "altsyncram_8km1" for hierarchy "dataMemory:DM|altsyncram:altsyncram_component|altsyncram_8km1:auto_generated" File: d:/quartuslite/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "pipe" for hierarchy "pipe:MEM_WB" File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 195
-Info (13000): Registers with preset signals will power-up high File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/programCounter.v Line: 15
+    Info (12023): Found entity 1: altsyncram_8km1 File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/db/altsyncram_8km1.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_8km1" for hierarchy "dataMemory:DM|altsyncram:altsyncram_component|altsyncram_8km1:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "pipe" for hierarchy "pipe:MEM_WB" File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 199
+Info (13000): Registers with preset signals will power-up high File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/programCounter.v Line: 15
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Info (286030): Timing-Driven Synthesis is running
 Info (128000): Starting physical synthesis optimizations for speed
@@ -1343,30 +1352,30 @@ Info (332129): Detected timing requirements -- optimizing circuit to achieve onl
 Info (332111): Found 1 clocks
     Info (332111):   Period   Clock Name
     Info (332111): ======== ============
-    Info (332111):   11.700          clk
+    Info (332111):   11.500          clk
 Info (128002): Starting physical synthesis algorithm register retiming
-Info (128003): Physical synthesis algorithm register retiming complete: estimated slack improvement of 989 ps
+Info (128003): Physical synthesis algorithm register retiming complete: estimated slack improvement of 1109 ps
 Info (128002): Starting physical synthesis algorithm combinational resynthesis using boolean division
 Info (128003): Physical synthesis algorithm combinational resynthesis using boolean division complete: estimated slack improvement of 0 ps
-Info (128001): Physical synthesis optimizations for speed complete: elapsed time is 00:00:02
-Info (144001): Generated suppressed messages file C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/output_files/Pipelined.map.smsg
+Info (128001): Physical synthesis optimizations for speed complete: elapsed time is 00:00:01
+Info (144001): Generated suppressed messages file C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/output_files/Pipelined.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 4260 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 4265 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 8 output pins
-    Info (21061): Implemented 4185 logic cells
+    Info (21061): Implemented 4190 logic cells
     Info (21064): Implemented 64 RAM segments
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4926 megabytes
-    Info: Processing ended: Sun Dec 15 17:42:56 2024
-    Info: Elapsed time: 00:00:25
-    Info: Total CPU time (on all processors): 00:00:13
+    Info: Peak virtual memory: 4962 megabytes
+    Info: Processing ended: Sun Dec 15 20:50:38 2024
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:05
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/output_files/Pipelined.map.smsg.
+The suppressed messages can be found in C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/output_files/Pipelined.map.smsg.
 
 

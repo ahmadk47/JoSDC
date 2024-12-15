@@ -20,8 +20,8 @@ module registerFile (clk, rst, we,
 
 
 	always@(*) begin
-		 readData1 = registers[readRegister1];
-		 readData2 = registers[readRegister2];	
+		 readData1 <= registers[readRegister1];
+		 readData2 <= registers[readRegister2];	
 	end
 
 	always@(negedge clk,  negedge rst) begin : Write_on_register_file_block

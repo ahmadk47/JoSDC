@@ -1,5 +1,5 @@
 Fitter report for Pipelined
-Sun Dec 15 17:43:51 2024
+Sun Dec 15 20:51:05 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -71,17 +71,17 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Sun Dec 15 17:43:51 2024       ;
+; Fitter Status                      ; Successful - Sun Dec 15 20:51:05 2024       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; Pipelined                                   ;
 ; Top-level Entity Name              ; processor                                   ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M50DAF484C7G                              ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 3,285 / 49,760 ( 7 % )                      ;
-;     Total combinational functions  ; 3,071 / 49,760 ( 6 % )                      ;
-;     Dedicated logic registers      ; 1,590 / 49,760 ( 3 % )                      ;
-; Total registers                    ; 1590                                        ;
+; Total logic elements               ; 3,289 / 49,760 ( 7 % )                      ;
+;     Total combinational functions  ; 3,075 / 49,760 ( 6 % )                      ;
+;     Dedicated logic registers      ; 1,594 / 49,760 ( 3 % )                      ;
+; Total registers                    ; 1594                                        ;
 ; Total pins                         ; 11 / 360 ( 3 % )                            ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 16,384 / 1,677,312 ( < 1 % )                ;
@@ -155,17 +155,19 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 8           ;
-; Maximum allowed            ; 4           ;
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
 ;                            ;             ;
-; Average used               ; 1.31        ;
-; Maximum used               ; 4           ;
+; Average used               ; 1.44        ;
+; Maximum used               ; 6           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;  11.1%      ;
-;     Processor 3            ;  10.2%      ;
-;     Processor 4            ;  10.0%      ;
+;     Processor 2            ;   9.3%      ;
+;     Processor 3            ;   8.8%      ;
+;     Processor 4            ;   8.8%      ;
+;     Processor 5            ;   8.7%      ;
+;     Processor 6            ;   8.6%      ;
 +----------------------------+-------------+
 
 
@@ -175,8 +177,8 @@ https://fpgasoftware.intel.com/eula.
 ; Type                ; Total [A + B]       ; From Design Partitions [A] ; From Rapid Recompile [B] ;
 +---------------------+---------------------+----------------------------+--------------------------+
 ; Placement (by node) ;                     ;                            ;                          ;
-;     -- Requested    ; 0.00 % ( 0 / 4768 ) ; 0.00 % ( 0 / 4768 )        ; 0.00 % ( 0 / 4768 )      ;
-;     -- Achieved     ; 0.00 % ( 0 / 4768 ) ; 0.00 % ( 0 / 4768 )        ; 0.00 % ( 0 / 4768 )      ;
+;     -- Requested    ; 0.00 % ( 0 / 4776 ) ; 0.00 % ( 0 / 4776 )        ; 0.00 % ( 0 / 4776 )      ;
+;     -- Achieved     ; 0.00 % ( 0 / 4776 ) ; 0.00 % ( 0 / 4776 )        ; 0.00 % ( 0 / 4776 )      ;
 ;                     ;                     ;                            ;                          ;
 ; Routing (by net)    ;                     ;                            ;                          ;
 ;     -- Requested    ; 0.00 % ( 0 / 0 )    ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
@@ -199,7 +201,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 ; Partition Name                 ; Preservation Achieved ; Preservation Level Used ; Netlist Type Used ; Preservation Method ; Notes ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
-; Top                            ; 0.00 % ( 0 / 4752 )   ; N/A                     ; Source File       ; N/A                 ;       ;
+; Top                            ; 0.00 % ( 0 / 4760 )   ; N/A                     ; Source File       ; N/A                 ;       ;
 ; hard_block:auto_generated_inst ; 0.00 % ( 0 / 16 )     ; N/A                     ; Source File       ; N/A                 ;       ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 
@@ -207,7 +209,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------+
 ; Pin-Out File ;
 +--------------+
-The pin-out file can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/output_files/Pipelined.pin.
+The pin-out file can be found in C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/output_files/Pipelined.pin.
 
 
 +----------------------------------------------------------------------------+
@@ -215,29 +217,29 @@ The pin-out file can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Developme
 +---------------------------------------------+------------------------------+
 ; Resource                                    ; Usage                        ;
 +---------------------------------------------+------------------------------+
-; Total logic elements                        ; 3,285 / 49,760 ( 7 % )       ;
+; Total logic elements                        ; 3,289 / 49,760 ( 7 % )       ;
 ;     -- Combinational with no register       ; 1695                         ;
 ;     -- Register only                        ; 214                          ;
-;     -- Combinational with a register        ; 1376                         ;
+;     -- Combinational with a register        ; 1380                         ;
 ;                                             ;                              ;
 ; Logic element usage by number of LUT inputs ;                              ;
 ;     -- 4 input functions                    ; 2110                         ;
-;     -- 3 input functions                    ; 904                          ;
+;     -- 3 input functions                    ; 908                          ;
 ;     -- <=2 input functions                  ; 57                           ;
 ;     -- Register only                        ; 214                          ;
 ;                                             ;                              ;
 ; Logic elements by mode                      ;                              ;
-;     -- normal mode                          ; 2933                         ;
+;     -- normal mode                          ; 2937                         ;
 ;     -- arithmetic mode                      ; 138                          ;
 ;                                             ;                              ;
-; Total registers*                            ; 1,590 / 51,509 ( 3 % )       ;
-;     -- Dedicated logic registers            ; 1,590 / 49,760 ( 3 % )       ;
+; Total registers*                            ; 1,594 / 51,509 ( 3 % )       ;
+;     -- Dedicated logic registers            ; 1,594 / 49,760 ( 3 % )       ;
 ;     -- I/O registers                        ; 0 / 1,749 ( 0 % )            ;
 ;                                             ;                              ;
-; Total LABs:  partially or completely used   ; 243 / 3,110 ( 8 % )          ;
+; Total LABs:  partially or completely used   ; 224 / 3,110 ( 7 % )          ;
 ; Virtual pins                                ; 0                            ;
 ; I/O pins                                    ; 11 / 360 ( 3 % )             ;
-;     -- Clock pins                           ; 1 / 8 ( 13 % )               ;
+;     -- Clock pins                           ; 2 / 8 ( 25 % )               ;
 ;     -- Dedicated input pins                 ; 1 / 1 ( 100 % )              ;
 ;                                             ;                              ;
 ; M9Ks                                        ; 2 / 182 ( 1 % )              ;
@@ -254,11 +256,11 @@ The pin-out file can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Developme
 ; Remote update blocks                        ; 0 / 1 ( 0 % )                ;
 ; Oscillator blocks                           ; 0 / 1 ( 0 % )                ;
 ; Impedance control blocks                    ; 0 / 1 ( 0 % )                ;
-; Average interconnect usage (total/H/V)      ; 2.1% / 2.0% / 2.2%           ;
-; Peak interconnect usage (total/H/V)         ; 29.5% / 29.8% / 29.1%        ;
-; Maximum fan-out                             ; 1593                         ;
+; Average interconnect usage (total/H/V)      ; 2.1% / 2.1% / 2.3%           ;
+; Peak interconnect usage (total/H/V)         ; 32.3% / 32.4% / 32.2%        ;
+; Maximum fan-out                             ; 1597                         ;
 ; Highest non-global fan-out                  ; 259                          ;
-; Total fan-out                               ; 17674                        ;
+; Total fan-out                               ; 17696                        ;
 ; Average fan-out                             ; 3.59                         ;
 +---------------------------------------------+------------------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
@@ -272,26 +274,26 @@ The pin-out file can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Developme
 +---------------------------------------------+----------------------+--------------------------------+
 ; Difficulty Clustering Region                ; Low                  ; Low                            ;
 ;                                             ;                      ;                                ;
-; Total logic elements                        ; 3285 / 49760 ( 7 % ) ; 0 / 49760 ( 0 % )              ;
+; Total logic elements                        ; 3289 / 49760 ( 7 % ) ; 0 / 49760 ( 0 % )              ;
 ;     -- Combinational with no register       ; 1695                 ; 0                              ;
 ;     -- Register only                        ; 214                  ; 0                              ;
-;     -- Combinational with a register        ; 1376                 ; 0                              ;
+;     -- Combinational with a register        ; 1380                 ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Logic element usage by number of LUT inputs ;                      ;                                ;
 ;     -- 4 input functions                    ; 2110                 ; 0                              ;
-;     -- 3 input functions                    ; 904                  ; 0                              ;
+;     -- 3 input functions                    ; 908                  ; 0                              ;
 ;     -- <=2 input functions                  ; 57                   ; 0                              ;
 ;     -- Register only                        ; 214                  ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Logic elements by mode                      ;                      ;                                ;
-;     -- normal mode                          ; 2933                 ; 0                              ;
+;     -- normal mode                          ; 2937                 ; 0                              ;
 ;     -- arithmetic mode                      ; 138                  ; 0                              ;
 ;                                             ;                      ;                                ;
-; Total registers                             ; 1590                 ; 0                              ;
-;     -- Dedicated logic registers            ; 1590 / 49760 ( 3 % ) ; 0 / 49760 ( 0 % )              ;
+; Total registers                             ; 1594                 ; 0                              ;
+;     -- Dedicated logic registers            ; 1594 / 49760 ( 3 % ) ; 0 / 49760 ( 0 % )              ;
 ;     -- I/O registers                        ; 0                    ; 0                              ;
 ;                                             ;                      ;                                ;
-; Total LABs:  partially or completely used   ; 243 / 3110 ( 8 % )   ; 0 / 3110 ( 0 % )               ;
+; Total LABs:  partially or completely used   ; 224 / 3110 ( 7 % )   ; 0 / 3110 ( 0 % )               ;
 ;                                             ;                      ;                                ;
 ; Virtual pins                                ; 0                    ; 0                              ;
 ; I/O pins                                    ; 11                   ; 0                              ;
@@ -310,8 +312,8 @@ The pin-out file can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Developme
 ;     -- Registered Output Connections        ; 0                    ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Internal Connections                        ;                      ;                                ;
-;     -- Total Connections                    ; 17680                ; 8                              ;
-;     -- Registered Connections               ; 4789                 ; 0                              ;
+;     -- Total Connections                    ; 17702                ; 8                              ;
+;     -- Registered Connections               ; 4796                 ; 0                              ;
 ;                                             ;                      ;                                ;
 ; External Connections                        ;                      ;                                ;
 ;     -- Top                                  ; 0                    ; 0                              ;
@@ -343,9 +345,9 @@ The pin-out file can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Developme
 +--------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
 ; Name   ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination Control Block ; Location assigned by ; Slew Rate ;
 +--------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
-; clk    ; M8    ; 2        ; 0            ; 18           ; 14           ; 1593                  ; 0                  ; yes    ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
-; enable ; R7    ; 2        ; 0            ; 9            ; 21           ; 246                   ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
-; rst    ; M9    ; 2        ; 0            ; 18           ; 21           ; 1357                  ; 0                  ; yes    ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
+; clk    ; M8    ; 2        ; 0            ; 18           ; 14           ; 1597                  ; 0                  ; yes    ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
+; enable ; B2    ; 8        ; 22           ; 39           ; 14           ; 246                   ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
+; rst    ; M9    ; 2        ; 0            ; 18           ; 21           ; 1361                  ; 0                  ; yes    ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
 +--------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
 
 
@@ -354,14 +356,14 @@ The pin-out file can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Developme
 +-------+-------+----------+--------------+--------------+--------------+-----------------+------------------------+---------------+-----------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-----------------------------------+---------------------------+----------------------------+-----------------------------+----------------------+----------------------+---------------------+
 ; Name  ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Output Register ; Output Enable Register ; Power Up High ; Slew Rate ; PCI I/O Enabled ; Open Drain ; TRI Primitive ; Bus Hold ; Weak Pull Up ; I/O Standard ; Current Strength ; Termination                       ; Termination Control Block ; Output Buffer Pre-emphasis ; Voltage Output Differential ; Location assigned by ; Output Enable Source ; Output Enable Group ;
 +-------+-------+----------+--------------+--------------+--------------+-----------------+------------------------+---------------+-----------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-----------------------------------+---------------------------+----------------------------+-----------------------------+----------------------+----------------------+---------------------+
-; PC[0] ; N9    ; 2        ; 0            ; 13           ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; PC[1] ; W2    ; 2        ; 0            ; 9            ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; PC[2] ; P1    ; 2        ; 0            ; 13           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; PC[3] ; P8    ; 2        ; 0            ; 9            ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; PC[4] ; N8    ; 2        ; 0            ; 13           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; PC[5] ; N1    ; 2        ; 0            ; 13           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; PC[6] ; U2    ; 2        ; 0            ; 12           ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; PC[7] ; T3    ; 2        ; 0            ; 12           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; PC[0] ; D7    ; 8        ; 29           ; 39           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; PC[1] ; C7    ; 8        ; 34           ; 39           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; PC[2] ; C6    ; 8        ; 29           ; 39           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; PC[3] ; J10   ; 8        ; 34           ; 39           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; PC[4] ; B7    ; 8        ; 34           ; 39           ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; PC[5] ; E9    ; 8        ; 29           ; 39           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; PC[6] ; H11   ; 8        ; 34           ; 39           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; PC[7] ; A6    ; 8        ; 34           ; 39           ; 28           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
 +-------+-------+----------+--------------+--------------+--------------+-----------------+------------------------+---------------+-----------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-----------------------------------+---------------------------+----------------------------+-----------------------------+----------------------+----------------------+---------------------+
 
 
@@ -388,13 +390,13 @@ The pin-out file can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Developme
 +----------+------------------+---------------+--------------+
 ; 1A       ; 0 / 16 ( 0 % )   ; 2.5V          ; --           ;
 ; 1B       ; 4 / 24 ( 17 % )  ; 2.5V          ; --           ;
-; 2        ; 11 / 36 ( 31 % ) ; 2.5V          ; --           ;
+; 2        ; 2 / 36 ( 6 % )   ; 2.5V          ; --           ;
 ; 3        ; 0 / 48 ( 0 % )   ; 2.5V          ; --           ;
 ; 4        ; 0 / 48 ( 0 % )   ; 2.5V          ; --           ;
 ; 5        ; 0 / 40 ( 0 % )   ; 2.5V          ; --           ;
 ; 6        ; 0 / 60 ( 0 % )   ; 2.5V          ; --           ;
 ; 7        ; 0 / 52 ( 0 % )   ; 2.5V          ; --           ;
-; 8        ; 4 / 36 ( 11 % )  ; 2.5V          ; --           ;
+; 8        ; 13 / 36 ( 36 % ) ; 2.5V          ; --           ;
 +----------+------------------+---------------+--------------+
 
 
@@ -408,7 +410,7 @@ The pin-out file can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Developme
 ; A3       ; 483        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; A4       ; 475        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; A5       ; 473        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; A6       ; 471        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
+; A6       ; 471        ; 8        ; PC[7]                                          ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
 ; A7       ; 445        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; A8       ; 447        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; A9       ; 449        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
@@ -470,12 +472,12 @@ The pin-out file can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Developme
 ; AB21     ; 225        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; AB22     ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; B1       ; 495        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; B2       ; 493        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
+; B2       ; 493        ; 8        ; enable                                         ; input  ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
 ; B3       ; 484        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; B4       ; 486        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; B5       ; 485        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; B6       ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
-; B7       ; 469        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
+; B7       ; 469        ; 8        ; PC[4]                                          ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
 ; B8       ; 451        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; B9       ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; B10      ; 448        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
@@ -496,8 +498,8 @@ The pin-out file can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Developme
 ; C3       ; 497        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; C4       ; 487        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; C5       ; 489        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; C6       ; 477        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; C7       ; 467        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
+; C6       ; 477        ; 8        ; PC[2]                                          ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
+; C7       ; 467        ; 8        ; PC[1]                                          ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
 ; C8       ; 465        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; C9       ; 450        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; C10      ; 442        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
@@ -519,7 +521,7 @@ The pin-out file can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Developme
 ; D4       ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; D5       ; 491        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; D6       ; 496        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; D7       ; 479        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; --       ; --           ;
+; D7       ; 479        ; 8        ; PC[0]                                          ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
 ; D8       ; 472        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; D9       ; 474        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; D10      ; 476        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
@@ -543,7 +545,7 @@ The pin-out file can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Developme
 ; E6       ; 498        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; E7       ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; E8       ; 488        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; E9       ; 478        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
+; E9       ; 478        ; 8        ; PC[5]                                          ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
 ; E10      ; 466        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; E11      ; 464        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; E12      ; 429        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
@@ -611,7 +613,7 @@ The pin-out file can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Developme
 ; H8       ;            ; --       ; VCCA3                                          ; power  ;                       ; 2.5V    ; --         ;                 ; --       ; --           ;
 ; H9       ; 482        ; 8        ; ~ALTERA_nCONFIG~ / RESERVED_INPUT              ; input  ; 2.5 V Schmitt Trigger ;         ; Column I/O ; N               ; no       ; Off          ;
 ; H10      ; 480        ; 8        ; ~ALTERA_CONFIG_SEL~ / RESERVED_INPUT           ; input  ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
-; H11      ; 470        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
+; H11      ; 470        ; 8        ; PC[6]                                          ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
 ; H12      ; 444        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; H13      ; 432        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; H14      ; 420        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
@@ -632,7 +634,7 @@ The pin-out file can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Developme
 ; J7       ;            ;          ; VCCINT                                         ; power  ;                       ; 1.2V    ; --         ;                 ; --       ; --           ;
 ; J8       ; 4          ; 1A       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; J9       ; 6          ; 1A       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
-; J10      ; 468        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
+; J10      ; 468        ; 8        ; PC[3]                                          ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
 ; J11      ; 446        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; J12      ; 434        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; J13      ; 422        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
@@ -711,15 +713,15 @@ The pin-out file can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Developme
 ; M20      ; 337        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; M21      ; 312        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; M22      ; 315        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
-; N1       ; 87         ; 2        ; PC[5]                                          ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; N1       ; 87         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; N2       ; 75         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; N3       ; 73         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; N4       ; 56         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; N5       ; 58         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; N6       ;            ; 2        ; VCCIO2                                         ; power  ;                       ; 2.5V    ; --         ;                 ; --       ; --           ;
 ; N7       ;            ; 2        ; VCCIO2                                         ; power  ;                       ; 2.5V    ; --         ;                 ; --       ; --           ;
-; N8       ; 84         ; 2        ; PC[4]                                          ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
-; N9       ; 86         ; 2        ; PC[0]                                          ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; N8       ; 84         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
+; N9       ; 86         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; N10      ;            ; --       ; VCC                                            ; power  ;                       ; 1.2V    ; --         ;                 ; --       ; --           ;
 ; N11      ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; N12      ;            ; --       ; VCC                                            ; power  ;                       ; 1.2V    ; --         ;                 ; --       ; --           ;
@@ -733,14 +735,14 @@ The pin-out file can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Developme
 ; N20      ; 339        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; N21      ; 313        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; N22      ; 307        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
-; P1       ; 85         ; 2        ; PC[2]                                          ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; P1       ; 85         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; P2       ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; P3       ; 76         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; P4       ; 57         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; P5       ; 59         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; P6       ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; P7       ;            ; 2        ; VCCIO2                                         ; power  ;                       ; 2.5V    ; --         ;                 ; --       ; --           ;
-; P8       ; 96         ; 2        ; PC[3]                                          ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; P8       ; 96         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; P9       ; 142        ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; P10      ; 154        ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; P11      ; 166        ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
@@ -761,7 +763,7 @@ The pin-out file can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Developme
 ; R4       ; 80         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; R5       ; 82         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; R6       ;            ; 2        ; VCCIO2                                         ; power  ;                       ; 2.5V    ; --         ;                 ; --       ; --           ;
-; R7       ; 98         ; 2        ; enable                                         ; input  ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; R7       ; 98         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; R8       ;            ; --       ; VCCA1                                          ; power  ;                       ; 2.5V    ; --         ;                 ; --       ; --           ;
 ; R9       ; 140        ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; R10      ; 152        ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
@@ -779,7 +781,7 @@ The pin-out file can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Developme
 ; R22      ; 301        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; T1       ; 81         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; T2       ; 83         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
-; T3       ; 88         ; 2        ; PC[7]                                          ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; T3       ; 88         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; T4       ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; T5       ; 120        ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; T6       ; 122        ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
@@ -800,7 +802,7 @@ The pin-out file can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Developme
 ; T21      ; 293        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; T22      ; 295        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; U1       ; 89         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
-; U2       ; 90         ; 2        ; PC[6]                                          ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; U2       ; 90         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; U3       ; 93         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; U4       ; 92         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; U5       ; 94         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
@@ -844,7 +846,7 @@ The pin-out file can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Developme
 ; V21      ; 289        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; V22      ; 291        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; W1       ; 97         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
-; W2       ; 99         ; 2        ; PC[1]                                          ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; W2       ; 99         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; W3       ; 134        ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; W4       ; 132        ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; W5       ; 124        ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
@@ -926,17 +928,17 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +-------------------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+------------------------------------------------------------------------------------------------+----------------------+--------------+
 ; Compilation Hierarchy Node                ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M9Ks ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; ADC blocks ; Full Hierarchy Name                                                                            ; Entity Name          ; Library Name ;
 +-------------------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+------------------------------------------------------------------------------------------------+----------------------+--------------+
-; |processor                                ; 3285 (264)  ; 1590 (0)                  ; 0 (0)         ; 16384       ; 2    ; 1          ; 0            ; 0       ; 0         ; 11   ; 0            ; 1695 (255)   ; 214 (0)           ; 1376 (11)        ; 0          ; |processor                                                                                     ; processor            ; work         ;
+; |processor                                ; 3289 (266)  ; 1594 (0)                  ; 0 (0)         ; 16384       ; 2    ; 1          ; 0            ; 0       ; 0         ; 11   ; 0            ; 1695 (257)   ; 214 (0)           ; 1380 (9)         ; 0          ; |processor                                                                                     ; processor            ; work         ;
 ;    |ALU:alu|                              ; 645 (645)   ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 552 (552)    ; 0 (0)             ; 93 (93)          ; 0          ; |processor|ALU:alu                                                                             ; ALU                  ; work         ;
 ;    |ANDGate:branchAnd|                    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |processor|ANDGate:branchAnd                                                                   ; ANDGate              ; work         ;
 ;    |ANDGate:holdGate|                     ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |processor|ANDGate:holdGate                                                                    ; ANDGate              ; work         ;
-;    |BranchPredictionUnit:BPU|             ; 404 (404)   ; 128 (128)                 ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 276 (276)    ; 0 (0)             ; 128 (128)        ; 0          ; |processor|BranchPredictionUnit:BPU                                                            ; BranchPredictionUnit ; work         ;
+;    |BranchPredictionUnit:BPU|             ; 408 (408)   ; 128 (128)                 ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 280 (280)    ; 0 (0)             ; 128 (128)        ; 0          ; |processor|BranchPredictionUnit:BPU                                                            ; BranchPredictionUnit ; work         ;
 ;    |Comparator:comp|                      ; 24 (24)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 24 (24)      ; 0 (0)             ; 0 (0)            ; 0          ; |processor|Comparator:comp                                                                     ; Comparator           ; work         ;
-;    |ForwardingUnit:FU|                    ; 25 (25)     ; 2 (2)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 22 (22)      ; 0 (0)             ; 3 (3)            ; 0          ; |processor|ForwardingUnit:FU                                                                   ; ForwardingUnit       ; work         ;
+;    |ForwardingUnit:FU|                    ; 25 (25)     ; 2 (2)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 21 (21)      ; 0 (0)             ; 4 (4)            ; 0          ; |processor|ForwardingUnit:FU                                                                   ; ForwardingUnit       ; work         ;
 ;    |HazardDetectionUnit:HDU|              ; 10 (10)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 10 (10)      ; 0 (0)             ; 0 (0)            ; 0          ; |processor|HazardDetectionUnit:HDU                                                             ; HazardDetectionUnit  ; work         ;
 ;    |ORGate:resetGate|                     ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0          ; |processor|ORGate:resetGate                                                                    ; ORGate               ; work         ;
 ;    |adder:branchAdder|                    ; 8 (8)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 8 (8)            ; 0          ; |processor|adder:branchAdder                                                                   ; adder                ; work         ;
-;    |adder:pcAdder|                        ; 8 (8)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 6 (6)            ; 0          ; |processor|adder:pcAdder                                                                       ; adder                ; work         ;
+;    |adder:pcAdder|                        ; 8 (8)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 8 (8)            ; 0          ; |processor|adder:pcAdder                                                                       ; adder                ; work         ;
 ;    |controlUnit:CU|                       ; 5 (5)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 5 (5)        ; 0 (0)             ; 0 (0)            ; 0          ; |processor|controlUnit:CU                                                                      ; controlUnit          ; work         ;
 ;    |dataMemory:DM|                        ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 8192        ; 1    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |processor|dataMemory:DM                                                                       ; dataMemory           ; work         ;
 ;       |altsyncram:altsyncram_component|   ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 8192        ; 1    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |processor|dataMemory:DM|altsyncram:altsyncram_component                                       ; altsyncram           ; work         ;
@@ -945,12 +947,12 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ;       |altsyncram:altsyncram_component|   ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 8192        ; 1    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |processor|instructionMemory:IM|altsyncram:altsyncram_component                                ; altsyncram           ; work         ;
 ;          |altsyncram_n9e1:auto_generated| ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 8192        ; 1    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |processor|instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_n9e1:auto_generated ; altsyncram_n9e1      ; work         ;
 ;    |mux2x1:CUMux|                         ; 38 (38)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 27 (27)      ; 0 (0)             ; 11 (11)          ; 0          ; |processor|mux2x1:CUMux                                                                        ; mux2x1               ; work         ;
-;    |pipe:EX_MEM|                          ; 149 (149)   ; 143 (143)                 ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 6 (6)        ; 3 (3)             ; 140 (140)        ; 0          ; |processor|pipe:EX_MEM                                                                         ; pipe                 ; work         ;
-;    |pipe:ID_EX|                           ; 127 (127)   ; 125 (125)                 ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 125 (125)        ; 0          ; |processor|pipe:ID_EX                                                                          ; pipe                 ; work         ;
+;    |pipe:EX_MEM|                          ; 154 (154)   ; 147 (147)                 ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 7 (7)        ; 5 (5)             ; 142 (142)        ; 0          ; |processor|pipe:EX_MEM                                                                         ; pipe                 ; work         ;
+;    |pipe:ID_EX|                           ; 126 (126)   ; 125 (125)                 ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 125 (125)        ; 0          ; |processor|pipe:ID_EX                                                                          ; pipe                 ; work         ;
 ;    |pipe:IF_ID|                           ; 112 (112)   ; 112 (112)                 ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 40 (40)           ; 72 (72)          ; 0          ; |processor|pipe:IF_ID                                                                          ; pipe                 ; work         ;
-;    |pipe:MEM_WB|                          ; 85 (85)     ; 80 (80)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 3 (3)        ; 0 (0)             ; 82 (82)          ; 0          ; |processor|pipe:MEM_WB                                                                         ; pipe                 ; work         ;
+;    |pipe:MEM_WB|                          ; 86 (86)     ; 80 (80)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 4 (4)        ; 0 (0)             ; 82 (82)          ; 0          ; |processor|pipe:MEM_WB                                                                         ; pipe                 ; work         ;
 ;    |programCounter:pc|                    ; 8 (8)       ; 8 (8)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 8 (8)            ; 0          ; |processor|programCounter:pc                                                                   ; programCounter       ; work         ;
-;    |registerFile:RF|                      ; 1501 (1501) ; 992 (992)                 ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 509 (509)    ; 171 (171)         ; 821 (821)        ; 0          ; |processor|registerFile:RF                                                                     ; registerFile         ; work         ;
+;    |registerFile:RF|                      ; 1497 (1497) ; 992 (992)                 ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 505 (505)    ; 169 (169)         ; 823 (823)        ; 0          ; |processor|registerFile:RF                                                                     ; registerFile         ; work         ;
 +-------------------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+------------------------------------------------------------------------------------------------+----------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -970,7 +972,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; PC[7]  ; Output   ; --            ; --            ; --                    ; --  ; --   ;
 ; clk    ; Input    ; (0) 0 ps      ; --            ; --                    ; --  ; --   ;
 ; rst    ; Input    ; (6) 873 ps    ; (6) 873 ps    ; --                    ; --  ; --   ;
-; enable ; Input    ; (6) 873 ps    ; (6) 873 ps    ; --                    ; --  ; --   ;
+; enable ; Input    ; (6) 868 ps    ; (6) 868 ps    ; --                    ; --  ; --   ;
 +--------+----------+---------------+---------------+-----------------------+-----+------+
 
 
@@ -986,7 +988,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - pipe:MEM_WB|Q[68]                          ; 0                 ; 6       ;
 ;      - pipe:MEM_WB|Q[78]                          ; 0                 ; 6       ;
 ;      - pipe:MEM_WB|Q[77]                          ; 0                 ; 6       ;
-;      - pipe:MEM_WB|Q[35]                          ; 1                 ; 6       ;
+;      - pipe:MEM_WB|Q[35]                          ; 0                 ; 6       ;
 ;      - pipe:MEM_WB|Q[67]                          ; 0                 ; 6       ;
 ;      - pipe:MEM_WB|Q[34]                          ; 0                 ; 6       ;
 ;      - pipe:MEM_WB|Q[66]                          ; 0                 ; 6       ;
@@ -1019,9 +1021,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - pipe:MEM_WB|Q[20]                          ; 0                 ; 6       ;
 ;      - pipe:MEM_WB|Q[52]                          ; 0                 ; 6       ;
 ;      - pipe:MEM_WB|Q[19]                          ; 0                 ; 6       ;
-;      - pipe:MEM_WB|Q[51]                          ; 1                 ; 6       ;
+;      - pipe:MEM_WB|Q[51]                          ; 0                 ; 6       ;
 ;      - pipe:MEM_WB|Q[18]                          ; 0                 ; 6       ;
-;      - pipe:MEM_WB|Q[50]                          ; 0                 ; 6       ;
+;      - pipe:MEM_WB|Q[50]                          ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q[17]                          ; 0                 ; 6       ;
 ;      - pipe:MEM_WB|Q[49]                          ; 0                 ; 6       ;
 ;      - pipe:MEM_WB|Q[16]                          ; 0                 ; 6       ;
@@ -1033,8 +1035,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - pipe:MEM_WB|Q[13]                          ; 0                 ; 6       ;
 ;      - pipe:MEM_WB|Q[45]                          ; 0                 ; 6       ;
 ;      - pipe:MEM_WB|Q[12]                          ; 0                 ; 6       ;
-;      - pipe:MEM_WB|Q[44]                          ; 0                 ; 6       ;
-;      - pipe:MEM_WB|Q[76]                          ; 0                 ; 6       ;
+;      - pipe:MEM_WB|Q[44]                          ; 1                 ; 6       ;
+;      - pipe:MEM_WB|Q[76]                          ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q[11]                          ; 0                 ; 6       ;
 ;      - pipe:MEM_WB|Q[43]                          ; 0                 ; 6       ;
 ;      - pipe:MEM_WB|Q[75]                          ; 0                 ; 6       ;
@@ -1042,30 +1044,30 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - pipe:MEM_WB|Q[42]                          ; 0                 ; 6       ;
 ;      - pipe:MEM_WB|Q[74]                          ; 0                 ; 6       ;
 ;      - pipe:MEM_WB|Q[9]                           ; 0                 ; 6       ;
-;      - pipe:MEM_WB|Q[41]                          ; 0                 ; 6       ;
-;      - pipe:MEM_WB|Q[73]                          ; 0                 ; 6       ;
+;      - pipe:MEM_WB|Q[41]                          ; 1                 ; 6       ;
+;      - pipe:MEM_WB|Q[73]                          ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q[8]                           ; 0                 ; 6       ;
 ;      - pipe:MEM_WB|Q[40]                          ; 0                 ; 6       ;
-;      - pipe:MEM_WB|Q[72]                          ; 0                 ; 6       ;
+;      - pipe:MEM_WB|Q[72]                          ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q[7]                           ; 0                 ; 6       ;
 ;      - pipe:MEM_WB|Q[39]                          ; 0                 ; 6       ;
 ;      - pipe:MEM_WB|Q[71]                          ; 0                 ; 6       ;
 ;      - pipe:MEM_WB|Q[6]                           ; 0                 ; 6       ;
 ;      - pipe:MEM_WB|Q[38]                          ; 0                 ; 6       ;
-;      - pipe:MEM_WB|Q[70]                          ; 0                 ; 6       ;
+;      - pipe:MEM_WB|Q[70]                          ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q[5]                           ; 0                 ; 6       ;
 ;      - pipe:MEM_WB|Q[37]                          ; 0                 ; 6       ;
-;      - pipe:MEM_WB|Q[69]                          ; 0                 ; 6       ;
+;      - pipe:MEM_WB|Q[69]                          ; 1                 ; 6       ;
 ;      - pipe:EX_MEM|Q[80]                          ; 0                 ; 6       ;
 ;      - pipe:EX_MEM|Q[77]                          ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[76]                          ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q[76]                          ; 1                 ; 6       ;
 ;      - pipe:EX_MEM|Q[75]                          ; 0                 ; 6       ;
 ;      - pipe:EX_MEM|Q[74]                          ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[73]                          ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[72]                          ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q[73]                          ; 1                 ; 6       ;
+;      - pipe:EX_MEM|Q[72]                          ; 1                 ; 6       ;
 ;      - pipe:EX_MEM|Q[71]                          ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[70]                          ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[69]                          ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q[70]                          ; 1                 ; 6       ;
+;      - pipe:EX_MEM|Q[69]                          ; 1                 ; 6       ;
 ;      - pipe:EX_MEM|Q[78]                          ; 0                 ; 6       ;
 ;      - pipe:EX_MEM|Q[36]                          ; 0                 ; 6       ;
 ;      - pipe:EX_MEM|Q[35]                          ; 0                 ; 6       ;
@@ -1084,22 +1086,22 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - pipe:EX_MEM|Q[22]                          ; 0                 ; 6       ;
 ;      - pipe:EX_MEM|Q[21]                          ; 0                 ; 6       ;
 ;      - pipe:EX_MEM|Q[20]                          ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[19]                          ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[18]                          ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q[19]                          ; 1                 ; 6       ;
+;      - pipe:EX_MEM|Q[18]                          ; 1                 ; 6       ;
 ;      - pipe:EX_MEM|Q[17]                          ; 0                 ; 6       ;
 ;      - pipe:EX_MEM|Q[16]                          ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[15]                          ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q[15]                          ; 1                 ; 6       ;
 ;      - pipe:EX_MEM|Q[14]                          ; 0                 ; 6       ;
 ;      - pipe:EX_MEM|Q[13]                          ; 0                 ; 6       ;
 ;      - pipe:EX_MEM|Q[12]                          ; 0                 ; 6       ;
 ;      - pipe:EX_MEM|Q[11]                          ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[10]                          ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q[10]                          ; 1                 ; 6       ;
 ;      - pipe:EX_MEM|Q[9]                           ; 0                 ; 6       ;
 ;      - pipe:EX_MEM|Q[8]                           ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[7]                           ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q[7]                           ; 1                 ; 6       ;
 ;      - pipe:EX_MEM|Q[6]                           ; 0                 ; 6       ;
 ;      - pipe:EX_MEM|Q[5]                           ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[38]                          ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q[38]                          ; 1                 ; 6       ;
 ;      - pipe:EX_MEM|Q[39]                          ; 0                 ; 6       ;
 ;      - pipe:EX_MEM|Q[46]                          ; 0                 ; 6       ;
 ;      - pipe:EX_MEM|Q[52]                          ; 0                 ; 6       ;
@@ -1108,15 +1110,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - pipe:EX_MEM|Q[67]                          ; 0                 ; 6       ;
 ;      - pipe:ID_EX|Q[133]~58                       ; 1                 ; 6       ;
 ;      - pipe:EX_MEM|Q~6                            ; 1                 ; 6       ;
-;      - ORGate:resetGate|out                       ; 0                 ; 6       ;
+;      - ORGate:resetGate|out                       ; 1                 ; 6       ;
 ;      - BranchPredictionUnit:BPU|BHT[63][1]~65     ; 1                 ; 6       ;
 ;      - comb~2                                     ; 1                 ; 6       ;
-;      - pipe:EX_MEM|Q[66]_NEW_REG128               ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[66]_NEW_REG130               ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[66]_NEW_REG132               ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q[66]_NEW_REG128               ; 1                 ; 6       ;
+;      - pipe:EX_MEM|Q[66]_NEW_REG130               ; 1                 ; 6       ;
+;      - pipe:EX_MEM|Q[66]_NEW_REG132               ; 1                 ; 6       ;
 ;      - pipe:EX_MEM|Q[68]_NEW_REG144               ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[68]_NEW_REG146               ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[68]_NEW_REG148               ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q[68]_NEW_REG146               ; 1                 ; 6       ;
 ;      - pipe:EX_MEM|Q[68]_NEW_REG150               ; 0                 ; 6       ;
 ;      - pipe:EX_MEM|Q[63]_NEW_REG160               ; 0                 ; 6       ;
 ;      - pipe:EX_MEM|Q[63]_NEW_REG162               ; 0                 ; 6       ;
@@ -1125,7 +1126,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - pipe:EX_MEM|Q[53]_NEW_REG168               ; 0                 ; 6       ;
 ;      - pipe:EX_MEM|Q[53]_NEW_REG170               ; 0                 ; 6       ;
 ;      - pipe:EX_MEM|Q[53]_NEW_REG172               ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[53]_NEW_REG174               ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q[53]_NEW_REG174               ; 1                 ; 6       ;
 ;      - pipe:EX_MEM|Q[42]_NEW_REG176               ; 0                 ; 6       ;
 ;      - pipe:EX_MEM|Q[42]_NEW_REG178               ; 0                 ; 6       ;
 ;      - pipe:EX_MEM|Q[42]_NEW_REG180               ; 0                 ; 6       ;
@@ -1135,27 +1136,26 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - pipe:EX_MEM|Q[40]_NEW_REG206               ; 0                 ; 6       ;
 ;      - pipe:EX_MEM|Q[40]_NEW_REG208               ; 0                 ; 6       ;
 ;      - pipe:EX_MEM|Q[40]_NEW_REG210               ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[58]_NEW_REG212               ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[58]_NEW_REG214               ; 0                 ; 6       ;
 ;      - pipe:EX_MEM|Q[58]_NEW_REG216               ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[60]_NEW_REG232               ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[60]_NEW_REG234               ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q[58]_NEW_REG218               ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q[58]_NEW_REG220               ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q[60]_NEW_REG228               ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q[60]_NEW_REG230               ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q[51]_NEW_REG232               ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q[51]_NEW_REG234               ; 0                 ; 6       ;
 ;      - pipe:EX_MEM|Q[51]_NEW_REG236               ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[51]_NEW_REG238               ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[51]_NEW_REG240               ; 0                 ; 6       ;
 ;      - pipe:EX_MEM|Q[64]_NEW_REG242               ; 0                 ; 6       ;
 ;      - pipe:EX_MEM|Q[64]_NEW_REG244               ; 0                 ; 6       ;
 ;      - pipe:EX_MEM|Q[64]_NEW_REG246               ; 0                 ; 6       ;
 ;      - pipe:EX_MEM|Q[37]_NEW_REG250               ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[50]_NEW_REG252               ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[50]_NEW_REG254               ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[50]_NEW_REG256               ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q[50]_NEW_REG252               ; 1                 ; 6       ;
+;      - pipe:EX_MEM|Q[50]_NEW_REG254               ; 1                 ; 6       ;
+;      - pipe:EX_MEM|Q[50]_NEW_REG256               ; 1                 ; 6       ;
 ;      - pipe:EX_MEM|Q[41]_NEW_REG258               ; 0                 ; 6       ;
 ;      - pipe:EX_MEM|Q[41]_NEW_REG260               ; 0                 ; 6       ;
 ;      - pipe:EX_MEM|Q[57]_NEW_REG262               ; 0                 ; 6       ;
 ;      - pipe:EX_MEM|Q[57]_NEW_REG264               ; 0                 ; 6       ;
 ;      - pipe:EX_MEM|Q[57]_NEW_REG266               ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[56]_NEW_REG268               ; 0                 ; 6       ;
 ;      - pipe:EX_MEM|Q[56]_NEW_REG270               ; 0                 ; 6       ;
 ;      - pipe:EX_MEM|Q[56]_NEW_REG272               ; 0                 ; 6       ;
 ;      - pipe:EX_MEM|Q[59]_NEW_REG274               ; 0                 ; 6       ;
@@ -1177,68 +1177,74 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - pipe:EX_MEM|Q[45]_NEW_REG330               ; 0                 ; 6       ;
 ;      - pipe:EX_MEM|Q[45]_NEW_REG332               ; 0                 ; 6       ;
 ;      - pipe:EX_MEM|Q[45]_NEW_REG334               ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[62]_NEW_REG336               ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q[62]_NEW_REG336               ; 1                 ; 6       ;
 ;      - pipe:EX_MEM|Q[62]_NEW_REG338               ; 0                 ; 6       ;
 ;      - pipe:EX_MEM|Q[62]_NEW_REG340               ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[43]_NEW_REG350               ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[43]_NEW_REG352               ; 0                 ; 6       ;
 ;      - pipe:EX_MEM|Q[43]_NEW_REG354               ; 0                 ; 6       ;
-;      - ForwardingUnit:FU|Equal0~0_NEW_REG380      ; 0                 ; 6       ;
-;      - ForwardingUnit:FU|ForwardA[1]~1_NEW_REG386 ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[81]_NEW388                   ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[4]_NEW393                    ; 1                 ; 6       ;
-;      - pipe:MEM_WB|Q[4]_NEW398                    ; 0                 ; 6       ;
-;      - pipe:MEM_WB|Q[3]_NEW401                    ; 0                 ; 6       ;
-;      - pipe:MEM_WB|Q[2]_NEW404                    ; 1                 ; 6       ;
-;      - pipe:EX_MEM|Q[0]_NEW415                    ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[1]_NEW418                    ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[3]_NEW429                    ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[2]_NEW432                    ; 0                 ; 6       ;
-;      - pipe:MEM_WB|Q[0]_NEW435                    ; 0                 ; 6       ;
-;      - pipe:MEM_WB|Q[1]_NEW438                    ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[66]_OTERM135_NEW_REG441      ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[66]_OTERM135_NEW_REG443      ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[65]_OTERM183_NEW_REG445      ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[65]_OTERM183_NEW_REG447      ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[65]_OTERM183_NEW_REG449      ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[60]_OTERM231_NEW_REG451      ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[60]_OTERM231_NEW_REG453      ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[60]_OTERM231_NEW_REG455      ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[37]_OTERM249_NEW_REG457      ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[37]_OTERM249_NEW_REG459      ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[37]_OTERM249_NEW_REG461      ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[49]_OTERM285_NEW_REG463      ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[49]_OTERM285_NEW_REG465      ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[44]_OTERM319_NEW_REG467      ; 0                 ; 6       ;
-;      - pipe:EX_MEM|Q[44]_OTERM319_NEW_REG469      ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q[43]_NEW_REG356               ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q[43]_NEW_REG358               ; 0                 ; 6       ;
+;      - ForwardingUnit:FU|Equal0~0_NEW_REG374      ; 0                 ; 6       ;
+;      - ForwardingUnit:FU|ForwardA[1]~1_NEW_REG378 ; 0                 ; 6       ;
+;      - pipe:MEM_WB|Q[4]_NEW396                    ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q[81]_NEW401                   ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q[4]_NEW404                    ; 0                 ; 6       ;
+;      - pipe:MEM_WB|Q[3]_NEW409                    ; 0                 ; 6       ;
+;      - pipe:MEM_WB|Q[2]_NEW412                    ; 1                 ; 6       ;
+;      - pipe:EX_MEM|Q[0]_NEW419                    ; 1                 ; 6       ;
+;      - pipe:EX_MEM|Q[1]_NEW422                    ; 1                 ; 6       ;
+;      - pipe:EX_MEM|Q[3]_NEW433                    ; 1                 ; 6       ;
+;      - pipe:EX_MEM|Q[2]_NEW436                    ; 0                 ; 6       ;
+;      - pipe:MEM_WB|Q[0]_NEW439                    ; 0                 ; 6       ;
+;      - pipe:MEM_WB|Q[1]_NEW442                    ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q[68]_OTERM149_NEW_REG445      ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q[68]_OTERM149_NEW_REG447      ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q[68]_OTERM149_NEW_REG449      ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q[68]_OTERM149_NEW_REG451      ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q[66]_OTERM135_NEW_REG453      ; 1                 ; 6       ;
+;      - pipe:EX_MEM|Q[66]_OTERM135_NEW_REG455      ; 1                 ; 6       ;
+;      - pipe:EX_MEM|Q[65]_OTERM183_NEW_REG457      ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q[65]_OTERM183_NEW_REG459      ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q[65]_OTERM183_NEW_REG461      ; 1                 ; 6       ;
+;      - pipe:EX_MEM|Q[60]_OTERM227_NEW_REG463      ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q[60]_OTERM227_NEW_REG465      ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q[60]_OTERM227_NEW_REG467      ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q[37]_OTERM249_NEW_REG469      ; 1                 ; 6       ;
+;      - pipe:EX_MEM|Q[37]_OTERM249_NEW_REG471      ; 1                 ; 6       ;
+;      - pipe:EX_MEM|Q[56]_OTERM269_NEW_REG473      ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q[56]_OTERM269_NEW_REG475      ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q[56]_OTERM269_NEW_REG477      ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q[49]_OTERM285_NEW_REG479      ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q[49]_OTERM285_NEW_REG481      ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q[44]_OTERM319_NEW_REG483      ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q[44]_OTERM319_NEW_REG485      ; 0                 ; 6       ;
 ; enable                                            ;                   ;         ;
-;      - pipe:ID_EX|Q[52]                           ; 0                 ; 6       ;
-;      - pipe:ID_EX|Q[53]                           ; 0                 ; 6       ;
-;      - pipe:ID_EX|Q[54]                           ; 0                 ; 6       ;
-;      - pipe:ID_EX|Q[55]                           ; 0                 ; 6       ;
-;      - pipe:ID_EX|Q[56]                           ; 0                 ; 6       ;
+;      - pipe:ID_EX|Q[52]                           ; 1                 ; 6       ;
+;      - pipe:ID_EX|Q[53]                           ; 1                 ; 6       ;
+;      - pipe:ID_EX|Q[54]                           ; 1                 ; 6       ;
+;      - pipe:ID_EX|Q[55]                           ; 1                 ; 6       ;
+;      - pipe:ID_EX|Q[56]                           ; 1                 ; 6       ;
 ;      - pipe:ID_EX|Q[57]                           ; 0                 ; 6       ;
 ;      - pipe:ID_EX|Q[58]                           ; 0                 ; 6       ;
 ;      - pipe:ID_EX|Q[59]                           ; 0                 ; 6       ;
-;      - pipe:ID_EX|Q[92]                           ; 0                 ; 6       ;
-;      - pipe:ID_EX|Q[60]                           ; 0                 ; 6       ;
-;      - pipe:ID_EX|Q[93]                           ; 0                 ; 6       ;
+;      - pipe:ID_EX|Q[92]                           ; 1                 ; 6       ;
+;      - pipe:ID_EX|Q[60]                           ; 1                 ; 6       ;
+;      - pipe:ID_EX|Q[93]                           ; 1                 ; 6       ;
 ;      - pipe:ID_EX|Q[61]                           ; 0                 ; 6       ;
-;      - pipe:ID_EX|Q[94]                           ; 0                 ; 6       ;
-;      - pipe:ID_EX|Q[62]                           ; 0                 ; 6       ;
+;      - pipe:ID_EX|Q[94]                           ; 1                 ; 6       ;
+;      - pipe:ID_EX|Q[62]                           ; 1                 ; 6       ;
 ;      - pipe:ID_EX|Q[95]                           ; 0                 ; 6       ;
 ;      - pipe:ID_EX|Q[63]                           ; 0                 ; 6       ;
-;      - pipe:ID_EX|Q[96]                           ; 0                 ; 6       ;
+;      - pipe:ID_EX|Q[96]                           ; 1                 ; 6       ;
 ;      - pipe:ID_EX|Q[64]                           ; 0                 ; 6       ;
-;      - pipe:ID_EX|Q[97]                           ; 0                 ; 6       ;
+;      - pipe:ID_EX|Q[97]                           ; 1                 ; 6       ;
 ;      - pipe:ID_EX|Q[65]                           ; 0                 ; 6       ;
 ;      - pipe:ID_EX|Q[98]                           ; 0                 ; 6       ;
 ;      - pipe:ID_EX|Q[66]                           ; 0                 ; 6       ;
 ;      - pipe:ID_EX|Q[99]                           ; 0                 ; 6       ;
 ;      - pipe:ID_EX|Q[67]                           ; 0                 ; 6       ;
-;      - pipe:ID_EX|Q[100]                          ; 0                 ; 6       ;
+;      - pipe:ID_EX|Q[100]                          ; 1                 ; 6       ;
 ;      - pipe:ID_EX|Q[68]                           ; 0                 ; 6       ;
-;      - pipe:ID_EX|Q[101]                          ; 0                 ; 6       ;
+;      - pipe:ID_EX|Q[101]                          ; 1                 ; 6       ;
 ;      - pipe:ID_EX|Q[69]                           ; 0                 ; 6       ;
 ;      - pipe:ID_EX|Q[102]                          ; 0                 ; 6       ;
 ;      - pipe:ID_EX|Q[70]                           ; 0                 ; 6       ;
@@ -1260,7 +1266,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - pipe:ID_EX|Q[78]                           ; 0                 ; 6       ;
 ;      - pipe:ID_EX|Q[111]                          ; 0                 ; 6       ;
 ;      - pipe:ID_EX|Q[79]                           ; 0                 ; 6       ;
-;      - pipe:ID_EX|Q[112]                          ; 0                 ; 6       ;
+;      - pipe:ID_EX|Q[112]                          ; 1                 ; 6       ;
 ;      - pipe:ID_EX|Q[80]                           ; 0                 ; 6       ;
 ;      - pipe:ID_EX|Q[113]                          ; 0                 ; 6       ;
 ;      - pipe:ID_EX|Q[81]                           ; 0                 ; 6       ;
@@ -1268,32 +1274,32 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - pipe:ID_EX|Q[82]                           ; 0                 ; 6       ;
 ;      - pipe:ID_EX|Q[115]                          ; 0                 ; 6       ;
 ;      - pipe:ID_EX|Q[83]                           ; 0                 ; 6       ;
-;      - ANDGate:holdGate|out                       ; 1                 ; 6       ;
+;      - ANDGate:holdGate|out                       ; 0                 ; 6       ;
 ;      - pipe:ID_EX|Q~56                            ; 1                 ; 6       ;
 ;      - pipe:ID_EX|Q~57                            ; 1                 ; 6       ;
-;      - pipe:ID_EX|Q[133]~58                       ; 1                 ; 6       ;
+;      - pipe:ID_EX|Q[133]~58                       ; 0                 ; 6       ;
 ;      - pipe:ID_EX|Q~59                            ; 1                 ; 6       ;
-;      - pipe:EX_MEM|Q~1                            ; 1                 ; 6       ;
-;      - pipe:EX_MEM|Q~2                            ; 1                 ; 6       ;
-;      - pipe:EX_MEM|Q~3                            ; 1                 ; 6       ;
-;      - pipe:EX_MEM|Q~5                            ; 1                 ; 6       ;
-;      - pipe:EX_MEM|Q~6                            ; 1                 ; 6       ;
+;      - pipe:EX_MEM|Q~1                            ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q~2                            ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q~3                            ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q~5                            ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q~6                            ; 0                 ; 6       ;
 ;      - pipe:MEM_WB|Q~0                            ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~1                            ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~2                            ; 1                 ; 6       ;
-;      - pipe:MEM_WB|Q~3                            ; 0                 ; 6       ;
+;      - pipe:MEM_WB|Q~3                            ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~4                            ; 1                 ; 6       ;
-;      - pipe:MEM_WB|Q~5                            ; 1                 ; 6       ;
-;      - pipe:MEM_WB|Q~6                            ; 1                 ; 6       ;
-;      - pipe:MEM_WB|Q~7                            ; 1                 ; 6       ;
-;      - pipe:MEM_WB|Q~8                            ; 1                 ; 6       ;
-;      - pipe:MEM_WB|Q~9                            ; 1                 ; 6       ;
-;      - pipe:MEM_WB|Q~10                           ; 1                 ; 6       ;
-;      - pipe:ID_EX|Q~65                            ; 0                 ; 6       ;
-;      - pipe:MEM_WB|Q~11                           ; 0                 ; 6       ;
+;      - pipe:MEM_WB|Q~5                            ; 0                 ; 6       ;
+;      - pipe:MEM_WB|Q~6                            ; 0                 ; 6       ;
+;      - pipe:MEM_WB|Q~7                            ; 0                 ; 6       ;
+;      - pipe:MEM_WB|Q~8                            ; 0                 ; 6       ;
+;      - pipe:MEM_WB|Q~9                            ; 0                 ; 6       ;
+;      - pipe:MEM_WB|Q~10                           ; 0                 ; 6       ;
+;      - pipe:ID_EX|Q~65                            ; 1                 ; 6       ;
+;      - pipe:MEM_WB|Q~11                           ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~12                           ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~13                           ; 1                 ; 6       ;
-;      - pipe:ID_EX|Q~71                            ; 0                 ; 6       ;
+;      - pipe:ID_EX|Q~71                            ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~14                           ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~15                           ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~16                           ; 1                 ; 6       ;
@@ -1304,10 +1310,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - pipe:ID_EX|Q~73                            ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~20                           ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~21                           ; 1                 ; 6       ;
-;      - pipe:MEM_WB|Q~22                           ; 0                 ; 6       ;
-;      - pipe:MEM_WB|Q~23                           ; 0                 ; 6       ;
+;      - pipe:MEM_WB|Q~22                           ; 1                 ; 6       ;
+;      - pipe:MEM_WB|Q~23                           ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~24                           ; 1                 ; 6       ;
-;      - pipe:MEM_WB|Q~25                           ; 0                 ; 6       ;
+;      - pipe:MEM_WB|Q~25                           ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~26                           ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~27                           ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~28                           ; 1                 ; 6       ;
@@ -1319,56 +1325,56 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - pipe:MEM_WB|Q~34                           ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~35                           ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~36                           ; 1                 ; 6       ;
-;      - pipe:MEM_WB|Q~37                           ; 0                 ; 6       ;
+;      - pipe:MEM_WB|Q~37                           ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~38                           ; 1                 ; 6       ;
 ;      - pipe:ID_EX|Q~74                            ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~39                           ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~40                           ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~41                           ; 1                 ; 6       ;
-;      - pipe:ID_EX|Q~75                            ; 0                 ; 6       ;
-;      - pipe:MEM_WB|Q~42                           ; 0                 ; 6       ;
-;      - pipe:MEM_WB|Q~43                           ; 0                 ; 6       ;
+;      - pipe:ID_EX|Q~75                            ; 1                 ; 6       ;
+;      - pipe:MEM_WB|Q~42                           ; 1                 ; 6       ;
+;      - pipe:MEM_WB|Q~43                           ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~44                           ; 1                 ; 6       ;
-;      - pipe:ID_EX|Q~76                            ; 0                 ; 6       ;
+;      - pipe:ID_EX|Q~76                            ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~45                           ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~46                           ; 1                 ; 6       ;
-;      - pipe:MEM_WB|Q~47                           ; 0                 ; 6       ;
-;      - pipe:ID_EX|Q~77                            ; 0                 ; 6       ;
-;      - pipe:MEM_WB|Q~48                           ; 0                 ; 6       ;
-;      - pipe:MEM_WB|Q~49                           ; 0                 ; 6       ;
+;      - pipe:MEM_WB|Q~47                           ; 1                 ; 6       ;
+;      - pipe:ID_EX|Q~77                            ; 1                 ; 6       ;
+;      - pipe:MEM_WB|Q~48                           ; 1                 ; 6       ;
+;      - pipe:MEM_WB|Q~49                           ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~50                           ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~51                           ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~52                           ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~53                           ; 1                 ; 6       ;
-;      - pipe:MEM_WB|Q~54                           ; 0                 ; 6       ;
-;      - pipe:MEM_WB|Q~55                           ; 0                 ; 6       ;
-;      - pipe:MEM_WB|Q~56                           ; 0                 ; 6       ;
-;      - pipe:MEM_WB|Q~57                           ; 0                 ; 6       ;
+;      - pipe:MEM_WB|Q~54                           ; 1                 ; 6       ;
+;      - pipe:MEM_WB|Q~55                           ; 1                 ; 6       ;
+;      - pipe:MEM_WB|Q~56                           ; 1                 ; 6       ;
+;      - pipe:MEM_WB|Q~57                           ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~58                           ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~59                           ; 1                 ; 6       ;
-;      - pipe:MEM_WB|Q~60                           ; 0                 ; 6       ;
+;      - pipe:MEM_WB|Q~60                           ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~61                           ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~62                           ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~63                           ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~64                           ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~65                           ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~66                           ; 1                 ; 6       ;
-;      - pipe:MEM_WB|Q~67                           ; 0                 ; 6       ;
-;      - pipe:MEM_WB|Q~68                           ; 0                 ; 6       ;
-;      - pipe:MEM_WB|Q~69                           ; 0                 ; 6       ;
-;      - pipe:MEM_WB|Q~70                           ; 0                 ; 6       ;
-;      - pipe:MEM_WB|Q~71                           ; 0                 ; 6       ;
+;      - pipe:MEM_WB|Q~67                           ; 1                 ; 6       ;
+;      - pipe:MEM_WB|Q~68                           ; 1                 ; 6       ;
+;      - pipe:MEM_WB|Q~69                           ; 1                 ; 6       ;
+;      - pipe:MEM_WB|Q~70                           ; 1                 ; 6       ;
+;      - pipe:MEM_WB|Q~71                           ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~72                           ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~73                           ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~74                           ; 1                 ; 6       ;
-;      - pipe:MEM_WB|Q~75                           ; 0                 ; 6       ;
+;      - pipe:MEM_WB|Q~75                           ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~76                           ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~77                           ; 1                 ; 6       ;
 ;      - pipe:MEM_WB|Q~78                           ; 1                 ; 6       ;
-;      - pipe:MEM_WB|Q~79                           ; 0                 ; 6       ;
+;      - pipe:MEM_WB|Q~79                           ; 1                 ; 6       ;
 ;      - pipe:ID_EX|Q~78                            ; 1                 ; 6       ;
 ;      - pipe:ID_EX|Q~79                            ; 1                 ; 6       ;
-;      - pipe:ID_EX|Q~80                            ; 0                 ; 6       ;
+;      - pipe:ID_EX|Q~80                            ; 1                 ; 6       ;
 ;      - pipe:ID_EX|Q~81                            ; 1                 ; 6       ;
 ;      - pipe:ID_EX|Q~82                            ; 1                 ; 6       ;
 ;      - pipe:ID_EX|Q~83                            ; 1                 ; 6       ;
@@ -1398,7 +1404,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - pipe:ID_EX|Q~107                           ; 1                 ; 6       ;
 ;      - pipe:ID_EX|Q~108                           ; 1                 ; 6       ;
 ;      - pipe:EX_MEM|Q~7                            ; 1                 ; 6       ;
-;      - pipe:EX_MEM|Q~8                            ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q~8                            ; 1                 ; 6       ;
 ;      - pipe:EX_MEM|Q~9                            ; 1                 ; 6       ;
 ;      - pipe:EX_MEM|Q~10                           ; 1                 ; 6       ;
 ;      - pipe:EX_MEM|Q~11                           ; 1                 ; 6       ;
@@ -1406,12 +1412,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - pipe:EX_MEM|Q~13                           ; 1                 ; 6       ;
 ;      - pipe:EX_MEM|Q~14                           ; 1                 ; 6       ;
 ;      - pipe:EX_MEM|Q~15                           ; 1                 ; 6       ;
-;      - pipe:EX_MEM|Q~16                           ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q~16                           ; 1                 ; 6       ;
 ;      - pipe:ID_EX|Q~109                           ; 1                 ; 6       ;
 ;      - pipe:ID_EX|Q~110                           ; 1                 ; 6       ;
 ;      - pipe:ID_EX|Q~111                           ; 1                 ; 6       ;
 ;      - pipe:ID_EX|Q~112                           ; 1                 ; 6       ;
-;      - pipe:ID_EX|Q~113                           ; 0                 ; 6       ;
+;      - pipe:ID_EX|Q~113                           ; 1                 ; 6       ;
 ;      - pipe:ID_EX|Q~114                           ; 1                 ; 6       ;
 ;      - pipe:EX_MEM|Q~17                           ; 1                 ; 6       ;
 ;      - pipe:EX_MEM|Q~18                           ; 1                 ; 6       ;
@@ -1439,78 +1445,77 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - pipe:EX_MEM|Q~40                           ; 1                 ; 6       ;
 ;      - pipe:EX_MEM|Q~41                           ; 1                 ; 6       ;
 ;      - pipe:EX_MEM|Q~42                           ; 1                 ; 6       ;
-;      - pipe:EX_MEM|Q~43                           ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q~43                           ; 1                 ; 6       ;
 ;      - pipe:EX_MEM|Q~44                           ; 1                 ; 6       ;
 ;      - pipe:EX_MEM|Q~45                           ; 1                 ; 6       ;
 ;      - pipe:EX_MEM|Q~46                           ; 1                 ; 6       ;
-;      - pipe:EX_MEM|Q~47                           ; 0                 ; 6       ;
+;      - pipe:EX_MEM|Q~47                           ; 1                 ; 6       ;
 ;      - pipe:EX_MEM|Q~48                           ; 1                 ; 6       ;
-;      - pipe:EX_MEM|Q~49                           ; 0                 ; 6       ;
-;      - pipe:ID_EX|Q[11]_NEW421                    ; 1                 ; 6       ;
-;      - pipe:ID_EX|Q[10]_NEW423                    ; 1                 ; 6       ;
-;      - pipe:ID_EX|Q[12]_NEW407                    ; 1                 ; 6       ;
-;      - pipe:ID_EX|Q[13]_NEW409                    ; 1                 ; 6       ;
-;      - pipe:ID_EX|Q[14]_NEW391                    ; 1                 ; 6       ;
-;      - pipe:ID_EX|Q[15]_NEW427                    ; 0                 ; 6       ;
-;      - pipe:ID_EX|Q[16]_NEW425                    ; 1                 ; 6       ;
-;      - pipe:ID_EX|Q[17]_NEW411                    ; 1                 ; 6       ;
-;      - pipe:ID_EX|Q[18]_NEW413                    ; 0                 ; 6       ;
-;      - pipe:ID_EX|Q[19]_NEW396                    ; 1                 ; 6       ;
-;      - pipe:EX_MEM|Q[81]_NEW388                   ; 1                 ; 6       ;
-;      - pipe:EX_MEM|Q[0]_NEW415                    ; 1                 ; 6       ;
+;      - pipe:EX_MEM|Q~49                           ; 1                 ; 6       ;
+;      - pipe:ID_EX|Q[11]_NEW425                    ; 1                 ; 6       ;
+;      - pipe:ID_EX|Q[10]_NEW427                    ; 1                 ; 6       ;
+;      - pipe:ID_EX|Q[12]_NEW394                    ; 1                 ; 6       ;
+;      - pipe:ID_EX|Q[13]_NEW392                    ; 1                 ; 6       ;
+;      - pipe:ID_EX|Q[14]_NEW399                    ; 1                 ; 6       ;
+;      - pipe:ID_EX|Q[15]_NEW431                    ; 1                 ; 6       ;
+;      - pipe:ID_EX|Q[16]_NEW429                    ; 1                 ; 6       ;
+;      - pipe:ID_EX|Q[17]_NEW415                    ; 1                 ; 6       ;
+;      - pipe:ID_EX|Q[18]_NEW417                    ; 1                 ; 6       ;
+;      - pipe:ID_EX|Q[19]_NEW407                    ; 1                 ; 6       ;
+;      - pipe:EX_MEM|Q[81]_NEW401                   ; 1                 ; 6       ;
+;      - pipe:EX_MEM|Q[0]_NEW419                    ; 0                 ; 6       ;
 +---------------------------------------------------+-------------------+---------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Control Signals                                                                                                                                                     ;
-+----------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
-; Name                                   ; Location           ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+----------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
-; ANDGate:holdGate|out                   ; LCCOMB_X9_Y10_N6   ; 10      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; BranchPredictionUnit:BPU|BHT[63][1]~65 ; LCCOMB_X7_Y7_N4    ; 2       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; BranchPredictionUnit:BPU|Mux4~0        ; LCCOMB_X7_Y8_N16   ; 65      ; Sync. load   ; no     ; --                   ; --               ; --                        ;
-; clk                                    ; PIN_M8             ; 1593    ; Clock        ; yes    ; Global Clock         ; GCLK3            ; --                        ;
-; comb~2                                 ; LCCOMB_X9_Y12_N0   ; 125     ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
-; enable                                 ; PIN_R7             ; 246     ; Sync. load   ; no     ; --                   ; --               ; --                        ;
-; pipe:EX_MEM|Q[77]                      ; FF_X3_Y12_N3       ; 4       ; Read enable  ; no     ; --                   ; --               ; --                        ;
-; pipe:EX_MEM|Q[78]                      ; FF_X4_Y12_N7       ; 3       ; Write enable ; no     ; --                   ; --               ; --                        ;
-; pipe:EX_MEM|Q~6                        ; LCCOMB_X12_Y11_N24 ; 94      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; pipe:ID_EX|Q[133]~58                   ; LCCOMB_X9_Y10_N2   ; 11      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; pipe:ID_EX|Q[137]                      ; FF_X9_Y10_N19      ; 129     ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~11            ; LCCOMB_X12_Y17_N12 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~12            ; LCCOMB_X12_Y17_N2  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~13            ; LCCOMB_X12_Y17_N8  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~15            ; LCCOMB_X10_Y16_N6  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~17            ; LCCOMB_X10_Y16_N4  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~18            ; LCCOMB_X10_Y16_N8  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~19            ; LCCOMB_X10_Y16_N22 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~20            ; LCCOMB_X12_Y17_N28 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~21            ; LCCOMB_X12_Y17_N24 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~22            ; LCCOMB_X12_Y17_N16 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~23            ; LCCOMB_X12_Y17_N22 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~24            ; LCCOMB_X10_Y16_N26 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~25            ; LCCOMB_X10_Y16_N12 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~26            ; LCCOMB_X10_Y16_N24 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~27            ; LCCOMB_X10_Y16_N16 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~30            ; LCCOMB_X19_Y14_N16 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~31            ; LCCOMB_X12_Y16_N26 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~33            ; LCCOMB_X10_Y16_N2  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~34            ; LCCOMB_X12_Y16_N8  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~35            ; LCCOMB_X12_Y16_N24 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~36            ; LCCOMB_X10_Y16_N20 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~37            ; LCCOMB_X14_Y16_N30 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~38            ; LCCOMB_X12_Y16_N20 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~39            ; LCCOMB_X10_Y16_N0  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~40            ; LCCOMB_X14_Y15_N2  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~41            ; LCCOMB_X13_Y16_N18 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~42            ; LCCOMB_X13_Y16_N14 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~43            ; LCCOMB_X19_Y14_N28 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~44            ; LCCOMB_X12_Y16_N4  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~45            ; LCCOMB_X14_Y15_N0  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; registerFile:RF|Decoder0~9             ; LCCOMB_X12_Y17_N0  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; rst                                    ; PIN_M9             ; 231     ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
-; rst                                    ; PIN_M9             ; 1127    ; Async. clear ; yes    ; Global Clock         ; GCLK4            ; --                        ;
-+----------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                                                              ;
++---------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
+; Name                            ; Location           ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++---------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
+; ANDGate:holdGate|out            ; LCCOMB_X29_Y30_N24 ; 10      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; BranchPredictionUnit:BPU|Mux4~0 ; LCCOMB_X30_Y35_N12 ; 65      ; Sync. load   ; no     ; --                   ; --               ; --                        ;
+; clk                             ; PIN_M8             ; 1597    ; Clock        ; yes    ; Global Clock         ; GCLK3            ; --                        ;
+; comb~2                          ; LCCOMB_X31_Y30_N26 ; 125     ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
+; enable                          ; PIN_B2             ; 246     ; Sync. load   ; no     ; --                   ; --               ; --                        ;
+; pipe:EX_MEM|Q[77]               ; FF_X30_Y24_N19     ; 4       ; Read enable  ; no     ; --                   ; --               ; --                        ;
+; pipe:EX_MEM|Q[78]               ; FF_X31_Y22_N5      ; 3       ; Write enable ; no     ; --                   ; --               ; --                        ;
+; pipe:EX_MEM|Q~6                 ; LCCOMB_X27_Y24_N4  ; 98      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; pipe:ID_EX|Q[133]~58            ; LCCOMB_X27_Y30_N30 ; 11      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; pipe:ID_EX|Q[137]               ; FF_X27_Y30_N17     ; 129     ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~11     ; LCCOMB_X39_Y26_N0  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~12     ; LCCOMB_X39_Y26_N24 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~13     ; LCCOMB_X39_Y26_N20 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~15     ; LCCOMB_X40_Y26_N10 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~17     ; LCCOMB_X40_Y26_N30 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~18     ; LCCOMB_X40_Y26_N2  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~19     ; LCCOMB_X40_Y26_N20 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~20     ; LCCOMB_X39_Y26_N2  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~21     ; LCCOMB_X39_Y26_N4  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~22     ; LCCOMB_X39_Y26_N30 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~23     ; LCCOMB_X39_Y26_N26 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~24     ; LCCOMB_X37_Y27_N0  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~25     ; LCCOMB_X40_Y26_N18 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~26     ; LCCOMB_X40_Y26_N6  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~27     ; LCCOMB_X37_Y27_N30 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~30     ; LCCOMB_X34_Y23_N0  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~31     ; LCCOMB_X36_Y26_N30 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~33     ; LCCOMB_X36_Y27_N12 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~34     ; LCCOMB_X39_Y26_N14 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~35     ; LCCOMB_X39_Y26_N28 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~36     ; LCCOMB_X36_Y27_N0  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~37     ; LCCOMB_X37_Y27_N24 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~38     ; LCCOMB_X37_Y26_N2  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~39     ; LCCOMB_X36_Y27_N24 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~40     ; LCCOMB_X34_Y23_N28 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~41     ; LCCOMB_X36_Y26_N12 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~42     ; LCCOMB_X36_Y26_N8  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~43     ; LCCOMB_X34_Y22_N4  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~44     ; LCCOMB_X36_Y26_N2  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~45     ; LCCOMB_X34_Y22_N2  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; registerFile:RF|Decoder0~9      ; LCCOMB_X39_Y26_N8  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; rst                             ; PIN_M9             ; 235     ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
+; rst                             ; PIN_M9             ; 1127    ; Async. clear ; yes    ; Global Clock         ; GCLK4            ; --                        ;
++---------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------+
@@ -1518,19 +1523,19 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------+----------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 ; Name ; Location ; Fan-Out ; Fan-Out Using Intentional Clock Skew ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +------+----------+---------+--------------------------------------+----------------------+------------------+---------------------------+
-; clk  ; PIN_M8   ; 1593    ; 28                                   ; Global Clock         ; GCLK3            ; --                        ;
+; clk  ; PIN_M8   ; 1597    ; 104                                  ; Global Clock         ; GCLK3            ; --                        ;
 ; rst  ; PIN_M9   ; 1127    ; 0                                    ; Global Clock         ; GCLK4            ; --                        ;
 +------+----------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Fitter RAM Summary                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ;
-+------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+------+-----------------------------------------+---------------+----------------------+------------------------+------------------------+----------+------------------------+---------------+
-; Name                                                                                           ; Type ; Mode        ; Clock Mode   ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Port A Input Registers ; Port A Output Registers ; Port B Input Registers ; Port B Output Registers ; Size ; Implementation Port A Depth ; Implementation Port A Width ; Implementation Port B Depth ; Implementation Port B Width ; Implementation Bits ; M9Ks ; MIF                                     ; Location      ; Mixed Width RDW Mode ; Port A RDW Mode        ; Port B RDW Mode        ; ECC Mode ; ECC Pipeline Registers ; Fits in MLABs ;
-+------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+------+-----------------------------------------+---------------+----------------------+------------------------+------------------------+----------+------------------------+---------------+
-; dataMemory:DM|altsyncram:altsyncram_component|altsyncram_8km1:auto_generated|ALTSYNCRAM        ; M9K  ; Single Port ; Single Clock ; 256          ; 32           ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 8192 ; 256                         ; 32                          ; --                          ; --                          ; 8192                ; 1    ; dataMemoryInitializationFile.mif        ; M9K_X5_Y12_N0 ; Don't care           ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
-; instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_n9e1:auto_generated|ALTSYNCRAM ; M9K  ; ROM         ; Single Clock ; 256          ; 32           ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 8192 ; 256                         ; 32                          ; --                          ; --                          ; 8192                ; 1    ; instructionMemoryInitializationFile.mif ; M9K_X5_Y14_N0 ; Don't care           ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
-+------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+------+-----------------------------------------+---------------+----------------------+------------------------+------------------------+----------+------------------------+---------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fitter RAM Summary                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ;
++------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+------+-----------------------------------------+----------------+----------------------+------------------------+------------------------+----------+------------------------+---------------+
+; Name                                                                                           ; Type ; Mode        ; Clock Mode   ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Port A Input Registers ; Port A Output Registers ; Port B Input Registers ; Port B Output Registers ; Size ; Implementation Port A Depth ; Implementation Port A Width ; Implementation Port B Depth ; Implementation Port B Width ; Implementation Bits ; M9Ks ; MIF                                     ; Location       ; Mixed Width RDW Mode ; Port A RDW Mode        ; Port B RDW Mode        ; ECC Mode ; ECC Pipeline Registers ; Fits in MLABs ;
++------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+------+-----------------------------------------+----------------+----------------------+------------------------+------------------------+----------+------------------------+---------------+
+; dataMemory:DM|altsyncram:altsyncram_component|altsyncram_8km1:auto_generated|ALTSYNCRAM        ; M9K  ; Single Port ; Single Clock ; 256          ; 32           ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 8192 ; 256                         ; 32                          ; --                          ; --                          ; 8192                ; 1    ; dataMemoryInitializationFile.mif        ; M9K_X33_Y24_N0 ; Don't care           ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
+; instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_n9e1:auto_generated|ALTSYNCRAM ; M9K  ; ROM         ; Single Clock ; 256          ; 32           ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 8192 ; 256                         ; 32                          ; --                          ; --                          ; 8192                ; 1    ; instructionMemoryInitializationFile.mif ; M9K_X33_Y30_N0 ; Don't care           ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
++------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+------+-----------------------------------------+----------------+----------------------+------------------------+------------------------+----------+------------------------+---------------+
 Note: Fitter may spread logical memories into multiple blocks to improve timing. The actual required RAM blocks can be found in the Fitter Resource Usage section.
 
 
@@ -1619,180 +1624,179 @@ RAM content values are presented in the following format: (Binary) (Octal) (Deci
 +-----------------------+-------------------------+
 ; Routing Resource Type ; Usage                   ;
 +-----------------------+-------------------------+
-; Block interconnects   ; 5,477 / 148,641 ( 4 % ) ;
-; C16 interconnects     ; 19 / 5,382 ( < 1 % )    ;
-; C4 interconnects      ; 2,472 / 106,704 ( 2 % ) ;
-; Direct links          ; 755 / 148,641 ( < 1 % ) ;
+; Block interconnects   ; 5,549 / 148,641 ( 4 % ) ;
+; C16 interconnects     ; 16 / 5,382 ( < 1 % )    ;
+; C4 interconnects      ; 2,627 / 106,704 ( 2 % ) ;
+; Direct links          ; 850 / 148,641 ( < 1 % ) ;
 ; Global clocks         ; 2 / 20 ( 10 % )         ;
-; Local interconnects   ; 1,898 / 49,760 ( 4 % )  ;
+; Local interconnects   ; 1,818 / 49,760 ( 4 % )  ;
 ; NSLEEPs               ; 0 / 500 ( 0 % )         ;
-; R24 interconnects     ; 38 / 5,406 ( < 1 % )    ;
-; R4 interconnects      ; 3,192 / 147,764 ( 2 % ) ;
+; R24 interconnects     ; 31 / 5,406 ( < 1 % )    ;
+; R4 interconnects      ; 3,259 / 147,764 ( 2 % ) ;
 +-----------------------+-------------------------+
 
 
 +-----------------------------------------------------------------------------+
 ; LAB Logic Elements                                                          ;
 +---------------------------------------------+-------------------------------+
-; Number of Logic Elements  (Average = 13.52) ; Number of LABs  (Total = 243) ;
+; Number of Logic Elements  (Average = 14.68) ; Number of LABs  (Total = 224) ;
 +---------------------------------------------+-------------------------------+
-; 1                                           ; 9                             ;
-; 2                                           ; 10                            ;
-; 3                                           ; 1                             ;
-; 4                                           ; 4                             ;
-; 5                                           ; 5                             ;
-; 6                                           ; 4                             ;
-; 7                                           ; 0                             ;
+; 1                                           ; 2                             ;
+; 2                                           ; 1                             ;
+; 3                                           ; 3                             ;
+; 4                                           ; 1                             ;
+; 5                                           ; 1                             ;
+; 6                                           ; 1                             ;
+; 7                                           ; 3                             ;
 ; 8                                           ; 3                             ;
-; 9                                           ; 3                             ;
+; 9                                           ; 2                             ;
 ; 10                                          ; 3                             ;
-; 11                                          ; 7                             ;
-; 12                                          ; 3                             ;
-; 13                                          ; 5                             ;
-; 14                                          ; 15                            ;
-; 15                                          ; 17                            ;
-; 16                                          ; 154                           ;
+; 11                                          ; 1                             ;
+; 12                                          ; 6                             ;
+; 13                                          ; 10                            ;
+; 14                                          ; 7                             ;
+; 15                                          ; 23                            ;
+; 16                                          ; 157                           ;
 +---------------------------------------------+-------------------------------+
 
 
 +--------------------------------------------------------------------+
 ; LAB-wide Signals                                                   ;
 +------------------------------------+-------------------------------+
-; LAB-wide Signals  (Average = 2.56) ; Number of LABs  (Total = 243) ;
+; LAB-wide Signals  (Average = 2.55) ; Number of LABs  (Total = 224) ;
 +------------------------------------+-------------------------------+
-; 1 Async. clear                     ; 139                           ;
-; 1 Clock                            ; 211                           ;
-; 1 Clock enable                     ; 65                            ;
-; 1 Sync. clear                      ; 74                            ;
-; 1 Sync. load                       ; 37                            ;
-; 2 Clock enables                    ; 95                            ;
+; 1 Async. clear                     ; 127                           ;
+; 1 Clock                            ; 196                           ;
+; 1 Clock enable                     ; 58                            ;
+; 1 Sync. clear                      ; 68                            ;
+; 1 Sync. load                       ; 31                            ;
+; 2 Clock enables                    ; 91                            ;
 +------------------------------------+-------------------------------+
 
 
 +------------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                          ;
 +----------------------------------------------+-------------------------------+
-; Number of Signals Sourced  (Average = 19.80) ; Number of LABs  (Total = 243) ;
+; Number of Signals Sourced  (Average = 21.51) ; Number of LABs  (Total = 224) ;
 +----------------------------------------------+-------------------------------+
 ; 0                                            ; 2                             ;
-; 1                                            ; 7                             ;
-; 2                                            ; 5                             ;
-; 3                                            ; 7                             ;
-; 4                                            ; 4                             ;
+; 1                                            ; 4                             ;
+; 2                                            ; 1                             ;
+; 3                                            ; 0                             ;
+; 4                                            ; 2                             ;
 ; 5                                            ; 0                             ;
-; 6                                            ; 2                             ;
-; 7                                            ; 4                             ;
-; 8                                            ; 0                             ;
-; 9                                            ; 2                             ;
-; 10                                           ; 4                             ;
-; 11                                           ; 3                             ;
+; 6                                            ; 3                             ;
+; 7                                            ; 0                             ;
+; 8                                            ; 1                             ;
+; 9                                            ; 1                             ;
+; 10                                           ; 5                             ;
+; 11                                           ; 0                             ;
 ; 12                                           ; 2                             ;
-; 13                                           ; 4                             ;
-; 14                                           ; 6                             ;
-; 15                                           ; 3                             ;
-; 16                                           ; 21                            ;
-; 17                                           ; 10                            ;
-; 18                                           ; 13                            ;
-; 19                                           ; 8                             ;
-; 20                                           ; 13                            ;
-; 21                                           ; 15                            ;
-; 22                                           ; 9                             ;
-; 23                                           ; 13                            ;
-; 24                                           ; 11                            ;
-; 25                                           ; 7                             ;
-; 26                                           ; 7                             ;
-; 27                                           ; 6                             ;
-; 28                                           ; 9                             ;
+; 13                                           ; 1                             ;
+; 14                                           ; 4                             ;
+; 15                                           ; 7                             ;
+; 16                                           ; 19                            ;
+; 17                                           ; 12                            ;
+; 18                                           ; 18                            ;
+; 19                                           ; 6                             ;
+; 20                                           ; 10                            ;
+; 21                                           ; 10                            ;
+; 22                                           ; 13                            ;
+; 23                                           ; 15                            ;
+; 24                                           ; 9                             ;
+; 25                                           ; 10                            ;
+; 26                                           ; 8                             ;
+; 27                                           ; 4                             ;
+; 28                                           ; 6                             ;
 ; 29                                           ; 4                             ;
-; 30                                           ; 14                            ;
-; 31                                           ; 10                            ;
-; 32                                           ; 18                            ;
+; 30                                           ; 15                            ;
+; 31                                           ; 5                             ;
+; 32                                           ; 27                            ;
 +----------------------------------------------+-------------------------------+
 
 
 +----------------------------------------------------------------------------------+
 ; LAB Signals Sourced Out                                                          ;
 +--------------------------------------------------+-------------------------------+
-; Number of Signals Sourced Out  (Average = 10.01) ; Number of LABs  (Total = 243) ;
+; Number of Signals Sourced Out  (Average = 11.26) ; Number of LABs  (Total = 224) ;
 +--------------------------------------------------+-------------------------------+
 ; 0                                                ; 2                             ;
-; 1                                                ; 15                            ;
-; 2                                                ; 10                            ;
+; 1                                                ; 7                             ;
+; 2                                                ; 3                             ;
 ; 3                                                ; 10                            ;
-; 4                                                ; 11                            ;
-; 5                                                ; 12                            ;
-; 6                                                ; 23                            ;
-; 7                                                ; 13                            ;
-; 8                                                ; 16                            ;
-; 9                                                ; 14                            ;
-; 10                                               ; 16                            ;
-; 11                                               ; 10                            ;
-; 12                                               ; 11                            ;
-; 13                                               ; 4                             ;
-; 14                                               ; 10                            ;
-; 15                                               ; 12                            ;
+; 4                                                ; 7                             ;
+; 5                                                ; 3                             ;
+; 6                                                ; 16                            ;
+; 7                                                ; 16                            ;
+; 8                                                ; 22                            ;
+; 9                                                ; 12                            ;
+; 10                                               ; 13                            ;
+; 11                                               ; 16                            ;
+; 12                                               ; 10                            ;
+; 13                                               ; 7                             ;
+; 14                                               ; 8                             ;
+; 15                                               ; 16                            ;
 ; 16                                               ; 21                            ;
 ; 17                                               ; 4                             ;
 ; 18                                               ; 6                             ;
-; 19                                               ; 7                             ;
-; 20                                               ; 3                             ;
-; 21                                               ; 1                             ;
-; 22                                               ; 8                             ;
-; 23                                               ; 1                             ;
-; 24                                               ; 1                             ;
-; 25                                               ; 0                             ;
-; 26                                               ; 0                             ;
+; 19                                               ; 4                             ;
+; 20                                               ; 6                             ;
+; 21                                               ; 2                             ;
+; 22                                               ; 2                             ;
+; 23                                               ; 0                             ;
+; 24                                               ; 5                             ;
+; 25                                               ; 1                             ;
+; 26                                               ; 2                             ;
 ; 27                                               ; 1                             ;
-; 28                                               ; 0                             ;
-; 29                                               ; 0                             ;
-; 30                                               ; 1                             ;
+; 28                                               ; 1                             ;
+; 29                                               ; 1                             ;
 +--------------------------------------------------+-------------------------------+
 
 
 +------------------------------------------------------------------------------+
 ; LAB Distinct Inputs                                                          ;
 +----------------------------------------------+-------------------------------+
-; Number of Distinct Inputs  (Average = 22.28) ; Number of LABs  (Total = 243) ;
+; Number of Distinct Inputs  (Average = 24.13) ; Number of LABs  (Total = 224) ;
 +----------------------------------------------+-------------------------------+
 ; 0                                            ; 0                             ;
 ; 1                                            ; 0                             ;
-; 2                                            ; 2                             ;
+; 2                                            ; 0                             ;
 ; 3                                            ; 2                             ;
-; 4                                            ; 6                             ;
-; 5                                            ; 2                             ;
-; 6                                            ; 0                             ;
-; 7                                            ; 6                             ;
-; 8                                            ; 2                             ;
+; 4                                            ; 0                             ;
+; 5                                            ; 0                             ;
+; 6                                            ; 2                             ;
+; 7                                            ; 0                             ;
+; 8                                            ; 0                             ;
 ; 9                                            ; 3                             ;
-; 10                                           ; 4                             ;
-; 11                                           ; 6                             ;
-; 12                                           ; 10                            ;
-; 13                                           ; 4                             ;
-; 14                                           ; 3                             ;
-; 15                                           ; 8                             ;
-; 16                                           ; 18                            ;
-; 17                                           ; 7                             ;
-; 18                                           ; 9                             ;
-; 19                                           ; 8                             ;
-; 20                                           ; 6                             ;
-; 21                                           ; 6                             ;
-; 22                                           ; 5                             ;
-; 23                                           ; 9                             ;
-; 24                                           ; 7                             ;
-; 25                                           ; 7                             ;
-; 26                                           ; 10                            ;
-; 27                                           ; 8                             ;
-; 28                                           ; 9                             ;
-; 29                                           ; 7                             ;
-; 30                                           ; 12                            ;
-; 31                                           ; 4                             ;
-; 32                                           ; 10                            ;
-; 33                                           ; 5                             ;
-; 34                                           ; 11                            ;
-; 35                                           ; 6                             ;
-; 36                                           ; 8                             ;
-; 37                                           ; 10                            ;
-; 38                                           ; 2                             ;
+; 10                                           ; 5                             ;
+; 11                                           ; 5                             ;
+; 12                                           ; 4                             ;
+; 13                                           ; 3                             ;
+; 14                                           ; 6                             ;
+; 15                                           ; 7                             ;
+; 16                                           ; 17                            ;
+; 17                                           ; 12                            ;
+; 18                                           ; 5                             ;
+; 19                                           ; 6                             ;
+; 20                                           ; 10                            ;
+; 21                                           ; 3                             ;
+; 22                                           ; 4                             ;
+; 23                                           ; 10                            ;
+; 24                                           ; 3                             ;
+; 25                                           ; 3                             ;
+; 26                                           ; 7                             ;
+; 27                                           ; 7                             ;
+; 28                                           ; 16                            ;
+; 29                                           ; 6                             ;
+; 30                                           ; 13                            ;
+; 31                                           ; 7                             ;
+; 32                                           ; 11                            ;
+; 33                                           ; 10                            ;
+; 34                                           ; 9                             ;
+; 35                                           ; 5                             ;
+; 36                                           ; 12                            ;
+; 37                                           ; 3                             ;
+; 38                                           ; 7                             ;
 +----------------------------------------------+-------------------------------+
 
 
@@ -1913,28 +1917,25 @@ RAM content values are presented in the following format: (Binary) (Octal) (Deci
 +-----------------+----------------------+-------------------+
 ; Source Clock(s) ; Destination Clock(s) ; Delay Added in ns ;
 +-----------------+----------------------+-------------------+
-; I/O             ; clk                  ; 5.0               ;
-+-----------------+----------------------+-------------------+
 Note: For more information on problematic transfers, consider running the Fitter again with the Optimize hold timing option (Settings Menu) turned off.
 This will disable optimization of problematic paths and expose them for further analysis using the Timing Analyzer.
 
 
-+------------------------------------------------------------+
-; Estimated Delay Added for Hold Timing Details              ;
-+-----------------+----------------------+-------------------+
-; Source Register ; Destination Register ; Delay Added in ns ;
-+-----------------+----------------------+-------------------+
-; enable          ; pipe:MEM_WB|Q[13]    ; 0.136             ;
-; rst             ; pipe:MEM_WB|Q[35]    ; 0.115             ;
-+-----------------+----------------------+-------------------+
-Note: This table only shows the top 2 path(s) that have the largest delay added for hold.
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Estimated Delay Added for Hold Timing Details                                                                                                                         ;
++----------------------------+----------------------------------------------------------------------------------------------------------------------+-------------------+
+; Source Register            ; Destination Register                                                                                                 ; Delay Added in ns ;
++----------------------------+----------------------------------------------------------------------------------------------------------------------+-------------------+
+; programCounter:pc|PCout[7] ; instructionMemory:IM|altsyncram:altsyncram_component|altsyncram_n9e1:auto_generated|ram_block1a26~porta_address_reg0 ; 0.083             ;
++----------------------------+----------------------------------------------------------------------------------------------------------------------+-------------------+
+Note: This table only shows the top 1 path(s) that have the largest delay added for hold.
 
 
 +-----------------+
 ; Fitter Messages ;
 +-----------------+
 Info (16303): Aggressive Performance optimization mode selected -- timing performance will be prioritized at the potential cost of increased logic area and compilation time
-Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
 Info (119006): Selected device 10M50DAF484C7G for design "Pipelined"
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
@@ -1975,22 +1976,22 @@ Info (332129): Detected timing requirements -- optimizing circuit to achieve onl
 Info (332111): Found 1 clocks
     Info (332111):   Period   Clock Name
     Info (332111): ======== ============
-    Info (332111):   11.700          clk
-Info (176353): Automatically promoted node clk~input (placed in PIN M8 (CLK1n, DIFFIO_RX_L36n, DIFFOUT_L36n, High_Speed)) File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 4
+    Info (332111):   11.500          clk
+Info (176353): Automatically promoted node clk~input (placed in PIN M8 (CLK1n, DIFFIO_RX_L36n, DIFFOUT_L36n, High_Speed)) File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 4
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G3
-Info (176353): Automatically promoted node rst~input (placed in PIN M9 (CLK1p, DIFFIO_RX_L36p, DIFFOUT_L36p, High_Speed)) File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 4
+Info (176353): Automatically promoted node rst~input (placed in PIN M9 (CLK1p, DIFFIO_RX_L36p, DIFFOUT_L36p, High_Speed)) File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/processor.v Line: 4
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G4
     Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
-        Info (176357): Destination node pipe:MEM_WB|Q[79] File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/Pipes.v Line: 8
-        Info (176357): Destination node pipe:MEM_WB|Q[36] File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/Pipes.v Line: 8
-        Info (176357): Destination node pipe:MEM_WB|Q[68] File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/Pipes.v Line: 8
-        Info (176357): Destination node pipe:MEM_WB|Q[78] File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/Pipes.v Line: 8
-        Info (176357): Destination node pipe:MEM_WB|Q[77] File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/Pipes.v Line: 8
-        Info (176357): Destination node pipe:MEM_WB|Q[35] File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/Pipes.v Line: 8
-        Info (176357): Destination node pipe:MEM_WB|Q[67] File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/Pipes.v Line: 8
-        Info (176357): Destination node pipe:MEM_WB|Q[34] File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/Pipes.v Line: 8
-        Info (176357): Destination node pipe:MEM_WB|Q[66] File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/Pipes.v Line: 8
-        Info (176357): Destination node pipe:MEM_WB|Q[33] File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/Pipes.v Line: 8
+        Info (176357): Destination node pipe:MEM_WB|Q[79] File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/Pipes.v Line: 8
+        Info (176357): Destination node pipe:MEM_WB|Q[36] File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/Pipes.v Line: 8
+        Info (176357): Destination node pipe:MEM_WB|Q[68] File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/Pipes.v Line: 8
+        Info (176357): Destination node pipe:MEM_WB|Q[78] File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/Pipes.v Line: 8
+        Info (176357): Destination node pipe:MEM_WB|Q[77] File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/Pipes.v Line: 8
+        Info (176357): Destination node pipe:MEM_WB|Q[35] File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/Pipes.v Line: 8
+        Info (176357): Destination node pipe:MEM_WB|Q[67] File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/Pipes.v Line: 8
+        Info (176357): Destination node pipe:MEM_WB|Q[34] File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/Pipes.v Line: 8
+        Info (176357): Destination node pipe:MEM_WB|Q[66] File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/Pipes.v Line: 8
+        Info (176357): Destination node pipe:MEM_WB|Q[33] File: C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/Pipes.v Line: 8
         Info (176358): Non-global destination nodes limited to 10 nodes
 Info (176233): Starting register packing
 Info (176235): Finished register packing
@@ -2011,34 +2012,34 @@ Info (176215): I/O bank details before I/O pin placement
         Info (176213): I/O bank number 8 does not use VREF pins and has undetermined VCCIO pins. 4 total pin(s) used --  32 pins available
 Info (128000): Starting physical synthesis optimizations for speed
 Info (128001): Physical synthesis optimizations for speed complete: elapsed time is 00:00:01
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:05
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:02
 Info (14896): Fitter has disabled Advanced Physical Optimization because it is not supported for the current family.
 Info (170189): Fitter placement preparation operations beginning
-Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:01
+Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:00
 Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
-Info (170192): Fitter placement operations ending: elapsed time is 00:00:17
+Info (170192): Fitter placement operations ending: elapsed time is 00:00:08
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 1% of the available device resources
-    Info (170196): Router estimated peak interconnect usage is 23% of the available device resources in the region that extends from location X11_Y11 to location X21_Y21
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:19
-Info (11888): Total time spent on timing analysis during the Fitter is 5.25 seconds.
+    Info (170196): Router estimated peak interconnect usage is 23% of the available device resources in the region that extends from location X33_Y22 to location X44_Y32
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:10
+Info (11888): Total time spent on timing analysis during the Fitter is 1.88 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:06
-Info (144001): Generated suppressed messages file C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/output_files/Pipelined.fit.smsg
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:02
+Info (144001): Generated suppressed messages file C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/output_files/Pipelined.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 5709 megabytes
-    Info: Processing ended: Sun Dec 15 17:43:52 2024
-    Info: Elapsed time: 00:00:55
-    Info: Total CPU time (on all processors): 00:00:26
+    Info: Peak virtual memory: 5827 megabytes
+    Info: Processing ended: Sun Dec 15 20:51:05 2024
+    Info: Elapsed time: 00:00:27
+    Info: Total CPU time (on all processors): 00:00:15
 
 
 +----------------------------+
 ; Fitter Suppressed Messages ;
 +----------------------------+
-The suppressed messages can be found in C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/output_files/Pipelined.fit.smsg.
+The suppressed messages can be found in C:/Users/Saleh/Desktop/JOSDC/JoSDC/Development Phase/Pipelined_ex/output_files/Pipelined.fit.smsg.
 
 
