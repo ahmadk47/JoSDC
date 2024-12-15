@@ -1,0 +1,13 @@
+module pcCorrection (CorrectedPC, PredictionE, branch_taken);
+
+input PredictionE, branch_taken;
+output reg [7:0]CorrectedPC;
+
+ if (branch_taken & !predictionE) begin
+				CorrectedPC <= branchAdderResult;
+			end
+			else if (!branch_taken & predictionE) begin
+				CorrectedPC <= pcD+6'b1;
+			end 
+			
+endmodule 

@@ -54,15 +54,16 @@ assign bit26 =instructionD[26];
 	always @(*) begin
 		 if (jumpD)
 			  jumpMuxOut = instructionD[7:0];
-		 else
+			  else 
 			  jumpMuxOut = readData1[7:0];
 	end
+	
 
 	// branchMux logic
 	always @(*) begin
 		 if (prediction)
 			  branchMuxOut = branchAdderResult;
-		 else
+			  else
 			  branchMuxOut = PCPlus1;
 	end
 
@@ -70,25 +71,29 @@ assign bit26 =instructionD[26];
 	always @(*) begin
 		 if (pcSrcD)
 			  nextPC = jumpMuxOut;
-		 else
+			else
 			  nextPC = branchMuxOut;
+			  
 	end
 
 	// cpcMux logic
 	always @(*) begin
+
 		 if (CPCSignal)
 			  CPC = CorrectedPC;
-		 else
-			  CPC = nextPC;
+		  else
+				CPC = nextPC;
 	end
 
 programCounter pc(.clk(clk), .rst(rst), .enable(EnablePCIFID), .PCin(CPC), .PCout(PC)); 
 
 adder #(8) pcAdder(.in1(PC), .in2(8'b1), .out(PCPlus1));
 
+adder #(8) branchAdder(.in1(PCPlus1), .in2(instruction[7:0]), .out(branchAdderResult));
+
 instructionMemory IM(.address(CPC), .aclr (~rst), .clock (clk), .addressstall_a(~EnablePCIFID), .q(instruction));
 
-BranchPredictionUnit BPU(.branch_taken(branchTaken), .clk(clk), .reset(rst), .branch(branchE), .pc(PC), .pcD(PCE), .prediction(prediction),.predictionD(predictionE), .branchAdderResult(branchAdderResultE), .CorrectedPC(CorrectedPC), .Stall(Stall));
+BranchPredictionUnit BPU(.branch_taken(branchTaken), .clk(clk), .reset(rst), .branch(branchE), .pc(PC), .pcE(PCE), .prediction(prediction));
 
 pipe #(57) IF_ID(.D({PCPlus1,PC,branchAdderResult, prediction, instruction}), .Q({PCPlus1D,PCD,branchAdderResultD,predictionNew, instructionD}), .clk(clk), .reset(~Reset), .enable(EnablePCIFID)); 
 
@@ -111,7 +116,7 @@ mux2x1 #(16) CUMux(.in1({pcSrc,jump,regWrite, memToReg, memWrite, memRead, ALUOp
 
  
 pipe #(155) ID_EX(.D({PCD,branchAdderResultD,bit26, branchD, regWriteD, memToRegD, memWriteD, memReadD, ALUOpD, regDstD, ALUSrcD, predictionD, PCPlus1D, readData1, readData2, extImm, rs, rt, rd, shamt}),
-						.Q({PCE,branchAdderResultE,bit26E, branchE, regWriteE, memToRegE, memWriteE, memReadE, ALUOpE, regDstE, ALUSrcE,predictionE, PCPlus1E, readData1E, readData2E, extImmE, rsE, rtE, rdE, shamtE}), .clk(clk), .reset(~Reset), .enable(enable));
+						.Q({PCE,branchAdderResultE,bit26E, branchE, regWriteE, memToRegE, memWriteE, memReadE, ALUOpE, regDstE, ALUSrcE,predictionE, PCPlus1E, readData1E, readData2E, extImmE, rsE, rtE, rdE, shamtE}), .clk(clk), .reset(~(Reset&~pcSrcD)), .enable(enable));
 
 /*********************************************** EXECUTE STAGE ********************************************/
 
@@ -156,7 +161,7 @@ ORGate resetGate(.in1(~rst), .in2(Flush), .out(Reset));
 			  ALUin2 = ForwardBMuxOut;
 	end
 
-ALU alu(.operand1(ForwardAMuxOut), .operand2(ALUin2), .shamt(shamtE) ,.opSel(ALUOpE), .result(ALUResult), .overflow(overflow), .zero(zero));
+ALU alu(.operand1(ForwardAMuxOut), .operand2(ALUin2), .shamt(shamtE) ,.opSel(ALUOpE), .result(ALUResult), .overflow(overflow));
 
 //mux3to1 #(5) RFMux(.in1(rtE), .in2(rdE), .in3(5'b11111), .s(regDstE), .out(writeRegister));
 	always @(*) begin
@@ -168,11 +173,15 @@ ALU alu(.operand1(ForwardAMuxOut), .operand2(ALUin2), .shamt(shamtE) ,.opSel(ALU
 		 endcase
 	end
 
+Comparator #(32) comp (zero, ForwardAMuxOut, ForwardBMuxOut);
+
 XNORGate branchXnor(.out(xnorOut), .in1(bit26E), .in2(~zero));
 
-ANDGate branchAnd(.in1(xnorOut), .in2(branchE), .out(branchTaken));         
+ANDGate branchAnd(.in1(xnorOut), .in2(branchE), .out(branchTaken));   
+ 
+pcCorrection pcCorr (.CorrectedPC(CorrectedPC),.PCE(PCPlus1E), .branchAdderResultE(branchAdderResultE), .PredictionE(predictionE), .branch_taken(branchTaken));     
 
-adder #(8) branchAdder(.in1(PCPlus1), .in2(instruction[7:0]), .out(branchAdderResult));
+
 
 ForwardingUnit FU( .rsE(rsE), .rtE(rtE), .writeRegisterM(writeRegisterM), 
 	.writeRegisterW(writeRegisterW), .regWriteM(regWriteM), .regWriteW(regWriteW), .ForwardA(ForwardA), .ForwardB(ForwardB));

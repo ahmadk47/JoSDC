@@ -1,4 +1,4 @@
-module ALU (operand1, operand2, shamt, opSel, result, overflow, zero);
+module ALU (operand1, operand2, shamt, opSel, result, overflow);
 	
 	parameter data_width = 32;
 	parameter sel_width = 4;
@@ -13,7 +13,7 @@ module ALU (operand1, operand2, shamt, opSel, result, overflow, zero);
 	// .......
 	
 	output reg [data_width - 1 : 0] result;
-	output reg overflow, zero;
+	output reg overflow;
 	// Operation Parameters
 	// ....................
 	parameter   _ADD  = 'b0000, _SUB  = 'b0001, _AND = 'b0010,
@@ -69,11 +69,11 @@ module ALU (operand1, operand2, shamt, opSel, result, overflow, zero);
 	
 	end
 	
-always @(*) begin 
-	if (result == 32'b0)
-		zero = 1;
-	else
-		zero = 0;
-end
+//always @(*) begin 
+//	if (result == 32'b0)
+//		zero = 1;
+//	else
+//		zero = 0;
+//end
 
 endmodule 

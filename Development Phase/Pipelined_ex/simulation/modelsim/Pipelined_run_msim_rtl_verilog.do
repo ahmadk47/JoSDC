@@ -19,9 +19,11 @@ vlog -vlog01compat -work work +incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Deve
 vlog -vlog01compat -work work +incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development\ Phase/Pipelined_ex {C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/dataMemory.v}
 vlog -vlog01compat -work work +incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development\ Phase/Pipelined_ex {C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/XNOR.v}
 vlog -vlog01compat -work work +incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development\ Phase/Pipelined_ex {C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/Pipes.v}
+vlog -vlog01compat -work work +incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development\ Phase/Pipelined_ex {C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/Comparator.v}
 vlog -vlog01compat -work work +incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development\ Phase/Pipelined_ex {C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/forwardingUnit.v}
 vlog -vlog01compat -work work +incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development\ Phase/Pipelined_ex {C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/HazardDetectionUnit.v}
 vlog -vlog01compat -work work +incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development\ Phase/Pipelined_ex {C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/ORGate.v}
+vlog -vlog01compat -work work +incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development\ Phase/Pipelined_ex {C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/pcCorrection.v}
 
 vlog -vlog01compat -work work +incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development\ Phase/Pipelined_ex {C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/testbench.v}
 

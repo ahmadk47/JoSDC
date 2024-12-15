@@ -1,14 +1,14 @@
 |processor
 clk => clk.IN8
 rst => rst.IN5
-PC[0] << PC[0].DB_MAX_OUTPUT_PORT_TYPE
-PC[1] << PC[1].DB_MAX_OUTPUT_PORT_TYPE
-PC[2] << PC[2].DB_MAX_OUTPUT_PORT_TYPE
-PC[3] << PC[3].DB_MAX_OUTPUT_PORT_TYPE
-PC[4] << PC[4].DB_MAX_OUTPUT_PORT_TYPE
-PC[5] << PC[5].DB_MAX_OUTPUT_PORT_TYPE
-PC[6] << PC[6].DB_MAX_OUTPUT_PORT_TYPE
-PC[7] << PC[7].DB_MAX_OUTPUT_PORT_TYPE
+PC[0] <= PC[0].DB_MAX_OUTPUT_PORT_TYPE
+PC[1] <= PC[1].DB_MAX_OUTPUT_PORT_TYPE
+PC[2] <= PC[2].DB_MAX_OUTPUT_PORT_TYPE
+PC[3] <= PC[3].DB_MAX_OUTPUT_PORT_TYPE
+PC[4] <= PC[4].DB_MAX_OUTPUT_PORT_TYPE
+PC[5] <= PC[5].DB_MAX_OUTPUT_PORT_TYPE
+PC[6] <= PC[6].DB_MAX_OUTPUT_PORT_TYPE
+PC[7] <= PC[7].DB_MAX_OUTPUT_PORT_TYPE
 enable => enable.IN4
 
 
@@ -56,6 +56,33 @@ PCout[7] <= PCout[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |processor|adder:pcAdder
+in1[0] => Add0.IN8
+in1[1] => Add0.IN7
+in1[2] => Add0.IN6
+in1[3] => Add0.IN5
+in1[4] => Add0.IN4
+in1[5] => Add0.IN3
+in1[6] => Add0.IN2
+in1[7] => Add0.IN1
+in2[0] => Add0.IN16
+in2[1] => Add0.IN15
+in2[2] => Add0.IN14
+in2[3] => Add0.IN13
+in2[4] => Add0.IN12
+in2[5] => Add0.IN11
+in2[6] => Add0.IN10
+in2[7] => Add0.IN9
+out[0] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+out[1] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+out[2] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+out[3] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+out[4] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+out[5] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+out[6] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+out[7] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|processor|adder:branchAdder
 in1[0] => Add0.IN8
 in1[1] => Add0.IN7
 in1[2] => Add0.IN6
@@ -613,8 +640,6 @@ q_a[31] <= ram_block1a31.PORTADATAOUT
 
 
 |processor|BranchPredictionUnit:BPU
-branch_taken => always0.IN0
-branch_taken => always0.IN0
 branch_taken => BHT.DATAB
 branch_taken => BHT.DATAB
 branch_taken => BHT.DATAB
@@ -743,7 +768,6 @@ branch_taken => BHT.DATAB
 branch_taken => BHT.DATAB
 branch_taken => BHT.DATAB
 branch_taken => BHT.DATAB
-branch_taken => always0.IN0
 clk => BHT[63][0].CLK
 clk => BHT[63][1].CLK
 clk => BHT[62][0].CLK
@@ -1142,69 +1166,27 @@ pc[5] => Mux0.IN64
 pc[5] => Mux1.IN64
 pc[6] => ~NO_FANOUT~
 pc[7] => ~NO_FANOUT~
-pcD[0] => Mux2.IN69
-pcD[0] => Mux3.IN69
-pcD[0] => Decoder1.IN5
-pcD[0] => Add0.IN16
-pcD[1] => Mux2.IN68
-pcD[1] => Mux3.IN68
-pcD[1] => Decoder1.IN4
-pcD[1] => Add0.IN15
-pcD[2] => Mux2.IN67
-pcD[2] => Mux3.IN67
-pcD[2] => Decoder1.IN3
-pcD[2] => Add0.IN14
-pcD[3] => Mux2.IN66
-pcD[3] => Mux3.IN66
-pcD[3] => Decoder1.IN2
-pcD[3] => Add0.IN13
-pcD[4] => Mux2.IN65
-pcD[4] => Mux3.IN65
-pcD[4] => Decoder1.IN1
-pcD[4] => Add0.IN12
-pcD[5] => Mux2.IN64
-pcD[5] => Mux3.IN64
-pcD[5] => Decoder1.IN0
-pcD[5] => Add0.IN11
-pcD[6] => Add0.IN10
-pcD[7] => Add0.IN9
+pcE[0] => Mux2.IN69
+pcE[0] => Mux3.IN69
+pcE[0] => Decoder1.IN5
+pcE[1] => Mux2.IN68
+pcE[1] => Mux3.IN68
+pcE[1] => Decoder1.IN4
+pcE[2] => Mux2.IN67
+pcE[2] => Mux3.IN67
+pcE[2] => Decoder1.IN3
+pcE[3] => Mux2.IN66
+pcE[3] => Mux3.IN66
+pcE[3] => Decoder1.IN2
+pcE[4] => Mux2.IN65
+pcE[4] => Mux3.IN65
+pcE[4] => Decoder1.IN1
+pcE[5] => Mux2.IN64
+pcE[5] => Mux3.IN64
+pcE[5] => Decoder1.IN0
+pcE[6] => ~NO_FANOUT~
+pcE[7] => ~NO_FANOUT~
 prediction <= prediction.DB_MAX_OUTPUT_PORT_TYPE
-predictionD => always0.IN1
-predictionD => always0.IN1
-predictionD => always0.IN1
-branchAdderResult[0] => CorrectedPC.DATAB
-branchAdderResult[0] => CorrectedPC.DATAB
-branchAdderResult[1] => CorrectedPC.DATAB
-branchAdderResult[1] => CorrectedPC.DATAB
-branchAdderResult[2] => CorrectedPC.DATAB
-branchAdderResult[2] => CorrectedPC.DATAB
-branchAdderResult[3] => CorrectedPC.DATAB
-branchAdderResult[3] => CorrectedPC.DATAB
-branchAdderResult[4] => CorrectedPC.DATAB
-branchAdderResult[4] => CorrectedPC.DATAB
-branchAdderResult[5] => CorrectedPC.DATAB
-branchAdderResult[5] => CorrectedPC.DATAB
-branchAdderResult[6] => CorrectedPC.DATAB
-branchAdderResult[6] => CorrectedPC.DATAB
-branchAdderResult[7] => CorrectedPC.DATAB
-branchAdderResult[7] => CorrectedPC.DATAB
-CorrectedPC[0] <= CorrectedPC.DB_MAX_OUTPUT_PORT_TYPE
-CorrectedPC[1] <= CorrectedPC.DB_MAX_OUTPUT_PORT_TYPE
-CorrectedPC[2] <= CorrectedPC.DB_MAX_OUTPUT_PORT_TYPE
-CorrectedPC[3] <= CorrectedPC.DB_MAX_OUTPUT_PORT_TYPE
-CorrectedPC[4] <= CorrectedPC.DB_MAX_OUTPUT_PORT_TYPE
-CorrectedPC[5] <= CorrectedPC.DB_MAX_OUTPUT_PORT_TYPE
-CorrectedPC[6] <= CorrectedPC.DB_MAX_OUTPUT_PORT_TYPE
-CorrectedPC[7] <= CorrectedPC.DB_MAX_OUTPUT_PORT_TYPE
-Stall => prediction.OUTPUTSELECT
-Stall => CorrectedPC.OUTPUTSELECT
-Stall => CorrectedPC.OUTPUTSELECT
-Stall => CorrectedPC.OUTPUTSELECT
-Stall => CorrectedPC.OUTPUTSELECT
-Stall => CorrectedPC.OUTPUTSELECT
-Stall => CorrectedPC.OUTPUTSELECT
-Stall => CorrectedPC.OUTPUTSELECT
-Stall => CorrectedPC.OUTPUTSELECT
 
 
 |processor|pipe:IF_ID
@@ -6643,7 +6625,74 @@ result[29] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
 result[30] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
 result[31] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
 overflow <= Selector0.DB_MAX_OUTPUT_PORT_TYPE
-zero <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|processor|Comparator:comp
+equal <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+a[0] => Equal0.IN31
+a[1] => Equal0.IN30
+a[2] => Equal0.IN29
+a[3] => Equal0.IN28
+a[4] => Equal0.IN27
+a[5] => Equal0.IN26
+a[6] => Equal0.IN25
+a[7] => Equal0.IN24
+a[8] => Equal0.IN23
+a[9] => Equal0.IN22
+a[10] => Equal0.IN21
+a[11] => Equal0.IN20
+a[12] => Equal0.IN19
+a[13] => Equal0.IN18
+a[14] => Equal0.IN17
+a[15] => Equal0.IN16
+a[16] => Equal0.IN15
+a[17] => Equal0.IN14
+a[18] => Equal0.IN13
+a[19] => Equal0.IN12
+a[20] => Equal0.IN11
+a[21] => Equal0.IN10
+a[22] => Equal0.IN9
+a[23] => Equal0.IN8
+a[24] => Equal0.IN7
+a[25] => Equal0.IN6
+a[26] => Equal0.IN5
+a[27] => Equal0.IN4
+a[28] => Equal0.IN3
+a[29] => Equal0.IN2
+a[30] => Equal0.IN1
+a[31] => Equal0.IN0
+b[0] => Equal0.IN63
+b[1] => Equal0.IN62
+b[2] => Equal0.IN61
+b[3] => Equal0.IN60
+b[4] => Equal0.IN59
+b[5] => Equal0.IN58
+b[6] => Equal0.IN57
+b[7] => Equal0.IN56
+b[8] => Equal0.IN55
+b[9] => Equal0.IN54
+b[10] => Equal0.IN53
+b[11] => Equal0.IN52
+b[12] => Equal0.IN51
+b[13] => Equal0.IN50
+b[14] => Equal0.IN49
+b[15] => Equal0.IN48
+b[16] => Equal0.IN47
+b[17] => Equal0.IN46
+b[18] => Equal0.IN45
+b[19] => Equal0.IN44
+b[20] => Equal0.IN43
+b[21] => Equal0.IN42
+b[22] => Equal0.IN41
+b[23] => Equal0.IN40
+b[24] => Equal0.IN39
+b[25] => Equal0.IN38
+b[26] => Equal0.IN37
+b[27] => Equal0.IN36
+b[28] => Equal0.IN35
+b[29] => Equal0.IN34
+b[30] => Equal0.IN33
+b[31] => Equal0.IN32
 
 
 |processor|XNORGate:branchXnor
@@ -6658,31 +6707,33 @@ in2 => out.IN1
 out <= out.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|processor|adder:branchAdder
-in1[0] => Add0.IN8
-in1[1] => Add0.IN7
-in1[2] => Add0.IN6
-in1[3] => Add0.IN5
-in1[4] => Add0.IN4
-in1[5] => Add0.IN3
-in1[6] => Add0.IN2
-in1[7] => Add0.IN1
-in2[0] => Add0.IN16
-in2[1] => Add0.IN15
-in2[2] => Add0.IN14
-in2[3] => Add0.IN13
-in2[4] => Add0.IN12
-in2[5] => Add0.IN11
-in2[6] => Add0.IN10
-in2[7] => Add0.IN9
-out[0] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-out[1] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-out[2] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-out[3] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-out[4] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-out[5] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-out[6] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-out[7] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+|processor|pcCorrection:pcCorr
+CorrectedPC[0] <= CorrectedPC.DB_MAX_OUTPUT_PORT_TYPE
+CorrectedPC[1] <= CorrectedPC.DB_MAX_OUTPUT_PORT_TYPE
+CorrectedPC[2] <= CorrectedPC.DB_MAX_OUTPUT_PORT_TYPE
+CorrectedPC[3] <= CorrectedPC.DB_MAX_OUTPUT_PORT_TYPE
+CorrectedPC[4] <= CorrectedPC.DB_MAX_OUTPUT_PORT_TYPE
+CorrectedPC[5] <= CorrectedPC.DB_MAX_OUTPUT_PORT_TYPE
+CorrectedPC[6] <= CorrectedPC.DB_MAX_OUTPUT_PORT_TYPE
+CorrectedPC[7] <= CorrectedPC.DB_MAX_OUTPUT_PORT_TYPE
+PCE[0] => CorrectedPC.DATAA
+PCE[1] => CorrectedPC.DATAA
+PCE[2] => CorrectedPC.DATAA
+PCE[3] => CorrectedPC.DATAA
+PCE[4] => CorrectedPC.DATAA
+PCE[5] => CorrectedPC.DATAA
+PCE[6] => CorrectedPC.DATAA
+PCE[7] => CorrectedPC.DATAA
+branchAdderResultE[0] => CorrectedPC.DATAB
+branchAdderResultE[1] => CorrectedPC.DATAB
+branchAdderResultE[2] => CorrectedPC.DATAB
+branchAdderResultE[3] => CorrectedPC.DATAB
+branchAdderResultE[4] => CorrectedPC.DATAB
+branchAdderResultE[5] => CorrectedPC.DATAB
+branchAdderResultE[6] => CorrectedPC.DATAB
+branchAdderResultE[7] => CorrectedPC.DATAB
+PredictionE => always0.IN0
+branch_taken => always0.IN1
 
 
 |processor|ForwardingUnit:FU

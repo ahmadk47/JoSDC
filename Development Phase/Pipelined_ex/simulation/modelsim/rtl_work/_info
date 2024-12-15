@@ -10,176 +10,400 @@ z2
 cModel Technology
 Z0 dC:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/simulation/modelsim
 vadder
-Z1 !s110 1734133745
+Z1 !s110 1734273118
 !i10b 1
 !s100 g61efm?H?`E:=N5@noj7G2
 Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
 I9=RlX6X;WRTi8PA;Donl]1
 Z3 VDg1SIo80bB@j0V0VzS_@n1
 R0
-w1734113318
+Z4 w1734265162
 8C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/adder.v
 FC:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/adder.v
 !i122 8
 L0 3 11
-Z4 OV;L;2020.1;71
+Z5 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z5 !s108 1734133745.000000
+Z6 !s108 1734273118.000000
 !s107 C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/adder.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex|C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/adder.v|
 !i113 1
-Z6 o-vlog01compat -work work
-Z7 !s92 -vlog01compat -work work {+incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex}
-Z8 tCvgOpt 0
+Z7 o-vlog01compat -work work
+Z8 !s92 -vlog01compat -work work {+incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex}
+Z9 tCvgOpt 0
 vALU
-Z9 !s110 1734133744
+R1
 !i10b 1
-!s100 iPXa`^ZCb[9flm<mKTFTV0
+!s100 _P]BP<2WigANPU=7>ekM;3
 R2
-I8bfa2RWj^b8C9^;3AOVAE2
+I4LW6Mfj:lgl6@UIaHA>2_1
 R3
 R0
-w1734131519
+w1734266340
 8C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/ALU.v
 FC:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/ALU.v
 !i122 5
 L0 1 79
-R4
+R5
 r1
 !s85 0
 31
-Z10 !s108 1734133744.000000
+R6
 !s107 C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/ALU.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex|C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/ALU.v|
 !i113 1
-R6
 R7
 R8
-n@a@l@u
-vBranchPredictionUnit
 R9
+n@a@l@u
+vANDGate
+Z10 !s110 1734273119
 !i10b 1
-!s100 e_N<7_2RlJ<_CBfF`mN_k0
+!s100 [7AXbFTB0;hR?Q`mojBNS0
 R2
-I`Zm7JcIiBT2ZM5f^J4]TA3
+I;N:;d6ZgaZX7a9]UgP47]1
 R3
 R0
-w1734132075
-8C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/BranchPredictionUnit.v
-FC:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/BranchPredictionUnit.v
-!i122 0
-L0 1 74
 R4
+8C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/ANDGate.v
+FC:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/ANDGate.v
+!i122 9
+Z11 L0 1 7
+R5
 r1
 !s85 0
 31
-!s108 1734133743.000000
+Z12 !s108 1734273119.000000
+!s107 C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/ANDGate.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex|C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/ANDGate.v|
+!i113 1
+R7
+R8
+R9
+n@a@n@d@gate
+vBranchPredictionUnit
+Z13 !s110 1734273117
+!i10b 1
+!s100 eWe:B<^EIDjn<;6h0ofOS3
+R2
+I?NU[cJl046FR;jRFc19I:3
+R3
+R0
+w1734270603
+8C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/BranchPredictionUnit.v
+FC:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/BranchPredictionUnit.v
+!i122 0
+L0 1 57
+R5
+r1
+!s85 0
+31
+Z14 !s108 1734273117.000000
 !s107 C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/BranchPredictionUnit.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex|C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/BranchPredictionUnit.v|
 !i113 1
-R6
 R7
 R8
-n@branch@prediction@unit
-vcontrolUnit
 R9
+n@branch@prediction@unit
+vComparator
+R10
+!i10b 1
+!s100 oeD`FL19XV>R4ze6]>FP>1
+R2
+I4OH[SRCFO_;AAENB8M5Ij1
+R3
+R0
+R4
+8C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/Comparator.v
+FC:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/Comparator.v
+!i122 14
+L0 1 15
+R5
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/Comparator.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex|C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/Comparator.v|
+!i113 1
+R7
+R8
+R9
+n@comparator
+vcontrolUnit
+R1
 !i10b 1
 !s100 hzY2zfC[^8FegYR;:ZD[a2
 R2
 IE@OkHz2z<gX_Oa1D?gRIO0
 R3
 R0
-Z11 w1734131522
+R4
 8C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/controlUnit.v
 FC:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/controlUnit.v
 !i122 4
 L0 1 247
-R4
+R5
 r1
 !s85 0
 31
-R10
+R6
 !s107 C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/controlUnit.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex|C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/controlUnit.v|
 !i113 1
-R6
 R7
 R8
-ncontrol@unit
-vmux2x1
 R9
+ncontrol@unit
+vdataMemory
+R10
+!i10b 1
+!s100 `b@m8UV<>2A2XBlWX5zL40
+R2
+IAAm3;>@@h]AIi;_JPSE7>1
+R3
+R0
+R4
+8C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/dataMemory.v
+FC:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/dataMemory.v
+!i122 11
+L0 40 70
+R5
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/dataMemory.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex|C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/dataMemory.v|
+!i113 1
+R7
+R8
+R9
+ndata@memory
+vForwardingUnit
+R10
+!i10b 1
+!s100 PQo@mGidnzclSeXQEECDA0
+R2
+ILHATIZbd36PD;7;_XW3IN2
+R3
+R0
+R4
+8C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/forwardingUnit.v
+FC:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/forwardingUnit.v
+!i122 15
+L0 1 35
+R5
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/forwardingUnit.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex|C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/forwardingUnit.v|
+!i113 1
+R7
+R8
+R9
+n@forwarding@unit
+vHazardDetectionUnit
+Z15 !s110 1734273120
+!i10b 1
+!s100 [2OcUe`zBd:B[aO5jz;[O2
+R2
+I8^T^[9P]::j35kHgVF71O0
+R3
+R0
+R4
+8C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/HazardDetectionUnit.v
+FC:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/HazardDetectionUnit.v
+!i122 16
+L0 1 25
+R5
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/HazardDetectionUnit.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex|C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/HazardDetectionUnit.v|
+!i113 1
+R7
+R8
+R9
+n@hazard@detection@unit
+vinstructionMemory
+R10
+!i10b 1
+!s100 flW?S7V1RhfA_24c4o^SO3
+R2
+I`1AR=5BJ=@LCgK3?<_:[j2
+R3
+R0
+R4
+8C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/instructionMemory.v
+FC:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/instructionMemory.v
+!i122 10
+L0 40 67
+R5
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/instructionMemory.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex|C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/instructionMemory.v|
+!i113 1
+R7
+R8
+R9
+ninstruction@memory
+vmux2x1
+R13
 !i10b 1
 !s100 4M^A:Ag]085:BGa<AUCME3
 R2
 IGg5G27eR]UXS1V;aK0FJn0
 R3
 R0
-R11
-Z12 8C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/muxes.v
-Z13 FC:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/muxes.v
-!i122 1
-L0 1 13
 R4
+Z16 8C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/muxes.v
+Z17 FC:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/muxes.v
+!i122 1
+Z18 L0 1 13
+R5
 r1
 !s85 0
 31
-R10
-Z14 !s107 C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/muxes.v|
-Z15 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex|C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/muxes.v|
+R14
+Z19 !s107 C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/muxes.v|
+Z20 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex|C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/muxes.v|
 !i113 1
-R6
 R7
 R8
-vmux3to1
 R9
+vmux3to1
+R13
 !i10b 1
 !s100 fmMT]eFS@`7zX_H16oDZ13
 R2
 IETXSI`KZ`^C6hjAhfb8dV1
 R3
 R0
-R11
-R12
-R13
+R4
+R16
+R17
 !i122 1
 L0 16 21
-R4
+R5
 r1
 !s85 0
 31
-R10
 R14
-R15
+R19
+R20
 !i113 1
-R6
 R7
 R8
-vprocessor
 R9
+vORGate
+R15
 !i10b 1
-!s100 NW0bf6`Z77B`g[B78`e=f0
+!s100 =GPj@^9[_AOa29DTJS8;10
 R2
-IdlT?g7LFLZ`SNRiB0Xz7^2
+I<adnS7<nfQ`oDnWU6>?JI3
 R3
 R0
-w1734132685
+R4
+8C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/ORGate.v
+FC:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/ORGate.v
+!i122 17
+R11
+R5
+r1
+!s85 0
+31
+Z21 !s108 1734273120.000000
+!s107 C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/ORGate.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex|C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/ORGate.v|
+!i113 1
+R7
+R8
+R9
+n@o@r@gate
+vpcCorrection
+R15
+!i10b 1
+!s100 0Xkj_E8OOYE7`Ni?O_h_;2
+R2
+Ii^C<1dgRX?02W0HJ;TJe^3
+R3
+R0
+w1734272660
+8C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/pcCorrection.v
+FC:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/pcCorrection.v
+!i122 18
+R18
+R5
+r1
+!s85 0
+31
+R21
+!s107 C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/pcCorrection.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex|C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/pcCorrection.v|
+!i113 1
+R7
+R8
+R9
+npc@correction
+vpipe
+R10
+!i10b 1
+!s100 _GOUdGghGzf9[mZ=nZcUO3
+R2
+II@MzXiKaeRV8bNRjY><=Q1
+R3
+R0
+R4
+8C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/Pipes.v
+FC:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/Pipes.v
+!i122 13
+Z22 L0 1 22
+R5
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/Pipes.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex|C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/Pipes.v|
+!i113 1
+R7
+R8
+R9
+vprocessor
+R13
+!i10b 1
+!s100 <6X=mN^ZRnTGbDeaf[c722
+R2
+IR2LUAT[5M@o7Vl2?g4TWU3
+R3
+R0
+w1734272671
 8C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/processor.v
 FC:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/processor.v
 !i122 2
-L0 1 205
-R4
+L0 1 211
+R5
 r1
 !s85 0
 31
-R10
+R14
 !s107 C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/processor.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex|C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/processor.v|
 !i113 1
-R6
 R7
 R8
+R9
 vprogramCounter
 R1
 !i10b 1
@@ -188,69 +412,118 @@ R2
 I_zYiz4C8aUa>:45`cgg661
 R3
 R0
-w1734109519
+R4
 8C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/programCounter.v
 FC:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/programCounter.v
 !i122 7
-L0 1 22
-R4
+R22
+R5
 r1
 !s85 0
 31
-R5
+R6
 !s107 C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/programCounter.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex|C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/programCounter.v|
 !i113 1
-R6
 R7
 R8
+R9
 nprogram@counter
 vregisterFile
-R9
+R13
 !i10b 1
 !s100 FdMmZTMK0F<>4CbVW<Ro12
 R2
 I;^oL7V:`oGIPXg7X[2aL`1
 R3
 R0
-w1733942374
+R4
 8C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/registerFile.v
 FC:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/registerFile.v
 !i122 3
 L0 3 42
-R4
+R5
 r1
 !s85 0
 31
-R10
+R14
 !s107 C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/registerFile.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex|C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/registerFile.v|
 !i113 1
-R6
 R7
 R8
+R9
 nregister@file
 vsignextender
-R9
+R1
 !i10b 1
 !s100 ;W[EIAaF>4[?XPFIQ^`751
 R2
 III]6LQ4GDdX`zEo6XcDPM2
 R3
 R0
-w1733687694
+R4
 8C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/signextender.v
 FC:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/signextender.v
 !i122 6
 L0 4 12
-R4
+R5
 r1
 !s85 0
 31
-R10
+R6
 !s107 C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/signextender.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex|C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/signextender.v|
 !i113 1
-R6
 R7
 R8
+R9
+vtestbench
+R15
+!i10b 1
+!s100 ]H9e6Ma@IjIM2oB[?jlHF3
+R2
+Ikl3?blB`bELfQfaJVlR8>1
+R3
+R0
+R4
+8C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/testbench.v
+FC:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/testbench.v
+!i122 19
+L0 2 20
+R5
+r1
+!s85 0
+31
+R21
+!s107 C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/testbench.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex|C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/testbench.v|
+!i113 1
+R7
+R8
+R9
+vXNORGate
+R10
+!i10b 1
+!s100 X7e`Szl3RCEnUg7@GHP8;0
+R2
+I?c<ME59]oO_`_aRkR?4d?0
+R3
+R0
+R4
+8C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/XNOR.v
+FC:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/XNOR.v
+!i122 12
+L0 1 10
+R5
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/XNOR.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex|C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined_ex/XNOR.v|
+!i113 1
+R7
+R8
+R9
+n@x@n@o@r@gate
