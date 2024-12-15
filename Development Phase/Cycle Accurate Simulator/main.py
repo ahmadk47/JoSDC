@@ -8,6 +8,7 @@ class MEM_WB:
         self.reg_write = 0
         self.mem_to_reg = 0
 
+        self.instruction = '00000000000000000000000000000000'
         self.pc_plus_1 = 0
         self.alu_result = 0
         self.memory_read_data = 0
@@ -21,6 +22,7 @@ class EX_MEM:
         self.mem_write = 0
         self.mem_read = 0
 
+        self.instruction = '00000000000000000000000000000000'
         self.pc_plus_1 = 0
         self.alu_result = 0
         self.forward_B_mux_out = 0
@@ -40,6 +42,7 @@ class ID_EX:
         self.I_26 = 0
         self.prediction = 0
 
+        self.instruction = '00000000000000000000000000000000'
         self.pc = 0
         self.branch_adder = 0
         self.pc_plus_1 = 0
@@ -375,8 +378,6 @@ def main():
 
     while True:
         new_state = State()
-        print(f'cycle: {cycle}')
-        print(f'pc: {pc.cur_pc}')
         # --------------------WB STAGE------------------ #
         WB_data = 0
         if state.mem_wb.reg_write == 1:
@@ -397,6 +398,7 @@ def main():
         new_state.mem_wb.pc_plus_1 = state.ex_mem.pc_plus_1
         new_state.mem_wb.alu_result = state.ex_mem.alu_result
         new_state.mem_wb.write_register = state.ex_mem.write_register
+        new_state.mem_wb.instruction = state.ex_mem.instruction
 
         # --------------------FORWARDING------------------ #
         forward_A_E, forward_B_E = forward(rs_E=state.id_ex.rs,
@@ -412,14 +414,10 @@ def main():
                             in2=state.ex_mem.alu_result,
                             in3=WB_data)
 
-        print(f'EX: forward_mux_A: {forward_mux_A}')
-
         forward_mux_B = mux(sel=forward_B_E,
                             in1=state.id_ex.read_data2,
                             in2=state.ex_mem.alu_result,
                             in3=WB_data)
-
-        print(f'EX: forward_mux_B: {forward_mux_B}')
 
         alu_mux = mux(sel=state.id_ex.alu_src,
                       in1=forward_mux_B,
@@ -436,12 +434,9 @@ def main():
                           in3=31)
 
         branch_taken = state.id_ex.branch & ~(state.id_ex.I_26 ^ ~zero)
-        print(f'{branch_taken = }')
-        print(f'{state.id_ex.prediction = }')
 
         if state.id_ex.branch:
             branch_predictor.update(pc=state.id_ex.pc, taken_branch=branch_taken)
-        print(f'{branch_predictor.BHT[6] = }')
 
         flush = hazard_detection_unit.flush(branch_taken=branch_taken,
                                             prediction_E=state.id_ex.prediction,
@@ -455,6 +450,7 @@ def main():
         new_state.ex_mem.pc_plus_1 = state.id_ex.pc_plus_1
         new_state.ex_mem.forward_B_mux_out = forward_mux_B
         new_state.ex_mem.write_register = reg_dst_mux
+        new_state.ex_mem.instruction = state.id_ex.instruction
 
         # --------------------ID STAGE------------------ #
         op_code = state.if_id.instruction[:6]
@@ -468,36 +464,23 @@ def main():
             imm = imm - 2 ** 16
         I_26 = int(op_code[-1])
 
-        print(f'ID: instruction: {state.if_id.instruction}')
-        print(f'ID: {op_code = }, {funct = }, {rs = }, {rt = }, {rd = }, {shamt = }, {imm = }')
-        print(f'EX: alu_result: {alu_result}')
-
-        print(f'EX: write_register_E: {reg_dst_mux}')
-
         stall = hazard_detection_unit.stall(mem_read_E=state.id_ex.mem_read,
                                             write_register_E=reg_dst_mux,
                                             rs_D=rs,
                                             rt_D=rt)
 
-        print(f'{state.id_ex.branch_adder = }')
         if not stall:
             if branch_taken and not state.id_ex.prediction:
-                print(f'\nCorrected pc to: {state.id_ex.branch_adder}\n')
                 branch_predictor.set_corrected_pc(state.id_ex.branch_adder)
             elif not branch_taken and state.id_ex.prediction:
-                print(f'\nCorrected pc to: {(state.id_ex.pc + 1) & 255}\n')
                 branch_predictor.set_corrected_pc((state.id_ex.pc + 1) & 255)
 
         control_signals = cu(cu_op_code=op_code, cu_funct=funct, cu_stall=stall)
-
-        print(f'ID: {control_signals}')
 
         read_data1 = rf.read_rf(rs)
         read_data2 = rf.read_rf(rt)
 
         branch = control_signals.get('branch')
-
-        print(f'{state.if_id.branch_adder = }')
 
         new_state.id_ex.pc = state.if_id.pc
         new_state.id_ex.branch_adder = state.if_id.branch_adder
@@ -519,6 +502,7 @@ def main():
         new_state.id_ex.rt = rt
         new_state.id_ex.rd = rd
         new_state.id_ex.shamt = shamt
+        new_state.id_ex.instruction = state.if_id.instruction
 
         # --------------------IF STAGE------------------ #
         instruction = ins_mem.get_instruction(address=pc.cur_pc)
@@ -531,12 +515,9 @@ def main():
         next_pc = mux(sel=control_signals.get('pc_src'), in1=branch_mux, in2=jump_mux)
         cpc_mux = mux(sel=flush, in1=next_pc, in2=branch_predictor.corrected_pc)
 
-        print(f'{branch_adder = }')
-        print(f'{next_pc = }')
-        print(f'{branch_predictor.corrected_pc = }')
-        print(f'{cpc_mux = }')
-        print(f'IF: instruction: {instruction}')
-
+        print(f'cycle: {cycle}')
+        print(f'pc: {pc.cur_pc}')
+        
         enable_pc_IF_ID = (not stall) and enable and cycle
         if enable_pc_IF_ID:
             new_state.if_id.prediction = prediction
@@ -558,10 +539,18 @@ def main():
         if control_signals.get('pc_src'):
             new_state.if_id.flush()
 
+
+        
+        print(f'IF: instruction: {instruction}')
+        print(f'ID: instruction: {state.if_id.instruction}')
+        print(f'EX: instruction: {state.id_ex.instruction}')
+        print(f'MEM: instruction: {state.ex_mem.instruction}')
+        print(f'WB: instruction: {state.mem_wb.instruction}')
+        print(f'\nID: {control_signals}')
+
         cycle += 1
-        state.print()
-        rf.print_rf()
         state = deepcopy(new_state)
+        
         print()
 
         if pc.cur_pc == 255:
