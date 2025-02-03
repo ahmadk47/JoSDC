@@ -1,0 +1,31 @@
+module instr_mem_dual_issue_tb;
+
+    logic [7:0] addr;
+    logic [31:0] instr1, instr2;
+
+    // Instantiate the dual-issue instruction memory
+    instr_mem_dual_issue imem (
+        .addr(addr),
+        .instr1(instr1),
+        .instr2(instr2)
+    );
+
+    // Test procedure
+    initial begin
+        // Test fetching instructions
+        addr = 0;
+        #10;
+        $display("addr = %h, instr1 = %h, instr2 = %h", addr, instr1, instr2);
+
+        addr = 2;
+        #10;
+        $display("addr = %h, instr1 = %h, instr2 = %h", addr, instr1, instr2);
+
+        addr = 4;
+        #10;
+        $display("addr = %h, instr1 = %h, instr2 = %h", addr, instr1, instr2);
+
+        $finish;
+    end
+
+endmodule
