@@ -1,0 +1,55 @@
+Quartus Prime Archive log --	C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/Pipelined_tmp_archive.qarlog
+
+Archive:	C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/Pipelined_tmp_archive.qar
+Date:		Tue Feb 04 21:00:29 2025
+Quartus Prime		20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+	=========== Files Selected: ===========
+C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/ALU.v
+C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/ANDGate.v
+C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/BranchPredictionUnit.v
+C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/Comparator.v
+C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/HazardDetectionUnit.v
+C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/ORGate.v
+C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/Pipelined.qpf
+C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/Pipelined.qsf
+C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/Pipelined.sdc
+C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/Pipes.v
+C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/SingleCycle.qsf
+C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/XNOR.v
+C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/adder.v
+C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/controlUnit.v
+C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/controlUnit_tb.v
+C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/dataMemory.qip
+C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/dataMemory.v
+C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/dataMemoryInitializationFile.mif
+C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/dataMemory_bb.v
+C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/dataMemory_inst.v
+C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/dual_issue_instr_mem.v
+C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/forwardingUnit.v
+C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/instr_mem_dual_issue_tb.v
+C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/instr_mem_init.txt
+C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/instructionMemory.qip
+C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/instructionMemory.v
+C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/instructionMemoryInitializationFile.mif
+C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/instructionMemory_bb.v
+C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/instructionMemory_inst.v
+C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/muxes.v
+C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/pcCorrection.v
+C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/processor.v
+C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/programCounter.v
+C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/registerFile.v
+C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/registerFile_tb.v
+C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/signextender.v
+C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/testbench.v
+c:/intelfpga_lite/20.1/quartus/bin64/assignment_defaults.qdf
+	======= Total: 38 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
+
+
+******* Archived project restoration attempt on Tue Feb 04 21:00:31 2025
+Source archive file:	C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/Pipelined_tmp_archive.qar
+Archive was extracted into	C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar_copy/
+		 - successfully.
