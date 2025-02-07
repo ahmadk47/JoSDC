@@ -6,18 +6,12 @@ input clk, rst, enable;
 //outputs
 output [7:0] PC;
 
-wire RegWriteEn1D, RegWriteEn2D, bit26_1, bit26_2, Branch1, MemReadEn1, MemWriteEn1, RegWriteEn1, ALUSrc1, Jump1, PcSrc1,
+wire we1, we2, bit26_1, bit26_2, Branch1, MemReadEn1, MemWriteEn1, RegWriteEn1, ALUSrc1, Jump1, PcSrc1,
  Branch2, MemReadEn2, MemWriteEn2, RegWriteEn2, ALUSrc2, Jump2, PcSrc2;
-wire Branch1D, MemReadEn1D, MemWriteEn1D, ALUSrc1D, Jump1D, PcSrc1D;
-wire Branch2D, MemReadEn2D, MemWriteEn2D, ALUSrc2D, Jump2D, PcSrc2D;
  
 wire [1:0] MemtoReg1, RegDst1, MemtoReg2, RegDst2;
 
-wire [1:0] MemtoReg1D, RegDst1D, MemtoReg2D, RegDst2D;
-
 wire [3:0] ALUOp1, ALUOp2;
-
-wire [3:0] ALUOp1D, ALUOp2D;
 
 wire [4:0] readRegister1, readRegister2, readRegister3, readRegister4, writeRegister1, writeRegister2, rd1, rd2, rs1, rs2, rt1, rt2, shamt1, shamt2;
 
@@ -25,13 +19,9 @@ wire [5:0] opCode1, opCode2, funct1, funct2;
 
 wire [15:0] imm1, imm2;
 
-wire [31:0] writeData1, writeData2, readData1, readData2, readData3, readData4, extImm1, extImm2, instr1, instr2,instr1D1, instr2D1;
+wire [31:0] writeData1, writeData2, readData1, readData2, readData3, readData4, extImm1, extImm2, instr1, instr2,instr1D, instr2D;
 
-wire [31:0] instr1D, instr2D;
-
-wire [7:0] branchAdderResult1, branchAdderResult2, PCPlus2, PCPlus2D1, PCD1, branchAdderResult1D1,branchAdderResult2D1 ;
-
-wire [7:0] PCPlus2D, PCD, branchAdderResult1D, branchAdderResult2D;
+wire [7:0] branchAdderResult1, branchAdderResult2, PCPlus2, PCPlus2D, PCD, branchAdderResult1D,branchAdderResult2D ;
 
 
 assign opCode1 = instr1D[31:26];
@@ -53,8 +43,15 @@ assign funct2 = instr2D[5:0];
 assign bit26_2 =instr2D[26];
 
 /**************************************************************FETCH STAGE*********************************************/
+reg [7:0]pcTest;
 
-programCounter pc(.clk(clk), .rst(rst), .enable(enable), .PCin(/*TODO*/), .PCout(PC)); 
+initial begin 
+	pcTest = 0;
+	end
+	always @(posedge clk) begin 
+		pcTest = pcTest+8'd2;
+	end
+programCounter pc(.clk(clk), .rst(rst), .enable(enable), .PCin(pcTest), .PCout(PC)); 
 
 adder #(8) pcAdder(.in1(PC), .in2(8'd2), .out(PCPlus2));
 
@@ -66,17 +63,25 @@ adder #(8) branchAdder1(.in1(PC+1), .in2(instr1[7:0]), .out(branchAdderResult1))
 adder #(8) branchAdder2(.in1(PC+2), .in2(instr2[7:0]), .out(branchAdderResult2));
 
 
-pipe #(96) IF_ID1(.D({PCPlus2,PC,branchAdderResult1,branchAdderResult2, instr1, instr2}), 
-		.Q({PCPlus2D1,PCD1,branchAdderResult1D1,branchAdderResult2D1, instr1D1, instr2D1}), 
+pipe #(96) IF_ID(.D({PCPlus2,PC,branchAdderResult1,branchAdderResult2, instr1, instr2}), 
+		.Q({PCPlus2D,PCD,branchAdderResult1D,branchAdderResult2D, instr1D, instr2D}), 
 		.clk(clk), .reset(~rst), .enable(enable)); 
 
 
 
 
-/**************************************************************DECODE1 (CONTROL SIGNALS CALCULATION) STAGE*********************************************/
+/**************************************************************DECODE STAGE*********************************************/
 
 // registerFile (clk, rst, we1, we2, readRegister1, readRegister2, readRegister3, readRegister4,writeRegister1,writeRegister2,writeData1, writeData2, readData1, readData2, readData3, readData4);
+registerFile RegFile (
+     .clk(clk), .rst(~rst), .we1(we1), .we2(we2), .readRegister1(readRegister1), .readRegister2(readRegister2), .readRegister3(readRegister3)
+	  , .readRegister4(readRegister4),.writeRegister1(writeRegister1), .writeRegister2(writeRegister2), 
+	  .writeData1(writeData1), .writeData2(writeData2), .readData1(readData1), .readData2(readData2), .readData3(readData3), .readData4(readData4));
 
+
+
+signextender SignExtend1(.in(imm1), .out(extImm1));
+signextender SignExtend2(.in(imm2), .out(extImm2));
 
 
 controlUnit CU (
@@ -90,55 +95,16 @@ controlUnit CU (
 );
 
 
-pipe #(126) ID1_ID2(.D({PCPlus2D1,PCD1,branchAdderResult1D1,branchAdderResult2D1, instr1D1, instr2D1,
-						Branch1, MemReadEn1, MemWriteEn1, RegWriteEn1, ALUSrc1, Jump1, PcSrc1, MemtoReg1, RegDst1, ALUOp1,
-						Branch2, MemReadEn2, MemWriteEn2, RegWriteEn2, ALUSrc2, Jump2, PcSrc2, MemtoReg2, RegDst2, ALUOp2 }), 
-		.Q({PCPlus2D,PCD,branchAdderResult1D,branchAdderResult2D, instr1D, instr2D,
-						Branch1D, MemReadEn1D, MemWriteEn1D, RegWriteEn1D, ALUSrc1D, Jump1D, PcSrc1D, MemtoReg1D, RegDst1D, ALUOp1D,
-						Branch2D, MemReadEn2D, MemWriteEn2D, RegWriteEn2D, ALUSrc2D, Jump2D, PcSrc2D, MemtoReg2D, RegDst2D, ALUOp2D}), 
-		.clk(clk), .reset(~rst), .enable(enable)); 
-		
-/**************************************************************DECODE2 (ACCESSING THE REGISTER FILE) STAGE*********************************************/
 
 
-registerFile RegFile (
-     .clk(clk), .rst(~rst), .we1(RegWriteEn1D), .we2(RegWriteEn2D), .readRegister1(rs1), .readRegister2(rt1), .readRegister3(rs2)
-	  , .readRegister4(rt2),.writeRegister1(writeRegister1), .writeRegister2(writeRegister2), 
-	  .writeData1(writeData1), .writeData2(writeData2), .readData1(readData1), .readData2(readData2), .readData3(readData3), .readData4(readData4));
 
 
-signextender SignExtend1(.in(imm1), .out(extImm1));
-signextender SignExtend2(.in(imm2), .out(extImm2));
-
-pipe #(292) ID_EX(
-    .D({
-        PCD, branchAdderResult1D, branchAdderResult2D, 
-        bit26_1, bit26_2, 
-        Branch1D, MemReadEn1D, MemWriteEn1D, MemtoReg1D, RegWriteEn1D, ALUOp1D, RegDst1D, ALUSrc1D, 
-        Branch2D, MemReadEn2D, MemWriteEn2D, MemtoReg2D, RegWriteEn2D, ALUOp2D, RegDst2D, ALUSrc2D, 
-        PCPlus2D, readData1, readData2, readData3, readData4, 
-        extImm1, extImm2, 
-        rs1, rt1, rd1, shamt1, 
-        rs2, rt2, rd2, shamt2
-    }),
-    .Q({
-        PCE, branchAdderResult1E, branchAdderResult2E, 
-        bit26_1E, bit26_2E, 
-        Branch1E, MemReadEn1E, MemWriteEn1E, MemToReg1E, RegWriteEn1E, ALUOp1E, RegDst1E, ALUSrc1E, 
-        Branch2E, MemReadEn2E, MemWriteEn2E, MemToReg2E, RegWriteEn2E, ALUOp2E, RegDst2E, ALUSrc2E, 
-        PCPlus2E, readData1E, readData2E, readData3E, readData4E, 
-        extImm1E, extImm2E, 
-        rs1E, rt1E, rd1E, shamt1E, 
-        rs2E, rt2E, rd2E, shamt2E
-    }), 
-    .clk(clk), .reset(~rst), .enable(enable)
-);
 
 
-/**************************************************************EXECUT(E & ING MYSELF RN) STAGE*********************************************/
 
 
-ALU alu(.operand1(ForwardAMuxOut), .operand2(ALUin2), .shamt(shamtE) ,.opSel(ALUOpE), .result(ALUResult), .overflow(overflow));
+
+
 
 
 
