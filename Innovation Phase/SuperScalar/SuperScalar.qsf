@@ -91,8 +91,6 @@ set_global_assignment -name VERILOG_FILE forwardingUnit.v
 set_global_assignment -name VERILOG_FILE HazardDetectionUnit.v
 set_global_assignment -name VERILOG_FILE ORGate.v
 set_global_assignment -name VERILOG_FILE pcCorrection.v
-set_global_assignment -name VERILOG_FILE dual_issue_instr_mem.v
-set_global_assignment -name VERILOG_FILE instr_mem_dual_issue_tb.v
 set_global_assignment -name VERILOG_FILE registerFile_tb.v
 set_global_assignment -name VERILOG_FILE controlUnit_tb.v
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
@@ -104,3 +102,5 @@ set_global_assignment -name VERILOG_FILE register_alias_table.v
 set_global_assignment -name VERILOG_FILE reservation_station.v
 set_global_assignment -name VERILOG_FILE reorder_buffer.v
 set_global_assignment -name VERILOG_FILE common_data_bus.v
+set_global_assignment -name QIP_FILE dual_issue_inst_memory.qip
+set_global_assignment -name MIF_FILE dual_issue_inst_memory.mif

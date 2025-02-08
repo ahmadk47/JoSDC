@@ -43,7 +43,7 @@ module HazardDetectionUnit (
     // Correct PC signal logic for the two branches
     always @(*) begin
         CPCSignal1 = (takenBranch1 ^ predictionE1) & branch1;
-        CPCSignal2 = (takenBranch2 ^ predictionE2) & branch2;
+        CPCSignal2 = (takenBranch2 ^ predictionE2) & branch2 &~CPCSignal1;
     end
 
 endmodule

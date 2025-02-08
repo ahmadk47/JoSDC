@@ -307,46 +307,46 @@ public class Assembler {
         }
     }
 
-    // public static void main(String[] args) {
-    //     try {
-    //         InstructionScheduler scheduler = new InstructionScheduler();
-    //         Assembler assembler = new Assembler();
-    //         AssemblyPipeline pipeline = new AssemblyPipeline();
-    //         String[] scheduledProgram = scheduler.getProgram();
+    public static void main(String[] args) {
+        try {
+            InstructionScheduler scheduler = new InstructionScheduler();
+            Assembler assembler = new Assembler();
+            AssemblyPipeline pipeline = new AssemblyPipeline();
+            String[] scheduledProgram = scheduler.getProgram();
+            scheduledProgram = scheduler.schedule(scheduledProgram);
+            // String[] optimizedProgram = scheduledProgram.toArray(new String[0]);
+            assembler.firstPass(scheduledProgram);
+            ArrayList<String> machineCode = assembler.secondPass();
 
-    //         // String[] optimizedProgram = scheduledProgram.toArray(new String[0]);
-    //         assembler.firstPass(scheduledProgram);
-    //         ArrayList<String> machineCode = assembler.secondPass();
+            System.out.println("Label Addresses:");
+            for (String label : assembler.labelAddresses.keySet()) {
+                int address = assembler.getLabelAddress(label);
+                System.out.printf("Label %s : Address %d\n", label, address);
+            }
+            System.out.println("*****************************************************");
+            System.out.println("WIDTH=32;");
+            System.out.println("DEPTH=256;");
+            System.out.println("ADDRESS_RADIX=UNS;");
+            System.out.println("DATA_RADIX=BIN;");
+            System.out.println("CONTENT BEGIN");
 
-    //         System.out.println("Label Addresses:");
-    //         for (String label : assembler.labelAddresses.keySet()) {
-    //             int address = assembler.getLabelAddress(label);
-    //             System.out.printf("Label %s : Address %d\n", label, address);
-    //         }
-    //         System.out.println("*****************************************************");
-    //         System.out.println("WIDTH=32;");
-    //         System.out.println("DEPTH=256;");
-    //         System.out.println("ADDRESS_RADIX=UNS;");
-    //         System.out.println("DATA_RADIX=BIN;");
-    //         System.out.println("CONTENT BEGIN");
+            int addr = 0;
+            for (String code : machineCode) {
+                System.out.printf("    %d   : %s;\n", addr++, code);
+            }
 
-    //         int addr = 0;
-    //         for (String code : machineCode) {
-    //             System.out.printf("    %d   : %s;\n", addr++, code);
-    //         }
+            if (addr < 256) {
+                System.out.printf("    [%d..255] : %s;  -- fill the rest with zeros\n",
+                        addr, "00000000000000000000000000000000");
+            }
 
-    //         if (addr < 256) {
-    //             System.out.printf("    [%d..255] : %s;  -- fill the rest with zeros\n",
-    //                     addr, "00000000000000000000000000000000");
-    //         }
+            System.out.println("END;");
 
-    //         System.out.println("END;");
-
-    //     } catch (Exception e) {
-    //         System.out.println("Error: " + e.getMessage());
-    //         e.printStackTrace();
-    //     }
-    // }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
 
     public int getLabelAddress(String label) {
         return labelAddresses.getOrDefault(label, -1);

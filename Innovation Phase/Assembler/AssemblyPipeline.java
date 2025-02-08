@@ -66,11 +66,7 @@ public class AssemblyPipeline {
             // Simulate original program execution
             System.out.println("Original Program Execution:");
             simulateExecution(originalProgram);
-            System.out.println("Final register values:");
-            System.out.println("$2 (counter) = " + registers[2]);
-            System.out.println("$3 (sum) = " + registers[3]);
-            System.out.println("$4 (bound) = " + registers[4]);
-            System.out.println("$5 (comparison) = " + registers[5]);
+           
 
             // Get scheduled program
             String[] scheduledProgram = scheduler.schedule(originalProgram);
@@ -78,11 +74,7 @@ public class AssemblyPipeline {
             // Simulate scheduled program execution
             System.out.println("\nScheduled Program Execution:");
             simulateExecution(scheduledProgram);
-            System.out.println("Final register values:");
-            System.out.println("$2 (counter) = " + registers[2]);
-            System.out.println("$3 (sum) = " + registers[3]);
-            System.out.println("$4 (bound) = " + registers[4]);
-            System.out.println("$5 (comparison) = " + registers[5]);
+           
             
             // Generate machine code for both versions
             assembler.firstPass(originalProgram);
