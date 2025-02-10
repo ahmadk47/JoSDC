@@ -3,6 +3,7 @@ import java.util.*;
 public class InstructionScheduler {
     private static final int UNROLL_FACTOR = 3;
     private int nextRegister = 8;
+    
     private static class Instruction {
         String original;
         String op;
@@ -40,9 +41,13 @@ public class InstructionScheduler {
         }
         
         private void analyzeInstruction() {
+            isArithmetic = false;
+            isMemory = false;
+            isBranch = false;
+            
             switch (op) {
                 // Arithmetic operations
-                case "add": case "sub":
+                case "add": case "sub": case "mul": case "div":
                 case "and": case "or": case "xor": case "nor":
                 case "slt": case "sll": case "srl":
                     isArithmetic = true;
@@ -54,9 +59,8 @@ public class InstructionScheduler {
                     break;
                 
                 // Immediate arithmetic
-                case "addi": case "subi":
-                case "andi": case "ori": case "xori":
-                case "slti":
+                case "addi": case "subi": case "xori":
+                case "andi": case "ori": case "slti":
                     isArithmetic = true;
                     if (operands.size() >= 2) {
                         writeRegs.add(operands.get(0));
@@ -65,12 +69,12 @@ public class InstructionScheduler {
                     break;
                 
                 // Memory operations
-                case "lw":case "sw":
+                case "lw": case "sw":
                     isMemory = true;
                     if (operands.size() >= 2) {
-                        if (op.startsWith("l")) {  // Load
+                        if (op.equals("lw")) {
                             writeRegs.add(operands.get(0));
-                        } else {  // Store
+                        } else {
                             readRegs.add(operands.get(0));
                         }
                         String[] memOp = parseMemoryOperand(operands.get(1));
@@ -79,12 +83,18 @@ public class InstructionScheduler {
                     break;
                 
                 // Branch/Jump operations
-                case "beq": case "bne": case "bltz": case "bgez": case "j": case "jal":
-                case "jr": 
+                case "beq": case "bne": case "bltz": case "bgez": 
+                case "j": case "jal": case "jr":
                     isBranch = true;
-                    if (operands.size() >= 2 && !op.startsWith("j")) {
+                    if (op.equals("jal")) {
+                        writeRegs.add("31"); // $ra
+                    }
+                    if (op.equals("jr")) {
                         readRegs.add(operands.get(0));
-                        if (!operands.get(1).matches("^-?\\d+$")) {
+                    }
+                    if (!op.startsWith("j")) {
+                        readRegs.add(operands.get(0));
+                        if (operands.size() > 1 && !operands.get(1).matches("^-?\\d+$")) {
                             readRegs.add(operands.get(1));
                         }
                     }
@@ -103,52 +113,22 @@ public class InstructionScheduler {
         }
     }
 
-    // Represents a scheduled packet of up to 2 instructions
-    private static class InstructionPacket {
-        List<Instruction> instructions;
-        
-        public InstructionPacket() {
-            this.instructions = new ArrayList<>(2);  // Max size 2
-        }
-        
-        public boolean canAdd(Instruction inst) {
-            if (instructions.size() >= 2) return false;
-            
-            // Check structural hazards
-            if (instructions.isEmpty()) return true;
-            
-            Instruction existing = instructions.get(0);
-            
-            // Can't have two branch instructions
-            if (inst.isBranch && existing.isBranch) return false;
-            
-            // Can't have two memory instructions
-            if (inst.isMemory && existing.isMemory) return false;
-            
-            return true;
-        }
-        
-        public boolean addInstruction(Instruction inst) {
-            if (canAdd(inst)) {
-                instructions.add(inst);
-                return true;
-            }
-            return false;
-        }
-    }
-
-    // Track register dependencies
     private static class DependencyTracker {
         private Map<String, Integer> lastWrite;
         private Map<String, Integer> lastRead;
+        private int lastBranch;
         
         public DependencyTracker() {
             this.lastWrite = new HashMap<>();
             this.lastRead = new HashMap<>();
+            this.lastBranch = -1;
         }
         
         public boolean hasDependency(Instruction inst, int currentIndex) {
-            // Check RAW dependencies
+            // Control dependency
+            if (lastBranch >= currentIndex - 1) return true;
+            
+            // RAW dependencies
             for (String reg : inst.readRegs) {
                 if (lastWrite.containsKey(reg)) {
                     int lastWriteIndex = lastWrite.get(reg);
@@ -156,7 +136,7 @@ public class InstructionScheduler {
                 }
             }
             
-            // Check WAW dependencies
+            // WAW dependencies
             for (String reg : inst.writeRegs) {
                 if (lastWrite.containsKey(reg)) {
                     int lastWriteIndex = lastWrite.get(reg);
@@ -164,7 +144,7 @@ public class InstructionScheduler {
                 }
             }
             
-            // Check WAR dependencies
+            // WAR dependencies
             for (String reg : inst.writeRegs) {
                 if (lastRead.containsKey(reg)) {
                     int lastReadIndex = lastRead.get(reg);
@@ -176,6 +156,9 @@ public class InstructionScheduler {
         }
         
         public void updateDependencies(Instruction inst, int index) {
+            if (inst.isBranch) {
+                lastBranch = index;
+            }
             for (String reg : inst.readRegs) {
                 lastRead.put(reg, index);
             }
@@ -184,207 +167,6 @@ public class InstructionScheduler {
             }
         }
     }
-    public String[] schedule(String[] program) {
-        // Parse instructions
-        List<Instruction> instructions = new ArrayList<>();
-        for (int i = 0; i < program.length; i++) {
-            if (!program[i].trim().isEmpty()) {
-                instructions.add(new Instruction(program[i], i));
-            }
-        }
-
-        // Identify and unroll loops
-        List<Loop> loops = identifyLoops(instructions);
-        List<String> optimized = new ArrayList<>();
-        int currentPos = 0;
-
-        // Process instructions with loop unrolling
-        for (Loop loop : loops) {
-            // Add instructions before the loop
-            while (currentPos < loop.startIndex) {
-                optimized.add(instructions.get(currentPos).original);
-                currentPos++;
-            }
-
-            if (loop.isUnrollable()) {
-                // Unroll and add the loop
-                optimized.addAll(unrollLoop(loop, instructions));
-            } else {
-                // Add original loop if not unrollable
-                for (int i = loop.startIndex; i <= loop.endIndex; i++) {
-                    optimized.add(instructions.get(i).original);
-                }
-            }
-            currentPos = loop.endIndex + 1;
-        }
-
-        // Add remaining instructions
-        while (currentPos < instructions.size()) {
-            optimized.add(instructions.get(currentPos).original);
-            currentPos++;
-        }
-
-        // Now perform instruction scheduling on the optimized code
-        return scheduleInstructions(optimized.toArray(new String[0]));
-    }
-
-    public String[] scheduleInstructions(String[] program) {
-        // Parse instructions
-        List<Instruction> instructions = new ArrayList<>();
-        for (int i = 0; i < program.length; i++) {
-            if (!program[i].trim().isEmpty()) {
-                instructions.add(new Instruction(program[i], i));
-            }
-        }
-        
-        List<String> scheduledProgram = new ArrayList<>();
-        DependencyTracker depTracker = new DependencyTracker();
-        
-        int i = 0;
-        while (i < instructions.size()) {
-            Instruction inst1 = instructions.get(i);
-            
-            // Handle labels - must be on their own line
-            if (inst1.op.equals("label")) {
-                scheduledProgram.add(inst1.original);
-                i++;
-                continue;
-            }
-            
-            // Skip comments
-            if (inst1.op.equals("comment")) {
-                i++;
-                continue;
-            }
-            
-            // Try to find a second instruction that can be paired
-            Instruction inst2 = null;
-            int j = i + 1;
-            while (j < instructions.size()) {
-                Instruction candidate = instructions.get(j);
-                
-                // Skip labels and comments when looking for second instruction
-                if (candidate.op.equals("label") || candidate.op.equals("comment")) {
-                    break;
-                }
-                
-                // Check if instructions can be paired
-                if (canScheduleTogether(inst1, candidate) && 
-                    !depTracker.hasDependency(candidate, j)) {
-                    inst2 = candidate;
-                    instructions.remove(j);  // Remove it so we don't schedule it again
-                    break;
-                }
-                j++;
-            }
-            
-            // Update dependency tracking
-            depTracker.updateDependencies(inst1, i);
-            if (inst2 != null) {
-                depTracker.updateDependencies(inst2, i+1);
-                
-                // Add both instructions in desired order
-                if (shouldSwapOrder(inst1, inst2)) {
-                    scheduledProgram.add(inst2.original);
-                    scheduledProgram.add(inst1.original);
-                } else {
-                    scheduledProgram.add(inst1.original);
-                    scheduledProgram.add(inst2.original);
-                }
-            } else {
-                // No paired instruction found, add single instruction
-                scheduledProgram.add(inst1.original);
-            }
-            
-            i++;
-        }
-        
-        return scheduledProgram.toArray(new String[0]);
-    }
-    private boolean canScheduleTogether(Instruction inst1, Instruction inst2) {
-        // Can't pair if either is a label
-        if (inst1.op.equals("label") || inst2.op.equals("label")) {
-            return false;
-        }
-        
-        // Can't pair two branch instructions
-        if (inst1.isBranch && inst2.isBranch) {
-            return false;
-        }
-        
-        // Can't pair two memory instructions
-        if (inst1.isMemory && inst2.isMemory) {
-            return false;
-        }
-        
-        // Check for dependencies between the instructions
-        if (hasDirectDependency(inst1, inst2)) {
-            return false;
-        }
-        
-        return true;
-    }
-    
-    private boolean hasDirectDependency(Instruction inst1, Instruction inst2) {
-        // Check RAW
-        for (String reg : inst2.readRegs) {
-            if (inst1.writeRegs.contains(reg)) {
-                return true;
-            }
-        }
-        
-        // Check WAW
-        for (String reg : inst2.writeRegs) {
-            if (inst1.writeRegs.contains(reg)) {
-                return true;
-            }
-        }
-        
-        // Check WAR
-        for (String reg : inst2.writeRegs) {
-            if (inst1.readRegs.contains(reg)) {
-                return true;
-            }
-        }
-        
-        return false;
-    }
-    
-    private boolean shouldSwapOrder(Instruction inst1, Instruction inst2) {
-        // Keep branches at the end of the pair
-        if (inst2.isBranch) {
-            return false;
-        }
-        if (inst1.isBranch) {
-            return true;
-        }
-        
-        // Prefer memory operations first
-        if (inst1.isMemory && !inst2.isMemory) {
-            return false;
-        }
-        if (!inst1.isMemory && inst2.isMemory) {
-            return true;
-        }
-        
-        // Default to original order
-        return false;
-    }
-
-    // Helper method to convert scheduled packets to string array
-    public String[] getScheduledProgram(List<InstructionPacket> packets) {
-        List<String> scheduled = new ArrayList<>();
-        for (InstructionPacket packet : packets) {
-            if (packet.instructions.size() == 2) {
-                scheduled.add(packet.instructions.get(0).original + " || " + 
-                            packet.instructions.get(1).original);
-            } else {
-                scheduled.add(packet.instructions.get(0).original);
-            }
-        }
-        return scheduled.toArray(new String[0]);
-    }
-   
 
     private static class Loop {
         int startIndex;
@@ -408,7 +190,6 @@ public class InstructionScheduler {
         }
 
         private void analyzeLoop() {
-            // Find counter register and step size
             for (Instruction inst : body) {
                 if (inst.op.equals("addi") && inst.operands.get(0).equals(inst.operands.get(1))) {
                     counterReg = inst.operands.get(0);
@@ -418,15 +199,13 @@ public class InstructionScheduler {
                         step = 1;
                     }
                 }
-                // Collect modified registers
                 modifiedRegs.addAll(inst.writeRegs);
             }
 
-            // Find bound register from branch instruction
             if (branchInst.op.equals("beq") || branchInst.op.equals("bne")) {
                 boundReg = branchInst.operands.get(1);
             }
-            else if(branchInst.op.equals("bgez") || branchInst.op.equals("bltz")){
+            else if(branchInst.op.equals("bgez") || branchInst.op.equals("bltz")) {
                 boundReg = branchInst.operands.get(0);
             }
         }
@@ -447,7 +226,7 @@ public class InstructionScheduler {
 
         public String getRenamedRegister(String original) {
             if (!original.startsWith("$")) {
-                return original;  // Not a register
+                return original;
             }
             return registerMap.computeIfAbsent(original, k -> "$" + nextRegister++);
         }
@@ -457,47 +236,199 @@ public class InstructionScheduler {
         }
     }
 
+    public String[] schedule(String[] program) {
+        List<Instruction> instructions = new ArrayList<>();
+        for (int i = 0; i < program.length; i++) {
+            if (!program[i].trim().isEmpty()) {
+                instructions.add(new Instruction(program[i], i));
+            }
+        }
+
+        List<Loop> loops = identifyLoops(instructions);
+        List<String> optimized = new ArrayList<>();
+        int currentPos = 0;
+
+        for (Loop loop : loops) {
+            while (currentPos < loop.startIndex) {
+                optimized.add(instructions.get(currentPos).original);
+                currentPos++;
+            }
+
+            if (loop.isUnrollable()) {
+                optimized.addAll(unrollLoop(loop, instructions));
+            } else {
+                for (int i = loop.startIndex; i <= loop.endIndex; i++) {
+                    optimized.add(instructions.get(i).original);
+                }
+            }
+            currentPos = loop.endIndex + 1;
+        }
+
+        while (currentPos < instructions.size()) {
+            optimized.add(instructions.get(currentPos).original);
+            currentPos++;
+        }
+
+        return scheduleInstructions(optimized.toArray(new String[0]));
+    }
+
+    public String[] scheduleInstructions(String[] program) {
+        List<Instruction> instructions = new ArrayList<>();
+        for (int i = 0; i < program.length; i++) {
+            if (!program[i].trim().isEmpty()) {
+                instructions.add(new Instruction(program[i], i));
+            }
+        }
+        
+        List<String> scheduledProgram = new ArrayList<>();
+        DependencyTracker depTracker = new DependencyTracker();
+        
+        int i = 0;
+        while (i < instructions.size()) {
+            Instruction inst1 = instructions.get(i);
+            
+            if (inst1.op.equals("label") || inst1.op.equals("comment")) {
+                scheduledProgram.add(inst1.original);
+                i++;
+                continue;
+            }
+            
+            Instruction inst2 = null;
+            int j = i + 1;
+            
+            while (j < instructions.size()) {
+                Instruction candidate = instructions.get(j);
+                
+                if (candidate.op.equals("label") || candidate.op.equals("comment")) {
+                    break;
+                }
+                
+                if (canScheduleTogether(inst1, candidate) && 
+                    !depTracker.hasDependency(candidate, j) &&
+                    !hasDirectDependency(inst1, candidate)) {
+                    inst2 = candidate;
+                    instructions.remove(j);
+                    break;
+                }
+                j++;
+            }
+            
+            depTracker.updateDependencies(inst1, i);
+            
+            if (inst2 != null) {
+                depTracker.updateDependencies(inst2, i+1);
+                
+                if (shouldSwapOrder(inst1, inst2)) {
+                    scheduledProgram.add(inst2.original);
+                    scheduledProgram.add(inst1.original);
+                } else {
+                    scheduledProgram.add(inst1.original);
+                    scheduledProgram.add(inst2.original);
+                }
+            } else {
+                // If there's a dependency, add NOP
+                if (i + 1 < instructions.size() && 
+                    (hasDirectDependency(inst1, instructions.get(i + 1)) || 
+                     depTracker.hasDependency(instructions.get(i + 1), i + 1))) {
+                    scheduledProgram.add(inst1.original);
+                    scheduledProgram.add("nop");
+                } else {
+                    scheduledProgram.add(inst1.original);
+                }
+            }
+            
+            i++;
+        }
+        
+        return scheduledProgram.toArray(new String[0]);
+    }
+
+    private boolean canScheduleTogether(Instruction inst1, Instruction inst2) {
+        if (inst1.op.equals("label") || inst2.op.equals("label")) return false;
+        if (inst1.isBranch && inst2.isBranch) return false;
+        if (inst1.isMemory && inst2.isMemory) return false;
+        
+        // Don't reorder branch condition setup (like slt) with its branch
+        if (inst2.isBranch && inst2.readRegs.stream().anyMatch(reg -> inst1.writeRegs.contains(reg))) {
+            return false;
+        }
+        
+        if (inst1.isBranch) return false;
+        if (inst1.op.equals("jal") || inst2.op.equals("jal")) return false;
+        
+        return true;
+    }
+
+    private boolean hasDirectDependency(Instruction inst1, Instruction inst2) {
+        // If inst2 is a branch and inst1 sets a condition register that the branch uses,
+        // they must be kept in order
+        if (inst2.isBranch && inst2.readRegs.stream().anyMatch(reg -> inst1.writeRegs.contains(reg))) {
+            return true;
+        }
+        
+        // Regular dependency checks
+        // RAW
+        for (String reg : inst2.readRegs) {
+            if (inst1.writeRegs.contains(reg)) return true;
+        }
+        
+        // WAW
+        for (String reg : inst2.writeRegs) {
+            if (inst1.writeRegs.contains(reg)) return true;
+        }
+        
+        // WAR
+        for (String reg : inst2.writeRegs) {
+            if (inst1.readRegs.contains(reg)) return true;
+        }
+        
+        return false;
+    }
+    
+   
+
+    private boolean shouldSwapOrder(Instruction inst1, Instruction inst2) {
+        if (inst2.isBranch) return false;
+        if (inst1.isBranch) return true;
+        if (inst1.isMemory && inst2.isArithmetic) return false;
+        if (inst2.isMemory && inst1.isArithmetic) return true;
+        return false;
+    }
+
     private List<String> unrollLoop(Loop loop, List<Instruction> instructions) {
         List<String> unrolled = new ArrayList<>();
         RegisterRenamer renamer = new RegisterRenamer(nextRegister);
 
-        // Add original loop label
         unrolled.add(loop.label + ":");
 
-        // Generate unrolled iterations
         for (int i = 0; i < UNROLL_FACTOR; i++) {
-            // Create new register mappings for this iteration
             RegisterRenamer iterationRenamer = new RegisterRenamer(nextRegister + (i * loop.modifiedRegs.size()));
 
-            // Process each instruction in loop body
             for (Instruction inst : loop.body) {
-                if (!inst.op.equals("beq")&&!inst.op.equals("bgez")&&!inst.op.equals("bltz") && !inst.op.equals("bne") && !inst.isBranch) {
+                if (!inst.op.equals("beq") && !inst.op.equals("bgez") && 
+                    !inst.op.equals("bltz") && !inst.op.equals("bne") && 
+                    !inst.isBranch) {
                     String newInst = rewriteInstruction(inst, iterationRenamer);
                     unrolled.add(newInst);
                 }
             }
 
-            // Add early exit check except for last iteration
             if (i < UNROLL_FACTOR - 1) {
                 String exitCheckSlt = generateExitCheckSlt(loop, i, iterationRenamer);
                 unrolled.add(exitCheckSlt);
                 String exitCheckBne = generateExitCheckBne(loop, i, iterationRenamer);
                 unrolled.add(exitCheckBne);
-
             }
         }
 
-        // Update original registers with final values
         for (String reg : loop.modifiedRegs) {
             String lastRenamedReg = renamer.getRenamedRegister(reg);
             unrolled.add("add " + reg + ", " + lastRenamedReg + ", $0");
         }
 
-        // Add loop continuation check
         unrolled.add(rewriteBranchInstruction(loop.branchInst, loop.label));
         unrolled.add("exit_" + loop.label + ":");
 
-        // Update nextRegister for future use
         nextRegister += UNROLL_FACTOR * loop.modifiedRegs.size();
 
         return unrolled;
@@ -505,7 +436,6 @@ public class InstructionScheduler {
 
     private String rewriteInstruction(Instruction inst, RegisterRenamer renamer) {
         String result = inst.op;
-        
         for (String operand : inst.operands) {
             if (operand.startsWith("$")) {
                 result += " " + renamer.getRenamedRegister(operand) + ",";
@@ -513,8 +443,6 @@ public class InstructionScheduler {
                 result += " " + operand + ",";
             }
         }
-        
-        // Remove trailing comma
         return result.substring(0, result.length() - 1);
     }
 
@@ -522,13 +450,12 @@ public class InstructionScheduler {
         String conditionReg = renamer.getRenamedRegister("$condition");
         String counterReg = renamer.getRenamedRegister(loop.counterReg);
         String boundReg = loop.boundReg;
-        String exitCheck = "slt " + conditionReg + ", " + boundReg + ", " + counterReg;
-        return exitCheck;
+        return "slt " + conditionReg + ", " + boundReg + ", " + counterReg;
     }
+
     private String generateExitCheckBne(Loop loop, int iteration, RegisterRenamer renamer) {
         String conditionReg = renamer.getRenamedRegister("$condition");
-        String exitCheck = "bne " + conditionReg + ", $0, exit_" + loop.label;
-        return exitCheck;
+        return "bne " + conditionReg + ", $0, exit_" + loop.label;
     }
 
     private String rewriteBranchInstruction(Instruction branch, String label) {
@@ -565,44 +492,69 @@ public class InstructionScheduler {
         }
         return loops;
     }
-
-    public String[] getProgram() {
-        return new String[]{
-            "xori $24, $0, 0x5",
-            "xori $25, $0, 0x3",
-            "jal mul_fun",
-            "j finish",
-            "mul_fun:",
-            "andi $23, $0, 0",
-            "addi $22, $25, -1",
-            "loop:",
-            "add  $23, $23, $24",
-            "addi $22, $22, -1",
-            "bgez $22, loop",
-            "jr $31",
-            "finish:",
-            "nop"
-        };
+    public static String[] getProgram(){
+         return new String[]{
+            "addi $3, $0, 5",
+            "lw $2, 0($4)",
+            "add $5, $2, $3",
+            "sw $5, 4($4)",
+            "sub $6, $5, $2"
+         };
     }
-
+    // Example usage
     public static void main(String[] args) {
         InstructionScheduler scheduler = new InstructionScheduler();
         
-        // Get sample program
-        String[] program = scheduler.getProgram();
+        // Test case 1: Basic arithmetic and memory operations
+        String[] program1 = {
+            "addi $3, $0, 5",
+            "lw $2, 0($4)",
+            "add $5, $2, $3",
+            "sw $5, 4($4)",
+            "sub $6, $5, $2"
+        };
         
-        // Schedule the program
-        String[] scheduled = scheduler.schedule(program);
+        // Test case 2: Loop with unrolling opportunity
+        String[] program2 = {
+            "loop_start:",
+            "lw $2, 0($4)",
+            "add $3, $3, $2",
+            "addi $4, $4, 4",
+            "addi $5, $5, -1",
+            "bgez $5, loop_start"
+        };
         
-        System.out.println("Original Program:");
-        for (String inst : program) {
+        // Test case 3: Complex dependencies
+        String[] program3 = {
+            "add $2, $1, $0",
+            "sub $3, $2, $1",
+            "lw $4, 0($3)",
+            "add $5, $4, $2",
+            "sw $5, 4($3)",
+            "beq $5, $0, label"
+        };
+        
+        System.out.println("Test Case 1 - Basic Operations:");
+        String[] scheduled1 = scheduler.schedule(program1);
+        printProgram(program1, scheduled1);
+        
+        System.out.println("\nTest Case 2 - Loop Unrolling:");
+        String[] scheduled2 = scheduler.schedule(program2);
+        printProgram(program2, scheduled2);
+        
+        System.out.println("\nTest Case 3 - Complex Dependencies:");
+        String[] scheduled3 = scheduler.schedule(program3);
+        printProgram(program3, scheduled3);
+    }
+    
+    private static void printProgram(String[] original, String[] scheduled) {
+        System.out.println("Original program:");
+        for (String inst : original) {
             System.out.println(inst);
         }
-        
-        System.out.println("\nScheduled Program:");
+        System.out.println("\nScheduled program:");
         for (String inst : scheduled) {
             System.out.println(inst);
         }
     }
 }
-

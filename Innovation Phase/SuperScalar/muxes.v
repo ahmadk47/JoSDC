@@ -13,7 +13,7 @@ module mux2x1 #(parameter size = 32) (in1, in2, s, out);
 endmodule 
 
 
-module mux3to1 #(parameter size = 32) (in1,in2,in3, s, out); // added 3 to 1 mux
+module mux3to1 #(parameter size = 32) (in1, in2, in3, s, out); // added 3 to 1 mux
 
 input [1:0] s;
 input [size - 1:0] in1, in2, in3;
@@ -34,4 +34,31 @@ always@(*) begin
 end
 
 endmodule
+
+module mux5to1 #(parameter size = 32) (in1, in2, in3, in4, in5, s, out); // added 3 to 1 mux
+
+input [2:0] s;
+input [size - 1:0] in1, in2, in3, in4, in5;
+output reg[size - 1:0] out;
+
+
+always@(*) begin
+
+	case (s)
+	3'b000: out = in1;
+	3'b001: out = in2;
+	3'b010: out = in3;
+	3'b011: out = in4;
+	3'b100: out = in5;
+	3'b101: out = {size{1'b0}};
+	3'b110: out = {size{1'b0}};
+	3'b111: out = {size{1'b0}};
+	default: out = {size{1'b0}};
+	
+	endcase
+	
+end
+
+endmodule
+
 

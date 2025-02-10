@@ -7,20 +7,20 @@ module BranchPredictionUnit (
     input clk, reset;
     input branch1, branch2;            // Branch signals for the two instructions
     input branch_taken1, branch_taken2; // Whether the branches were taken or not
-    input [7:0] pc1, pc2;              // Program counters for the two instructions
-    input [7:0] pcE1, pcE2;            // Program counters for the two instructions in Execute stage
+    input [10:0] pc1, pc2;              // Program counters for the two instructions
+    input [10:0] pcE1, pcE2;            // Program counters for the two instructions in Execute stage
 
     // Outputs
     output reg prediction1, prediction2; // Predictions for the two branches
 
     // Branch History Table (BHT)
-    reg [1:0] BHT [0:63]; // 64-entry BHT, 2-bit saturating counters
+    reg [1:0] BHT [0:31]; // 64-entry BHT, 2-bit saturating counters
 
     // Indexes for accessing the BHT
-    wire [5:0] index1 = pc1[5:0];  // Index for the first branch
-    wire [5:0] index2 = pc2[5:0];  // Index for the second branch
-    wire [5:0] indexE1 = pcE1[5:0]; // Index for the first branch in Execute stage
-    wire [5:0] indexE2 = pcE2[5:0]; // Index for the second branch in Execute stage
+    wire [4:0] index1 = pc1[4:0];  // Index for the first branch
+    wire [4:0] index2 = pc2[4:0];  // Index for the second branch
+    wire [4:0] indexE1 = pcE1[4:0]; // Index for the first branch in Execute stage
+    wire [4:0] indexE2 = pcE2[4:0]; // Index for the second branch in Execute stage
 
     // Prediction logic for the first branch
     always @(*) begin
@@ -45,11 +45,11 @@ module BranchPredictionUnit (
     end
 
     // Update logic for the BHT
-    always @(posedge clk or negedge reset) begin
+    always @(posedge clk or negedge reset) begin : bLoCk
         integer i;
         if (~reset) begin
             // Initialize BHT to Weakly Not Taken (2'b01)
-            for (i = 0; i < 64; i = i + 1) begin
+            for (i = 0; i < 31; i = i + 1) begin
                 BHT[i] <= 2'b01;
             end
         end else begin

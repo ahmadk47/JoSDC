@@ -5,7 +5,7 @@ output reg [size - 1:0] Q;
 
 
 
-always @(posedge clk) begin
+always @(posedge clk, negedge reset) begin
 
 
 if (~reset)

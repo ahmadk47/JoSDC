@@ -98,7 +98,7 @@ public class AssemblyPipeline {
             
             System.out.println("*****************************************************");
             System.out.println("WIDTH=32;");
-            System.out.println("DEPTH=256;");
+            System.out.println("DEPTH=2048;");
             System.out.println("ADDRESS_RADIX=UNS;");
             System.out.println("DATA_RADIX=BIN;");
             System.out.println("CONTENT BEGIN");
@@ -108,8 +108,8 @@ public class AssemblyPipeline {
                 System.out.printf("    %d   : %s;\n", addr++, code);
             }
 
-            if (addr < 256) {
-                System.out.printf("    [%d..255] : %s;  -- fill the rest with zeros\n",
+            if (addr < 2048) {
+                System.out.printf("    [%d..2047] : %s;  -- fill the rest with zeros\n",
                         addr, "00000000000000000000000000000000");
             }
 
@@ -117,13 +117,21 @@ public class AssemblyPipeline {
 
             System.out.println("*********************Modified Program********************");
 
+            System.out.println("*****************************************************");
+            System.out.println("WIDTH=32;");
+            System.out.println("DEPTH=2048;");
+            System.out.println("ADDRESS_RADIX=UNS;");
+            System.out.println("DATA_RADIX=BIN;");
+            System.out.println("CONTENT BEGIN");
+
+
             int addr1 = 0;
             for (String code : scheduledMachineCode) {
                 System.out.printf("    %d   : %s;\n", addr1++, code);
             }
 
-            if (addr1 < 256) {
-                System.out.printf("    [%d..255] : %s;  -- fill the rest with zeros\n",
+            if (addr1 < 2048) {
+                System.out.printf("    [%d..2047] : %s;  -- fill the rest with zeros\n",
                         addr1, "00000000000000000000000000000000");
             }
 

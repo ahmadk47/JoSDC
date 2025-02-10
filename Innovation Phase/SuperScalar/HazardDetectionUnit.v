@@ -41,9 +41,14 @@ module HazardDetectionUnit (
     end
 
     // Correct PC signal logic for the two branches
+	 initial begin 
+	 	  CPCSignal1=0;
+		  CPCSignal2=0;
+	 end
     always @(*) begin
+
         CPCSignal1 = (takenBranch1 ^ predictionE1) & branch1;
-        CPCSignal2 = (takenBranch2 ^ predictionE2) & branch2 &~CPCSignal1;
+        CPCSignal2 = (takenBranch2 ^ predictionE2) & branch2;
     end
 
-endmodule
+endmodule 

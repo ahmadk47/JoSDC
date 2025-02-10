@@ -22,7 +22,7 @@ module registerFile (
     // Write to the register file
     always @(negedge clk or negedge rst) begin : block
         integer i;
-        if (!rst) begin
+        if (~rst) begin
             for (i = 0; i < 32; i = i + 1) registers[i] = 0;
         end else begin
             if (we1 && writeRegister1 != 0) registers[writeRegister1] <= writeData1;

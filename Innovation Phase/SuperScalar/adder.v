@@ -1,6 +1,6 @@
 // parameterized adder module
 
-module adder #(parameter size = 8) (in1, in2, out);
+module adder #(parameter size = 11) (in1, in2, out);
 	// size parameter
 	// inputs
 	input wire [size-1:0] in1, in2;

@@ -3,14 +3,14 @@ module testbench;
 
 	reg clk, rst, enable;
 	
-	wire [7:0] PC;
+	wire [10:0] PC;
 	
 	initial begin
 		clk = 0;
 		rst = 0;
 		enable = 1;
 		#4 rst = 1;
-		#200 $stop;
+		#100 $stop;
 	end
 	
 	always #5 clk = ~clk;

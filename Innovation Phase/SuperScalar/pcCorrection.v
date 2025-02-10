@@ -7,11 +7,11 @@ module pcCorrection (
     // Inputs
     input PredictionE1, PredictionE2; // Predictions for the two branches
     input branch_taken1, branch_taken2; // Whether the branches were taken or not
-    input [7:0] PCE1, PCE2; // Program counters for the two instructions in Execute stage
-    input [7:0] branchAdderResultE1, branchAdderResultE2; // Branch target addresses for the two instructions
+    input [10:0] PCE1, PCE2; // Program counters for the two instructions in Execute stage
+    input [10:0] branchAdderResultE1, branchAdderResultE2; // Branch target addresses for the two instructions
 
     // Outputs
-    output reg [7:0] CorrectedPC1, CorrectedPC2; // Corrected PCs for the two branches
+    output reg [10:0] CorrectedPC1, CorrectedPC2; // Corrected PCs for the two branches
 
     // Correction logic for the first branch
     always @(*) begin
@@ -29,4 +29,4 @@ module pcCorrection (
         end
     end
 
-endmodule
+endmodule 
