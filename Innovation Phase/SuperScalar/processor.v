@@ -97,10 +97,14 @@ mux2x1 #(11) cpcMux(.in1(CorrectedPC1), .in2(CorrectedPC2), .s(CPCSignal2), .out
 
 mux2x1 #(11) nexPcMux(.in1(BJPC), .in2(CPC), .s(CPCSignal1|CPCSignal2), .out(nextPC));
 
-programCounter pc(.clk(clk), .rst(rst), .enable(enable), .PCin(nextPC), .PCout(PC)); 
-adder #(11) nextPcAdder(.in1(nextPC), .in2(11'd1), .out(nextPCP1));
-adder #(11) pcAdder(.in1(PC), .in2(11'd2), .out(PCPlus2));
-adder #(11) pcAdder2(.in1(PC), .in2(11'd1), .out(PCPlus1));
+programCounter pc(.clk(clk), .rst(rst), .enable(enable), .PCin(nextPC), .PCout(PC));
+
+AdderIP nextPcAdder(.data0x(nextPC),.data1x(11'd1),.result(nextPCP1));
+AdderIP pcAdder(.data0x(PC),.data1x(11'd2),.result(PCPlus2));
+AdderIP pcAdder2(.data0x(PC),.data1x(11'd1),.result(PCPlus1)); 
+//adder #(11) nextPcAdder(.in1(nextPC), .in2(11'd1), .out(nextPCP1));
+//adder #(11) pcAdder(.in1(PC), .in2(11'd2), .out(PCPlus2));
+//adder #(11) pcAdder2(.in1(PC), .in2(11'd1), .out(PCPlus1));
 
 
 
@@ -112,8 +116,10 @@ dual_issue_inst_mem instMem(
 								.q_b(instr2));
 
 
-adder #(11) branchAdder1(.in1(PCPlus1), .in2(instr1[10:0]), .out(branchAdderResult1));
-adder #(11) branchAdder2(.in1(PCPlus2), .in2(instr2[10:0]), .out(branchAdderResult2));
+AdderIP branchAdder1(.data0x(PCPlus1),.data1x(instr1[10:0]),.result(branchAdderResult1));
+AdderIP branchAdder2(.data0x(PCPlus2),.data1x(instr2[10:0]),.result(branchAdderResult2));
+//adder #(11) branchAdder1(.in1(PCPlus1), .in2(instr1[10:0]), .out(branchAdderResult1));
+//adder #(11) branchAdder2(.in1(PCPlus2), .in2(instr2[10:0]), .out(branchAdderResult2));
 
 BranchPredictionUnit BPU (
     .clk(clk), .reset(rst), .branch1(Branch1E), .branch2(Branch2E), .branch_taken1(branch_taken1), .branch_taken2(branch_taken2), 
@@ -217,12 +223,13 @@ mux5to1 #(32) ForwardB2Mux(.in1(readData4E),  .in2(ALUResult1M),.in3(ALUResult2M
 mux2x1 #(32) ALUMux2(.in1(ForwardBMuxOut2), .in2(extImm2E), .s(ALUSrc2E), .out(ALUin2));
 ALU alu2(.operand1(ForwardAMuxOut2), .operand2(ALUin2), .shamt(shamt2E) ,.opSel(ALUOp2E), .result(ALUResult2), .overflow(overflow2));
 
-
-Comparator #(32) comp1 (zero1, ForwardAMuxOut1, ForwardBMuxOut1);
+ComparatorIP comp1(.dataa(ForwardBMuxOut1),.datab(ForwardAMuxOut1),.aeb(zero1));
+//Comparator #(32) comp1 (zero1, ForwardAMuxOut1, ForwardBMuxOut1);
 XNORGate branchXnor1(.out(xnorOut1), .in1(bit26_1E), .in2(~zero1));
 ANDGate branchAnd1(.in1(xnorOut1), .in2(Branch1E), .out(branch_taken1));
 
-Comparator #(32) comp2 (zero2, ForwardAMuxOut2, ForwardBMuxOut2);
+ComparatorIP comp2(.dataa(ForwardBMuxOut2),.datab(ForwardAMuxOut2),.aeb(zero2));
+//Comparator #(32) comp2 (zero2, ForwardAMuxOut2, ForwardBMuxOut2);
 XNORGate branchXnor2(.out(xnorOut2), .in1(bit26_2E), .in2(~zero2));
 ANDGate branchAnd2(.in1(xnorOut2), .in2(Branch2E), .out(branch_taken2));   
 
