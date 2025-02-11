@@ -1,7 +1,7 @@
 module HazardDetectionUnit (
     takenBranch1, takenBranch2, pcSrc1, pcSrc2, memReadE1, memReadE2, 
     branch1, branch2, predictionE1, predictionE2, writeRegisterE1, writeRegisterE2, 
-    rsD1, rtD1, rsD2, rtD2, Stall1, Stall2, Flush1, Flush2, CPCSignal1, CPCSignal2
+    rsD1, rtD1, rsD2, rtD2, Stall11, Stall21, Stall12, Stall22, FlushIFID1, FlushID21,FlushID22,FlushEX2, CPCSignal1, CPCSignal2
 );
 
     // Inputs
@@ -14,30 +14,41 @@ module HazardDetectionUnit (
     input [4:0] rsD1, rtD1, rsD2, rtD2; // Source registers for the two instructions in Decode stage
 
     // Outputs
-    output reg Stall1, Stall2;        // Stall signals for the two instructions
-    output reg Flush1, Flush2;        // Flush signals for the two instructions
+    output reg Stall11, Stall21, Stall12, Stall22;        // Stall signals for the two instructions
+    output reg FlushIFID1, FlushID21,FlushID22,FlushEX2;        // Flush signals for the two instructions
     output reg CPCSignal1, CPCSignal2; // Correct PC signals for the two branches
 
     // Flush logic for the two instructions
     always @(*) begin
-        Flush1 = (takenBranch1 ^ predictionE1) & branch1 | pcSrc1;
-        Flush2 = (takenBranch2 ^ predictionE2) & branch2 | pcSrc2;
+       FlushIFID1 = pcSrc1 | pcSrc2 | (branch1&(predictionE1^takenBranch1)) | (branch2&(predictionE2^takenBranch2));
+		 FlushID21 = (branch1&(predictionE1^takenBranch1)) | (branch2&(predictionE2^takenBranch2));
+		 FlushID22 = pcSrc1 | (branch1&(predictionE1^takenBranch1)) | (branch2&(predictionE2^takenBranch2));
+		 FlushEX2 = (branch1&(predictionE1^takenBranch1));
     end
 
     // Stall logic for the two instructions
     always @(*) begin
-        Stall1 = 0;
-        Stall2 = 0;
+        Stall11 = 0;
+        Stall21 = 0;
+		  Stall12 = 0;
+        Stall22 = 0;
 
         // Stall logic for the first instruction
         if (memReadE1 && ((writeRegisterE1 == rsD1 || writeRegisterE1 == rtD1) && (writeRegisterE1 != 5'b0))) begin
-            Stall1 = 1;
+            Stall11 = 1;
         end
+		  if(memReadE2 && ((writeRegisterE2 == rsD1 || writeRegisterE2 == rtD1) && (writeRegisterE2 != 5'b0)) & !memReadE1) begin 
+				Stall21 = 1;
+		  end
 
         // Stall logic for the second instruction
-        if (memReadE2 && ((writeRegisterE2 == rsD2 || writeRegisterE2 == rtD2) && (writeRegisterE2 != 5'b0))) begin
-            Stall2 = 1;
+		  if(memReadE1 && ((writeRegisterE1 == rsD2 || writeRegisterE1 == rtD2) && (writeRegisterE1 != 5'b0))) begin
+				Stall12 = 1;
+		  end
+        if (memReadE2 && ((writeRegisterE2 == rsD2 || writeRegisterE2 == rtD2) && (writeRegisterE2 != 5'b0))& !memReadE1) begin
+            Stall22 = 1;
         end
+		 
     end
 
     // Correct PC signal logic for the two branches

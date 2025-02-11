@@ -12,6 +12,26 @@ module mux2x1 #(parameter size = 32) (in1, in2, s, out);
 	
 endmodule 
 
+module mux2x1En #(parameter size = 32) (in1, in2, s, en, out);
+
+	// inputs	
+	input s, en;
+	input [size - 1:0] in1, in2; // fixed mux input and output width
+	
+	// outputs
+	output reg[size - 1:0] out;
+	
+	always @(*) begin
+    if (en) begin
+        
+        out = s ? in2 : in1;
+    end
+    
+	end
+
+	
+endmodule 
+
 
 module mux3to1 #(parameter size = 32) (in1, in2, in3, s, out); // added 3 to 1 mux
 

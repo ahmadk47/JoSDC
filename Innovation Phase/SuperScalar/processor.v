@@ -7,8 +7,8 @@ input clk, rst, enable;
 output [10:0] PC;
 wire Branch1, MemReadEn1, MemWriteEn1, RegWriteEn1, ALUSrc1, Jump1, PcSrc1;
 wire Branch2, MemReadEn2, MemWriteEn2, RegWriteEn2, ALUSrc2, Jump2, PcSrc2;
-wire prediction1, prediction2, CPCSignal1, CPCSignal2, branch_taken1, branch_taken2;
-wire Stall1, Stall2, Flush1, Flush2, overflow1, overflow2, zero1, zero2, xnorOut1, xnorOut2;
+wire prediction1, prediction2, CPCSignal1, CPCSignal2, branch_taken1, branch_taken2,EnablePCIFID, IFID1Reset, ID21Reset, ID22Reset, EX2Reset, Stall;
+wire Stall11, Stall12, Stall21, Stall22, FlushIFID1, FlushID21, FlushID22, FlushEX2, overflow1, overflow2, zero1, zero2, xnorOut1, xnorOut2;
 wire [2:0] ForwardA1, ForwardA2, ForwardB1, ForwardB2;
 wire [1:0] MemtoReg1, RegDst1, MemtoReg2, RegDst2;
 wire [3:0] ALUOp1, ALUOp2;
@@ -21,7 +21,7 @@ wire [31:0] extImm1, extImm2, instr1, instr2;
 wire [31:0] memoryReadData1, memoryReadData2;
 wire [10:0] PCPlus1, PCPlus2,PCPlus1D1,PCPlus1D,PCPlus1E, branchAdderResult1, branchAdderResult2, nextPCP1;
 wire [10:0] jumpMuxOut1, jumpMuxOut2, jumpMuxOut, branchMuxOut1, branchMuxOut2, branchMuxOut, nextPC, BJPC;
-wire [10:0] CorrectedPC1, CorrectedPC2, CPC;
+wire [10:0] CorrectedPC1, CorrectedPC2, CPC, branchAdderPC, instMemMuxOut;
 
 wire RegWriteEn1D, RegWriteEn2D, bit26_1, bit26_2;
 wire Branch1D, MemReadEn1D, MemWriteEn1D, ALUSrc1D, Jump1D, PcSrc1D;
@@ -87,7 +87,7 @@ mux2x1 #(11) jump1Mux(.in1(readData1[10:0]), .in2(instr1D[10:0]), .s(Jump1D), .o
 mux2x1 #(11) jump2Mux(.in1(readData3[10:0]), .in2(instr2D[10:0]), .s(Jump2D), .out(jumpMuxOut2));
 mux2x1 #(11) jumpMux(.in1(jumpMuxOut1), .in2(jumpMuxOut2), .s(Jump2D), .out(jumpMuxOut));
 
-mux2x1 #(11) branch1Mux(.in1(PCPlus2), .in2(branchAdderResult1), .s(prediction1), .out(branchMuxOut1));
+mux2x1 #(11) branch1Mux(.in1(PCPlus2), .in2(branchAdderPC), .s(prediction1), .out(branchMuxOut1));
 mux2x1 #(11) branch2Mux(.in1(PCPlus2), .in2(branchAdderResult2), .s(prediction2), .out(branchMuxOut2));
 mux2x1 #(11) branchMux(.in1(branchMuxOut1), .in2(branchMuxOut2), .s(prediction2), .out(branchMuxOut));
 
@@ -97,20 +97,23 @@ mux2x1 #(11) cpcMux(.in1(CorrectedPC1), .in2(CorrectedPC2), .s(CPCSignal2), .out
 
 mux2x1 #(11) nexPcMux(.in1(BJPC), .in2(CPC), .s(CPCSignal1|CPCSignal2), .out(nextPC));
 
-programCounter pc(.clk(clk), .rst(rst), .enable(enable), .PCin(nextPC), .PCout(PC));
+programCounter pc(.clk(clk), .rst(rst), .enable(EnablePCIFID), .PCin(nextPC), .PCout(PC));
 
 AdderIP nextPcAdder(.data0x(nextPC),.data1x(11'd1),.result(nextPCP1));
+AdderIP branchPcAdder(.data0x(branchAdderResult1),.data1x(11'd1),.result(branchAdderPC));
 AdderIP pcAdder(.data0x(PC),.data1x(11'd2),.result(PCPlus2));
 AdderIP pcAdder2(.data0x(PC),.data1x(11'd1),.result(PCPlus1)); 
+
+
 //adder #(11) nextPcAdder(.in1(nextPC), .in2(11'd1), .out(nextPCP1));
 //adder #(11) pcAdder(.in1(PC), .in2(11'd2), .out(PCPlus2));
 //adder #(11) pcAdder2(.in1(PC), .in2(11'd1), .out(PCPlus1));
 
-
+mux2x1En #(11) instMemMux(.in1(nextPCP1), .in2(branchAdderResult1), .s(prediction1),.en(EnablePCIFID), .out(instMemMuxOut));
 
 dual_issue_inst_mem instMem(
 								.address_a(nextPC),
-								.address_b(nextPCP1),
+								.address_b(instMemMuxOut),
 								.clock(clk),
 								.q_a(instr1),
 								.q_b(instr2));
@@ -128,7 +131,7 @@ BranchPredictionUnit BPU (
 
 pipe #(121) IF_ID1(.D({PCPlus2,PCPlus1,PC,branchAdderResult1,branchAdderResult2, prediction1, prediction2, instr1, instr2}), 
 		.Q({PCPlus2D1,PCPlus1D1,PCD1,branchAdderResult1D1,branchAdderResult2D1, prediction1D1, prediction2D1, instr1D1, instr2D1}), 
-		.clk(clk), .reset(rst), .enable(enable)); 
+		.clk(clk), .reset(~IFID1Reset), .enable(EnablePCIFID)); 
 
 
 
@@ -149,14 +152,13 @@ controlUnit CU2 (
 );
 
 
-pipe #(151) ID1_ID2(.D({PCPlus2D1,PCPlus1D1,PCD1,branchAdderResult1D1,branchAdderResult2D1, prediction1D1, prediction2D1, instr1D1, instr2D1,
-						Branch1, MemReadEn1, MemWriteEn1, RegWriteEn1, ALUSrc1, Jump1, PcSrc1, MemtoReg1, RegDst1, ALUOp1,
-						Branch2, MemReadEn2, MemWriteEn2, RegWriteEn2, ALUSrc2, Jump2, PcSrc2, MemtoReg2, RegDst2, ALUOp2 }), 
-						
-		.Q({PCPlus2D,PCPlus1D,PCD,branchAdderResult1D,branchAdderResult2D, prediction1D, prediction2D, instr1D, instr2D,
-						Branch1D, MemReadEn1D, MemWriteEn1D, RegWriteEn1D, ALUSrc1D, Jump1D, PcSrc1D, MemtoReg1D, RegDst1D, ALUOp1D,
-						Branch2D, MemReadEn2D, MemWriteEn2D, RegWriteEn2D, ALUSrc2D, Jump2D, PcSrc2D, MemtoReg2D, RegDst2D, ALUOp2D}), 
-		.clk(clk), .reset(rst), .enable(enable)); 
+pipe #(59) ID1_ID2_1(.D({branchAdderResult1D1, prediction1D1, instr1D1, Branch1, MemReadEn1, MemWriteEn1, RegWriteEn1, ALUSrc1, Jump1, PcSrc1, MemtoReg1, RegDst1, ALUOp1}), 
+							.Q({branchAdderResult1D, prediction1D, instr1D, Branch1D, MemReadEn1D, MemWriteEn1D, RegWriteEn1D, ALUSrc1D, Jump1D, PcSrc1D, MemtoReg1D, RegDst1D, ALUOp1D}), 
+							.clk(clk), .reset(~ID21Reset), .enable(enable)); 
+		
+pipe #(92) ID1_ID2_2(.D({PCPlus2D1,PCPlus1D1,PCD1,branchAdderResult2D1, prediction2D1, instr2D1, Branch2, MemReadEn2, MemWriteEn2, RegWriteEn2, ALUSrc2, Jump2, PcSrc2, MemtoReg2, RegDst2, ALUOp2 }), 
+							.Q({PCPlus2D,PCPlus1D,PCD,branchAdderResult2D, prediction2D, instr2D, Branch2D, MemReadEn2D, MemWriteEn2D, RegWriteEn2D, ALUSrc2D, Jump2D, PcSrc2D, MemtoReg2D, RegDst2D, ALUOp2D}), 
+							.clk(clk), .reset(~ID22Reset), .enable(enable)); 
 		
 /**************************************************************DECODE2 (ACCESSING THE REGISTER FILE) STAGE*********************************************/
 
@@ -174,29 +176,39 @@ signextender SignExtend2(.in(imm2), .out(extImm2));
 HazardDetectionUnit HDU(
     .takenBranch1(branch_taken1), .takenBranch2(branch_taken2), .pcSrc1(PcSrc1), .pcSrc2(PcSrc2), .memReadE1(MemReadEn1), .memReadE2(MemReadEn2), 
     .branch1(Branch1E), .branch2(Branch2E), .predictionE1(prediction1E), .predictionE2(prediction2E), .writeRegisterE1(writeRegister1E), .writeRegisterE2(writeRegister2E), 
-    .rsD1(rs1), .rtD1(rt1), .rsD2(rs2), .rtD2(rt2), .Stall1(Stall1), .Stall2(Stall2), .Flush1(Flush1), .Flush2(Flush2), .CPCSignal1(CPCSignal1), .CPCSignal2(CPCSignal2)
+    .rsD1(rs1), .rtD1(rt1), .rsD2(rs2), .rtD2(rt2), .Stall11(Stall11), .Stall21(Stall21), .Stall12(Stall12), .Stall22(Stall22), 
+	 .FlushIFID1(FlushIFID1), .FlushID21(FlushID21),.FlushID22(FlushID22),.FlushEX2(FlushEX2), .CPCSignal1(CPCSignal1), .CPCSignal2(CPCSignal2)
 );
 
-pipe #(317) ID_EX(
+ORGate IFID1Flush(.in1(FlushIFID1), .in2(~rst), .out(IFID1Reset));
+ORGate ID21Flush(.in1(FlushID21), .in2(~rst), .out(ID21Reset));
+ORGate ID22Flush(.in1(FlushID22), .in2(~rst), .out(ID22Reset));
+ORGate EX2Flush(.in1(FlushEX2), .in2(~rst), .out(EX2Reset));
+
+
+ORGate4 hold(.in1(Stall21), .in2(Stall22), .in3(Stall12), .in4(Stall11), .out(Stall));
+ANDGate holdGate2(.in1(~Stall), .in2(enable), .out(EnablePCIFID));
+
+pipe #(142) ID_EX_1(
     .D({
-        PCD,PCPlus1D, branchAdderResult1D, branchAdderResult2D, 
-        bit26_1, bit26_2, 
-        Branch1D, MemReadEn1D, MemWriteEn1D, MemtoReg1D, RegWriteEn1D, ALUOp1D, RegDst1D, ALUSrc1D, 
-        Branch2D, MemReadEn2D, MemWriteEn2D, MemtoReg2D, RegWriteEn2D, ALUOp2D, RegDst2D, ALUSrc2D, 
-        PCPlus2D, readData1, readData2, readData3, readData4, 
-        extImm1, extImm2, 
-        rs1, rt1, rd1, shamt1, prediction1D, 
-        rs2, rt2, rd2, shamt2, prediction2D
+        branchAdderResult1D, bit26_1, Branch1D, MemReadEn1D, MemWriteEn1D, MemtoReg1D, RegWriteEn1D, ALUOp1D,
+		  RegDst1D, ALUSrc1D, readData1, readData2,extImm1, rs1, rt1, rd1, shamt1, prediction1D
     }),
     .Q({
-        PCE,PCPlus1E, branchAdderResult1E, branchAdderResult2E,
-        bit26_1E, bit26_2E, 
-        Branch1E, MemReadEn1E, MemWriteEn1E, MemToReg1E, RegWriteEn1E, ALUOp1E, RegDst1E, ALUSrc1E, 
-        Branch2E, MemReadEn2E, MemWriteEn2E, MemToReg2E, RegWriteEn2E, ALUOp2E, RegDst2E, ALUSrc2E, 
-        PCPlus2E, readData1E, readData2E, readData3E, readData4E, 
-        extImm1E, extImm2E, 
-        rs1E, rt1E, rd1E, shamt1E, prediction1E, 
-        rs2E, rt2E, rd2E, shamt2E, prediction2E
+        branchAdderResult1E, bit26_1E, Branch1E, MemReadEn1E, MemWriteEn1E, MemToReg1E, RegWriteEn1E, ALUOp1E, 
+		  RegDst1E, ALUSrc1E, readData1E, readData2E, extImm1E, rs1E, rt1E, rd1E, shamt1E, prediction1E 
+    }), 
+    .clk(clk), .reset(~EX2Reset), .enable(enable)
+);
+
+pipe #(175) ID_EX_2(
+    .D({
+        PCD,PCPlus1D, PCPlus2D, branchAdderResult2D, bit26_2, Branch2D, MemReadEn2D, MemWriteEn2D, MemtoReg2D, RegWriteEn2D, ALUOp2D,
+		  RegDst2D, ALUSrc2D, readData3, readData4, extImm2, rs2, rt2, rd2, shamt2, prediction2D
+    }),
+    .Q({
+        PCE,PCPlus1E, PCPlus2E, branchAdderResult2E,bit26_2E, Branch2E, MemReadEn2E, MemWriteEn2E, MemToReg2E, RegWriteEn2E, ALUOp2E,
+		  RegDst2E, ALUSrc2E, readData3E, readData4E, extImm2E, rs2E, rt2E, rd2E, shamt2E, prediction2E
     }), 
     .clk(clk), .reset(rst), .enable(enable)
 );
