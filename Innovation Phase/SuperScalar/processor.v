@@ -29,7 +29,7 @@ wire Branch2D, MemReadEn2D, MemWriteEn2D, ALUSrc2D, Jump2D, PcSrc2D;
 wire prediction1D1, prediction2D1, prediction1D, prediction2D;
 wire [1:0] MemtoReg1D, RegDst1D, MemtoReg2D, RegDst2D;
 wire [3:0] ALUOp1D, ALUOp2D;
-wire [31:0] instr1D, instr2D, instr1D1, instr2D1;
+wire [31:0] instr1D, instr2D;
 wire [10:0] PCPlus2D1, PCD1, branchAdderResult1D1, branchAdderResult2D1;
 wire [10:0] PCPlus2D, PCD, branchAdderResult1D, branchAdderResult2D;
 
@@ -63,29 +63,29 @@ wire [31:0] memoryReadData1W, memoryReadData2W;
 wire [4:0] writeRegister1W, writeRegister2W;
 
 
-assign opCode1 = instr1D1[31:26];
+assign opCode1 = instr1D[31:26];
 assign rd1 = instr1D[15:11]; 
 assign rs1 = instr1D[25:21];  
 assign shamt1 = instr1D[10:6];
 assign rt1 = instr1D[20:16];  
 assign imm1 = instr1D[15:0];
-assign funct1 = instr1D1[5:0];
+assign funct1 = instr1D[5:0];
 assign bit26_1 =instr1D[26];
 
-assign opCode2 = instr2D1[31:26];
+assign opCode2 = instr2D[31:26];
 assign rd2 = instr2D[15:11]; 
 assign rs2 = instr2D[25:21];  
 assign shamt2 = instr2D[10:6];
 assign rt2 = instr2D[20:16];  
 assign imm2 = instr2D[15:0];
-assign funct2 = instr2D1[5:0];
+assign funct2 = instr2D[5:0];
 assign bit26_2 =instr2D[26];
 
 /**************************************************************FETCH STAGE*********************************************/
 
-mux2x1 #(11) jump1Mux(.in1(readData1[10:0]), .in2(instr1D[10:0]), .s(Jump1D), .out(jumpMuxOut1));
-mux2x1 #(11) jump2Mux(.in1(readData3[10:0]), .in2(instr2D[10:0]), .s(Jump2D), .out(jumpMuxOut2));
-mux2x1 #(11) jumpMux(.in1(jumpMuxOut1), .in2(jumpMuxOut2), .s(Jump2D), .out(jumpMuxOut));
+mux2x1 #(11) jump1Mux(.in1(readData1[10:0]), .in2(instr1D[10:0]), .s(Jump1), .out(jumpMuxOut1));
+mux2x1 #(11) jump2Mux(.in1(readData3[10:0]), .in2(instr2D[10:0]), .s(Jump2), .out(jumpMuxOut2));
+mux2x1 #(11) jumpMux(.in1(jumpMuxOut1), .in2(jumpMuxOut2), .s(Jump2), .out(jumpMuxOut));
 
 mux2x1 #(11) branch1Mux(.in1(PCPlus2), .in2(branchAdderPC), .s(prediction1), .out(branchMuxOut1));
 mux2x1 #(11) branch2Mux(.in1(PCPlus2), .in2(branchAdderResult2), .s(prediction2), .out(branchMuxOut2));
@@ -129,38 +129,26 @@ BranchPredictionUnit BPU (
     .pc1(PC), .pc2(PCPlus1), .pcE1(PCE), .pcE2(PCPlus1E), .prediction1(prediction1), .prediction2(prediction2)
 );
 
-pipe #(121) IF_ID1(.D({PCPlus2,PCPlus1,PC,branchAdderResult1,branchAdderResult2, prediction1, prediction2, instr1, instr2}), 
-		.Q({PCPlus2D1,PCPlus1D1,PCD1,branchAdderResult1D1,branchAdderResult2D1, prediction1D1, prediction2D1, instr1D1, instr2D1}), 
-		.clk(clk), .reset(~IFID1Reset), .enable(EnablePCIFID)); 
+pipe #(121) IF_ID(.D({PCPlus2,PCPlus1,PC,branchAdderResult1,branchAdderResult2, prediction1, prediction2, instr1, instr2}), 
+		.Q({PCPlus2D,PCPlus1D,PCD,branchAdderResult1D,branchAdderResult2D, prediction1D, prediction2D, instr1D, instr2D}), 
+		.clk(clk), .reset(rst), .enable(EnablePCIFID), .flush(FlushIFID1)); 
 
 
 
 
-/**************************************************************DECODE1 (CONTROL SIGNALS CALCULATION) STAGE*********************************************/
+/**************************************************************DECODE STAGE*********************************************/
 
 // registerFile (clk, rst, we1, we2, readRegister1, readRegister2, readRegister3, readRegister4,writeRegister1,writeRegister2,writeData1, writeData2, readData1, readData2, readData3, readData4);
 
 
 controlUnit CU1(.opCode(opCode1), .funct(funct1),
 				    .Branch(Branch1), .MemReadEn(MemReadEn1), .MemWriteEn(MemWriteEn1), .RegWriteEn(RegWriteEn1),
-					 .ALUSrc(ALUSrc1), .Jump(Jump1), .PcSrc(PcSrc1),  .MemtoReg(MemtoReg1), .RegDst(RegDst1), .ALUOp(ALUOp1),  .rst(rst));
+					 .ALUSrc(ALUSrc1), .Jump(Jump1), .PcSrc(PcSrc1),  .MemtoReg(MemtoReg1), .RegDst(RegDst1), .ALUOp(ALUOp1));
 				   
 controlUnit CU2 (
-        .opCode(opCode2), .funct(funct2),
-        .Branch(Branch2), .MemReadEn(MemReadEn2), .MemWriteEn(MemWriteEn2), .RegWriteEn(RegWriteEn2), .ALUSrc(ALUSrc2), .Jump(Jump2), .PcSrc(PcSrc2),
-        .MemtoReg(MemtoReg2), .RegDst(RegDst2), .ALUOp(ALUOp2), .rst(rst)
-);
-
-
-pipe #(59) ID1_ID2_1(.D({branchAdderResult1D1, prediction1D1, instr1D1, Branch1, MemReadEn1, MemWriteEn1, RegWriteEn1, ALUSrc1, Jump1, PcSrc1, MemtoReg1, RegDst1, ALUOp1}), 
-							.Q({branchAdderResult1D, prediction1D, instr1D, Branch1D, MemReadEn1D, MemWriteEn1D, RegWriteEn1D, ALUSrc1D, Jump1D, PcSrc1D, MemtoReg1D, RegDst1D, ALUOp1D}), 
-							.clk(clk), .reset(~ID21Reset), .enable(enable)); 
-		
-pipe #(92) ID1_ID2_2(.D({PCPlus2D1,PCPlus1D1,PCD1,branchAdderResult2D1, prediction2D1, instr2D1, Branch2, MemReadEn2, MemWriteEn2, RegWriteEn2, ALUSrc2, Jump2, PcSrc2, MemtoReg2, RegDst2, ALUOp2 }), 
-							.Q({PCPlus2D,PCPlus1D,PCD,branchAdderResult2D, prediction2D, instr2D, Branch2D, MemReadEn2D, MemWriteEn2D, RegWriteEn2D, ALUSrc2D, Jump2D, PcSrc2D, MemtoReg2D, RegDst2D, ALUOp2D}), 
-							.clk(clk), .reset(~ID22Reset), .enable(enable)); 
-		
-/**************************************************************DECODE2 (ACCESSING THE REGISTER FILE) STAGE*********************************************/
+					  .opCode(opCode2), .funct(funct2),
+					  .Branch(Branch2), .MemReadEn(MemReadEn2), .MemWriteEn(MemWriteEn2), .RegWriteEn(RegWriteEn2), 
+					  .ALUSrc(ALUSrc2), .Jump(Jump2), .PcSrc(PcSrc2), .MemtoReg(MemtoReg2), .RegDst(RegDst2), .ALUOp(ALUOp2));
 
 
 registerFile RegFile (
@@ -180,10 +168,10 @@ HazardDetectionUnit HDU(
 	 .FlushIFID1(FlushIFID1), .FlushID21(FlushID21),.FlushID22(FlushID22),.FlushEX2(FlushEX2), .CPCSignal1(CPCSignal1), .CPCSignal2(CPCSignal2)
 );
 
-ORGate IFID1Flush(.in1(FlushIFID1), .in2(~rst), .out(IFID1Reset));
-ORGate ID21Flush(.in1(FlushID21), .in2(~rst), .out(ID21Reset));
-ORGate ID22Flush(.in1(FlushID22), .in2(~rst), .out(ID22Reset));
-ORGate EX2Flush(.in1(FlushEX2), .in2(~rst), .out(EX2Reset));
+//ORGate IFID1Flush(.in1(FlushIFID1), .in2(~rst), .out(IFID1Reset));
+//ORGate ID21Flush(.in1(FlushID21), .in2(~rst), .out(ID21Reset));
+//ORGate ID22Flush(.in1(FlushID22), .in2(~rst), .out(ID22Reset));
+//ORGate EX2Flush(.in1(FlushEX2), .in2(~rst), .out(EX2Reset));
 
 
 ORGate4 hold(.in1(Stall21), .in2(Stall22), .in3(Stall12), .in4(Stall11), .out(Stall));
@@ -191,26 +179,26 @@ ANDGate holdGate2(.in1(~Stall), .in2(enable), .out(EnablePCIFID));
 
 pipe #(142) ID_EX_1(
     .D({
-        branchAdderResult1D, bit26_1, Branch1D, MemReadEn1D, MemWriteEn1D, MemtoReg1D, RegWriteEn1D, ALUOp1D,
-		  RegDst1D, ALUSrc1D, readData1, readData2,extImm1, rs1, rt1, rd1, shamt1, prediction1D
+        branchAdderResult1D, bit26_1, Branch1, MemReadEn1, MemWriteEn1, MemtoReg1, RegWriteEn1, ALUOp1,
+		  RegDst1, ALUSrc1, readData1, readData2,extImm1, rs1, rt1, rd1, shamt1, prediction1D
     }),
     .Q({
         branchAdderResult1E, bit26_1E, Branch1E, MemReadEn1E, MemWriteEn1E, MemToReg1E, RegWriteEn1E, ALUOp1E, 
 		  RegDst1E, ALUSrc1E, readData1E, readData2E, extImm1E, rs1E, rt1E, rd1E, shamt1E, prediction1E 
     }), 
-    .clk(clk), .reset(~EX2Reset), .enable(enable)
+    .clk(clk), .reset(rst), .enable(enable)
 );
 
 pipe #(175) ID_EX_2(
     .D({
-        PCD,PCPlus1D, PCPlus2D, branchAdderResult2D, bit26_2, Branch2D, MemReadEn2D, MemWriteEn2D, MemtoReg2D, RegWriteEn2D, ALUOp2D,
-		  RegDst2D, ALUSrc2D, readData3, readData4, extImm2, rs2, rt2, rd2, shamt2, prediction2D
+        PCD,PCPlus1D, PCPlus2D, branchAdderResult2D, bit26_2, Branch2, MemReadEn2, MemWriteEn2, MemtoReg2, RegWriteEn2, ALUOp2,
+		  RegDst2, ALUSrc2, readData3, readData4, extImm2, rs2, rt2, rd2, shamt2, prediction2D
     }),
     .Q({
         PCE,PCPlus1E, PCPlus2E, branchAdderResult2E,bit26_2E, Branch2E, MemReadEn2E, MemWriteEn2E, MemToReg2E, RegWriteEn2E, ALUOp2E,
 		  RegDst2E, ALUSrc2E, readData3E, readData4E, extImm2E, rs2E, rt2E, rd2E, shamt2E, prediction2E
     }), 
-    .clk(clk), .reset(rst), .enable(enable)
+    .clk(clk), .reset(rst), .enable(enable), .flush(FlushEX2)
 );
 
 
@@ -271,7 +259,8 @@ pipe #(159) EX_MEM(
     }), 
     .clk(clk), 
     .reset(rst), 
-    .enable(enable)
+    .enable(enable),
+	 .flush(0)
 );
 
 
@@ -319,7 +308,8 @@ pipe #(155) MEM_WB(
     }), 
     .clk(clk), 
     .reset(rst),      
-    .enable(enable)
+    .enable(enable),
+	 .flush(0)
 );
 
 

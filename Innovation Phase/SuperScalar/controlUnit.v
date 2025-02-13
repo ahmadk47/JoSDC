@@ -1,11 +1,10 @@
 module controlUnit(opCode, funct,
 				   RegDst, Branch, MemReadEn, MemtoReg,
-				   ALUOp, MemWriteEn, RegWriteEn, ALUSrc, Jump, PcSrc, rst);
+				   ALUOp, MemWriteEn, RegWriteEn, ALUSrc, Jump, PcSrc);
 				   
 		
 	// inputs 
 	input wire [5:0] opCode, funct;
-	input wire rst;
 	// outputs (signals)
 	output reg Branch, MemReadEn, MemWriteEn, RegWriteEn, ALUSrc, Jump, PcSrc;
 	output reg [1:0] MemtoReg,RegDst;
@@ -19,12 +18,7 @@ module controlUnit(opCode, funct,
 	
 	// unit logic - generate signals
 	always @(*) begin
-		if(~rst) begin
-		RegDst = 2'b0; Branch = 1'b0; MemReadEn = 1'b0; MemtoReg = 2'b0;
-		MemWriteEn = 1'b0; RegWriteEn = 1'b0; ALUSrc = 1'b0; Jump=1'b0; PcSrc=1'b0;
-		ALUOp = 4'b0;
-		end
-		else begin
+	
 		RegDst = 2'b0; Branch = 1'b0; MemReadEn = 1'b0; MemtoReg = 2'b0;
 		MemWriteEn = 1'b0; RegWriteEn = 1'b0; ALUSrc = 1'b0; Jump=1'b0; PcSrc=1'b0;
 		ALUOp = 4'b0;
@@ -244,7 +238,6 @@ module controlUnit(opCode, funct,
 			default: ;
 				
 		endcase
-		end
 	end
 	
 	

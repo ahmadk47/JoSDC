@@ -493,13 +493,25 @@ public class InstructionScheduler {
         return loops;
     }
     public static String[] getProgram(){
-         return new String[]{
-            "addi $3, $0, 5",
-            "lw $2, 0($4)",
-            "add $5, $2, $3",
-            "sw $5, 4($4)",
-            "sub $6, $5, $2"
-         };
+        return new String[]{
+            "XORI $24, $0, 0x5",
+            "XORI $25, $0, 0x3",
+            "JAL Mul_Fun",
+            "NOP",
+            "J Finish",
+            "Mul_Fun:",
+            "ANDI $23, $0, 0",
+            "ADDI $22, $25, -1",
+            "Mul_Loop:",
+            "ADD $23, $23, $24",
+            "ADDI $22, $22, -1",
+            "BGEZ $22, Mul_Loop",
+            "JR $31",
+            "Finish:",
+            "NOP"
+        };
+        
+        
     }
     // Example usage
     public static void main(String[] args) {
@@ -507,44 +519,28 @@ public class InstructionScheduler {
         
         // Test case 1: Basic arithmetic and memory operations
         String[] program1 = {
-            "addi $3, $0, 5",
-            "lw $2, 0($4)",
-            "add $5, $2, $3",
-            "sw $5, 4($4)",
-            "sub $6, $5, $2"
+          "XORI $24, $0, 0x5",
+            "XORI $25, $0, 0x3",
+            "JAL Mul_Fun",
+            "NOP",
+            "J Finish",
+            "Mul_Fun:",
+            "ANDI $23, $0, 0",
+            "ADDI $22, $25, -1",
+            "Mul_Loop:",
+            "ADD $23, $23, $24",
+            "ADDI $22, $22, -1",
+            "BGEZ $22, Mul_Loop",
+            "JR $31",
+            "Finish:",
+            "NOP"
         };
         
-        // Test case 2: Loop with unrolling opportunity
-        String[] program2 = {
-            "loop_start:",
-            "lw $2, 0($4)",
-            "add $3, $3, $2",
-            "addi $4, $4, 4",
-            "addi $5, $5, -1",
-            "bgez $5, loop_start"
-        };
-        
-        // Test case 3: Complex dependencies
-        String[] program3 = {
-            "add $2, $1, $0",
-            "sub $3, $2, $1",
-            "lw $4, 0($3)",
-            "add $5, $4, $2",
-            "sw $5, 4($3)",
-            "beq $5, $0, label"
-        };
-        
+       
         System.out.println("Test Case 1 - Basic Operations:");
         String[] scheduled1 = scheduler.schedule(program1);
         printProgram(program1, scheduled1);
         
-        System.out.println("\nTest Case 2 - Loop Unrolling:");
-        String[] scheduled2 = scheduler.schedule(program2);
-        printProgram(program2, scheduled2);
-        
-        System.out.println("\nTest Case 3 - Complex Dependencies:");
-        String[] scheduled3 = scheduler.schedule(program3);
-        printProgram(program3, scheduled3);
     }
     
     private static void printProgram(String[] original, String[] scheduled) {

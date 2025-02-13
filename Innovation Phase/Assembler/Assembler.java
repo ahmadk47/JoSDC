@@ -313,7 +313,7 @@ public class Assembler {
             Assembler assembler = new Assembler();
             AssemblyPipeline pipeline = new AssemblyPipeline();
             String[] scheduledProgram = scheduler.getProgram();
-            scheduledProgram = scheduler.schedule(scheduledProgram);
+            // scheduledProgram = scheduler.schedule(scheduledProgram);
             // String[] optimizedProgram = scheduledProgram.toArray(new String[0]);
             assembler.firstPass(scheduledProgram);
             ArrayList<String> machineCode = assembler.secondPass();
