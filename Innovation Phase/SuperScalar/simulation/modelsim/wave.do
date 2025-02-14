@@ -23,14 +23,17 @@ add wave -noupdate -radix unsigned /testbench/uut/rs2E
 add wave -noupdate -radix unsigned /testbench/uut/rt2E
 add wave -noupdate -radix unsigned /testbench/uut/rd2E
 add wave -noupdate -radix unsigned /testbench/uut/RegDst1
-add wave -noupdate -radix unsigned /testbench/uut/RegDst1D
 add wave -noupdate -radix unsigned /testbench/uut/RegDst1E
 add wave -noupdate -radix unsigned /testbench/uut/RegDst2
-add wave -noupdate -radix unsigned /testbench/uut/RegDst2D
 add wave -noupdate -radix unsigned /testbench/uut/RegDst2E
-add wave -noupdate -radix unsigned /testbench/uut/EX2Reset
+add wave -noupdate -radix unsigned /testbench/uut/CorrectedPC1
+add wave -noupdate -radix unsigned /testbench/uut/CorrectedPC2
+add wave -noupdate -radix unsigned /testbench/uut/cpcMux/in1
+add wave -noupdate -radix unsigned /testbench/uut/cpcMux/in2
+add wave -noupdate -radix unsigned /testbench/uut/cpcMux/out
+add wave -noupdate -radix unsigned /testbench/uut/cpcMux/s
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {2255 ps} 0}
+WaveRestoreCursors {{Cursor 1} {57212 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 215
 configure wave -valuecolwidth 100

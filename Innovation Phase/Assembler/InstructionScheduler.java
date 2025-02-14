@@ -497,7 +497,7 @@ public class InstructionScheduler {
             "XORI $24, $0, 0x5",
             "XORI $25, $0, 0x3",
             "JAL Mul_Fun",
-            "NOP",
+            "nop",
             "J Finish",
             "Mul_Fun:",
             "ANDI $23, $0, 0",
@@ -506,6 +506,7 @@ public class InstructionScheduler {
             "ADD $23, $23, $24",
             "ADDI $22, $22, -1",
             "BGEZ $22, Mul_Loop",
+            "nop",
             "JR $31",
             "Finish:",
             "NOP"
@@ -522,7 +523,7 @@ public class InstructionScheduler {
           "XORI $24, $0, 0x5",
             "XORI $25, $0, 0x3",
             "JAL Mul_Fun",
-            "NOP",
+            "nop",
             "J Finish",
             "Mul_Fun:",
             "ANDI $23, $0, 0",
@@ -531,6 +532,7 @@ public class InstructionScheduler {
             "ADD $23, $23, $24",
             "ADDI $22, $22, -1",
             "BGEZ $22, Mul_Loop",
+            "nop",
             "JR $31",
             "Finish:",
             "NOP"

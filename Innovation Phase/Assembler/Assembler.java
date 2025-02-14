@@ -325,7 +325,7 @@ public class Assembler {
             }
             System.out.println("*****************************************************");
             System.out.println("WIDTH=32;");
-            System.out.println("DEPTH=256;");
+            System.out.println("DEPTH=2048;");
             System.out.println("ADDRESS_RADIX=UNS;");
             System.out.println("DATA_RADIX=BIN;");
             System.out.println("CONTENT BEGIN");
@@ -336,7 +336,7 @@ public class Assembler {
             }
 
             if (addr < 256) {
-                System.out.printf("    [%d..255] : %s;  -- fill the rest with zeros\n",
+                System.out.printf("    [%d..2047] : %s;  -- fill the rest with zeros\n",
                         addr, "00000000000000000000000000000000");
             }
 

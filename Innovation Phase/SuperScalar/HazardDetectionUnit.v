@@ -1,7 +1,7 @@
 module HazardDetectionUnit (
     takenBranch1, takenBranch2, pcSrc1, pcSrc2, memReadE1, memReadE2, 
     branch1, branch2, predictionE1, predictionE2, writeRegisterE1, writeRegisterE2, 
-    rsD1, rtD1, rsD2, rtD2, Stall11, Stall21, Stall12, Stall22, FlushIFID1, FlushID21,FlushID22,FlushEX2, CPCSignal1, CPCSignal2
+    rsD1, rtD1, rsD2, rtD2, Stall11, Stall21, Stall12, Stall22, FlushIFID1, FlushEX, FlushMEM2, CPCSignal1, CPCSignal2
 );
 
     // Inputs
@@ -15,15 +15,14 @@ module HazardDetectionUnit (
 
     // Outputs
     output reg Stall11, Stall21, Stall12, Stall22;        // Stall signals for the two instructions
-    output reg FlushIFID1, FlushID21,FlushID22,FlushEX2;        // Flush signals for the two instructions
+    output reg FlushIFID1,FlushEX, FlushMEM2;        // Flush signals for the two instructions
     output reg CPCSignal1, CPCSignal2; // Correct PC signals for the two branches
 
     // Flush logic for the two instructions
     always @(*) begin
        FlushIFID1 = pcSrc1 | pcSrc2 | (branch1&(predictionE1^takenBranch1)) | (branch2&(predictionE2^takenBranch2));
-		 FlushID21 = (branch1&(predictionE1^takenBranch1)) | (branch2&(predictionE2^takenBranch2));
-		 FlushID22 = pcSrc1 | (branch1&(predictionE1^takenBranch1)) | (branch2&(predictionE2^takenBranch2));
-		 FlushEX2 = (branch1&(predictionE1^takenBranch1));
+		 FlushEX = (branch1&(predictionE1^takenBranch1)) | (branch2&(predictionE2^takenBranch2));
+		 FlushMEM2 = (branch1&(predictionE1^takenBranch1)) ;
     end
 
     // Stall logic for the two instructions

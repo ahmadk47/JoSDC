@@ -5,10 +5,10 @@ input clk, rst, enable;
 
 //outputs
 output [10:0] PC;
-wire Branch1, MemReadEn1, MemWriteEn1, RegWriteEn1, ALUSrc1, Jump1, PcSrc1;
+wire Branch1, MemReadEn1, MemWriteEn1, RegWriteEn1, ALUSrc1, Jump1, PcSrc1, ForwardBranchA, ForwardBranchB;
 wire Branch2, MemReadEn2, MemWriteEn2, RegWriteEn2, ALUSrc2, Jump2, PcSrc2;
 wire prediction1, prediction2, CPCSignal1, CPCSignal2, branch_taken1, branch_taken2,EnablePCIFID, IFID1Reset, ID21Reset, ID22Reset, EX2Reset, Stall;
-wire Stall11, Stall12, Stall21, Stall22, FlushIFID1, FlushID21, FlushID22, FlushEX2, overflow1, overflow2, zero1, zero2, xnorOut1, xnorOut2;
+wire Stall11, Stall12, Stall21, Stall22, FlushIFID1, FlushEX,FlushMEM2, overflow1, overflow2, zero1, zero2, xnorOut1, xnorOut2;
 wire [2:0] ForwardA1, ForwardA2, ForwardB1, ForwardB2;
 wire [1:0] MemtoReg1, RegDst1, MemtoReg2, RegDst2;
 wire [3:0] ALUOp1, ALUOp2;
@@ -47,13 +47,13 @@ wire [31:0] readData1E, readData2E, readData3E, readData4E;
 wire [31:0] ForwardAMuxOut1, ForwardBMuxOut1, ForwardAMuxOut2, ForwardBMuxOut2;
 wire [31:0] ALUin1, ALUin2, ALUResult1, ALUResult2;
 
-wire RegWriteEn1M, RegWriteEn2M;
+wire RegWriteEn1M, RegWriteEn2M, Branch1M, Branch2M, bit26_1M, bit26_2M, prediction1M, prediction2M;
 wire MemWriteEn1M, MemReadEn1M, MemWriteEn2M, MemReadEn2M;
 wire [1:0] MemToReg1M, MemToReg2M;
-wire [10:0] PCPlus2M;
+wire [10:0] PCPlus2M, PCM, PCPlus1M, branchAdderResult1M, branchAdderResult2M;
 wire [31:0] ALUResult1M, ALUResult2M;
-wire [31:0] ForwardBMuxOut1M, ForwardBMuxOut2M;
-wire [4:0] writeRegister1M, writeRegister2M;
+wire [31:0] ForwardBMuxOut1M, ForwardBMuxOut2M, ForwardAMuxOut1M, ForwardAMuxOut2M, comp2MuxAout, comp2MuxBout;
+wire [4:0] writeRegister1M, writeRegister2M, rs2M, rt2M;
 
 wire RegWriteEn1W, RegWriteEn2W;
 wire [1:0] MemToReg1W, MemToReg2W;
@@ -125,8 +125,8 @@ AdderIP branchAdder2(.data0x(PCPlus2),.data1x(instr2[10:0]),.result(branchAdderR
 //adder #(11) branchAdder2(.in1(PCPlus2), .in2(instr2[10:0]), .out(branchAdderResult2));
 
 BranchPredictionUnit BPU (
-    .clk(clk), .reset(rst), .branch1(Branch1E), .branch2(Branch2E), .branch_taken1(branch_taken1), .branch_taken2(branch_taken2), 
-    .pc1(PC), .pc2(PCPlus1), .pcE1(PCE), .pcE2(PCPlus1E), .prediction1(prediction1), .prediction2(prediction2)
+    .clk(clk), .reset(rst), .branch1(Branch1M), .branch2(Branch2M), .branch_taken1(branch_taken1), .branch_taken2(branch_taken2), 
+    .pc1(PC), .pc2(PCPlus1), .pcE1(PCM), .pcE2(PCPlus1M), .prediction1(prediction1), .prediction2(prediction2)
 );
 
 pipe #(121) IF_ID(.D({PCPlus2,PCPlus1,PC,branchAdderResult1,branchAdderResult2, prediction1, prediction2, instr1, instr2}), 
@@ -163,9 +163,9 @@ signextender SignExtend2(.in(imm2), .out(extImm2));
 
 HazardDetectionUnit HDU(
     .takenBranch1(branch_taken1), .takenBranch2(branch_taken2), .pcSrc1(PcSrc1), .pcSrc2(PcSrc2), .memReadE1(MemReadEn1), .memReadE2(MemReadEn2), 
-    .branch1(Branch1E), .branch2(Branch2E), .predictionE1(prediction1E), .predictionE2(prediction2E), .writeRegisterE1(writeRegister1E), .writeRegisterE2(writeRegister2E), 
+    .branch1(Branch1M), .branch2(Branch2M), .predictionE1(prediction1M), .predictionE2(prediction2M), .writeRegisterE1(writeRegister1E), .writeRegisterE2(writeRegister2E), 
     .rsD1(rs1), .rtD1(rt1), .rsD2(rs2), .rtD2(rt2), .Stall11(Stall11), .Stall21(Stall21), .Stall12(Stall12), .Stall22(Stall22), 
-	 .FlushIFID1(FlushIFID1), .FlushID21(FlushID21),.FlushID22(FlushID22),.FlushEX2(FlushEX2), .CPCSignal1(CPCSignal1), .CPCSignal2(CPCSignal2)
+	 .FlushIFID1(FlushIFID1), .FlushEX(FlushEX),.FlushMEM2(FlushMEM2), .CPCSignal1(CPCSignal1), .CPCSignal2(CPCSignal2)
 );
 
 //ORGate IFID1Flush(.in1(FlushIFID1), .in2(~rst), .out(IFID1Reset));
@@ -186,7 +186,7 @@ pipe #(142) ID_EX_1(
         branchAdderResult1E, bit26_1E, Branch1E, MemReadEn1E, MemWriteEn1E, MemToReg1E, RegWriteEn1E, ALUOp1E, 
 		  RegDst1E, ALUSrc1E, readData1E, readData2E, extImm1E, rs1E, rt1E, rd1E, shamt1E, prediction1E 
     }), 
-    .clk(clk), .reset(rst), .enable(enable)
+    .clk(clk), .reset(rst), .enable(enable), .flush(FlushEX)
 );
 
 pipe #(175) ID_EX_2(
@@ -198,7 +198,7 @@ pipe #(175) ID_EX_2(
         PCE,PCPlus1E, PCPlus2E, branchAdderResult2E,bit26_2E, Branch2E, MemReadEn2E, MemWriteEn2E, MemToReg2E, RegWriteEn2E, ALUOp2E,
 		  RegDst2E, ALUSrc2E, readData3E, readData4E, extImm2E, rs2E, rt2E, rd2E, shamt2E, prediction2E
     }), 
-    .clk(clk), .reset(rst), .enable(enable), .flush(FlushEX2)
+    .clk(clk), .reset(rst), .enable(enable), .flush(FlushEX)
 );
 
 
@@ -207,10 +207,10 @@ pipe #(175) ID_EX_2(
 mux3to1 #(5) RFMux1(.in1(rt1E), .in2(rd1E), .in3(5'b11111), .s(RegDst1E), .out(writeRegister1E));
 mux3to1 #(5) RFMux2(.in1(rt2E), .in2(rd2E), .in3(5'b11111), .s(RegDst2E), .out(writeRegister2E));
 
-ForwardingUnit FU (.rsE1(rs1E), .rtE1(rt1E), .rsE2(rs2E), .rtE2(rt2E), .writeRegisterM1(writeRegister1M),
+ForwardingUnit FU (.rsE1(rs1E), .rtE1(rt1E), .rsE2(rs2E), .rtE2(rt2E), .rsM2(rs2M), .rtM2(rt2M), .writeRegisterM1(writeRegister1M),
 						 .writeRegisterM2(writeRegister2M), .writeRegisterW1(writeRegister1W), .writeRegisterW2(writeRegister2W), 
-						.regWriteM1(RegWriteEn1M), .regWriteM2(RegWriteEn2M), .regWriteW1(RegWriteEn1W), .regWriteW2(RegWriteEn2W), 
-						.ForwardA1(ForwardA1), .ForwardB1(ForwardB1), .ForwardA2(ForwardA2), .ForwardB2(ForwardB2));
+						.regWriteM1(RegWriteEn1M), .regWriteM2(RegWriteEn2M), .regWriteW1(RegWriteEn1W), .regWriteW2(RegWriteEn2W), .branch2M(Branch2M),
+						.ForwardA1(ForwardA1), .ForwardB1(ForwardB1), .ForwardA2(ForwardA2), .ForwardB2(ForwardB2), .ForwardBranchA(ForwardBranchA), .ForwardBranchB(ForwardBranchB));
 
 
 mux5to1 #(32) ForwardA1Mux(.in1(readData1E), .in2(ALUResult1M),.in3(ALUResult2M), .in4(writeData1),.in5(writeData2), .s(ForwardA1), .out(ForwardAMuxOut1));
@@ -223,49 +223,54 @@ mux5to1 #(32) ForwardB2Mux(.in1(readData4E),  .in2(ALUResult1M),.in3(ALUResult2M
 mux2x1 #(32) ALUMux2(.in1(ForwardBMuxOut2), .in2(extImm2E), .s(ALUSrc2E), .out(ALUin2));
 ALU alu2(.operand1(ForwardAMuxOut2), .operand2(ALUin2), .shamt(shamt2E) ,.opSel(ALUOp2E), .result(ALUResult2), .overflow(overflow2));
 
-ComparatorIP comp1(.dataa(ForwardBMuxOut1),.datab(ForwardAMuxOut1),.aeb(zero1));
-//Comparator #(32) comp1 (zero1, ForwardAMuxOut1, ForwardBMuxOut1);
-XNORGate branchXnor1(.out(xnorOut1), .in1(bit26_1E), .in2(~zero1));
-ANDGate branchAnd1(.in1(xnorOut1), .in2(Branch1E), .out(branch_taken1));
-
-ComparatorIP comp2(.dataa(ForwardBMuxOut2),.datab(ForwardAMuxOut2),.aeb(zero2));
-//Comparator #(32) comp2 (zero2, ForwardAMuxOut2, ForwardBMuxOut2);
-XNORGate branchXnor2(.out(xnorOut2), .in1(bit26_2E), .in2(~zero2));
-ANDGate branchAnd2(.in1(xnorOut2), .in2(Branch2E), .out(branch_taken2));   
-
-pcCorrection PCC (
-    .PredictionE1(prediction1E), .PredictionE2(prediction2E), .branch_taken1(branch_taken1), .branch_taken2(branch_taken2), 
-    .PCE1(PCE), .PCE2(PCPlus1E), .branchAdderResultE1(branchAdderResult1E), .branchAdderResultE2(branchAdderResult2E), 
-    .CorrectedPC1(CorrectedPC1), .CorrectedPC2(CorrectedPC2)
-);
+  
 
 
-pipe #(159) EX_MEM(
-    .D({
-        RegWriteEn1E, MemToReg1E, MemWriteEn1E, MemReadEn1E, 
-        RegWriteEn2E, MemToReg2E, MemWriteEn2E, MemReadEn2E, 
-        PCPlus2E, 
-        ALUResult1, ALUResult2, 
-        ForwardBMuxOut1, ForwardBMuxOut2, 
-        writeRegister1E, writeRegister2E
+
+
+pipe #(120) EX_MEM(
+    .D({branchAdderResult1E, RegWriteEn1E, MemToReg1E, MemWriteEn1E, MemReadEn1E, 
+        Branch1E, bit26_1E, prediction1E, ALUResult1, ForwardBMuxOut1,ForwardAMuxOut1, writeRegister1E
     }),
-    .Q({
-        RegWriteEn1M, MemToReg1M, MemWriteEn1M, MemReadEn1M, 
-        RegWriteEn2M, MemToReg2M, MemWriteEn2M, MemReadEn2M, 
-        PCPlus2M, 
-        ALUResult1M, ALUResult2M, 
-        ForwardBMuxOut1M, ForwardBMuxOut2M,
-        writeRegister1M, writeRegister2M
+    .Q({branchAdderResult1M, RegWriteEn1M, MemToReg1M, MemWriteEn1M, MemReadEn1M, 
+		  Branch1M, bit26_1M, prediction1M, ALUResult1M, ForwardBMuxOut1M, ForwardAMuxOut1M, writeRegister1M
     }), 
     .clk(clk), 
     .reset(rst), 
     .enable(enable),
-	 .flush(0)
+	 .flush(FlushEX)
 );
+
+pipe #(163) EX_MEM_2(
+	 .D({PCE, PCPlus1E, branchAdderResult2E, RegWriteEn2E, MemToReg2E, MemWriteEn2E, MemReadEn2E, rs2E, rt2E,
+        PCPlus2E, Branch2E, bit26_2E,prediction2E, ALUResult2, ForwardBMuxOut2, ForwardAMuxOut2, writeRegister2E
+    }),
+    .Q({PCM, PCPlus1M, branchAdderResult2M, RegWriteEn2M, MemToReg2M, MemWriteEn2M, MemReadEn2M, rs2M, rt2M,
+        PCPlus2M, Branch2M, bit26_2M, prediction2M, ALUResult2M, ForwardBMuxOut2M, ForwardAMuxOut2M, writeRegister2M
+    }), 
+    .clk(clk), 
+    .reset(rst), 
+    .enable(enable),
+	 .flush(FlushEX));
 
 
 /* ********************************************** MEMORY STAGE ******************************************* */
 
+ComparatorIP comp1(.dataa(ForwardBMuxOut1M),.datab(ForwardAMuxOut1M),.aeb(zero1));
+XNORGate branchXnor1(.out(xnorOut1), .in1(bit26_1M), .in2(~zero1));
+ANDGate branchAnd1(.in1(xnorOut1), .in2(Branch1M), .out(branch_taken1));
+
+mux2x1 #(32) comp2MuxA (.in1(ForwardAMuxOut2M), .in2(ALUResult1M), .s(ForwardBranchA), .out(comp2MuxAout));
+mux2x1 #(32) comp2MuxB (.in1(ForwardBMuxOut2M), .in2(ALUResult1M), .s(ForwardBranchB), .out(comp2MuxBout));
+ComparatorIP comp2(.dataa(comp2MuxAout),.datab(comp2MuxBout),.aeb(zero2));
+XNORGate branchXnor2(.out(xnorOut2), .in1(bit26_2M), .in2(~zero2));
+ANDGate branchAnd2(.in1(xnorOut2), .in2(Branch2M), .out(branch_taken2)); 
+
+pcCorrection PCC (
+    .PredictionE1(prediction1M), .PredictionE2(prediction2M), .branch_taken1(branch_taken1), .branch_taken2(branch_taken2), 
+    .PCE1(PCM), .PCE2(PCPlus1M), .branchAdderResultE1(branchAdderResult1M), .branchAdderResultE2(branchAdderResult2M), 
+    .CorrectedPC1(CorrectedPC1), .CorrectedPC2(CorrectedPC2)
+);
 dual_issue_data_memory DM (
 	.address_a(ALUResult1M[10:0]),
 	.address_b(ALUResult2M[10:0]),
@@ -309,7 +314,7 @@ pipe #(155) MEM_WB(
     .clk(clk), 
     .reset(rst),      
     .enable(enable),
-	 .flush(0)
+	 .flush(1'b0)
 );
 
 
