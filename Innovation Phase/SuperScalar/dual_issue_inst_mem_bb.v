@@ -35,18 +35,24 @@
 module dual_issue_inst_mem (
 	address_a,
 	address_b,
+	addressstall_a,
+	addressstall_b,
 	clock,
 	q_a,
 	q_b);
 
 	input	[10:0]  address_a;
 	input	[10:0]  address_b;
+	input	  addressstall_a;
+	input	  addressstall_b;
 	input	  clock;
 	output	[31:0]  q_a;
 	output	[31:0]  q_b;
 `ifndef ALTERA_RESERVED_QIS
 // synopsys translate_off
 `endif
+	tri0	  addressstall_a;
+	tri0	  addressstall_b;
 	tri1	  clock;
 `ifndef ALTERA_RESERVED_QIS
 // synopsys translate_on
@@ -57,8 +63,8 @@ endmodule
 // ============================================================
 // CNX file retrieval info
 // ============================================================
-// Retrieval info: PRIVATE: ADDRESSSTALL_A NUMERIC "0"
-// Retrieval info: PRIVATE: ADDRESSSTALL_B NUMERIC "0"
+// Retrieval info: PRIVATE: ADDRESSSTALL_A NUMERIC "1"
+// Retrieval info: PRIVATE: ADDRESSSTALL_B NUMERIC "1"
 // Retrieval info: PRIVATE: BYTEENA_ACLR_A NUMERIC "0"
 // Retrieval info: PRIVATE: BYTEENA_ACLR_B NUMERIC "0"
 // Retrieval info: PRIVATE: BYTE_ENABLE_A NUMERIC "0"
@@ -142,11 +148,15 @@ endmodule
 // Retrieval info: CONSTANT: WRCONTROL_WRADDRESS_REG_B STRING "CLOCK0"
 // Retrieval info: USED_PORT: address_a 0 0 11 0 INPUT NODEFVAL "address_a[10..0]"
 // Retrieval info: USED_PORT: address_b 0 0 11 0 INPUT NODEFVAL "address_b[10..0]"
+// Retrieval info: USED_PORT: addressstall_a 0 0 0 0 INPUT GND "addressstall_a"
+// Retrieval info: USED_PORT: addressstall_b 0 0 0 0 INPUT GND "addressstall_b"
 // Retrieval info: USED_PORT: clock 0 0 0 0 INPUT VCC "clock"
 // Retrieval info: USED_PORT: q_a 0 0 32 0 OUTPUT NODEFVAL "q_a[31..0]"
 // Retrieval info: USED_PORT: q_b 0 0 32 0 OUTPUT NODEFVAL "q_b[31..0]"
 // Retrieval info: CONNECT: @address_a 0 0 11 0 address_a 0 0 11 0
 // Retrieval info: CONNECT: @address_b 0 0 11 0 address_b 0 0 11 0
+// Retrieval info: CONNECT: @addressstall_a 0 0 0 0 addressstall_a 0 0 0 0
+// Retrieval info: CONNECT: @addressstall_b 0 0 0 0 addressstall_b 0 0 0 0
 // Retrieval info: CONNECT: @clock0 0 0 0 0 clock 0 0 0 0
 // Retrieval info: CONNECT: @data_a 0 0 32 0 GND 0 0 32 0
 // Retrieval info: CONNECT: @data_b 0 0 32 0 GND 0 0 32 0

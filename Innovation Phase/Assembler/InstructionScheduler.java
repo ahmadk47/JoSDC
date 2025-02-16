@@ -363,7 +363,7 @@ public class InstructionScheduler {
         // If inst2 is a branch and inst1 sets a condition register that the branch uses,
         // they must be kept in order
         if (inst2.isBranch && inst2.readRegs.stream().anyMatch(reg -> inst1.writeRegs.contains(reg))) {
-            return true;
+            return false;
         }
         
         // Regular dependency checks
@@ -492,12 +492,56 @@ public class InstructionScheduler {
         }
         return loops;
     }
-    public static String[] getProgram(){
+    public static String[] getProgram1(){
         return new String[]{
-            "XORI $24, $0, 0x5",
+            "ADDI $8, $0, 14",
+            "ADDI $9, $0, 0",
+            "ADDI $10, $0, 0",
+        "outerLoop:",
+            "SLT $11, $9, $8",
+            "BEQ $11, $0, finish",
+            "ADD $12, $9, $0",
+            "ADDI $14, $0, 0",
+            "LW $13, 0x0($12)",
+            "ADDI $15, $0, 0",
+        "innerLoop:",
+            "SLT $24, $14, $10",
+            "BEQ $24, $0, addToResult",
+            "ADD $25, $14, $0",
+            "NOP",
+            "LW $16, 0xE($25)",
+            "NOP",
+            "BEQ $13, $16, duplicateFound",
+            "ADDI $14, $14, 1",
+            "JAL innerLoop",
+        "duplicateFound:",
+            "ADDI $15, $0, 1",
+            "JAL outerContinue",
+            "NOP",
+        "addToResult:",
+            "BEQ $15, $0, storeValue",
+            "NOP",
+            "JAL outerContinue",
+        "storeValue:",
+            "ADD $25, $10, $0",
+            "NOP",
+            "SW $13, 0xE($25)",
+            "ADDI $10, $10, 1",
+        "outerContinue:",
+            "ADDI $9, $9, 1",
+            "JAL outerLoop",
+        "finish:",
+            "NOP"
+        };
+        
+        
+    }
+    public static String[] getProgram2(){
+        return new String[]{
+           "XORI $24, $0, 0x5",
             "XORI $25, $0, 0x3",
             "JAL Mul_Fun",
-            "nop",
+            "NOP",
             "J Finish",
             "Mul_Fun:",
             "ANDI $23, $0, 0",
@@ -506,7 +550,6 @@ public class InstructionScheduler {
             "ADD $23, $23, $24",
             "ADDI $22, $22, -1",
             "BGEZ $22, Mul_Loop",
-            "nop",
             "JR $31",
             "Finish:",
             "NOP"
@@ -519,29 +562,16 @@ public class InstructionScheduler {
         InstructionScheduler scheduler = new InstructionScheduler();
         
         // Test case 1: Basic arithmetic and memory operations
-        String[] program1 = {
-          "XORI $24, $0, 0x5",
-            "XORI $25, $0, 0x3",
-            "JAL Mul_Fun",
-            "nop",
-            "J Finish",
-            "Mul_Fun:",
-            "ANDI $23, $0, 0",
-            "ADDI $22, $25, -1",
-            "Mul_Loop:",
-            "ADD $23, $23, $24",
-            "ADDI $22, $22, -1",
-            "BGEZ $22, Mul_Loop",
-            "nop",
-            "JR $31",
-            "Finish:",
-            "NOP"
-        };
-        
+        String[] program1 = InstructionScheduler.getProgram1();
+        String[] program2 = InstructionScheduler.getProgram2();
        
-        System.out.println("Test Case 1 - Basic Operations:");
+        System.out.println("Test Case 1");
         String[] scheduled1 = scheduler.schedule(program1);
         printProgram(program1, scheduled1);
+
+        System.out.println("Test Case 2");
+        String[] scheduled2 = scheduler.schedule(program2);
+        printProgram(program2, scheduled2);
         
     }
     

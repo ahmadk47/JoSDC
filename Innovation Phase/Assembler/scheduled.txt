@@ -1,0 +1,32 @@
+Scheduled program:
+XORI $24, $0, 0x5
+XORI $25, $0, 0x3
+JAL Mul_Fun
+nop
+J Finish
+nop
+Mul_Fun:
+ANDI $23, $0, 0
+ADDI $22, $25, -1
+Mul_Loop:
+add $8, $8, $9
+addi $10, $10, -1
+slt $11, $22, $10
+addi $12, $12, -1
+bne $11, $0, exit_Mul_Loop
+nop
+add $10, $10, $11
+slt $13, $22, $12
+bne $13, $0, exit_Mul_Loop
+nop
+add $12, $12, $13
+addi $14, $14, -1
+add $22, $8, $0
+add $23, $9, $0
+BGEZ $22, Mul_Loop
+nop
+exit_Mul_Loop:
+JR $31
+nop
+Finish:
+NOP

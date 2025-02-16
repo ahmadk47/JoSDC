@@ -1,0 +1,17 @@
+Original program:
+XORI $24, $0, 0x5
+XORI $25, $0, 0x3
+JAL Mul_Fun
+NOP
+J Finish
+Mul_Fun:
+ANDI $23, $0, 0
+ADDI $22, $25, -1
+Mul_Loop:
+ADD $23, $23, $24
+ADDI $22, $22, -1
+BGEZ $22, Mul_Loop
+nop
+JR $31
+Finish:
+NOP
