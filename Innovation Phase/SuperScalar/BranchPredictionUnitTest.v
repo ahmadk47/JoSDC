@@ -18,18 +18,18 @@ module BranchPredictionUnitTest (
     output reg [10:0] instMemTarget;         // Predicted target for instruction memory
 
     // Branch History Table (BHT)
-    reg [1:0] BHT [0:31]; // 32-entry BHT, 2-bit saturating counters
+    reg [1:0] BHT [0:63]; // 32-entry BHT, 2-bit saturating counters
 
     // Branch Target Buffer (BTB)
-    reg [10:0] BTB_target [0:31];  // 32-entry BTB storing target addresses
-    reg BTB_valid [0:31];          // Valid bits for BTB entries
+    reg [10:0] BTB_target [0:63];  // 32-entry BTB storing target addresses
+    reg BTB_valid [0:63];          // Valid bits for BTB entries
 
     // Indexes for accessing the BHT and BTB
-    wire [4:0] index1 = pc1[4:0];
-    wire [4:0] index2 = pc2[4:0];
-    wire [4:0] indexM1 = pcM1[4:0];
-    wire [4:0] indexM2 = pcM2[4:0];
-    wire [4:0] predIndex = nextPC[4:0];
+    wire [5:0] index1 = pc1[5:0];
+    wire [5:0] index2 = pc2[5:0];
+    wire [5:0] indexM1 = pcM1[5:0];
+    wire [5:0] indexM2 = pcM2[5:0];
+    wire [5:0] predIndex = nextPC[5:0];
 
     // Prediction logic for the first branch
     always @(*) begin
@@ -78,7 +78,7 @@ module BranchPredictionUnitTest (
         integer i;
         if (~reset) begin
             // Initialize BHT to Weakly Not Taken (2'b01)
-            for (i = 0; i < 31; i = i + 1) begin
+            for (i = 0; i < 64; i = i + 1) begin
                 BHT[i] <= 2'b01;
                 BTB_valid[i] <= 1'b0;  // Initialize BTB valid bits to invalid
                 BTB_target[i] <= 11'd0; // Initialize BTB targets to 0

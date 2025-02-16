@@ -312,7 +312,7 @@ public class Assembler {
             InstructionScheduler scheduler = new InstructionScheduler();
             Assembler assembler = new Assembler();
             AssemblyPipeline pipeline = new AssemblyPipeline();
-            String[] scheduledProgram = scheduler.getProgram1();
+            String[] scheduledProgram = scheduler.getProgram3();
             // scheduledProgram = scheduler.schedule(scheduledProgram);
             // String[] optimizedProgram = scheduledProgram.toArray(new String[0]);
             assembler.firstPass(scheduledProgram);

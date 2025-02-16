@@ -61,7 +61,7 @@ public class AssemblyPipeline {
             Assembler assembler = new Assembler();
 
             // Original program defined in scheduler's main
-            String[] originalProgram = scheduler.getProgram1();
+            String[] originalProgram = scheduler.getProgram3();
             
             // Simulate original program execution
             System.out.println("Original Program Execution:");

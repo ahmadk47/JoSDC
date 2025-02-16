@@ -554,6 +554,42 @@ public class InstructionScheduler {
             "Finish:",
             "NOP"
         };
+    }
+
+    public static String[] getProgram3(){
+        return new String[]{
+            "ADDI $17, $0, 10",
+            "ANDI $18, $0, 0",
+            "XORI $24, $0, 2",
+        
+            "Outer_Loop:",
+            "ADD $19, $18, $0",
+            "NOP",
+            "LW $25, 0x0($19)",
+            "JAL Mul_Fun",
+            "SW $23, 0x0($19)",
+            "ADDI $18, $18, 1",
+            "SUB $20, $18, $17",
+            "NOP",
+            "BLTZ $20, Outer_Loop",
+            "NOP",
+            "J Finish",
+        
+            "Mul_Fun:",
+            "ANDI $23, $0, 0",
+            "ADDI $22, $25, -1",
+        
+            "Mul_Loop:",
+            "ADD $23, $23, $24",
+            "ADDI $22, $22, -1",
+            "NOP",
+            "BGEZ $22, Mul_Loop",
+            "NOP",
+            "JR $31",
+        
+            "Finish:",
+            "NOP"
+        };
         
         
     }
@@ -562,26 +598,18 @@ public class InstructionScheduler {
         InstructionScheduler scheduler = new InstructionScheduler();
         
         // Test case 1: Basic arithmetic and memory operations
-        String[] program1 = InstructionScheduler.getProgram1();
-        String[] program2 = InstructionScheduler.getProgram2();
+        String[] program = InstructionScheduler.getProgram3();
        
         System.out.println("Test Case 1");
-        String[] scheduled1 = scheduler.schedule(program1);
-        printProgram(program1, scheduled1);
+        String[] scheduled = scheduler.schedule(program);
+        printProgram(program, scheduled);
 
-        System.out.println("Test Case 2");
-        String[] scheduled2 = scheduler.schedule(program2);
-        printProgram(program2, scheduled2);
-        
+    
     }
     
     private static void printProgram(String[] original, String[] scheduled) {
         System.out.println("Original program:");
         for (String inst : original) {
-            System.out.println(inst);
-        }
-        System.out.println("\nScheduled program:");
-        for (String inst : scheduled) {
             System.out.println(inst);
         }
     }

@@ -207,10 +207,6 @@ BranchPredictionUnitTest BPUT (
 	 .nextPC(nextPC), .instMemPred(instMemPred), .predictedTarget1(predictedTarget1), .predictedTarget2(predictedTarget2), .instMemTarget(instMemTarget)
 );
 
-//BranchPredictionUnit BPU (
-//    .clk(clk), .reset(rst), .branch1(Branch1M), .branch2(Branch2M), .branch_taken1(branch_taken1), .branch_taken2(branch_taken2), 
-//    .pc1(PC), .pc2(PCPlus1), .pcE1(PCM), .pcE2(PCPlus1M), .prediction1(prediction1), .prediction2(prediction2), .nextPC(nextPC), .instMemPred(instMemPred)
-//);
 
 pipe #(121) IF_ID(.D({PCPlus2,PCPlus1,PC,branchAdderResult1,branchAdderResult2, prediction1, prediction2, instr1, instr2}), 
 		.Q({PCPlus2D,PCPlus1D,PCD,branchAdderResult1D,branchAdderResult2D, prediction1New, prediction2New, instr1D, instr2D}), 
@@ -370,15 +366,26 @@ dual_issue_data_memory DM (
 	.q_b(memoryReadData2)
 	);
 
-//pipe #(80) MEM_WB(.D({regWriteM, memToRegM, PCPlus1M, ALUResultM, memoryReadData, writeRegisterM}), 
-//.Q({regWriteW, memToRegW, PCPlus1W, ALUResultW, memoryReadDataW, writeRegisterW}), .clk(clk), .reset(rst), .enable(enable));
-
-pipe #(155) MEM_WB( 
+pipe #(72) MEM_WB1( 
     .D({
 		  RegWriteEn1M, MemToReg1M,
         ALUResult1M,
         memoryReadData1,
-        writeRegister1M,
+        writeRegister1M
+    }),
+    .Q({
+        RegWriteEn1W, MemToReg1W, 
+        ALUResult1W,
+        memoryReadData1W, 
+        writeRegister1W
+    }), 
+    .clk(clk), 
+    .reset(rst),      
+    .enable(enable),
+	 .flush(1'b0)
+);
+pipe #(83) MEM_WB2( 
+    .D({
         RegWriteEn2M, MemToReg2M,
         PCPlus2M,
         ALUResult2M,
@@ -386,10 +393,6 @@ pipe #(155) MEM_WB(
         writeRegister2M
     }),
     .Q({
-        RegWriteEn1W, MemToReg1W, 
-        ALUResult1W,
-        memoryReadData1W, 
-        writeRegister1W,
         RegWriteEn2W, MemToReg2W, 
         PCPlus2W, 
         ALUResult2W, 
@@ -399,9 +402,8 @@ pipe #(155) MEM_WB(
     .clk(clk), 
     .reset(rst),      
     .enable(enable),
-	 .flush(1'b0)
+	 .flush(FlushMEM2)
 );
-
 
 
 /* ********************************************** WRITE BACK STAGE ******************************************* */
@@ -415,7 +417,7 @@ assign writeData1 = (MemToReg1W == 2'b00) ? ALUResult1W :
 // Write-back for Instruction 2
 assign writeData2 = (MemToReg2W == 2'b00) ? ALUResult2W : 
                     (MemToReg2W == 2'b01) ? memoryReadData2W : 
-                    (MemToReg2W == 2'b10) ? {{21{1'b0}}, PCPlus2W-11'd1} : 
+                    (MemToReg2W == 2'b10) ? {{21{1'b0}}, PCPlus2W} : 
                     32'b0;
 
 
