@@ -108,12 +108,12 @@ module controlUnit(opCode, funct,
 			end
 				
 			_lw : begin
-				RegDst = 2'b0; // changed to 0
+				RegDst = 2'b0;
 				Branch = 1'b0;
-				MemReadEn = 1'b1; // changed to 1
+				MemReadEn = 1'b1;
 				MemtoReg = 2'b01;
 				ALUOp = 4'b0000;
-				MemWriteEn = 1'b0; // changed to 0
+				MemWriteEn = 1'b0;
 				RegWriteEn = 1'b1;		
 				ALUSrc = 1'b1;
 				Jump = 1'b0;
@@ -139,7 +139,7 @@ module controlUnit(opCode, funct,
 				RegWriteEn = 1'b0;
 				ALUSrc = 1'b0;
 				Jump = 1'b0;
-				PcSrc = 1'b0;		// changed to 0				
+				PcSrc = 1'b0;				
 			end
 			
 			_bne : begin
@@ -155,7 +155,7 @@ module controlUnit(opCode, funct,
 
 			
 			_jal : begin
-				Branch = 1'b0;    // some stuff fixed
+				Branch = 1'b0; 
 				MemReadEn = 1'b0;
 				MemWriteEn = 1'b0;
 				RegWriteEn = 1'b1;
@@ -211,7 +211,7 @@ module controlUnit(opCode, funct,
 				Branch = 1'b0;
 				MemReadEn = 1'b0;
 				MemtoReg = 2'b0;
-				ALUOp = 4'b0100; ///////
+				ALUOp = 4'b0100; 
 				MemWriteEn = 1'b0;
 				RegWriteEn = 1'b1;
 				ALUSrc = 1'b1;
@@ -224,16 +224,14 @@ module controlUnit(opCode, funct,
 				MemReadEn = 1'b0;
 				MemWriteEn = 1'b0;
 				RegWriteEn = 1'b0;
-				ALUSrc = 1'b0; // don't care
+				ALUSrc = 1'b0;
 				Jump = 1'b1;
 				PcSrc = 1'b1;
-				RegDst = 2'b10; // don't care
-				MemtoReg =  2'b10; // don't care
+				RegDst = 2'b10;
+				MemtoReg =  2'b10;
 				
 			end
 			
-			
-
 			
 			default: ;
 				

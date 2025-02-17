@@ -69,11 +69,5 @@ module ALU (operand1, operand2, shamt, opSel, result, overflow);
 	
 	end
 	
-//always @(*) begin 
-//	if (result == 32'b0)
-//		zero = 1;
-//	else
-//		zero = 0;
-//end
 
 endmodule 
