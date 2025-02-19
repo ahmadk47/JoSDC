@@ -1,32 +1,23 @@
-ADDI $8, $0, 14
-ADDI $9, $0, 0
-ADDI $10, $0, 0
-outerLoop:
-SLT $11, $9, $8
-BEQ $11, $0, finish
-ADD $12, $9, $0
-ADDI $14, $0, 0
-LW $13, 0x0($12)
-ADDI $15, $0, 0
-innerLoop:
-SLT $24, $14, $10
-BEQ $24, $0, addToResult
-ADD $25, $14, $0
-LW $16, 0xE($25)
-BEQ $13, $16, duplicateFound
-ADDI $14, $14, 1
-JAL innerLoop
-duplicateFound:
-ADDI $15, $0, 1
-JAL outerContinue
-addToResult:
-BEQ $15, $0, storeValue
-JAL outerContinue
-storeValue:
-ADD $25, $10, $0
-SW $13, 0xE($25)
-ADDI $10, $10, 1
-outerContinue:
-ADDI $9, $9, 1
-JAL outerLoop
-finish:
+ADDI $17, $0, 10
+ANDI $18, $0, 0
+XORI $24, $0, 2
+Outer_Loop:
+ADD $19, $18, $0
+LW $25, 0x0($19)
+JAL Mul_Fun
+SW $23, 0x0($19)
+ADDI $18, $18, 1
+SUB $20, $18, $17
+SLT $1, $20, $0
+BNE $1, $0, Outer_Loop
+J Finish
+Mul_Fun:
+ANDI $23, $0, 0
+ADDI $22, $25, -1
+Mul_Loop:
+ADD $23, $23, $24
+ADDI $22, $22, -1
+SLT $2, $22, $0
+BEQ $2, $0, Mul_Loop
+JR $31
+Finish:

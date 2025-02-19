@@ -42,15 +42,15 @@ module AdderIP (
 	data1x,
 	result);
 
-	input	[10:0]  data0x;
-	input	[10:0]  data1x;
-	output	[10:0]  result;
+	input	[8:0]  data0x;
+	input	[8:0]  data1x;
+	output	[8:0]  result;
 
-	wire [10:0] sub_wire3;
-	wire [10:0] sub_wire2 = data1x[10:0];
-	wire [10:0] sub_wire0 = data0x[10:0];
-	wire [21:0] sub_wire1 = {sub_wire2, sub_wire0};
-	wire [10:0] result = sub_wire3[10:0];
+	wire [8:0] sub_wire3;
+	wire [8:0] sub_wire2 = data1x[8:0];
+	wire [8:0] sub_wire0 = data0x[8:0];
+	wire [17:0] sub_wire1 = {sub_wire2, sub_wire0};
+	wire [8:0] result = sub_wire3[8:0];
 
 	parallel_add	parallel_add_component (
 				.data (sub_wire1),
@@ -65,12 +65,12 @@ module AdderIP (
 	defparam
 		parallel_add_component.msw_subtract = "NO",
 		parallel_add_component.pipeline = 0,
-		parallel_add_component.representation = "SIGNED",
+		parallel_add_component.representation = "UNSIGNED",
 		parallel_add_component.result_alignment = "LSB",
 		parallel_add_component.shift = 0,
 		parallel_add_component.size = 2,
-		parallel_add_component.width = 11,
-		parallel_add_component.widthr = 11;
+		parallel_add_component.width = 9,
+		parallel_add_component.widthr = 9;
 
 
 endmodule
@@ -83,18 +83,18 @@ endmodule
 // Retrieval info: LIBRARY: altera_mf altera_mf.altera_mf_components.all
 // Retrieval info: CONSTANT: MSW_SUBTRACT STRING "NO"
 // Retrieval info: CONSTANT: PIPELINE NUMERIC "0"
-// Retrieval info: CONSTANT: REPRESENTATION STRING "SIGNED"
+// Retrieval info: CONSTANT: REPRESENTATION STRING "UNSIGNED"
 // Retrieval info: CONSTANT: RESULT_ALIGNMENT STRING "LSB"
 // Retrieval info: CONSTANT: SHIFT NUMERIC "0"
 // Retrieval info: CONSTANT: SIZE NUMERIC "2"
-// Retrieval info: CONSTANT: WIDTH NUMERIC "11"
-// Retrieval info: CONSTANT: WIDTHR NUMERIC "11"
-// Retrieval info: USED_PORT: data0x 0 0 11 0 INPUT NODEFVAL "data0x[10..0]"
-// Retrieval info: USED_PORT: data1x 0 0 11 0 INPUT NODEFVAL "data1x[10..0]"
-// Retrieval info: USED_PORT: result 0 0 11 0 OUTPUT NODEFVAL "result[10..0]"
-// Retrieval info: CONNECT: @data 0 0 11 0 data0x 0 0 11 0
-// Retrieval info: CONNECT: @data 0 0 11 11 data1x 0 0 11 0
-// Retrieval info: CONNECT: result 0 0 11 0 @result 0 0 11 0
+// Retrieval info: CONSTANT: WIDTH NUMERIC "9"
+// Retrieval info: CONSTANT: WIDTHR NUMERIC "9"
+// Retrieval info: USED_PORT: data0x 0 0 9 0 INPUT NODEFVAL "data0x[8..0]"
+// Retrieval info: USED_PORT: data1x 0 0 9 0 INPUT NODEFVAL "data1x[8..0]"
+// Retrieval info: USED_PORT: result 0 0 9 0 OUTPUT NODEFVAL "result[8..0]"
+// Retrieval info: CONNECT: @data 0 0 9 0 data0x 0 0 9 0
+// Retrieval info: CONNECT: @data 0 0 9 9 data1x 0 0 9 0
+// Retrieval info: CONNECT: result 0 0 9 0 @result 0 0 9 0
 // Retrieval info: GEN_FILE: TYPE_NORMAL AdderIP.v TRUE
 // Retrieval info: GEN_FILE: TYPE_NORMAL AdderIP.inc FALSE
 // Retrieval info: GEN_FILE: TYPE_NORMAL AdderIP.cmp FALSE

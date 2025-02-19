@@ -37,9 +37,9 @@ module AdderIP (
 	data1x,
 	result);
 
-	input	[10:0]  data0x;
-	input	[10:0]  data1x;
-	output	[10:0]  result;
+	input	[8:0]  data0x;
+	input	[8:0]  data1x;
+	output	[8:0]  result;
 
 endmodule
 
@@ -51,18 +51,18 @@ endmodule
 // Retrieval info: LIBRARY: altera_mf altera_mf.altera_mf_components.all
 // Retrieval info: CONSTANT: MSW_SUBTRACT STRING "NO"
 // Retrieval info: CONSTANT: PIPELINE NUMERIC "0"
-// Retrieval info: CONSTANT: REPRESENTATION STRING "SIGNED"
+// Retrieval info: CONSTANT: REPRESENTATION STRING "UNSIGNED"
 // Retrieval info: CONSTANT: RESULT_ALIGNMENT STRING "LSB"
 // Retrieval info: CONSTANT: SHIFT NUMERIC "0"
 // Retrieval info: CONSTANT: SIZE NUMERIC "2"
-// Retrieval info: CONSTANT: WIDTH NUMERIC "11"
-// Retrieval info: CONSTANT: WIDTHR NUMERIC "11"
-// Retrieval info: USED_PORT: data0x 0 0 11 0 INPUT NODEFVAL "data0x[10..0]"
-// Retrieval info: USED_PORT: data1x 0 0 11 0 INPUT NODEFVAL "data1x[10..0]"
-// Retrieval info: USED_PORT: result 0 0 11 0 OUTPUT NODEFVAL "result[10..0]"
-// Retrieval info: CONNECT: @data 0 0 11 0 data0x 0 0 11 0
-// Retrieval info: CONNECT: @data 0 0 11 11 data1x 0 0 11 0
-// Retrieval info: CONNECT: result 0 0 11 0 @result 0 0 11 0
+// Retrieval info: CONSTANT: WIDTH NUMERIC "9"
+// Retrieval info: CONSTANT: WIDTHR NUMERIC "9"
+// Retrieval info: USED_PORT: data0x 0 0 9 0 INPUT NODEFVAL "data0x[8..0]"
+// Retrieval info: USED_PORT: data1x 0 0 9 0 INPUT NODEFVAL "data1x[8..0]"
+// Retrieval info: USED_PORT: result 0 0 9 0 OUTPUT NODEFVAL "result[8..0]"
+// Retrieval info: CONNECT: @data 0 0 9 0 data0x 0 0 9 0
+// Retrieval info: CONNECT: @data 0 0 9 9 data1x 0 0 9 0
+// Retrieval info: CONNECT: result 0 0 9 0 @result 0 0 9 0
 // Retrieval info: GEN_FILE: TYPE_NORMAL AdderIP.v TRUE
 // Retrieval info: GEN_FILE: TYPE_NORMAL AdderIP.inc FALSE
 // Retrieval info: GEN_FILE: TYPE_NORMAL AdderIP.cmp FALSE

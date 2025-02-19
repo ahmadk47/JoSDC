@@ -41,8 +41,8 @@ module dual_issue_inst_mem (
 	q_a,
 	q_b);
 
-	input	[10:0]  address_a;
-	input	[10:0]  address_b;
+	input	[8:0]  address_a;
+	input	[8:0]  address_b;
 	input	  addressstall_a;
 	input	  addressstall_b;
 	input	  clock;
@@ -93,7 +93,7 @@ endmodule
 // Retrieval info: PRIVATE: JTAG_ENABLED NUMERIC "0"
 // Retrieval info: PRIVATE: JTAG_ID STRING "NONE"
 // Retrieval info: PRIVATE: MAXIMUM_DEPTH NUMERIC "0"
-// Retrieval info: PRIVATE: MEMSIZE NUMERIC "65536"
+// Retrieval info: PRIVATE: MEMSIZE NUMERIC "16384"
 // Retrieval info: PRIVATE: MEM_IN_BITS NUMERIC "0"
 // Retrieval info: PRIVATE: MIFfilename STRING "dual_issue_inst_memory.mif"
 // Retrieval info: PRIVATE: OPERATION_MODE NUMERIC "3"
@@ -130,8 +130,8 @@ endmodule
 // Retrieval info: CONSTANT: INIT_FILE STRING "dual_issue_inst_memory.mif"
 // Retrieval info: CONSTANT: INTENDED_DEVICE_FAMILY STRING "MAX 10"
 // Retrieval info: CONSTANT: LPM_TYPE STRING "altsyncram"
-// Retrieval info: CONSTANT: NUMWORDS_A NUMERIC "2048"
-// Retrieval info: CONSTANT: NUMWORDS_B NUMERIC "2048"
+// Retrieval info: CONSTANT: NUMWORDS_A NUMERIC "512"
+// Retrieval info: CONSTANT: NUMWORDS_B NUMERIC "512"
 // Retrieval info: CONSTANT: OPERATION_MODE STRING "BIDIR_DUAL_PORT"
 // Retrieval info: CONSTANT: OUTDATA_ACLR_A STRING "NONE"
 // Retrieval info: CONSTANT: OUTDATA_ACLR_B STRING "NONE"
@@ -139,22 +139,22 @@ endmodule
 // Retrieval info: CONSTANT: OUTDATA_REG_B STRING "UNREGISTERED"
 // Retrieval info: CONSTANT: POWER_UP_UNINITIALIZED STRING "FALSE"
 // Retrieval info: CONSTANT: RAM_BLOCK_TYPE STRING "M9K"
-// Retrieval info: CONSTANT: WIDTHAD_A NUMERIC "11"
-// Retrieval info: CONSTANT: WIDTHAD_B NUMERIC "11"
+// Retrieval info: CONSTANT: WIDTHAD_A NUMERIC "9"
+// Retrieval info: CONSTANT: WIDTHAD_B NUMERIC "9"
 // Retrieval info: CONSTANT: WIDTH_A NUMERIC "32"
 // Retrieval info: CONSTANT: WIDTH_B NUMERIC "32"
 // Retrieval info: CONSTANT: WIDTH_BYTEENA_A NUMERIC "1"
 // Retrieval info: CONSTANT: WIDTH_BYTEENA_B NUMERIC "1"
 // Retrieval info: CONSTANT: WRCONTROL_WRADDRESS_REG_B STRING "CLOCK0"
-// Retrieval info: USED_PORT: address_a 0 0 11 0 INPUT NODEFVAL "address_a[10..0]"
-// Retrieval info: USED_PORT: address_b 0 0 11 0 INPUT NODEFVAL "address_b[10..0]"
+// Retrieval info: USED_PORT: address_a 0 0 9 0 INPUT NODEFVAL "address_a[8..0]"
+// Retrieval info: USED_PORT: address_b 0 0 9 0 INPUT NODEFVAL "address_b[8..0]"
 // Retrieval info: USED_PORT: addressstall_a 0 0 0 0 INPUT GND "addressstall_a"
 // Retrieval info: USED_PORT: addressstall_b 0 0 0 0 INPUT GND "addressstall_b"
 // Retrieval info: USED_PORT: clock 0 0 0 0 INPUT VCC "clock"
 // Retrieval info: USED_PORT: q_a 0 0 32 0 OUTPUT NODEFVAL "q_a[31..0]"
 // Retrieval info: USED_PORT: q_b 0 0 32 0 OUTPUT NODEFVAL "q_b[31..0]"
-// Retrieval info: CONNECT: @address_a 0 0 11 0 address_a 0 0 11 0
-// Retrieval info: CONNECT: @address_b 0 0 11 0 address_b 0 0 11 0
+// Retrieval info: CONNECT: @address_a 0 0 9 0 address_a 0 0 9 0
+// Retrieval info: CONNECT: @address_b 0 0 9 0 address_b 0 0 9 0
 // Retrieval info: CONNECT: @addressstall_a 0 0 0 0 addressstall_a 0 0 0 0
 // Retrieval info: CONNECT: @addressstall_b 0 0 0 0 addressstall_b 0 0 0 0
 // Retrieval info: CONNECT: @clock0 0 0 0 0 clock 0 0 0 0

@@ -1,0 +1,28 @@
+ADDI $17, $0, 10
+ANDI $18, $0, 0
+XORI $24, $0, 2
+Outer_Loop:
+ADD $19, $18, $0
+NOP
+LW $25, 0x0($19)
+JAL Mul_Fun
+ADDI $18, $18, 1
+SW $23, 0x0($19)
+SUB $20, $18, $17
+NOP
+SLT $1, $20, $0
+BNE $1, $0, Outer_Loop
+NOP
+J Finish
+Mul_Fun:
+ANDI $23, $0, 0
+ADDI $22, $25, -1
+NOP
+Mul_Loop:
+ADDI $22, $22, -1
+ADD $23, $23, $24
+SLT $2, $22, $0
+BEQ $2, $0, Mul_Loop
+NOP
+JR $31
+Finish:
