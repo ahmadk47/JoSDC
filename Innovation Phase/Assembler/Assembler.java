@@ -141,8 +141,8 @@ public class Assembler {
         } else if (pseudoOp.equals("bgez")) {
             // bgez (branch on greater than zero):
             // Replaces with:
-            // slt $1, $rs, $0
-            // beq $1, $0, label
+            // slt $2, $rs, $0
+            // beq $2, $0, label
             expandedInstructions.add(assemble("slt $" + rd2 + ", $" + rs + ", $0", false));
             expandedInstructions.add(assemble("beq $" + rd2 + ", $0" + ", " + label, true));
         }
@@ -199,19 +199,41 @@ public class Assembler {
                 int shamt = parseImmediate(parts[3]);
                 return assembleRTypeShamt(instruction, rtShift, rdShift, shamt);
 
-            case "addi":
-            case "ori":
-            case "xori":
-            case "andi":
-            case "slti":
-                if (parts.length != 4) {
-                    throw new Exception("Invalid format for " + instruction + ". Expected: " + instruction
-                            + " $rt, $rs, immediate");
-                }
-                String rt2 = parts[1].substring(1);
-                String rs2 = parts[2].substring(1);
-                int immediate = parseImmediate(parts[3]);
-                return assembleIType(instruction, rs2, rt2, immediate);
+                case "addi":
+                case "ori":
+                case "xori":
+                case "andi":
+                case "slti":
+                    if (parts.length != 4) {
+                        throw new Exception("Invalid format for " + instruction + ". Expected: " + instruction
+                                + " $rt, $rs, immediate/label");
+                    }
+                    String rt2 = parts[1].substring(1);
+                    String rs2 = parts[2].substring(1);
+                    
+                    // Use a try-catch block to handle both numeric values and labels
+                    int immediate;
+                    String immOrLabel = parts[3];
+                    try {
+                        // Try to parse as a number first
+                        if (immOrLabel.startsWith("0x")) {
+                            immediate = Integer.parseInt(immOrLabel.substring(2), 16);
+                        } else if (immOrLabel.startsWith("0b")) {
+                            immediate = Integer.parseInt(immOrLabel.substring(2), 2);
+                        } else if (immOrLabel.length() > 1 && immOrLabel.startsWith("0")) {
+                            immediate = Integer.parseInt(immOrLabel.substring(1), 8);
+                        } else {
+                            immediate = Integer.parseInt(immOrLabel);
+                        }
+                    } catch (NumberFormatException e) {
+                        // If parsing as a number fails, check if it's a valid label
+                        if (labelAddresses.containsKey(immOrLabel)) {
+                            immediate = labelAddresses.get(immOrLabel);
+                        } else {
+                            throw new Exception("Invalid immediate value or undefined label: " + immOrLabel);
+                        }
+                    }
+                    return assembleIType(instruction, rs2, rt2, immediate);
 
             case "beq":
             case "bne":
@@ -301,265 +323,20 @@ public class Assembler {
         return opcode + toBinary(address, 26);
     }
 
-    private int parseImmediate(String value) {
+    // Update the parseImmediate method to handle more formats
+    private int parseImmediate(String value) throws NumberFormatException {
         value = value.toLowerCase().trim();
         if (value.startsWith("0x")) {
             return Integer.parseInt(value.substring(2), 16);
+        } else if (value.startsWith("0b")) {
+            return Integer.parseInt(value.substring(2), 2);
+        } else if (value.length() > 1 && value.startsWith("0")) {
+            return Integer.parseInt(value.substring(1), 8);
         } else {
             return Integer.parseInt(value);
         }
     }
-    public static String[] getProgram1(){
-        return new String[]{
-            "ADDI $8, $0, 14",
-            "ADDI $9, $0, 0",
-            "ADDI $10, $0, 0",
-        "outerLoop:",
-            "SLT $11, $9, $8",
-            "BEQ $11, $0, finish",
-            "ADD $12, $9, $0",
-            "ADDI $14, $0, 0",
-            "LW $13, 0x0($12)",
-            "ADDI $15, $0, 0",
-        "innerLoop:",
-            "SLT $24, $14, $10",
-            "BEQ $24, $0, addToResult",
-            "ADD $25, $14, $0",
-            "NOP",
-            "LW $16, 0xE($25)",
-            "NOP",
-            "BEQ $13, $16, duplicateFound",
-            "ADDI $14, $14, 1",
-            "JAL innerLoop",
-        "duplicateFound:",
-            "ADDI $15, $0, 1",
-            "JAL outerContinue",
-            "NOP",
-        "addToResult:",
-            "BEQ $15, $0, storeValue",
-            "NOP",
-            "JAL outerContinue",
-        "storeValue:",
-            "ADD $25, $10, $0",
-            "NOP",
-            "SW $13, 0xE($25)",
-            "ADDI $10, $10, 1",
-        "outerContinue:",
-            "ADDI $9, $9, 1",
-            "JAL outerLoop",
-        "finish:",
-            "NOP"
-        };
-        
-        
-    }
-    //Multiplication Using Addition BenchMark
-    public static String[] getProgram2(){
-        return new String[]{
-           "XORI $24, $0, 0x5",
-            "XORI $25, $0, 0x3",
-            "JAL Mul_Fun",
-            "NOP",
-            "J Finish",
-            "Mul_Fun:",
-            "ANDI $23, $0, 0",
-            "ADDI $22, $25, -1",
-            "Mul_Loop:",
-            "ADD $23, $23, $24",
-            "ADDI $22, $22, -1",
-            "BGEZ $22, Mul_Loop",
-            "JR $31",
-            "Finish:",
-            "NOP"
-        };
-    }
-//Scalar Multiplication Using Addition BenchMark
-    public static String[] getProgram3(){
-        return new String[]{
-            "ADDI $17, $0, 10",
-            "ANDI $18, $0, 0",
-            "XORI $24, $0, 2",
-            "Outer_Loop:",
-            "ADD $19, $18, $0",
-            "NOP",
-            "LW $25, 0x0($19)",
-            "JAL Mul_Fun",
-            "SW $23, 0x0($19)",
-            "ADDI $18, $18, 1",
-            "SUB $20, $18, $17",
-            "NOP",
-            "BLTZ $20, Outer_Loop",
-            "NOP",
-            "J Finish",
-            "Mul_Fun:",
-            "ANDI $23, $0, 0",
-            "ADDI $22, $25, -1",
-            "Mul_Loop:",
-            "ADD $23, $23, $24",
-            "ADDI $22, $22, -1",
-            "NOP",
-            "BGEZ $22, Mul_Loop",
-            "NOP",
-            "JR $31",
-            "Finish:",
-            "NOP"
-        };
-    }
-    //Sparse Matrix Count Benchmark
-    public static String[] getProgram4(){
-        return new String[]{
-            "ADDI $8, $0, 0",
-            "ADDI $16, $0, 4",
-            "ADDI $17, $0, 3",
-            "ADDI $20, $0, 0",
-            "ADDI $9, $0, 0",
-            "NOP",
-            "outerLoop:",
-            "SLT $11, $9, $16",
-            "BEQ $11, $0, exitOuter",
-            "ADDI $14, $0, 0",
-            "ADDI $15, $0, 0",
-            "Multiply:",
-            "SLT $11, $15, $9",
-            "BEQ $11, $0, endMultiply",
-            "ADD $14, $14, $17",
-            "ADDI $15, $15, 1",
-            "JAL Multiply",
-            "endMultiply:",
-            "ADD $14, $14, $0",
-            "NOP",
-            "ADD $14, $14, $20",
-            "ADDI $10, $0, 0",
-            "innerLoop:",
-            "SLT $11, $10, $17",
-            "BEQ $11, $0, exitInner",
-            "ADD $15, $10, $0",
-            "NOP",
-            "ADD $24, $14, $15",
-            "NOP",
-            "LW $24, 0x0($24)",
-            "NOP",
-            "BNE $24, $0, notZero",
-            "ADDI $8, $8, 1",
-            "notZero:",
-            "ADDI $10, $10, 1",
-            "JAL innerLoop",
-            "exitInner:",
-            "ADDI $9, $9, 1",
-            "JAL outerLoop",
-            "exitOuter:",
-            "NOP"
-        }; 
-    }
-
-    //Selection Sort Benchmark
-    public static String[] getProgram5(){
-        return new String[]{
-            "ADDI $13, $0, 20",
-            "ADD $11, $0, $0",
-        "LOOP1:",
-            "XOR $21, $11, $0",
-            "ADD $12, $0, $0",
-        "LOOP2:",
-            "XOR $22, $12, $0",
-            "LW $8, 0x0($21)",
-            "LW $9, 0x0($22)",
-            "NOP",
-        "IF:",
-            "SLT $10, $8, $9",
-            "BEQ $10, $0, ENDIF",
-            "ADD $3, $8, $0",
-            "NOP",
-            "ADD $8, $9, $0",
-            "NOP",
-            "ADD $9, $3, $0",
-            "SW $8, 0x0($21)",
-            "NOP",
-            "SW $9, 0x0($22)",
-        "ENDIF:",
-            "ADDI $12, $12, 1",
-            "NOP",
-            "SLT $10, $12, $13",
-            "BNE $10, $0, LOOP2",
-            "ADDI $11, $11, 1",
-            "NOP",
-            "SLT $10, $11, $13",
-            "BNE $10, $0, LOOP1"
-        };
-        
-    }
-    //Max & Min BenchMark
-    public static String[] getProgram6(){
-        return new String[]{
-            "ORI $2, $0, 0x0",
-            "ADDI $20, $0, 0xA",
-            "XORI $31, $0, 0x1",
-            "ANDI $5, $0, 0x0",
-            "LW $10, 0x0($5)",
-            "NOP",
-            "LW $15, 0x0($5)",
-        "LOOP:",
-            "ADDI $2, $2, 1",
-            "NOP",
-            "SGT $25, $20, $2",
-            "BNE $25, $31, END",
-            "ADD  $5, $2, $0 ",
-            "NOP",
-            "LW $16, 0x0($5)",
-            "NOP",
-            "SGT $26, $16, $10",
-            "BEQ $26, $0, MIN",
-            "OR $10, $16, $0",
-            "J LOOP",
-        "MIN:",
-            "SLT $27, $16, $15",
-            "BEQ $27, $0, LOOP",
-            "ADD $15, $16, $0",
-            "J LOOP",
-        "END:",
-            "NOP"
-        };         
-    }
-    // Binary Search Benchmark
-    public static String[] getProgram7(){
-        return new String[]{
-            "ADDI $1, $0, 0x0",
-            "ADDI $2, $0, 0xB",
-            "ADDI $3, $0, 0x7",
-            "NOP",
-        "loop:",
-            "SLT $7, $2, $1",
-            "BNE $0, $7, notFound",
-            "ADD $4, $2, $1",
-            "NOP",
-            "SRL $5, $4, 1",
-            "NOP",
-            "LW $6, 0x0($5)",
-            "NOP",
-            "BEQ $3, $6, found",
-            "NOP",
-            "SLT $6, $6, $3",
-            "BEQ $6, $0, leftHalf",
-            "NOP",
-            "J rightHalf",
-        "leftHalf:",
-            "ADDI $2, $5, 0xFFFF",
-            "J loop",
-        "rightHalf:",
-            "ADDI $1, $5, 0x1",
-            "J loop",
-        "found:",
-            "ADD $8, $0, $5",
-            "J finish",
-        "notFound:",
-            "ADDI $8, $0, 0xFFFF",
-            "J finish",
-        "finish:",
-            "NOP"
-        };
-        
-          
-    }
+   
     public static void main(String[] args) {
         try {
             Assembler assembler = new Assembler();
@@ -576,7 +353,7 @@ public class Assembler {
             // }
             // System.out.println("*****************************************************");
             System.out.println("WIDTH=32;");
-            System.out.println("DEPTH=2048;");
+            System.out.println("DEPTH=512;");
             System.out.println("ADDRESS_RADIX=UNS;");
             System.out.println("DATA_RADIX=BIN;");
             System.out.println("CONTENT BEGIN");
@@ -587,7 +364,7 @@ public class Assembler {
             }
 
             if (addr < 256) {
-                System.out.printf("    [%d..2047] : %s;  -- fill the rest with zeros\n",
+                System.out.printf("    [%d..511] : %s;  -- fill the rest with zeros\n",
                         addr, "00000000000000000000000000000000");
             }
 

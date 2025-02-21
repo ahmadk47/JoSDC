@@ -1,17 +1,6 @@
-ADDI $17, $0, 10
-ANDI $18, $0, 0
-XORI $24, $0, 2
-Outer_Loop:
-ADD $19, $18, $0
-NOP
-LW $25, 0x0($19)
+XORI $24, $0, 0x5
+XORI $25, $0, 0x3
 JAL Mul_Fun
-ADDI $18, $18, 1
-SW $23, 0x0($19)
-SUB $20, $18, $17
-NOP
-SLT $1, $20, $0
-BNE $1, $0, Outer_Loop
 NOP
 J Finish
 Mul_Fun:

@@ -5,7 +5,6 @@ from collections import defaultdict
 R_TYPE = ['ADD', 'SUB', 'AND', 'OR', 'XOR', 'NOR', 'SLT', 'SGT', 'SLL', 'SRL']
 I_TYPE = ['LW', 'SW', 'ADDI', 'ORI', 'XORI', 'ANDI', 'SLTI']
 BRANCH = ['BEQ', 'BNE']
-PSEUDO = ['BGEZ', 'BLTZ']
 JUMP = ['J', 'JR', 'JAL']
 
 
@@ -218,21 +217,28 @@ def schedule(instruction_list: list[Instruction]) -> list[str]:
 
 
 def main():
+    instruction_strings = read_instructions('instructions.txt')
+    
+    updated_strings = []
+    for inst_str in instruction_strings:
+        split_inst_str = inst_str.split()
+        temp_reg = 1
+        if split_inst_str[0] == 'BLTZ':
+            updated_strings.append(f'SLT ${temp_reg}, {split_inst_str[1]} $0')
+            updated_strings.append(f'BNE ${temp_reg}, $0, {split_inst_str[2]}')
+        elif split_inst_str[0] == 'BGEZ':
+            updated_strings.append(f'SLT ${temp_reg}, {split_inst_str[1]} $0')
+            updated_strings.append(f'BEQ ${temp_reg}, $0, {split_inst_str[2]}')
+        else:
+            updated_strings.append(inst_str)
+
     instruction_list = [
         Instruction.from_str(instruction_str) 
-        for instruction_str in read_instructions('instructions.txt')
+        for instruction_str in updated_strings
     ]
     scheduled_instructions = schedule(instruction_list)
-    
-    # Print to console
     print('\n'.join(scheduled_instructions))
-    
-    # Write to file
-    with open('scheduled_output.txt', 'w') as f:
-        f.write('\n'.join(scheduled_instructions))
 
 
 if __name__ == '__main__':
     main()
-
-# TODO: pseudo-instructions
