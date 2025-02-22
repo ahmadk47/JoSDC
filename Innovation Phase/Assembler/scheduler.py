@@ -70,23 +70,24 @@ class Instruction:
     @staticmethod
     def are_dependent(inst1, inst2):
         return any((inst1.dest == inst2.dest  # dest1 == dest2
-                and inst1.dest != '$0' 
-                and inst1.dest is not None,
-                inst1.dest == inst2.src1  # dest1 == inst2_src1
-                and inst1.dest != '$0' 
-                and inst1.dest is not None,
-                inst1.dest == inst2.src2  # dest1 == inst2_src2
-                and inst1.dest != '$0' 
-                and inst1.dest is not None,
-                inst2.dest == inst1.src1  # dest2 == inst1_src1
-                and inst2.dest != '$0' 
-                and inst2.dest is not None,
-                inst2.dest == inst1.src2  # dest2 == inst1_src2
-                and inst2.dest != '$0' 
-                and inst2.dest is not None,
-                inst1.inst_type == 'SW'         # SW -> SW or SW -> LW
-                and (inst2.inst_type == 'SW'
-                     or inst2.inst_type == 'LW')))
+                    and inst1.dest != '$0' 
+                    and inst1.dest is not None,
+                    inst1.dest == inst2.src1  # dest1 == inst2_src1
+                    and inst1.dest != '$0' 
+                    and inst1.dest is not None,
+                    inst1.dest == inst2.src2  # dest1 == inst2_src2
+                    and inst1.dest != '$0' 
+                    and inst1.dest is not None,
+                    inst2.dest == inst1.src1  # dest2 == inst1_src1
+                    and inst2.dest != '$0' 
+                    and inst2.dest is not None,
+                    inst2.dest == inst1.src2  # dest2 == inst1_src2
+                    and inst2.dest != '$0' 
+                    and inst2.dest is not None,
+                    (inst1.inst_type == 'SW'         # SW -> SW or SW -> LW or LW -> SW
+                    or inst1.inst_type == 'LW')
+                    and (inst2.inst_type == 'SW'
+                         or inst2.inst_type == 'LW')))
 
     @staticmethod
     def should_nop(inst1, inst2):
@@ -98,7 +99,29 @@ class Instruction:
             (inst2.inst_type == 'JR' and Instruction.are_dependent(inst1, inst2)) or  # JR dependencies
             not (inst1.is_branch_jump or inst2.is_branch_jump) 
             and Instruction.are_dependent(inst1, inst2)
+            and not Instruction.is_war_waw(inst1, inst2)
         )
+
+    @staticmethod
+    def is_war_waw(inst1, inst2):
+        return any((inst1.dest == inst2.dest  # dest1 == dest2
+                    and inst1.dest != '$0' 
+                    and inst1.dest is not None,
+                    inst2.dest == inst1.src1  # dest2 == inst1_src1
+                    and inst2.dest != '$0' 
+                    and inst2.dest is not None,
+                    inst2.dest == inst1.src2  # dest2 == inst1_src2
+                    and inst2.dest != '$0' 
+                    and inst2.dest is not None)) and not Instruction.is_raw(inst1, inst2)
+    
+    @staticmethod
+    def is_raw(inst1, inst2):
+        return any((inst1.dest == inst2.src1  # dest1 == inst2_src1
+                    and inst1.dest != '$0' 
+                    and inst1.dest is not None,
+                    inst1.dest == inst2.src2  # dest1 == inst2_src2
+                    and inst1.dest != '$0' 
+                    and inst1.dest is not None))
 
     def __repr__(self):
         return self.instruction_str
@@ -123,7 +146,6 @@ def topo_sort(start: int, num_of_nodes: int,
     for idx in range(start, start + num_of_nodes):
         if in_degree[idx] == 0:
             heapq.heappush(max_heap, (-out_degree[idx], idx))
-
 
     instruction_order = []
     while max_heap:
@@ -206,6 +228,15 @@ def schedule(instruction_list: list[Instruction]) -> list[str]:
         if idx >= len(scheduled_instructions) - 1:
             break
 
+        if inst2.inst_type == 'NOP':
+            idx += 1
+            if idx >= len(scheduled_instructions) - 1:
+                break
+            inst2 = scheduled_instructions[idx + 1]
+        
+        if idx >= len(scheduled_instructions) - 1:
+            break
+
         if Instruction.should_nop(inst1, inst2):
             final_schedule.append('NOP')
         
@@ -222,14 +253,13 @@ def main():
     updated_strings = []
     for inst_str in instruction_strings:
         split_inst_str = inst_str.split()
-        temp_reg1 = 1
-        temp_reg2 = 2
+        temp_reg = 1
         if split_inst_str[0] == 'BLTZ':
-            updated_strings.append(f'SLT ${temp_reg1}, {split_inst_str[1]} $0')
-            updated_strings.append(f'BNE ${temp_reg1}, $0, {split_inst_str[2]}')
+            updated_strings.append(f'SLT ${temp_reg}, {split_inst_str[1]} $0')
+            updated_strings.append(f'BNE ${temp_reg}, $0, {split_inst_str[2]}')
         elif split_inst_str[0] == 'BGEZ':
-            updated_strings.append(f'SLT ${temp_reg2}, {split_inst_str[1]} $0')
-            updated_strings.append(f'BEQ ${temp_reg2}, $0, {split_inst_str[2]}')
+            updated_strings.append(f'SLT ${temp_reg}, {split_inst_str[1]} $0')
+            updated_strings.append(f'BEQ ${temp_reg}, $0, {split_inst_str[2]}')
         else:
             updated_strings.append(inst_str)
 
@@ -240,7 +270,6 @@ def main():
     scheduled_instructions = schedule(instruction_list)
     with open('scheduled_output.txt', 'w') as file_handler:
         file_handler.write('\n'.join(scheduled_instructions))
-    print('\n'.join(scheduled_instructions))
 
 
 if __name__ == '__main__':
