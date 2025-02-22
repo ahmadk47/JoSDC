@@ -1,5 +1,5 @@
 Analysis & Synthesis report for SuperScalar
-Fri Feb 21 02:54:28 2025
+Sat Feb 22 05:33:09 2025
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -58,19 +58,20 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
  50. Parameter Settings for User Entity Instance: pipe:MEM_WB1
  51. Parameter Settings for User Entity Instance: pipe:MEM_WB2
  52. altsyncram Parameter Settings by Entity Instance
- 53. Port Connectivity Checks: "pipe:MEM_WB1"
- 54. Port Connectivity Checks: "mux3to1:RFMux2"
- 55. Port Connectivity Checks: "mux3to1:RFMux1"
- 56. Port Connectivity Checks: "mux2x1:CUMux2"
- 57. Port Connectivity Checks: "mux2x1:CUMux1"
- 58. Port Connectivity Checks: "adder:pcAdder2"
- 59. Port Connectivity Checks: "adder:pcAdder"
- 60. Port Connectivity Checks: "adder:nextPcAdder"
- 61. Port Connectivity Checks: "adder:branchPcAdder"
- 62. Post-Synthesis Netlist Statistics for Top Partition
- 63. Elapsed Time Per Partition
- 64. Analysis & Synthesis Messages
- 65. Analysis & Synthesis Suppressed Messages
+ 53. Port Connectivity Checks: "pipe:MEM_WB2"
+ 54. Port Connectivity Checks: "pipe:MEM_WB1"
+ 55. Port Connectivity Checks: "mux3to1:RFMux2"
+ 56. Port Connectivity Checks: "mux3to1:RFMux1"
+ 57. Port Connectivity Checks: "mux2x1:CUMux2"
+ 58. Port Connectivity Checks: "mux2x1:CUMux1"
+ 59. Port Connectivity Checks: "adder:pcAdder2"
+ 60. Port Connectivity Checks: "adder:pcAdder"
+ 61. Port Connectivity Checks: "adder:nextPcAdder"
+ 62. Port Connectivity Checks: "adder:branchPcAdder"
+ 63. Post-Synthesis Netlist Statistics for Top Partition
+ 64. Elapsed Time Per Partition
+ 65. Analysis & Synthesis Messages
+ 66. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -97,13 +98,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Feb 21 02:54:28 2025       ;
+; Analysis & Synthesis Status        ; Successful - Sat Feb 22 05:33:08 2025       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; SuperScalar                                 ;
 ; Top-level Entity Name              ; processor                                   ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 9,626                                       ;
-;     Total combinational functions  ; 9,545                                       ;
+; Total logic elements               ; 9,597                                       ;
+;     Total combinational functions  ; 9,516                                       ;
 ;     Dedicated logic registers      ; 2,543                                       ;
 ; Total registers                    ; 2543                                        ;
 ; Total pins                         ; 12                                          ;
@@ -220,7 +221,7 @@ https://fpgasoftware.intel.com/eula.
 ;     Processor 3            ;   0.2%      ;
 ;     Processor 4            ;   0.2%      ;
 ;     Processor 5            ;   0.2%      ;
-;     Processor 6            ;   0.1%      ;
+;     Processor 6            ;   0.2%      ;
 +----------------------------+-------------+
 
 
@@ -273,17 +274,17 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 9,626     ;
+; Estimated Total logic elements              ; 9,597     ;
 ;                                             ;           ;
-; Total combinational functions               ; 9545      ;
+; Total combinational functions               ; 9516      ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 5577      ;
-;     -- 3 input functions                    ; 3677      ;
-;     -- <=2 input functions                  ; 291       ;
+;     -- 4 input functions                    ; 5568      ;
+;     -- 3 input functions                    ; 3668      ;
+;     -- <=2 input functions                  ; 280       ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 9241      ;
-;     -- arithmetic mode                      ; 304       ;
+;     -- normal mode                          ; 9221      ;
+;     -- arithmetic mode                      ; 295       ;
 ;                                             ;           ;
 ; Total registers                             ; 2543      ;
 ;     -- Dedicated logic registers            ; 2543      ;
@@ -296,7 +297,7 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
 ; Maximum fan-out                             ; 2607      ;
-; Total fan-out                               ; 46859     ;
+; Total fan-out                               ; 46776     ;
 ; Average fan-out                             ; 3.85      ;
 +---------------------------------------------+-----------+
 
@@ -306,24 +307,24 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------------------------------------------+------------------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                   ; Entity Name            ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------------------------------------------+------------------------+--------------+
-; |processor                                ; 9545 (99)           ; 2543 (0)                  ; 147456      ; 0          ; 0            ; 0       ; 0         ; 12   ; 0            ; 0          ; |processor                                                                                            ; processor              ; work         ;
-;    |ALU:alu1|                             ; 658 (658)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|ALU:alu1                                                                                   ; ALU                    ; work         ;
-;    |ALU:alu2|                             ; 664 (664)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|ALU:alu2                                                                                   ; ALU                    ; work         ;
+; |processor                                ; 9516 (79)           ; 2543 (0)                  ; 147456      ; 0          ; 0            ; 0       ; 0         ; 12   ; 0            ; 0          ; |processor                                                                                            ; processor              ; work         ;
+;    |ALU:alu1|                             ; 660 (660)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|ALU:alu1                                                                                   ; ALU                    ; work         ;
+;    |ALU:alu2|                             ; 654 (654)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|ALU:alu2                                                                                   ; ALU                    ; work         ;
 ;    |ANDGate:branchAnd1|                   ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|ANDGate:branchAnd1                                                                         ; ANDGate                ; work         ;
 ;    |ANDGate:branchAnd2|                   ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|ANDGate:branchAnd2                                                                         ; ANDGate                ; work         ;
-;    |BranchPredictionUnit:BPU|             ; 2925 (2925)         ; 768 (768)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|BranchPredictionUnit:BPU                                                                   ; BranchPredictionUnit   ; work         ;
+;    |BranchPredictionUnit:BPU|             ; 2922 (2922)         ; 768 (768)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|BranchPredictionUnit:BPU                                                                   ; BranchPredictionUnit   ; work         ;
 ;    |ComparatorIP:comp1|                   ; 21 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|ComparatorIP:comp1                                                                         ; ComparatorIP           ; work         ;
 ;       |lpm_compare:LPM_COMPARE_component| ; 21 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|ComparatorIP:comp1|lpm_compare:LPM_COMPARE_component                                       ; lpm_compare            ; work         ;
 ;          |cmpr_vqf:auto_generated|        ; 21 (21)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|ComparatorIP:comp1|lpm_compare:LPM_COMPARE_component|cmpr_vqf:auto_generated               ; cmpr_vqf               ; work         ;
 ;    |ComparatorIP:comp2|                   ; 42 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|ComparatorIP:comp2                                                                         ; ComparatorIP           ; work         ;
 ;       |lpm_compare:LPM_COMPARE_component| ; 42 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|ComparatorIP:comp2|lpm_compare:LPM_COMPARE_component                                       ; lpm_compare            ; work         ;
 ;          |cmpr_vqf:auto_generated|        ; 42 (42)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|ComparatorIP:comp2|lpm_compare:LPM_COMPARE_component|cmpr_vqf:auto_generated               ; cmpr_vqf               ; work         ;
-;    |ForwardingUnit:FU|                    ; 90 (90)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|ForwardingUnit:FU                                                                          ; ForwardingUnit         ; work         ;
+;    |ForwardingUnit:FU|                    ; 88 (88)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|ForwardingUnit:FU                                                                          ; ForwardingUnit         ; work         ;
 ;    |HazardDetectionUnit:HDU|              ; 17 (17)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|HazardDetectionUnit:HDU                                                                    ; HazardDetectionUnit    ; work         ;
 ;    |ORGate4:hold|                         ; 17 (17)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|ORGate4:hold                                                                               ; ORGate4                ; work         ;
 ;    |ORGate:enableGate|                    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|ORGate:enableGate                                                                          ; ORGate                 ; work         ;
 ;    |adder:branchAdder2|                   ; 9 (9)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|adder:branchAdder2                                                                         ; adder                  ; work         ;
-;    |adder:branchPcAdder|                  ; 108 (108)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|adder:branchPcAdder                                                                        ; adder                  ; work         ;
+;    |adder:branchPcAdder|                  ; 110 (110)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|adder:branchPcAdder                                                                        ; adder                  ; work         ;
 ;    |adder:nextPcAdder|                    ; 18 (18)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|adder:nextPcAdder                                                                          ; adder                  ; work         ;
 ;    |adder:pcAdder|                        ; 8 (8)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|adder:pcAdder                                                                              ; adder                  ; work         ;
 ;    |controlUnit:CU1|                      ; 14 (14)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|controlUnit:CU1                                                                            ; controlUnit            ; work         ;
@@ -334,26 +335,26 @@ https://fpgasoftware.intel.com/eula.
 ;    |dual_issue_inst_mem:instMem|          ; 0 (0)               ; 0 (0)                     ; 16384       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|dual_issue_inst_mem:instMem                                                                ; dual_issue_inst_mem    ; work         ;
 ;       |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 16384       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|dual_issue_inst_mem:instMem|altsyncram:altsyncram_component                                ; altsyncram             ; work         ;
 ;          |altsyncram_6492:auto_generated| ; 0 (0)               ; 0 (0)                     ; 16384       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|dual_issue_inst_mem:instMem|altsyncram:altsyncram_component|altsyncram_6492:auto_generated ; altsyncram_6492        ; work         ;
-;    |mux2x1:ALUMux1|                       ; 56 (56)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux2x1:ALUMux1                                                                             ; mux2x1                 ; work         ;
-;    |mux2x1:ALUMux2|                       ; 61 (61)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux2x1:ALUMux2                                                                             ; mux2x1                 ; work         ;
+;    |mux2x1:ALUMux1|                       ; 57 (57)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux2x1:ALUMux1                                                                             ; mux2x1                 ; work         ;
+;    |mux2x1:ALUMux2|                       ; 57 (57)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux2x1:ALUMux2                                                                             ; mux2x1                 ; work         ;
 ;    |mux2x1:CUMux1|                        ; 4 (4)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux2x1:CUMux1                                                                              ; mux2x1                 ; work         ;
 ;    |mux2x1:CUMux2|                        ; 34 (34)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux2x1:CUMux2                                                                              ; mux2x1                 ; work         ;
 ;    |mux2x1:comp2MuxA|                     ; 32 (32)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux2x1:comp2MuxA                                                                           ; mux2x1                 ; work         ;
 ;    |mux2x1En:instMemMux|                  ; 9 (9)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux2x1En:instMemMux                                                                        ; mux2x1En               ; work         ;
 ;    |mux3to1:RFMux1|                       ; 5 (5)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux3to1:RFMux1                                                                             ; mux3to1                ; work         ;
 ;    |mux3to1:RFMux2|                       ; 5 (5)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux3to1:RFMux2                                                                             ; mux3to1                ; work         ;
-;    |mux5to1:ForwardA1Mux|                 ; 99 (99)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux5to1:ForwardA1Mux                                                                       ; mux5to1                ; work         ;
-;    |mux5to1:ForwardA2Mux|                 ; 96 (96)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux5to1:ForwardA2Mux                                                                       ; mux5to1                ; work         ;
+;    |mux5to1:ForwardA1Mux|                 ; 96 (96)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux5to1:ForwardA1Mux                                                                       ; mux5to1                ; work         ;
+;    |mux5to1:ForwardA2Mux|                 ; 98 (98)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux5to1:ForwardA2Mux                                                                       ; mux5to1                ; work         ;
 ;    |mux5to1:ForwardB1Mux|                 ; 81 (81)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux5to1:ForwardB1Mux                                                                       ; mux5to1                ; work         ;
-;    |mux5to1:ForwardB2Mux|                 ; 75 (75)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux5to1:ForwardB2Mux                                                                       ; mux5to1                ; work         ;
+;    |mux5to1:ForwardB2Mux|                 ; 81 (81)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|mux5to1:ForwardB2Mux                                                                       ; mux5to1                ; work         ;
 ;    |pcCorrection:PCC|                     ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|pcCorrection:PCC                                                                           ; pcCorrection           ; work         ;
-;    |pipe:EX_MEM_2|                        ; 118 (118)           ; 150 (150)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|pipe:EX_MEM_2                                                                              ; pipe                   ; work         ;
+;    |pipe:EX_MEM_2|                        ; 117 (117)           ; 149 (149)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|pipe:EX_MEM_2                                                                              ; pipe                   ; work         ;
 ;    |pipe:EX_MEM|                          ; 86 (86)             ; 117 (117)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|pipe:EX_MEM                                                                                ; pipe                   ; work         ;
 ;    |pipe:ID_EX_1|                         ; 94 (94)             ; 135 (135)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|pipe:ID_EX_1                                                                               ; pipe                   ; work         ;
 ;    |pipe:ID_EX_2|                         ; 102 (102)           ; 112 (112)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|pipe:ID_EX_2                                                                               ; pipe                   ; work         ;
 ;    |pipe:IF_ID|                           ; 107 (107)           ; 107 (107)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|pipe:IF_ID                                                                                 ; pipe                   ; work         ;
 ;    |pipe:MEM_WB1|                         ; 0 (0)               ; 81 (81)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|pipe:MEM_WB1                                                                               ; pipe                   ; work         ;
-;    |pipe:MEM_WB2|                         ; 72 (72)             ; 72 (72)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|pipe:MEM_WB2                                                                               ; pipe                   ; work         ;
+;    |pipe:MEM_WB2|                         ; 73 (73)             ; 73 (73)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|pipe:MEM_WB2                                                                               ; pipe                   ; work         ;
 ;    |programCounter:pc|                    ; 8 (8)               ; 9 (9)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|programCounter:pc                                                                          ; programCounter         ; work         ;
 ;    |registerFile:RegFile|                 ; 3698 (3698)         ; 992 (992)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|registerFile:RegFile                                                                       ; registerFile           ; work         ;
 +-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------------------------------------------+------------------------+--------------+
@@ -401,84 +402,83 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
-+---------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                              ;
-+----------------------------------------+----------------------------------------+
-; Register name                          ; Reason for Removal                     ;
-+----------------------------------------+----------------------------------------+
-; pipe:ID_EX_2|Q[40,44,48]               ; Merged with pipe:ID_EX_2|Q[52]         ;
-; pipe:ID_EX_2|Q[37,39,41,43,45,47,49]   ; Merged with pipe:ID_EX_2|Q[51]         ;
-; pipe:ID_EX_2|Q[10,36,38,42,46]         ; Merged with pipe:ID_EX_2|Q[50]         ;
-; pipe:ID_EX_2|Q[9]                      ; Merged with pipe:ID_EX_2|Q[35]         ;
-; pipe:ID_EX_2|Q[8]                      ; Merged with pipe:ID_EX_2|Q[34]         ;
-; pipe:ID_EX_2|Q[7]                      ; Merged with pipe:ID_EX_2|Q[33]         ;
-; pipe:ID_EX_2|Q[6]                      ; Merged with pipe:ID_EX_2|Q[32]         ;
-; pipe:ID_EX_2|Q[5]                      ; Merged with pipe:ID_EX_2|Q[31]         ;
-; pipe:ID_EX_2|Q[3]                      ; Merged with pipe:ID_EX_2|Q[29]         ;
-; pipe:ID_EX_2|Q[1]                      ; Merged with pipe:ID_EX_2|Q[27]         ;
-; pipe:ID_EX_1|Q[10,36,44]               ; Merged with pipe:ID_EX_1|Q[52]         ;
-; pipe:ID_EX_1|Q[37,39,45,47,49]         ; Merged with pipe:ID_EX_1|Q[51]         ;
-; pipe:ID_EX_1|Q[41,46]                  ; Merged with pipe:ID_EX_1|Q[50]         ;
-; pipe:ID_EX_1|Q[40]                     ; Merged with pipe:ID_EX_1|Q[48]         ;
-; pipe:ID_EX_1|Q[2]                      ; Merged with pipe:ID_EX_1|Q[28]         ;
-; pipe:IF_ID|Q[84]                       ; Merged with pipe:IF_ID|Q[102]          ;
-; pipe:ID_EX_1|Q[119]                    ; Merged with pipe:ID_EX_1|Q[126]        ;
-; pipe:ID_EX_1|Q[43]                     ; Merged with pipe:ID_EX_1|Q[51]         ;
-; pipe:ID_EX_1|Q[38]                     ; Merged with pipe:ID_EX_1|Q[42]         ;
-; pipe:ID_EX_1|Q[42]                     ; Merged with pipe:ID_EX_1|Q[50]         ;
-; pipe:ID_EX_1|Q[5]                      ; Merged with pipe:ID_EX_1|Q[31]         ;
-; pipe:ID_EX_1|Q[4]                      ; Merged with pipe:ID_EX_1|Q[30]         ;
-; pipe:ID_EX_1|Q[128]                    ; Merged with pipe:ID_EX_1|Q[125]        ;
-; pipe:ID_EX_2|Q[128]                    ; Merged with pipe:ID_EX_2|Q[125]        ;
-; pipe:ID_EX_2|Q[126]                    ; Merged with pipe:ID_EX_2|Q[119]        ;
-; pipe:EX_MEM_2|Q[146]                   ; Merged with pipe:EX_MEM_2|Q[104]       ;
-; pipe:ID_EX_1|Q[158]                    ; Merged with pipe:ID_EX_1|Q[140]        ;
-; pipe:EX_MEM|Q[106]                     ; Merged with pipe:EX_MEM|Q[104]         ;
-; pipe:EX_MEM_2|Q[125]                   ; Merged with pipe:EX_MEM_2|Q[123]       ;
-; pipe:ID_EX_1|Q[50..52]                 ; Merged with pipe:ID_EX_1|Q[48]         ;
-; pipe:ID_EX_1|Q[9]                      ; Merged with pipe:ID_EX_1|Q[35]         ;
-; pipe:ID_EX_1|Q[8]                      ; Merged with pipe:ID_EX_1|Q[34]         ;
-; pipe:ID_EX_1|Q[7]                      ; Merged with pipe:ID_EX_1|Q[33]         ;
-; pipe:ID_EX_1|Q[6]                      ; Merged with pipe:ID_EX_1|Q[32]         ;
-; pipe:ID_EX_1|Q[3]                      ; Merged with pipe:ID_EX_1|Q[29]         ;
-; pipe:ID_EX_1|Q[27]                     ; Merged with pipe:ID_EX_1|Q[1]          ;
-; pipe:ID_EX_2|Q[51,52]                  ; Merged with pipe:ID_EX_2|Q[50]         ;
-; pipe:ID_EX_2|Q[4]                      ; Merged with pipe:ID_EX_2|Q[30]         ;
-; pipe:ID_EX_2|Q[2]                      ; Merged with pipe:ID_EX_2|Q[28]         ;
-; registerFile:RegFile|registers[0][0]   ; Stuck at GND due to stuck port data_in ;
-; registerFile:RegFile|registers[0][1]   ; Stuck at GND due to stuck port data_in ;
-; registerFile:RegFile|registers[0][2]   ; Stuck at GND due to stuck port data_in ;
-; registerFile:RegFile|registers[0][3]   ; Stuck at GND due to stuck port data_in ;
-; registerFile:RegFile|registers[0][4]   ; Stuck at GND due to stuck port data_in ;
-; registerFile:RegFile|registers[0][5]   ; Stuck at GND due to stuck port data_in ;
-; registerFile:RegFile|registers[0][6]   ; Stuck at GND due to stuck port data_in ;
-; registerFile:RegFile|registers[0][7]   ; Stuck at GND due to stuck port data_in ;
-; registerFile:RegFile|registers[0][8]   ; Stuck at GND due to stuck port data_in ;
-; registerFile:RegFile|registers[0][30]  ; Stuck at GND due to stuck port data_in ;
-; registerFile:RegFile|registers[0][31]  ; Stuck at GND due to stuck port data_in ;
-; registerFile:RegFile|registers[0][28]  ; Stuck at GND due to stuck port data_in ;
-; registerFile:RegFile|registers[0][29]  ; Stuck at GND due to stuck port data_in ;
-; registerFile:RegFile|registers[0][26]  ; Stuck at GND due to stuck port data_in ;
-; registerFile:RegFile|registers[0][27]  ; Stuck at GND due to stuck port data_in ;
-; registerFile:RegFile|registers[0][24]  ; Stuck at GND due to stuck port data_in ;
-; registerFile:RegFile|registers[0][25]  ; Stuck at GND due to stuck port data_in ;
-; registerFile:RegFile|registers[0][22]  ; Stuck at GND due to stuck port data_in ;
-; registerFile:RegFile|registers[0][23]  ; Stuck at GND due to stuck port data_in ;
-; registerFile:RegFile|registers[0][20]  ; Stuck at GND due to stuck port data_in ;
-; registerFile:RegFile|registers[0][21]  ; Stuck at GND due to stuck port data_in ;
-; registerFile:RegFile|registers[0][18]  ; Stuck at GND due to stuck port data_in ;
-; registerFile:RegFile|registers[0][19]  ; Stuck at GND due to stuck port data_in ;
-; registerFile:RegFile|registers[0][16]  ; Stuck at GND due to stuck port data_in ;
-; registerFile:RegFile|registers[0][17]  ; Stuck at GND due to stuck port data_in ;
-; registerFile:RegFile|registers[0][14]  ; Stuck at GND due to stuck port data_in ;
-; registerFile:RegFile|registers[0][15]  ; Stuck at GND due to stuck port data_in ;
-; registerFile:RegFile|registers[0][12]  ; Stuck at GND due to stuck port data_in ;
-; registerFile:RegFile|registers[0][13]  ; Stuck at GND due to stuck port data_in ;
-; registerFile:RegFile|registers[0][10]  ; Stuck at GND due to stuck port data_in ;
-; registerFile:RegFile|registers[0][11]  ; Stuck at GND due to stuck port data_in ;
-; registerFile:RegFile|registers[0][9]   ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 93 ;                                        ;
-+----------------------------------------+----------------------------------------+
++-------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                  ;
++--------------------------------------------+----------------------------------------+
+; Register name                              ; Reason for Removal                     ;
++--------------------------------------------+----------------------------------------+
+; pipe:ID_EX_2|Q[10,36,38,40,42,44,46,48,50] ; Merged with pipe:ID_EX_2|Q[52]         ;
+; pipe:ID_EX_2|Q[39,43,47]                   ; Merged with pipe:ID_EX_2|Q[51]         ;
+; pipe:ID_EX_2|Q[37,41,45]                   ; Merged with pipe:ID_EX_2|Q[49]         ;
+; pipe:ID_EX_2|Q[9]                          ; Merged with pipe:ID_EX_2|Q[35]         ;
+; pipe:ID_EX_2|Q[8]                          ; Merged with pipe:ID_EX_2|Q[34]         ;
+; pipe:ID_EX_2|Q[7]                          ; Merged with pipe:ID_EX_2|Q[33]         ;
+; pipe:ID_EX_2|Q[6]                          ; Merged with pipe:ID_EX_2|Q[32]         ;
+; pipe:ID_EX_2|Q[5]                          ; Merged with pipe:ID_EX_2|Q[31]         ;
+; pipe:ID_EX_2|Q[4]                          ; Merged with pipe:ID_EX_2|Q[30]         ;
+; pipe:ID_EX_2|Q[3]                          ; Merged with pipe:ID_EX_2|Q[29]         ;
+; pipe:ID_EX_2|Q[2]                          ; Merged with pipe:ID_EX_2|Q[28]         ;
+; pipe:ID_EX_1|Q[36]                         ; Merged with pipe:ID_EX_1|Q[52]         ;
+; pipe:ID_EX_1|Q[39,42,43,46,47,50]          ; Merged with pipe:ID_EX_1|Q[51]         ;
+; pipe:ID_EX_1|Q[40,41]                      ; Merged with pipe:ID_EX_1|Q[49]         ;
+; pipe:ID_EX_1|Q[38]                         ; Merged with pipe:ID_EX_1|Q[48]         ;
+; pipe:ID_EX_1|Q[37]                         ; Merged with pipe:ID_EX_1|Q[45]         ;
+; pipe:ID_EX_1|Q[8]                          ; Merged with pipe:ID_EX_1|Q[34]         ;
+; pipe:ID_EX_1|Q[7]                          ; Merged with pipe:ID_EX_1|Q[33]         ;
+; pipe:ID_EX_1|Q[4]                          ; Merged with pipe:ID_EX_1|Q[30]         ;
+; pipe:ID_EX_2|Q[49]                         ; Merged with pipe:ID_EX_2|Q[52]         ;
+; pipe:ID_EX_1|Q[119]                        ; Merged with pipe:ID_EX_1|Q[126]        ;
+; pipe:ID_EX_1|Q[48]                         ; Merged with pipe:ID_EX_1|Q[52]         ;
+; pipe:ID_EX_1|Q[44]                         ; Merged with pipe:ID_EX_1|Q[51]         ;
+; pipe:ID_EX_1|Q[6]                          ; Merged with pipe:ID_EX_1|Q[32]         ;
+; pipe:ID_EX_1|Q[5]                          ; Merged with pipe:ID_EX_1|Q[31]         ;
+; pipe:ID_EX_1|Q[3]                          ; Merged with pipe:ID_EX_1|Q[29]         ;
+; pipe:ID_EX_1|Q[2]                          ; Merged with pipe:ID_EX_1|Q[28]         ;
+; pipe:IF_ID|Q[84]                           ; Merged with pipe:IF_ID|Q[102]          ;
+; pipe:ID_EX_1|Q[140]                        ; Merged with pipe:ID_EX_1|Q[158]        ;
+; pipe:ID_EX_1|Q[10]                         ; Merged with pipe:ID_EX_1|Q[51]         ;
+; pipe:ID_EX_1|Q[128]                        ; Merged with pipe:ID_EX_1|Q[125]        ;
+; pipe:EX_MEM_2|Q[146]                       ; Merged with pipe:EX_MEM_2|Q[104]       ;
+; pipe:EX_MEM|Q[106]                         ; Merged with pipe:EX_MEM|Q[104]         ;
+; pipe:ID_EX_1|Q[49,51,52]                   ; Merged with pipe:ID_EX_1|Q[45]         ;
+; pipe:ID_EX_1|Q[9]                          ; Merged with pipe:ID_EX_1|Q[35]         ;
+; pipe:ID_EX_1|Q[27]                         ; Merged with pipe:ID_EX_1|Q[1]          ;
+; pipe:ID_EX_2|Q[52]                         ; Merged with pipe:ID_EX_2|Q[51]         ;
+; pipe:ID_EX_2|Q[27]                         ; Merged with pipe:ID_EX_2|Q[1]          ;
+; registerFile:RegFile|registers[0][0]       ; Stuck at GND due to stuck port data_in ;
+; registerFile:RegFile|registers[0][1]       ; Stuck at GND due to stuck port data_in ;
+; registerFile:RegFile|registers[0][2]       ; Stuck at GND due to stuck port data_in ;
+; registerFile:RegFile|registers[0][3]       ; Stuck at GND due to stuck port data_in ;
+; registerFile:RegFile|registers[0][4]       ; Stuck at GND due to stuck port data_in ;
+; registerFile:RegFile|registers[0][5]       ; Stuck at GND due to stuck port data_in ;
+; registerFile:RegFile|registers[0][6]       ; Stuck at GND due to stuck port data_in ;
+; registerFile:RegFile|registers[0][7]       ; Stuck at GND due to stuck port data_in ;
+; registerFile:RegFile|registers[0][8]       ; Stuck at GND due to stuck port data_in ;
+; registerFile:RegFile|registers[0][30]      ; Stuck at GND due to stuck port data_in ;
+; registerFile:RegFile|registers[0][31]      ; Stuck at GND due to stuck port data_in ;
+; registerFile:RegFile|registers[0][28]      ; Stuck at GND due to stuck port data_in ;
+; registerFile:RegFile|registers[0][29]      ; Stuck at GND due to stuck port data_in ;
+; registerFile:RegFile|registers[0][26]      ; Stuck at GND due to stuck port data_in ;
+; registerFile:RegFile|registers[0][27]      ; Stuck at GND due to stuck port data_in ;
+; registerFile:RegFile|registers[0][24]      ; Stuck at GND due to stuck port data_in ;
+; registerFile:RegFile|registers[0][25]      ; Stuck at GND due to stuck port data_in ;
+; registerFile:RegFile|registers[0][22]      ; Stuck at GND due to stuck port data_in ;
+; registerFile:RegFile|registers[0][23]      ; Stuck at GND due to stuck port data_in ;
+; registerFile:RegFile|registers[0][20]      ; Stuck at GND due to stuck port data_in ;
+; registerFile:RegFile|registers[0][21]      ; Stuck at GND due to stuck port data_in ;
+; registerFile:RegFile|registers[0][18]      ; Stuck at GND due to stuck port data_in ;
+; registerFile:RegFile|registers[0][19]      ; Stuck at GND due to stuck port data_in ;
+; registerFile:RegFile|registers[0][16]      ; Stuck at GND due to stuck port data_in ;
+; registerFile:RegFile|registers[0][17]      ; Stuck at GND due to stuck port data_in ;
+; registerFile:RegFile|registers[0][14]      ; Stuck at GND due to stuck port data_in ;
+; registerFile:RegFile|registers[0][15]      ; Stuck at GND due to stuck port data_in ;
+; registerFile:RegFile|registers[0][12]      ; Stuck at GND due to stuck port data_in ;
+; registerFile:RegFile|registers[0][13]      ; Stuck at GND due to stuck port data_in ;
+; registerFile:RegFile|registers[0][10]      ; Stuck at GND due to stuck port data_in ;
+; registerFile:RegFile|registers[0][11]      ; Stuck at GND due to stuck port data_in ;
+; registerFile:RegFile|registers[0][9]       ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 90     ;                                        ;
++--------------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -583,10 +583,9 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; Node                                                ; Action           ; Reason              ;
 +-----------------------------------------------------+------------------+---------------------+
 ; ALU:alu1|Add0~0                                     ; Modified         ; Timing optimization ;
-; ALU:alu1|Mux31~4                                    ; Modified         ; Timing optimization ;
+; ALU:alu1|Mux31~12                                   ; Modified         ; Timing optimization ;
 ; ALU:alu2|Add0~0                                     ; Modified         ; Timing optimization ;
-; ALU:alu2|Mux31~4                                    ; Modified         ; Timing optimization ;
-; Add0~1                                              ; Modified         ; Timing optimization ;
+; ALU:alu2|Mux31~12                                   ; Modified         ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Add0~0                     ; Modified         ; Timing optimization ;
 ; BranchPredictionUnit:BPU|BTB_target[0][0]_OTERM579  ; Retimed Register ; Timing optimization ;
 ; BranchPredictionUnit:BPU|BTB_target[0][1]_OTERM451  ; Retimed Register ; Timing optimization ;
@@ -1010,262 +1009,250 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; BranchPredictionUnit:BPU|Mux16~24_RESYN818_BDD819   ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux17~0                    ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux17~1                    ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux17~1_RESYN1122_BDD1123  ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux17~1_RESYN1124_BDD1125  ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux17~7                    ; Deleted          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux17~8                    ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux17~8_RESYN1126_BDD1127  ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux17~8_RESYN1128_BDD1129  ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux17~1_RESYN1114_BDD1115  ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux17~1_RESYN1116_BDD1117  ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux17~12                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux17~13                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux17~13_RESYN1130_BDD1131 ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux17~13_RESYN1132_BDD1133 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux17~13_RESYN1118_BDD1119 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux17~13_RESYN1120_BDD1121 ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux17~17                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux17~18                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux17~18_RESYN1134_BDD1135 ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux17~18_RESYN1136_BDD1137 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux17~18_RESYN1122_BDD1123 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux17~18_RESYN1124_BDD1125 ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux17~22                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux17~23                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux17~23_RESYN1138_BDD1139 ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux17~23_RESYN1140_BDD1141 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux17~23_RESYN1126_BDD1127 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux17~23_RESYN1128_BDD1129 ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux17~27                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux17~28                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux17~28_RESYN1142_BDD1143 ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux17~28_RESYN1144_BDD1145 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux17~28_RESYN1130_BDD1131 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux17~28_RESYN1132_BDD1133 ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux17~31                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux17~32                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux17~32_RESYN1146_BDD1147 ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux17~32_RESYN1148_BDD1149 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux17~32_RESYN1134_BDD1135 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux17~32_RESYN1136_BDD1137 ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux17~33                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux17~34                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux17~34_RESYN1150_BDD1151 ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux17~34_RESYN1152_BDD1153 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux17~34_RESYN1138_BDD1139 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux17~34_RESYN1140_BDD1141 ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux17~35                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux17~36                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux17~36_RESYN1154_BDD1155 ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux17~36_RESYN1156_BDD1157 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux17~36_RESYN1142_BDD1143 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux17~36_RESYN1144_BDD1145 ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux18~0                    ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux18~1                    ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux18~1_RESYN1064_BDD1065  ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux18~1_RESYN1066_BDD1067  ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux18~1_RESYN1056_BDD1057  ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux18~1_RESYN1058_BDD1059  ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux18~2                    ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux18~3                    ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux18~3_RESYN1068_BDD1069  ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux18~3_RESYN1070_BDD1071  ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux18~3_RESYN1060_BDD1061  ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux18~3_RESYN1062_BDD1063  ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux18~4                    ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux18~5                    ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux18~5_RESYN1072_BDD1073  ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux18~5_RESYN1074_BDD1075  ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux18~5_RESYN1064_BDD1065  ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux18~5_RESYN1066_BDD1067  ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux18~7                    ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux18~8                    ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux18~8_RESYN1076_BDD1077  ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux18~8_RESYN1078_BDD1079  ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux18~8_RESYN1068_BDD1069  ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux18~8_RESYN1070_BDD1071  ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux18~10                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux18~10_RESYN1080_BDD1081 ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux18~10_RESYN1082_BDD1083 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux18~10_RESYN1072_BDD1073 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux18~10_RESYN1074_BDD1075 ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux18~12                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux18~12_RESYN1084_BDD1085 ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux18~12_RESYN1086_BDD1087 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux18~12_RESYN1076_BDD1077 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux18~12_RESYN1078_BDD1079 ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux18~14                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux18~15                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux18~15_RESYN1090_BDD1091 ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux18~15_RESYN1092_BDD1093 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux18~15_RESYN1082_BDD1083 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux18~15_RESYN1084_BDD1085 ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux18~20                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux18~21                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux18~21_RESYN1094_BDD1095 ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux18~21_RESYN1096_BDD1097 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux18~21_RESYN1086_BDD1087 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux18~21_RESYN1088_BDD1089 ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux18~22                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux18~23                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux18~23_RESYN1098_BDD1099 ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux18~23_RESYN1100_BDD1101 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux18~23_RESYN1090_BDD1091 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux18~23_RESYN1092_BDD1093 ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux18~24                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux18~25                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux18~25_RESYN1102_BDD1103 ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux18~25_RESYN1104_BDD1105 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux18~25_RESYN1094_BDD1095 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux18~25_RESYN1096_BDD1097 ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux18~27                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux18~28                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux18~28_RESYN1106_BDD1107 ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux18~28_RESYN1108_BDD1109 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux18~28_RESYN1098_BDD1099 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux18~28_RESYN1100_BDD1101 ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux18~31                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux18~32                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux18~32_RESYN1110_BDD1111 ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux18~32_RESYN1112_BDD1113 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux18~32_RESYN1102_BDD1103 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux18~32_RESYN1104_BDD1105 ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux18~33                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux18~34                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux18~34_RESYN1114_BDD1115 ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux18~34_RESYN1116_BDD1117 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux18~34_RESYN1106_BDD1107 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux18~34_RESYN1108_BDD1109 ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux18~35                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux18~36                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux18~36_RESYN1118_BDD1119 ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux18~36_RESYN1120_BDD1121 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux18~36_RESYN1110_BDD1111 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux18~36_RESYN1112_BDD1113 ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux19~4                    ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux19~4_RESYN1034_BDD1035  ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux19~4_RESYN1036_BDD1037  ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux19~4_RESYN1026_BDD1027  ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux19~4_RESYN1028_BDD1029  ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux19~12                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux19~12_RESYN1038_BDD1039 ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux19~12_RESYN1040_BDD1041 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux19~12_RESYN1030_BDD1031 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux19~12_RESYN1032_BDD1033 ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux19~14                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux19~14_RESYN1042_BDD1043 ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux19~14_RESYN1044_BDD1045 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux19~14_RESYN1034_BDD1035 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux19~14_RESYN1036_BDD1037 ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux19~20                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux19~20_RESYN1046_BDD1047 ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux19~20_RESYN1048_BDD1049 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux19~20_RESYN1038_BDD1039 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux19~20_RESYN1040_BDD1041 ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux19~22                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux19~23                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux19~23_RESYN1052_BDD1053 ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux19~23_RESYN1054_BDD1055 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux19~23_RESYN1044_BDD1045 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux19~23_RESYN1046_BDD1047 ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux19~24                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux19~24_RESYN1056_BDD1057 ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux19~24_RESYN1058_BDD1059 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux19~24_RESYN1048_BDD1049 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux19~24_RESYN1050_BDD1051 ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux19~33                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux19~34                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux19~34_RESYN1060_BDD1061 ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux19~34_RESYN1062_BDD1063 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux19~34_RESYN1052_BDD1053 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux19~34_RESYN1054_BDD1055 ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux20~2                    ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux20~3                    ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux20~3_RESYN998_BDD999    ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux20~3_RESYN1000_BDD1001  ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux20~7                    ; Deleted          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux20~8                    ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux20~8_RESYN1002_BDD1003  ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux20~8_RESYN1004_BDD1005  ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux20~3_RESYN994_BDD995    ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux20~3_RESYN996_BDD997    ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux20~10                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux20~11                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux20~11_RESYN1006_BDD1007 ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux20~11_RESYN1008_BDD1009 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux20~11_RESYN998_BDD999   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux20~11_RESYN1000_BDD1001 ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux20~17                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux20~18                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux20~18_RESYN1010_BDD1011 ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux20~18_RESYN1012_BDD1013 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux20~18_RESYN1002_BDD1003 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux20~18_RESYN1004_BDD1005 ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux20~22                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux20~23                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux20~23_RESYN1014_BDD1015 ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux20~23_RESYN1016_BDD1017 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux20~23_RESYN1006_BDD1007 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux20~23_RESYN1008_BDD1009 ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux20~27                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux20~28                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux20~28_RESYN1018_BDD1019 ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux20~28_RESYN1020_BDD1021 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux20~28_RESYN1010_BDD1011 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux20~28_RESYN1012_BDD1013 ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux20~31                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux20~32                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux20~32_RESYN1022_BDD1023 ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux20~32_RESYN1024_BDD1025 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux20~32_RESYN1014_BDD1015 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux20~32_RESYN1016_BDD1017 ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux20~33                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux20~34                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux20~34_RESYN1026_BDD1027 ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux20~34_RESYN1028_BDD1029 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux20~34_RESYN1018_BDD1019 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux20~34_RESYN1020_BDD1021 ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux20~35                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux20~36                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux20~36_RESYN1030_BDD1031 ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux20~36_RESYN1032_BDD1033 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux20~36_RESYN1022_BDD1023 ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux20~36_RESYN1024_BDD1025 ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux21~10                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux21~11                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux21~11_RESYN954_BDD955   ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux21~11_RESYN956_BDD957   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux21~11_RESYN950_BDD951   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux21~11_RESYN952_BDD953   ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux21~12                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux21~13                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux21~13_RESYN958_BDD959   ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux21~13_RESYN960_BDD961   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux21~13_RESYN954_BDD955   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux21~13_RESYN956_BDD957   ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux21~14                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux21~15                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux21~15_RESYN962_BDD963   ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux21~15_RESYN964_BDD965   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux21~15_RESYN958_BDD959   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux21~15_RESYN960_BDD961   ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux21~17                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux21~18                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux21~18_RESYN966_BDD967   ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux21~18_RESYN968_BDD969   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux21~18_RESYN962_BDD963   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux21~18_RESYN964_BDD965   ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux21~20                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux21~21                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux21~21_RESYN970_BDD971   ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux21~21_RESYN972_BDD973   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux21~21_RESYN966_BDD967   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux21~21_RESYN968_BDD969   ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux21~22                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux21~23                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux21~23_RESYN974_BDD975   ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux21~23_RESYN976_BDD977   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux21~23_RESYN970_BDD971   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux21~23_RESYN972_BDD973   ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux21~24                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux21~25                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux21~25_RESYN978_BDD979   ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux21~25_RESYN980_BDD981   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux21~25_RESYN974_BDD975   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux21~25_RESYN976_BDD977   ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux21~27                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux21~28                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux21~28_RESYN982_BDD983   ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux21~28_RESYN984_BDD985   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux21~28_RESYN978_BDD979   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux21~28_RESYN980_BDD981   ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux21~31                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux21~32                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux21~32_RESYN986_BDD987   ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux21~32_RESYN988_BDD989   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux21~32_RESYN982_BDD983   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux21~32_RESYN984_BDD985   ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux21~33                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux21~34                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux21~34_RESYN990_BDD991   ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux21~34_RESYN992_BDD993   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux21~34_RESYN986_BDD987   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux21~34_RESYN988_BDD989   ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux21~35                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux21~36                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux21~36_RESYN994_BDD995   ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux21~36_RESYN996_BDD997   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux21~36_RESYN990_BDD991   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux21~36_RESYN992_BDD993   ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux22~2                    ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux22~2_RESYN916_BDD917    ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux22~2_RESYN918_BDD919    ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux22~2_RESYN912_BDD913    ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux22~2_RESYN914_BDD915    ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux22~4                    ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux22~4_RESYN920_BDD921    ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux22~4_RESYN922_BDD923    ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux22~4_RESYN916_BDD917    ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux22~4_RESYN918_BDD919    ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux22~10                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux22~10_RESYN924_BDD925   ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux22~10_RESYN926_BDD927   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux22~10_RESYN920_BDD921   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux22~10_RESYN922_BDD923   ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux22~12                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux22~12_RESYN928_BDD929   ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux22~12_RESYN930_BDD931   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux22~12_RESYN924_BDD925   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux22~12_RESYN926_BDD927   ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux22~14                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux22~14_RESYN932_BDD933   ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux22~14_RESYN934_BDD935   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux22~14_RESYN928_BDD929   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux22~14_RESYN930_BDD931   ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux22~20                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux22~20_RESYN936_BDD937   ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux22~20_RESYN938_BDD939   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux22~20_RESYN932_BDD933   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux22~20_RESYN934_BDD935   ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux22~22                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux22~23                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux22~23_RESYN942_BDD943   ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux22~23_RESYN944_BDD945   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux22~23_RESYN938_BDD939   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux22~23_RESYN940_BDD941   ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux22~24                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux22~24_RESYN946_BDD947   ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux22~24_RESYN948_BDD949   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux22~24_RESYN942_BDD943   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux22~24_RESYN944_BDD945   ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux22~33                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux22~34                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux22~34_RESYN950_BDD951   ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux22~34_RESYN952_BDD953   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux22~34_RESYN946_BDD947   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux22~34_RESYN948_BDD949   ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux23~0                    ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux23~1                    ; Modified         ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux23~1_RESYN880_BDD881    ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux23~1_RESYN882_BDD883    ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux23~7                    ; Deleted          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux23~8                    ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux23~8_RESYN884_BDD885    ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux23~8_RESYN886_BDD887    ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux23~12                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux23~13                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux23~13_RESYN888_BDD889   ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux23~13_RESYN890_BDD891   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux23~13_RESYN884_BDD885   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux23~13_RESYN886_BDD887   ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux23~17                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux23~18                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux23~18_RESYN892_BDD893   ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux23~18_RESYN894_BDD895   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux23~18_RESYN888_BDD889   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux23~18_RESYN890_BDD891   ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux23~22                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux23~23                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux23~23_RESYN896_BDD897   ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux23~23_RESYN898_BDD899   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux23~23_RESYN892_BDD893   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux23~23_RESYN894_BDD895   ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux23~27                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux23~28                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux23~28_RESYN900_BDD901   ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux23~28_RESYN902_BDD903   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux23~28_RESYN896_BDD897   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux23~28_RESYN898_BDD899   ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux23~31                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux23~32                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux23~32_RESYN904_BDD905   ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux23~32_RESYN906_BDD907   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux23~32_RESYN900_BDD901   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux23~32_RESYN902_BDD903   ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux23~33                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux23~34                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux23~34_RESYN908_BDD909   ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux23~34_RESYN910_BDD911   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux23~34_RESYN904_BDD905   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux23~34_RESYN906_BDD907   ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux23~35                   ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux23~36                   ; Modified         ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux23~36_RESYN912_BDD913   ; Created          ; Timing optimization ;
-; BranchPredictionUnit:BPU|Mux23~36_RESYN914_BDD915   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux23~36_RESYN908_BDD909   ; Created          ; Timing optimization ;
+; BranchPredictionUnit:BPU|Mux23~36_RESYN910_BDD911   ; Created          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux24~0                    ; Deleted          ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux24~1                    ; Modified         ; Timing optimization ;
 ; BranchPredictionUnit:BPU|Mux24~1_RESYN820_BDD821    ; Created          ; Timing optimization ;
@@ -1395,11 +1382,11 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; adder:branchPcAdder|Add0~49_RESYN740_BDD741         ; Created          ; Timing optimization ;
 ; adder:branchPcAdder|Add0~53                         ; Deleted          ; Timing optimization ;
 ; adder:branchPcAdder|Add0~54                         ; Modified         ; Timing optimization ;
-; adder:branchPcAdder|Add0~54_RESYN1158_BDD1159       ; Created          ; Timing optimization ;
-; adder:branchPcAdder|Add0~54_RESYN1162_BDD1163       ; Created          ; Timing optimization ;
-; adder:branchPcAdder|Add0~54_RESYN1164_BDD1165       ; Created          ; Timing optimization ;
-; adder:branchPcAdder|Add0~54_RESYN1166_BDD1167       ; Created          ; Timing optimization ;
-; adder:branchPcAdder|Add0~54_RESYN1168_BDD1169       ; Created          ; Timing optimization ;
+; adder:branchPcAdder|Add0~54_RESYN1146_BDD1147       ; Created          ; Timing optimization ;
+; adder:branchPcAdder|Add0~54_RESYN1150_BDD1151       ; Created          ; Timing optimization ;
+; adder:branchPcAdder|Add0~54_RESYN1152_BDD1153       ; Created          ; Timing optimization ;
+; adder:branchPcAdder|Add0~54_RESYN1154_BDD1155       ; Created          ; Timing optimization ;
+; adder:branchPcAdder|Add0~54_RESYN1156_BDD1157       ; Created          ; Timing optimization ;
 ; adder:branchPcAdder|out[0]~1                        ; Modified         ; Timing optimization ;
 ; adder:branchPcAdder|out[8]~16                       ; Modified         ; Timing optimization ;
 ; adder:nextPcAdder|Add0~0                            ; Modified         ; Timing optimization ;
@@ -1416,7 +1403,6 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; programCounter:pc|PCout[4]~3                        ; Deleted          ; Timing optimization ;
 ; programCounter:pc|PCout[5]_OTERM667                 ; Retimed Register ; Timing optimization ;
 ; programCounter:pc|PCout[5]~4                        ; Deleted          ; Timing optimization ;
-; writeData1[0]~41                                    ; Modified         ; Timing optimization ;
 +-----------------------------------------------------+------------------+---------------------+
 
 
@@ -1425,148 +1411,147 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                              ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[0][0]    ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[1][8]    ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[2][1]    ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[3][3]    ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[4][3]    ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[0][6]    ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[1][6]    ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[2][6]    ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[3][0]    ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[4][2]    ;
 ; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[5][2]    ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[6][8]    ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[7][0]    ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[8][3]    ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[9][3]    ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[10][3]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[11][3]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[6][2]    ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[7][8]    ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[8][2]    ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[9][5]    ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[10][1]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[11][1]   ;
 ; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[12][1]   ;
 ; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[13][1]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[14][3]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[15][3]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[16][3]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[17][3]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[18][3]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[19][1]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[20][3]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[21][3]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[22][3]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[23][3]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[24][3]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[25][3]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[14][0]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[15][1]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[16][2]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[17][6]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[18][4]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[19][6]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[20][6]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[21][8]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[22][8]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[23][4]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[24][8]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[25][4]   ;
 ; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[26][3]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[27][7]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[28][8]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[29][1]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[27][6]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[28][7]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[29][4]   ;
 ; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[30][4]   ;
 ; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[31][4]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[32][6]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[32][3]   ;
 ; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[33][6]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[34][7]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[35][2]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[36][7]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[37][0]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[38][1]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[39][1]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[40][4]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[41][7]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[34][4]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[35][5]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[36][0]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[37][7]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[38][6]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[39][5]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[40][1]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[41][5]   ;
 ; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[42][6]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[43][1]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[44][4]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[45][2]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[46][2]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[47][5]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[48][8]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[49][2]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[50][2]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[51][3]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[43][3]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[44][6]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[45][1]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[46][1]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[47][2]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[48][7]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[49][3]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[50][0]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[51][5]   ;
 ; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[52][7]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[53][7]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[54][6]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[53][4]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[54][0]   ;
 ; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[55][5]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[56][5]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[57][5]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[58][5]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[59][4]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[60][1]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[61][2]   ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[62][4]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[56][8]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[57][6]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[58][1]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[59][6]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[60][0]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[61][4]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[62][0]   ;
 ; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |processor|BranchPredictionUnit:BPU|BTB_target[63][7]   ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[1][25]        ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[2][9]         ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[3][5]         ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[4][1]         ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[5][18]        ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[6][22]        ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[7][1]         ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[8][1]         ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[9][1]         ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[10][27]       ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[11][15]       ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[12][0]        ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[13][5]        ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[14][28]       ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[15][3]        ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[16][14]       ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[17][31]       ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[18][24]       ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[19][23]       ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[1][9]         ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[2][14]        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[3][12]        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[4][22]        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[5][19]        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[6][30]        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[7][21]        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[8][8]         ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[9][9]         ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[10][3]        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[11][7]        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[12][8]        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[13][15]       ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[14][25]       ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[15][2]        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[16][5]        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[17][21]       ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[18][0]        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[19][14]       ;
 ; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[20][18]       ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[21][23]       ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[22][18]       ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[23][4]        ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[24][19]       ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[25][12]       ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[26][29]       ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[27][2]        ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[28][24]       ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[29][23]       ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[21][18]       ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[22][19]       ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[23][18]       ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[24][18]       ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[25][9]        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[26][17]       ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[27][18]       ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[28][13]       ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[29][13]       ;
 ; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[30][11]       ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[31][12]       ;
-; 3:1                ; 72 bits   ; 144 LEs       ; 72 LEs               ; 72 LEs                 ; Yes        ; |processor|pipe:MEM_WB2|Q[67]                           ;
-; 3:1                ; 272 bits  ; 544 LEs       ; 272 LEs              ; 272 LEs                ; Yes        ; |processor|pipe:EX_MEM|Q[36]                            ;
-; 3:1                ; 46 bits   ; 92 LEs        ; 46 LEs               ; 46 LEs                 ; Yes        ; |processor|pipe:ID_EX_2|Q[133]                          ;
-; 3:1                ; 107 bits  ; 214 LEs       ; 107 LEs              ; 107 LEs                ; Yes        ; |processor|pipe:IF_ID|Q[11]                             ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |processor|pipe:ID_EX_1|Q[118]                          ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |processor|pipe:ID_EX_2|Q[118]                          ;
-; 34:1               ; 23 bits   ; 506 LEs       ; 506 LEs              ; 0 LEs                  ; Yes        ; |processor|pipe:ID_EX_1|Q[105]                          ;
-; 34:1               ; 32 bits   ; 704 LEs       ; 704 LEs              ; 0 LEs                  ; Yes        ; |processor|pipe:ID_EX_1|Q[74]                           ;
-; 34:1               ; 23 bits   ; 506 LEs       ; 506 LEs              ; 0 LEs                  ; Yes        ; |processor|pipe:ID_EX_2|Q[108]                          ;
-; 34:1               ; 32 bits   ; 704 LEs       ; 704 LEs              ; 0 LEs                  ; Yes        ; |processor|pipe:ID_EX_2|Q[73]                           ;
-; 67:1               ; 4 bits    ; 176 LEs       ; 64 LEs               ; 112 LEs                ; Yes        ; |processor|pipe:ID_EX_1|Q[122]                          ;
-; 67:1               ; 4 bits    ; 176 LEs       ; 64 LEs               ; 112 LEs                ; Yes        ; |processor|pipe:ID_EX_2|Q[121]                          ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|registerFile:RegFile|registers[31][24]       ;
+; 3:1                ; 73 bits   ; 146 LEs       ; 73 LEs               ; 73 LEs                 ; Yes        ; |processor|pipe:MEM_WB2|Q[69]                           ;
+; 3:1                ; 271 bits  ; 542 LEs       ; 271 LEs              ; 271 LEs                ; Yes        ; |processor|pipe:EX_MEM|Q[36]                            ;
+; 3:1                ; 46 bits   ; 92 LEs        ; 46 LEs               ; 46 LEs                 ; Yes        ; |processor|pipe:ID_EX_2|Q[119]                          ;
+; 3:1                ; 107 bits  ; 214 LEs       ; 107 LEs              ; 107 LEs                ; Yes        ; |processor|pipe:IF_ID|Q[26]                             ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |processor|pipe:ID_EX_1|Q[129]                          ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |processor|pipe:ID_EX_2|Q[128]                          ;
+; 34:1               ; 23 bits   ; 506 LEs       ; 506 LEs              ; 0 LEs                  ; Yes        ; |processor|pipe:ID_EX_1|Q[112]                          ;
+; 34:1               ; 32 bits   ; 704 LEs       ; 704 LEs              ; 0 LEs                  ; Yes        ; |processor|pipe:ID_EX_1|Q[64]                           ;
+; 34:1               ; 23 bits   ; 506 LEs       ; 506 LEs              ; 0 LEs                  ; Yes        ; |processor|pipe:ID_EX_2|Q[103]                          ;
+; 34:1               ; 32 bits   ; 704 LEs       ; 704 LEs              ; 0 LEs                  ; Yes        ; |processor|pipe:ID_EX_2|Q[69]                           ;
+; 67:1               ; 4 bits    ; 176 LEs       ; 64 LEs               ; 112 LEs                ; Yes        ; |processor|pipe:ID_EX_1|Q[120]                          ;
+; 67:1               ; 4 bits    ; 176 LEs       ; 64 LEs               ; 112 LEs                ; Yes        ; |processor|pipe:ID_EX_2|Q[124]                          ;
 ; 21:1               ; 8 bits    ; 112 LEs       ; 56 LEs               ; 56 LEs                 ; Yes        ; |processor|pipe:EX_MEM|Q[77]                            ;
-; 21:1               ; 8 bits    ; 112 LEs       ; 56 LEs               ; 56 LEs                 ; Yes        ; |processor|pipe:EX_MEM|Q[88]                            ;
-; 21:1               ; 8 bits    ; 112 LEs       ; 56 LEs               ; 56 LEs                 ; Yes        ; |processor|pipe:EX_MEM_2|Q[77]                          ;
-; 21:1               ; 8 bits    ; 112 LEs       ; 56 LEs               ; 56 LEs                 ; Yes        ; |processor|pipe:EX_MEM_2|Q[87]                          ;
-; 22:1               ; 4 bits    ; 56 LEs        ; 32 LEs               ; 24 LEs                 ; Yes        ; |processor|pipe:EX_MEM|Q[75]                            ;
-; 22:1               ; 4 bits    ; 56 LEs        ; 32 LEs               ; 24 LEs                 ; Yes        ; |processor|pipe:EX_MEM|Q[96]                            ;
-; 22:1               ; 4 bits    ; 56 LEs        ; 32 LEs               ; 24 LEs                 ; Yes        ; |processor|pipe:EX_MEM_2|Q[75]                          ;
-; 22:1               ; 4 bits    ; 56 LEs        ; 32 LEs               ; 24 LEs                 ; Yes        ; |processor|pipe:EX_MEM_2|Q[96]                          ;
+; 21:1               ; 8 bits    ; 112 LEs       ; 56 LEs               ; 56 LEs                 ; Yes        ; |processor|pipe:EX_MEM|Q[86]                            ;
+; 21:1               ; 8 bits    ; 112 LEs       ; 56 LEs               ; 56 LEs                 ; Yes        ; |processor|pipe:EX_MEM_2|Q[82]                          ;
+; 21:1               ; 8 bits    ; 112 LEs       ; 56 LEs               ; 56 LEs                 ; Yes        ; |processor|pipe:EX_MEM_2|Q[88]                          ;
+; 22:1               ; 4 bits    ; 56 LEs        ; 32 LEs               ; 24 LEs                 ; Yes        ; |processor|pipe:EX_MEM|Q[74]                            ;
+; 22:1               ; 4 bits    ; 56 LEs        ; 32 LEs               ; 24 LEs                 ; Yes        ; |processor|pipe:EX_MEM|Q[95]                            ;
+; 22:1               ; 4 bits    ; 56 LEs        ; 32 LEs               ; 24 LEs                 ; Yes        ; |processor|pipe:EX_MEM_2|Q[76]                          ;
+; 22:1               ; 4 bits    ; 56 LEs        ; 32 LEs               ; 24 LEs                 ; Yes        ; |processor|pipe:EX_MEM_2|Q[95]                          ;
 ; 23:1               ; 2 bits    ; 30 LEs        ; 18 LEs               ; 12 LEs                 ; Yes        ; |processor|pipe:EX_MEM|Q[72]                            ;
 ; 23:1               ; 2 bits    ; 30 LEs        ; 18 LEs               ; 12 LEs                 ; Yes        ; |processor|pipe:EX_MEM|Q[97]                            ;
 ; 23:1               ; 2 bits    ; 30 LEs        ; 18 LEs               ; 12 LEs                 ; Yes        ; |processor|pipe:EX_MEM_2|Q[72]                          ;
 ; 23:1               ; 2 bits    ; 30 LEs        ; 18 LEs               ; 12 LEs                 ; Yes        ; |processor|pipe:EX_MEM_2|Q[98]                          ;
-; 24:1               ; 2 bits    ; 32 LEs        ; 18 LEs               ; 14 LEs                 ; Yes        ; |processor|pipe:EX_MEM|Q[99]                            ;
+; 24:1               ; 2 bits    ; 32 LEs        ; 18 LEs               ; 14 LEs                 ; Yes        ; |processor|pipe:EX_MEM|Q[100]                           ;
 ; 24:1               ; 2 bits    ; 32 LEs        ; 18 LEs               ; 14 LEs                 ; Yes        ; |processor|pipe:EX_MEM_2|Q[100]                         ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |processor|mux3to1:RFMux1|Mux1                          ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |processor|mux3to1:RFMux1|Mux2                          ;
 ; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |processor|mux3to1:RFMux2|Mux3                          ;
-; 4:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; No         ; |processor|writeData1[9]                                ;
-; 4:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |processor|writeData2[8]                                ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |processor|ForwardingUnit:FU|ForwardB1[0]               ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |processor|ForwardingUnit:FU|ForwardA1[0]               ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |processor|writeData2[4]                                ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |processor|ForwardingUnit:FU|ForwardB1[1]               ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |processor|ForwardingUnit:FU|ForwardA1[1]               ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |processor|ForwardingUnit:FU|ForwardA2[0]               ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |processor|ForwardingUnit:FU|ForwardB2[1]               ;
-; 8:1                ; 32 bits   ; 160 LEs       ; 128 LEs              ; 32 LEs                 ; No         ; |processor|mux5to1:ForwardB1Mux|Mux28                   ;
-; 8:1                ; 32 bits   ; 160 LEs       ; 128 LEs              ; 32 LEs                 ; No         ; |processor|mux5to1:ForwardA1Mux|Mux12                   ;
-; 8:1                ; 32 bits   ; 160 LEs       ; 128 LEs              ; 32 LEs                 ; No         ; |processor|mux5to1:ForwardA2Mux|Mux4                    ;
-; 8:1                ; 32 bits   ; 160 LEs       ; 128 LEs              ; 32 LEs                 ; No         ; |processor|mux5to1:ForwardB2Mux|Mux29                   ;
-; 3:1                ; 21 bits   ; 42 LEs        ; 42 LEs               ; 0 LEs                  ; No         ; |processor|writeData1[29]                               ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 128 LEs              ; 32 LEs                 ; No         ; |processor|mux5to1:ForwardB1Mux|Mux5                    ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 128 LEs              ; 32 LEs                 ; No         ; |processor|mux5to1:ForwardA1Mux|Mux2                    ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 128 LEs              ; 32 LEs                 ; No         ; |processor|mux5to1:ForwardA2Mux|Mux19                   ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 128 LEs              ; 32 LEs                 ; No         ; |processor|mux5to1:ForwardB2Mux|Mux0                    ;
+; 3:1                ; 31 bits   ; 62 LEs        ; 62 LEs               ; 0 LEs                  ; No         ; |processor|writeData1[22]                               ;
 ; 3:1                ; 23 bits   ; 46 LEs        ; 46 LEs               ; 0 LEs                  ; No         ; |processor|writeData2[26]                               ;
-; 32:1               ; 9 bits    ; 189 LEs       ; 189 LEs              ; 0 LEs                  ; No         ; |processor|registerFile:RegFile|Mux27                   ;
-; 32:1               ; 9 bits    ; 189 LEs       ; 189 LEs              ; 0 LEs                  ; No         ; |processor|registerFile:RegFile|Mux92                   ;
+; 32:1               ; 9 bits    ; 189 LEs       ; 189 LEs              ; 0 LEs                  ; No         ; |processor|registerFile:RegFile|Mux23                   ;
+; 32:1               ; 9 bits    ; 189 LEs       ; 189 LEs              ; 0 LEs                  ; No         ; |processor|registerFile:RegFile|Mux87                   ;
 ; 64:1               ; 2 bits    ; 84 LEs        ; 84 LEs               ; 0 LEs                  ; No         ; |processor|BranchPredictionUnit:BPU|Mux0                ;
 ; 64:1               ; 2 bits    ; 84 LEs        ; 84 LEs               ; 0 LEs                  ; No         ; |processor|BranchPredictionUnit:BPU|Mux157              ;
-; 64:1               ; 2 bits    ; 84 LEs        ; 84 LEs               ; 0 LEs                  ; No         ; |processor|BranchPredictionUnit:BPU|Mux26               ;
+; 64:1               ; 2 bits    ; 84 LEs        ; 84 LEs               ; 0 LEs                  ; No         ; |processor|BranchPredictionUnit:BPU|Mux27               ;
 ; 64:1               ; 2 bits    ; 84 LEs        ; 84 LEs               ; 0 LEs                  ; No         ; |processor|BranchPredictionUnit:BPU|Mux16               ;
-; 65:1               ; 9 bits    ; 387 LEs       ; 387 LEs              ; 0 LEs                  ; No         ; |processor|BranchPredictionUnit:BPU|predictedTarget1[0] ;
+; 65:1               ; 9 bits    ; 387 LEs       ; 387 LEs              ; 0 LEs                  ; No         ; |processor|BranchPredictionUnit:BPU|predictedTarget1[7] ;
 ; 66:1               ; 9 bits    ; 396 LEs       ; 387 LEs              ; 9 LEs                  ; No         ; |processor|mux2x1En:instMemMux|out                      ;
 ; 11:1               ; 9 bits    ; 63 LEs        ; 63 LEs               ; 0 LEs                  ; No         ; |processor|nextPC[5]                                    ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
@@ -2121,7 +2106,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+----------------------------------+
 ; Parameter Name ; Value ; Type                             ;
 +----------------+-------+----------------------------------+
-; size           ; 72    ; Signed Integer                   ;
+; size           ; 81    ; Signed Integer                   ;
 +----------------+-------+----------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -2155,6 +2140,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     -- RAM_BLOCK_TYPE                     ; AUTO                                                        ;
 ;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                                    ;
 +-------------------------------------------+-------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "pipe:MEM_WB2"                                                                                                            ;
++------+--------+----------+--------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                  ;
++------+--------+----------+--------------------------------------------------------------------------------------------------------------------------+
+; Q    ; Output ; Warning  ; Output or bidir port (81 bits) is wider than the port expression (73 bits) it drives; bit(s) "Q[80..73]" have no fanouts ;
++------+--------+----------+--------------------------------------------------------------------------------------------------------------------------+
 
 
 +------------------------------------------+
@@ -2256,20 +2250,20 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     CLR SLD           ; 1300                        ;
 ;     ENA CLR           ; 435                         ;
 ;     ENA CLR SCLR      ; 132                         ;
-; cycloneiii_lcell_comb ; 9553                        ;
-;     arith             ; 304                         ;
-;         2 data inputs ; 40                          ;
+; cycloneiii_lcell_comb ; 9524                        ;
+;     arith             ; 295                         ;
+;         2 data inputs ; 31                          ;
 ;         3 data inputs ; 264                         ;
-;     normal            ; 9249                        ;
-;         0 data inputs ; 2                           ;
+;     normal            ; 9229                        ;
+;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 15                          ;
-;         2 data inputs ; 242                         ;
-;         3 data inputs ; 3413                        ;
-;         4 data inputs ; 5577                        ;
+;         2 data inputs ; 241                         ;
+;         3 data inputs ; 3404                        ;
+;         4 data inputs ; 5568                        ;
 ; cycloneiii_ram_block  ; 64                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 20.00                       ;
-; Average LUT depth     ; 10.02                       ;
+; Average LUT depth     ; 10.00                       ;
 +-----------------------+-----------------------------+
 
 
@@ -2278,7 +2272,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:24     ;
+; Top            ; 00:00:26     ;
 +----------------+--------------+
 
 
@@ -2288,7 +2282,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Fri Feb 21 02:53:56 2025
+    Info: Processing started: Sat Feb 22 05:32:35 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SuperScalar -c SuperScalar
 Info (16303): Aggressive Performance optimization mode selected -- timing performance will be prioritized at the potential cost of increased logic area and compilation time
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
@@ -2343,6 +2337,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file dual_is
     Info (12023): Found entity 1: dual_issue_inst_mem File: C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/dual_issue_inst_mem.v Line: 40
 Info (12021): Found 1 design units, including 1 entities, in source file comparatorip.v
     Info (12023): Found entity 1: ComparatorIP File: C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/ComparatorIP.v Line: 40
+Warning (10236): Verilog HDL Implicit Net warning at processor.v(380): created implicit net for "PCPlus1W" File: C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/processor.v Line: 380
 Info (12127): Elaborating entity "processor" for the top level hierarchy
 Info (12128): Elaborating entity "programCounter" for hierarchy "programCounter:pc" File: C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/processor.v Line: 172
 Info (12128): Elaborating entity "adder" for hierarchy "adder:branchPcAdder" File: C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/processor.v Line: 174
@@ -2457,9 +2452,8 @@ Info (12133): Instantiated megafunction "dual_issue_data_memory:DM|altsyncram:al
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_f9m2.tdf
     Info (12023): Found entity 1: altsyncram_f9m2 File: C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/db/altsyncram_f9m2.tdf Line: 28
 Info (12128): Elaborating entity "altsyncram_f9m2" for hierarchy "dual_issue_data_memory:DM|altsyncram:altsyncram_component|altsyncram_f9m2:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Critical Warning (127005): Memory depth (4096) in the design file differs from memory depth (2048) in the Memory Initialization File "C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/dual_issue_data_memory.mif" -- setting initial value for remaining addresses to 0 File: C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/dual_issue_data_memory.v Line: 104
 Info (12128): Elaborating entity "pipe" for hierarchy "pipe:MEM_WB1" File: C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/processor.v Line: 370
-Info (12128): Elaborating entity "pipe" for hierarchy "pipe:MEM_WB2" File: C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/processor.v Line: 389
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13012): Latch mux2x1En:instMemMux|out[0] has unsafe behavior File: C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/muxes.v Line: 25
     Warning (13013): Ports D and ENA on the latch are fed by the same signal HazardDetectionUnit:HDU|CPCSignal2 File: C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/HazardDetectionUnit.v Line: 19
 Warning (13012): Latch mux2x1En:instMemMux|out[1] has unsafe behavior File: C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/muxes.v Line: 25
@@ -2494,21 +2488,21 @@ Info (332111): Found 1 clocks
 Info (128002): Starting physical synthesis algorithm register retiming
 Info (128003): Physical synthesis algorithm register retiming complete: estimated slack improvement of 130 ps
 Info (128002): Starting physical synthesis algorithm combinational resynthesis using boolean division
-Info (128003): Physical synthesis algorithm combinational resynthesis using boolean division complete: estimated slack improvement of 1491 ps
-Info (128001): Physical synthesis optimizations for speed complete: elapsed time is 00:00:10
+Info (128003): Physical synthesis algorithm combinational resynthesis using boolean division complete: estimated slack improvement of 1490 ps
+Info (128001): Physical synthesis optimizations for speed complete: elapsed time is 00:00:11
 Info (144001): Generated suppressed messages file C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/output_files/SuperScalar.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 9705 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 9676 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 9 output pins
-    Info (21061): Implemented 9629 logic cells
+    Info (21061): Implemented 9600 logic cells
     Info (21064): Implemented 64 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 25 warnings
-    Info: Peak virtual memory: 4999 megabytes
-    Info: Processing ended: Fri Feb 21 02:54:28 2025
-    Info: Elapsed time: 00:00:32
-    Info: Total CPU time (on all processors): 00:00:40
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 26 warnings
+    Info: Peak virtual memory: 4979 megabytes
+    Info: Processing ended: Sat Feb 22 05:33:09 2025
+    Info: Elapsed time: 00:00:34
+    Info: Total CPU time (on all processors): 00:00:41
 
 
 +------------------------------------------+

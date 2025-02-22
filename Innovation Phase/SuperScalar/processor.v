@@ -368,16 +368,16 @@ pipe #(81) MEM_WB1(
     .enable(enable),
 	 .flush(1'b0)
 );
-pipe #(72) MEM_WB2( 
+pipe #(81) MEM_WB2( 
     .D({
         RegWriteEn2M, MemToReg2M,
-        ALUResult2M,
+        ALUResult2M,PCPlus1M,
         memoryReadData2,
         writeRegister2M
     }),
     .Q({
         RegWriteEn2W, MemToReg2W, 
-    
+			PCPlus1W,
         ALUResult2W, 
         memoryReadData2W, 
         writeRegister2W
@@ -394,7 +394,7 @@ pipe #(72) MEM_WB2(
 // Write-back for Instruction 1
 assign writeData1 = (MemToReg1W == 2'b00) ? ALUResult1W : 
                     (MemToReg1W == 2'b01) ? memoryReadData1W : 
-                    (MemToReg1W == 2'b10) ? {{21{1'b0}}, PCPlus2W-11'd1} : 
+                    (MemToReg1W == 2'b10) ? {{21{1'b0}}, PCPlus1W} : 
                     32'b0;
 
 // Write-back for Instruction 2

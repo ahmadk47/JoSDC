@@ -1,17 +1,134 @@
-XORI $24, $0, 0x5
-XORI $25, $0, 0x3
-JAL Mul_Fun
+ADDI $2, $0, 0x2  
+ADDI $3, $0, 0x3 
 NOP
-J Finish
-Mul_Fun:
-ANDI $23, $0, 0
-ADDI $22, $25, -1
+ADD $2, $2, $3  
+ADDI $4, $0, 0x4 
+ADDI $5, $0, 0x5
+ADDI $6, $0, 0x6
+SUB $4, $2, $5   
+ADDI $7, $0, 0x7
+LW $4, 0($2)  
+ADDI $8, $0, 0x8 
+SUB $2, $3, $5  
+ADDI $9, $0, 0x9 
+SW $5, 0($2)   
+ADDI $10, $0, 0xa
+LW $3, 0($2)   
+SW $4, 0($2)   
 NOP
-Mul_Loop:
-ADDI $22, $22, -1
-ADD $23, $23, $24
-SLT $2, $22, $0
-BEQ $2, $0, Mul_Loop
+LW $3, 0($2)   
+ADDI $11, $0, 0xb 
+SW $4, 0($3)  
+ADDI $12, $0, 0xc  
+ADDI $15, $0, 0xf
+SW $5, 0($3)   
+BEQ $6, $0, miss  
+ADDI $6, $6, 0x1  
+miss: 
+BEQ $7, $0, t1  
+NOP
+BEQ $7, $7, t2  
+t1: 
+ADDI $7, $0, 0x1
+NOP
+SUB $7, $7, $7 
+t2:
+BEQ $7, $0, t1  
+NOP
+BNE $7, $7, t2  
+NOP
+BEQ $8, $8, t3  
+SUB $8, $8, $8
+NOP
+ADDI $8, $0, 0x8
+NOP
+SUB $8, $8, $8  
+t3: 
+BEQ $9, $0, t3
+NOP
+BEQ $9, $8, t4  
+NOP
+BEQ $10, $10, t4
+NOP
+BEQ $11, $11, t3
+SUB $10, $10, $10 
+SUB $11, $11, $11 
+t4: 
+ADDI $31, $0, t5   
+NOP
+JAL t5    
+SUB $31, $31, $31
+NOP         
+t5: 
+ADDI $31, $0, t6   
+ADDI $12, $0, 0xc 
+BEQ $12, $0, skip 
+NOP
+JR $31      
+skip: 
+SUB $12, $12, $12
+SUB $31, $31, $31
+NOP
+t6:
+ADDI $31, $0, t7
 NOP
 JR $31
+SUB $31, $31, $31
+NOP
+t7: 
+ADDI $31, $0, t8
+NOP
+JR $31 
+t8: 
+LW $13, 0($2) 
+NOP
+BNE $13, $0, t9
+SUB $13, $13, $13
+NOP 
+t9: 
+ADDI $14, $0, t10  
+NOP
+JR $14  
+NOP
+J t1
+t10: 
+NOP     
+JAL t11
+NOP
+J t12
+SUB $31, $31, $31
+NOP
+SUB $31, $31, $31 
+NOP
+t11: 
+JR $31  
+SUB $31, $31, $31  
+NOP
+t12:
+JAL t13
+NOP
+t13:
+JAL t14
+NOP
+t14: 
+BEQ $15, $0, t15
+NOP
+J t16
+t15: 
+SUB $15, $15, $15
+NOP
+t16: 
+LW $16, 0($2)
+J t17
+SUB $16, $16, $16
+NOP
+t17:
+J t18        
+NOP
+BEQ $18, $0, t19 
+t18: 
+ADDI $18, $0, 0x12  
+NOP
+t19:
+SUB $18, $18, $18  
 Finish:
