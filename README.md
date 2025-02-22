@@ -98,7 +98,6 @@ Maintaining this format is crucial for correct processing.
 - Follow the exact instruction format to avoid errors during assembly.
 - Use the Quartus simulation tools to verify processor behavior and execution correctness.
 - Ensure branch target labels are correctly assigned and referenced in the scheduled instruction sequence.
-- Be mindful of instruction hazards when scheduling instructions in dual-issue mode.
 - Utilize jump and branch instructions carefully to avoid pipeline stalls.
 - Use Quartus' **Signal Tap or ModelSim** to inspect instruction execution in detail.
 
