@@ -88,7 +88,6 @@ Maintaining this format is crucial for correct processing.
 
 ## Debugging and Optimization
 
-- **Instruction Scheduling:** Avoid data hazards by inserting NOPs or reordering independent instructions.
 - **Branch Handling:** Ensure branch delay slots are handled correctly in scheduling.
 - **Load/Store Optimization:** Avoid unnecessary memory accesses to reduce execution cycles.
 - **Pipeline Efficiency:** Utilize the dual-issue capability effectively by pairing independent instructions.
