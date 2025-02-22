@@ -62,17 +62,17 @@ Maintaining this format is crucial for correct processing.
 
 ### 1. **Instruction Scheduling**
 
-- Use the **Python scheduler** to order the instructions according to dual-issue constraints.
+- Use the **Python scheduler** (scheduler.py) to order the instructions according to dual-issue constraints.
 - The scheduler outputs a text file containing the properly ordered instructions.
 
 ### 2. **Assembling Instructions**
 
-- The **Java-based assembler** reads the scheduled instructions from the text file and converts them into machine code.
+- The **Java-based assembler** (Assembler.java) reads the scheduled instructions from the text file and converts them into machine code.
 - Ensure that the assembler runs **without errors or warnings**.
 
 ### 3. **Preparing the Instruction Memory**
 
-- A script takes the assembler's output and loads it into the **instruction memory initialization file (MIF)**.
+- A script (loadmif.py) takes the assembler's output and loads it into the **instruction memory initialization file (MIF)**.
 - Verify that the **MIF file format** matches Quartus memory requirements.
 
 ### 4. **Data Memory (Optional)**
