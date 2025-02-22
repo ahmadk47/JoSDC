@@ -1,3 +1,0 @@
-Info (10281): Verilog HDL Declaration information at processor.v(7): object "PC" differs only in case from object "pc" in the same scope File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/processor.v Line: 7
-Info (10281): Verilog HDL Declaration information at processor.v(16): object "IFIDReset" differs only in case from object "IfIdReset" in the same scope File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/processor.v Line: 16
-Warning (10268): Verilog HDL information at registerFile.v(22): always construct contains both blocking and non-blocking assignments File: C:/Users/DELL-G5/Desktop/github/JoSDC/Development Phase/Pipelined/registerFile.v Line: 22

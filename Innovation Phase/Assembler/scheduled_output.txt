@@ -8,7 +8,6 @@ NOP
 LOOP2:
 XOR $22, $12, $0
 LW $8, 0x0($21)
-NOP
 LW $9, 0x0($22)
 NOP
 IF:

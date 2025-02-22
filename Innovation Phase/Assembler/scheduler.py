@@ -87,7 +87,7 @@ class Instruction:
                     (inst1.inst_type == 'SW'         # SW -> SW or SW -> LW or LW -> SW
                     or inst1.inst_type == 'LW')
                     and (inst2.inst_type == 'SW'
-                         or inst2.inst_type == 'LW')))
+                         or (inst2.inst_type == 'LW' and inst1.inst_type != 'LW'))))
 
     @staticmethod
     def should_nop(inst1, inst2):
