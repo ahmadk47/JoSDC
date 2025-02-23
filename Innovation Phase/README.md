@@ -75,12 +75,17 @@ Maintaining this format is crucial for correct processing.
 - A script (loadmif.py) takes the assembler's output and loads it into the **instruction memory initialization file (MIF)**.
 - Verify that the **MIF file format** matches Quartus memory requirements.
 
-### 4. **Data Memory (Optional)**
+### 4. **Preparing the Instruction Memory**
+
+- The process is automated by running pipeline.py file
+- You need to fill the instructions.txt file with the instructions
+
+### 5. **Data Memory (Optional)**
 
 - If needed, prepare and load the **data memory MIF file**.
 - Ensure correct **address alignment** when loading data.
 
-### 5. **Quartus Simulation**
+### 6. **Quartus Simulation**
 
 - Open **Quartus** and **compile** or **run synthesis**.
 - Navigate to: `Tools` → `Run Simulation Tool` → `RTL Simulation`.
