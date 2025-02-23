@@ -1,10 +1,13 @@
-import sys
+import logging
 from copy import deepcopy
-from textwrap import dedent
 
-sys.stdout = open('out.txt', 'w')
+INS_MEM_SIZE = 512
+DATA_MEM_SIZE = 4096
+DATA_MEM_READ = 50
 
-MEM_SIZE = 256
+logger = logging.getLogger(__name__)
+logfile_handler = logging.FileHandler("cas_out.txt", mode='w')
+logger.addHandler(logfile_handler)
 
 
 class MEM_WB:
@@ -128,13 +131,13 @@ class RF:
                 f.write(str(self.registers[i]) + '\n')
 
     def print_rf(self):
-        print(f'RF: {" ".join(map(str, self.registers))}')
+        logger.warning(f'RF: {self.registers}')
 
 
 class DataMem:
     def __init__(self):
         # with open('data_mem.txt', 'w') as f:
-        #     for i in range(MEM_SIZE):
+        #     for _ in range(DATA_MEM_SIZE):
         #         f.write(str(0) + '\n')
         pass
 
@@ -145,7 +148,7 @@ class DataMem:
         read_data[address] = str(data)
         with open('data_mem.txt', 'w') as f:
             for idx, line in enumerate(read_data):
-                if idx < len(read_data)-1:
+                if idx < DATA_MEM_SIZE - 1:
                     f.write(f'{line}\n')
                 else:
                     f.write(line)
@@ -153,11 +156,14 @@ class DataMem:
     @staticmethod
     def read_dm(address):
         with open('data_mem.txt', 'r') as f:
-            try:
-                read_data = f.readlines()
-                return int(read_data[address])
-            except ValueError:
-                print(f'{address = }')
+            read_data = f.readlines()
+        return int(read_data[address])
+
+    @staticmethod
+    def print_dm():
+        with open('data_mem.txt', 'r') as f:
+            read_data = f.readlines()
+        logger.warning(f'DM: {list(map(int, read_data[0:DATA_MEM_READ]))}')
 
 
 class InsMem:
@@ -189,12 +195,12 @@ class PC:
 
 class HDU:
     def __init__(
-            self, branch1M, branch2M, prediction_E1, prediction_E2, 
+            self, branch1M, branch2M, prediction_M1, prediction_M2, 
             branch_taken1, branch_taken2, pc_src1, pc_src2):
         self.branch1M = branch1M
         self.branch2M = branch2M
-        self.prediction_E1 = prediction_E1
-        self.prediction_E2 = prediction_E2
+        self.prediction_M1 = prediction_M1
+        self.prediction_M2 = prediction_M2
         self.branch_taken1 = branch_taken1
         self.branch_taken2 = branch_taken2
         self.pc_src1 = pc_src1
@@ -203,29 +209,27 @@ class HDU:
 
     @property
     def flush_MEM2(self):
-        return (self.branch_taken1 ^ self.prediction_E1) & self.branch1M
+        return (self.branch_taken1 ^ self.prediction_M1) & self.branch1M
 
     @property
     def flush_EX(self):
-        return (((self.branch_taken1 ^ self.prediction_E1) & self.branch1M) | 
-                ((self.branch_taken2 ^ self.prediction_E2) & self.branch2M))
+        return (((self.branch_taken1 ^ self.prediction_M1) & self.branch1M) | 
+                ((self.branch_taken2 ^ self.prediction_M2) & self.branch2M))
     
     @property
     def flush_IF_ID(self):
-        return (((self.branch_taken1 ^ self.prediction_E1) & self.branch1M) | 
-                ((self.branch_taken2 ^ self.prediction_E2) & self.branch2M) | 
+        return (((self.branch_taken1 ^ self.prediction_M1) & self.branch1M) | 
+                ((self.branch_taken2 ^ self.prediction_M2) & self.branch2M) | 
                 self.pc_src1 | self.pc_src2)
 
 
 class BPU:
     def __init__(self):
-        self.corrected_pc1 = 0
-        self.corrected_pc2 = 0
         self.cpc_signal1 = 0
         self.cpc_signal2 = 0
-        self.BHT = [1 for _ in range(MEM_SIZE)]
-        self.BTB = [0 for _ in range(MEM_SIZE)]
-        self.BTB_valid = [0] * MEM_SIZE
+        self.BHT = [1 for _ in range(INS_MEM_SIZE)]
+        self.BTB = [0 for _ in range(64)]
+        self.BTB_valid = [0] * 64
 
     def predict(self, pc):
         match self.BHT[pc]:
@@ -250,24 +254,38 @@ class BPU:
                 self.BHT[pc] = 3 if branch_taken else 2
 
         if branch_taken:
-            self.BTB[pc & (MEM_SIZE - 1)] = target
-            self.BTB[pc & (MEM_SIZE - 1)] = 1
+            self.BTB[pc & 63] = target
+            self.BTB_valid[pc & 63] = 1
 
     def set_corrected_pc(
             self, predictionM1, predictionM2, branch_taken1, branch_taken2,
-            pc_plus_1M2, pc_plus_2M2, branch_adder_resultM1,
-            branch_adder_resultM2 
+            pc_plus_1M1, pc_plus_2M1, branch_adder_resultM1,
+            branch_adder_resultM2, branchM1, branchM2
         ):
-        self.cpc_signal = 0
-        self.corrected_pc1 = pc_plus_1M2
-        if branch_taken1 and not predictionM1:
-            self.corrected_pc1 = branch_adder_resultM1
-            self.cpc_signal = 1
+        self.cpc_signal1 = 0
+        self.cpc_signal2 = 0
+        self.corrected_pc1 = pc_plus_1M1
+        self.corrected_pc2 = pc_plus_2M1
+        
+        if branchM1:
+            if branch_taken1 and not predictionM1:
+                self.corrected_pc1 = branch_adder_resultM1
+                self.cpc_signal1 = 1
+            if not branch_taken1 and predictionM1:
+                self.corrected_pc1 = pc_plus_1M1
+                self.cpc_signal1 = 1
 
-        self.corrected_pc2 = pc_plus_2M2
-        if branch_taken2 and not predictionM2:
-            self.corrected_pc2 = branch_adder_resultM2
-            self.cpc_signal = 1
+        if branchM2:
+            if branch_taken2 and not predictionM2:
+                self.corrected_pc2 = branch_adder_resultM2
+                self.cpc_signal2 = 1
+            if not branch_taken2 and predictionM2:
+                self.corrected_pc2 = pc_plus_2M1
+                self.cpc_signal2 = 1
+        
+    @property
+    def cpc_signal(self):
+        return self.cpc_signal1 | self.cpc_signal2
         
 
 def mux(sel, in1, in2, in3=None, in4=None, in5=None):
@@ -485,10 +503,11 @@ def forward(rs_E1, rt_E1, rs_E2, rt_E2, rs_M2, rt_M2, write_register_M1,
 
 
 def hdu_stall(mem_read_E, write_register_E, rs_D, rt_D):
-    if write_register_E and mem_read_E:
-        if write_register_E == rs_D or write_register_E == rt_D:
-            return 1
-    return 0
+    return (
+        mem_read_E 
+        and (write_register_E == rs_D or write_register_E == rt_D) 
+        and write_register_E != 0
+    )
 
 
 def main(): 
@@ -503,22 +522,21 @@ def main():
     enable = 1
     
     while True:
-        print(f'PC: {pc.cur_pc}')
         new_state = State()
         # --------------------WB STAGE------------------ #
         WB_data1 = WB_data2 = 0
         if state.mem_wb1.reg_write == 1:
             WB_data1 = mux(sel=state.mem_wb1.mem_to_reg,
-                          in1=state.mem_wb1.alu_result,
-                          in2=state.mem_wb1.memory_read_data,
-                          in3=(state.mem_wb1.pc_plus_2 - 1) & (MEM_SIZE - 1))
+                           in1=state.mem_wb1.alu_result,
+                           in2=state.mem_wb1.memory_read_data,
+                           in3=(state.mem_wb1.pc_plus_2 - 1) & (INS_MEM_SIZE - 1))
 
             rf.write_rf(reg_num=state.mem_wb1.write_register, write_data=WB_data1)
         if state.mem_wb2.reg_write == 1:
             WB_data2 = mux(sel=state.mem_wb2.mem_to_reg,
-                          in1=state.mem_wb2.alu_result,
-                          in2=state.mem_wb2.memory_read_data,
-                          in3=state.mem_wb2.pc_plus_2)
+                           in1=state.mem_wb2.alu_result,
+                           in2=state.mem_wb2.memory_read_data,
+                           in3=state.mem_wb1.pc_plus_2)
 
             rf.write_rf(reg_num=state.mem_wb2.write_register, write_data=WB_data2)
 
@@ -562,17 +580,19 @@ def main():
         if state.ex_mem1.branch:
             branch_predictor.update(pc=state.ex_mem1.pc, branch_taken=branch_taken1, target=state.ex_mem1.branch_adder_result)
         if state.ex_mem2.branch:
-            branch_predictor.update(pc=state.ex_mem2.pc, branch_taken=branch_taken2, target=state.ex_mem2.branch_adder_result)
+            branch_predictor.update(pc=state.ex_mem1.pc_plus_1, branch_taken=branch_taken2, target=state.ex_mem2.branch_adder_result)
 
         branch_predictor.set_corrected_pc(
             predictionM1=state.ex_mem1.prediction,
             predictionM2=state.ex_mem2.prediction,
             branch_taken1=branch_taken1,
             branch_taken2=branch_taken2,
-            pc_plus_1M2=state.ex_mem2.pc_plus_1,
-            pc_plus_2M2=state.ex_mem2.pc_plus_2,
+            pc_plus_1M1=state.ex_mem1.pc_plus_1,
+            pc_plus_2M1=state.ex_mem1.pc_plus_2,
             branch_adder_resultM1=state.ex_mem1.branch_adder_result,
-            branch_adder_resultM2=state.ex_mem2.branch_adder_result
+            branch_adder_resultM2=state.ex_mem2.branch_adder_result,
+            branchM1=state.ex_mem1.branch,
+            branchM2=state.ex_mem2.branch
         )
 
         new_state.mem_wb1.reg_write = state.ex_mem1.reg_write
@@ -708,13 +728,7 @@ def main():
 
         control_signals1 = cu(cu_op_code=op_code1, cu_funct=funct1, cu_stall=stall)
         control_signals2 = cu(cu_op_code=op_code2, cu_funct=funct2, cu_stall=stall)
-        ###################################################################
-        # if not stall:
-        #     if branch_taken and not state.id_ex.prediction:
-        #         branch_predictor.set_corrected_pc(state.id_ex.branch_adder)
-        #     elif not branch_taken and state.id_ex.prediction:
-        #         branch_predictor.set_corrected_pc((state.id_ex.pc + 1) & (MEM_SIZE - 1))
-        ###################################################################
+
         read_data1 = rf.read_rf(rs1)
         read_data2 = rf.read_rf(rt1)
 
@@ -765,36 +779,39 @@ def main():
         new_state.id_ex2.instruction = state.if_id.instruction2
 
         # --------------------IF STAGE------------------ #
-        instruction1 = ins_mem.get_instruction(address=pc.cur_pc)
-        pc_plus_1 = (pc.cur_pc + 1) & (MEM_SIZE - 1)
-        
-        btb_address = branch_predictor.BTB[branch_predictor.predict(pc.cur_pc)]
-        inst2_mux = mux(sel=branch_predictor.predict(pc.cur_pc), in1=pc_plus_1, in2=btb_address)
-        instruction2 = ins_mem.get_instruction(address=inst2_mux)
+        pc_plus_1 = (pc.cur_pc + 1) & (INS_MEM_SIZE - 1)
 
         prediction1 = branch_predictor.predict(pc=pc.cur_pc)
         prediction2 = branch_predictor.predict(pc=pc_plus_1)
 
-        pc_plus_2 = (pc.cur_pc + 2) & (MEM_SIZE - 1)
-        branch_adder_result1 = (pc_plus_1 + int(instruction1[-11:], 2)) & (MEM_SIZE - 1)
-        branch_adder_result2 = (pc_plus_2 + int(instruction1[-11:], 2)) & (MEM_SIZE - 1)
+        instruction1 = ins_mem.get_instruction(address=pc.cur_pc)
 
-        jump_mux1 = mux(sel=control_signals1.get('jump'), in1=read_data1 & (MEM_SIZE - 1), in2=int(state.if_id.instruction1[-11:], 2))
-        jump_mux2 = mux(sel=control_signals2.get('jump'), in1=read_data3 & (MEM_SIZE - 1), in2=int(state.if_id.instruction1[-11:], 2))
+        inst2_address = (
+            branch_predictor.BTB[(pc.cur_pc) & 63]
+            if prediction1 and branch_predictor.BTB_valid[(pc.cur_pc) & 63]
+            else pc_plus_1
+        )
+        instruction2 = ins_mem.get_instruction(address=inst2_address)
+
+        pc_plus_2 = (pc.cur_pc + 2) & (INS_MEM_SIZE - 1)
+        branch_adder_result1 = (pc_plus_1 + int(instruction1[-9:], 2)) & (INS_MEM_SIZE - 1)
+        branch_adder_result2 = (pc_plus_2 + int(instruction2[-9:], 2)) & (INS_MEM_SIZE - 1)
+
+        jump_mux1 = mux(sel=control_signals1.get('jump'), in1=read_data1 & (INS_MEM_SIZE - 1), in2=int(state.if_id.instruction1[-9:], 2))
+        jump_mux2 = mux(sel=control_signals2.get('jump'), in1=read_data3 & (INS_MEM_SIZE - 1), in2=int(state.if_id.instruction2[-9:], 2))
         jump_mux = mux(sel=control_signals2.get('pc_src'), in1=jump_mux1, in2=jump_mux2)
 
-        branch_mux1 = mux(sel=prediction1, in1=pc_plus_2, in2=(branch_adder_result1 + 1) & (MEM_SIZE - 1))
-        branch_mux2 = mux(sel=prediction2, in1=pc_plus_2, in2=branch_adder_result2)
-        branch_mux = mux(sel=prediction2, in1=branch_mux1, in2=branch_mux2)
+        branch_mux1 = mux(sel=prediction1, in1=pc_plus_2, in2=(inst2_address + 1) & (INS_MEM_SIZE - 1))
+        branch_mux = mux(sel=prediction2, in1=branch_mux1, in2=branch_adder_result2)
 
         pc_mux = mux(sel=control_signals1.get('pc_src') | control_signals2.get('pc_src'), in1=branch_mux, in2=jump_mux)
-        cpc_mux = mux(sel=branch_predictor.cpc_signal1, in1=branch_predictor.corrected_pc1, in2=branch_predictor.corrected_pc2)
-        next_pc_mux = mux(sel=branch_predictor.cpc_signal1 | branch_predictor.cpc_signal2, in1=pc_mux, in2=cpc_mux)
+        cpc_mux = mux(sel=branch_predictor.cpc_signal2, in1=branch_predictor.corrected_pc1, in2=branch_predictor.corrected_pc2)
+        next_pc_mux = mux(sel=branch_predictor.cpc_signal, in1=pc_mux, in2=cpc_mux)
 
-        print(f'cycle: {cycle}')
-        print(f'pc: {pc.cur_pc}')
+        logger.warning(f'CYCLE_START')
+        logger.warning(f'cycle: {cycle}, PC: {pc.cur_pc}')
         
-        enable_pc_IF_ID = ((not stall) and enable or branch_predictor.cpc_signal) and cycle
+        enable_pc_IF_ID = (not stall) and enable or branch_predictor.cpc_signal
         if enable_pc_IF_ID:
             new_state.if_id.pc_plus_2 = pc_plus_2
             new_state.if_id.pc_plus_1 = pc_plus_1
@@ -812,8 +829,8 @@ def main():
         hdu = HDU(
             branch1M=state.ex_mem1.branch,
             branch2M=state.ex_mem2.branch,
-            prediction_E1=state.id_ex1.prediction,
-            prediction_E2=state.id_ex2.prediction,
+            prediction_M1=state.ex_mem1.prediction,
+            prediction_M2=state.ex_mem2.prediction,
             branch_taken1=branch_taken1,
             branch_taken2=branch_taken2,
             pc_src1=control_signals1.get('pc_src'),
@@ -826,19 +843,19 @@ def main():
         new_state.ex_mem1.flush(flush=hdu.flush_EX)
         new_state.ex_mem2.flush(flush=hdu.flush_EX)
         new_state.mem_wb2.flush(flush=hdu.flush_MEM2)
-        
+
+        logger.warning(f'Instruction1(Fetch): {hex(int(instruction1, 2))}')
+        logger.warning(f'Instruction2(Fetch): {hex(int(instruction2, 2))}')
+        rf.print_rf()
+        data_mem.print_dm()
+        logger.warning(f'CYCLE_END')
+        logger.warning(f'\n')
+
+        if pc.cur_pc >= INS_MEM_SIZE - 2:
+            break
+
         cycle += 1
         state = deepcopy(new_state)
-        
-        print(f'Instruction1 (F): {instruction1}')
-        print(f'Instruction2 (F): {instruction2}')
-        print(f'{alu_result1=}')
-        print(f'{alu_result2=}')
-        rf.print_rf()
-        print()
-
-        if pc.cur_pc == (MEM_SIZE - 2):
-            break
 
     rf.out_rf()
 
