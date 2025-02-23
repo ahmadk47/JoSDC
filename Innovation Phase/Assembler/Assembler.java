@@ -363,7 +363,7 @@ public class Assembler {
                 System.out.printf("    %d   : %s;\n", addr++, code);
             }
 
-            if (addr < 256) {
+            if (addr < 512) {
                 System.out.printf("    [%d..511] : %s;  -- fill the rest with zeros\n",
                         addr, "00000000000000000000000000000000");
             }
