@@ -1,15 +1,33 @@
 import subprocess
+from pathlib import Path
 
+# Get the base project directory (assuming we're in the Innovation Phase folder)
+project_root = Path(__file__).parent.parent  # Goes up one level from current script
 
-assembler_directory = r"C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/Assembler"
-java_file_name = "Assembler"
-output_mif_file = r"C:/Users/Ahmad/Desktop/github/JoSDC/Innovation Phase/SuperScalar/dual_issue_inst_memory.mif"
+# Define paths relative to project root
+assembler_dir = project_root / "Assembler"
+java_file = "Assembler"
+output_mif = project_root / "SuperScalar" / "dual_issue_inst_memory.mif"
 
+# Ensure directories exist
+assembler_dir.mkdir(parents=True, exist_ok=True)
+output_mif.parent.mkdir(parents=True, exist_ok=True)
 
-subprocess.run(["javac", f"{assembler_directory}\\{java_file_name}.java"], cwd=assembler_directory, check=True)
+# Compile Java file
+subprocess.run(
+    ["javac", f"{java_file}.java"],
+    cwd=assembler_dir,
+    check=True
+)
 
+# Run Java program and write output to MIF file
+with open(output_mif, "w") as mif_file:
+    subprocess.run(
+        ["java", java_file],
+        cwd=assembler_dir,
+        stdout=mif_file,
+        text=True,
+        check=True
+    )
 
-with open(output_mif_file, "w") as mif_file:
-    subprocess.run(["java", java_file_name], cwd=assembler_directory, stdout=mif_file, text=True, check=True)
-
-print("Assembly complete. The .mif file has been updated.")
+print(f"Assembly complete. The .mif file has been updated at: {output_mif}")

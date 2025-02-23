@@ -8,7 +8,8 @@ def run_scheduler(scheduler_path, output_file):
     Run the Python scheduler script
     """
     try:
-        result = subprocess.run([sys.executable, scheduler_path], 
+        result = subprocess.run([sys.executable, scheduler_path],
+                              cwd=scheduler_path.parent,
                               check=True,
                               capture_output=True,
                               text=True)
@@ -22,9 +23,12 @@ def compile_and_run_assembler(assembler_java, input_file):
     """
     Compile and run the Java assembler
     """
+    assembler_dir = assembler_java.parent
+    
     # First compile the Java file
     try:
-        compile_result = subprocess.run(['javac', assembler_java],
+        compile_result = subprocess.run(['javac', assembler_java.name],
+                                      cwd=assembler_dir,
                                       check=True,
                                       capture_output=True,
                                       text=True)
@@ -37,9 +41,10 @@ def compile_and_run_assembler(assembler_java, input_file):
     # Then run the compiled class file
     try:
         # Get the class name without .java extension
-        class_name = Path(assembler_java).stem
+        class_name = assembler_java.stem
         # Run the compiled Java class
         run_result = subprocess.run(['java', class_name, input_file],
+                                  cwd=assembler_dir,
                                   check=True,
                                   capture_output=True,
                                   text=True)
@@ -54,7 +59,8 @@ def run_loadmif(loadmif_path):
     Run the Python loadmif script
     """
     try:
-        result = subprocess.run([sys.executable, loadmif_path],
+        result = subprocess.run([sys.executable, loadmif_path.name],
+                              cwd=loadmif_path.parent,
                               check=True,
                               capture_output=True,
                               text=True)
@@ -65,15 +71,18 @@ def run_loadmif(loadmif_path):
         sys.exit(1)
 
 def main():
-    # Configuration - update these paths according to your setup
-    SCHEDULER_PATH = "./scheduler.py"
-    ASSEMBLER_JAVA = "./Assembler.java"
-    LOADMIF_PATH = "./loadMif.py"
-    SCHEDULED_INSTRUCTIONS = "scheduled_instructions.txt"
+    # Get the current directory
+    current_dir = Path(__file__).parent
+
+    # Configuration - paths relative to current directory
+    SCHEDULER_PATH = current_dir / "scheduler.py"
+    ASSEMBLER_JAVA = current_dir / "Assembler.java"
+    LOADMIF_PATH = current_dir / "loadMif.py"
+    SCHEDULED_INSTRUCTIONS = current_dir / "scheduled_instructions.txt"
 
     # Validate file paths
     for path in [SCHEDULER_PATH, ASSEMBLER_JAVA, LOADMIF_PATH]:
-        if not Path(path).exists():
+        if not path.exists():
             print(f"Error: {path} does not exist")
             sys.exit(1)
 
