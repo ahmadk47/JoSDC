@@ -1,13 +1,33 @@
 import logging
+import logging.handlers
+import queue
+import threading
 from copy import deepcopy
 
 INS_MEM_SIZE = 256
 DATA_MEM_SIZE = 4096
 DATA_MEM_READ = 50
 
+log_queue = queue.Queue()
+queue_handler = logging.handlers.QueueHandler(log_queue)
 logger = logging.getLogger(__name__)
-logfile_handler = logging.FileHandler("cas_out.txt", mode='w')
-logger.addHandler(logfile_handler)
+logger.addHandler(queue_handler)
+
+
+def log_writer():
+    with open('cas_out.txt', 'w', buffering=512*512) as f:
+        while True:
+            record = log_queue.get()
+            if record is None:  # Exit signal
+                break
+            f.write(record.getMessage() + "\n")
+
+
+thread = threading.Thread(target=log_writer, daemon=True)
+thread.start()
+
+# logfile_handler = logging.FileHandler("cas_out.txt", mode='w')
+# logger.addHandler(logfile_handler)
 
 
 class MEM_WB:
@@ -301,8 +321,12 @@ def alu(operand1, operand2, alu_shamt, op_sel):
     match op_sel:
         case 0:  # add
             result = operand1 + operand2
+            if result >> 31 == 1:
+                result = (result - 2**32) & (2**32-1)
         case 1:  # sub
             result = operand1 - operand2
+            if result >> 31 == 1:
+                result = (result - 2**32) & (2**32-1)
         case 2:  # and
             result = operand1 & operand2
         case 3:  # or
@@ -809,7 +833,7 @@ def main():
         next_pc_mux = mux(sel=branch_predictor.cpc_signal, in1=pc_mux, in2=cpc_mux)
 
         # logger.warning(f'CYCLE_START')
-        logger.warning(f'cycle: {cycle}, PC: {pc.cur_pc}')
+        logger.warning(f'cycle: {cycle}, PC: {pc.cur_pc}, reg10: {rf.read_rf(10)}')
         
         enable_pc_IF_ID = (not stall) and enable or branch_predictor.cpc_signal
         if enable_pc_IF_ID:
@@ -843,8 +867,6 @@ def main():
         new_state.ex_mem1.flush(flush=hdu.flush_EX)
         new_state.ex_mem2.flush(flush=hdu.flush_EX)
         new_state.mem_wb2.flush(flush=hdu.flush_MEM2)
-
-        logger.warning(f'reg10: {rf.read_rf(10)}')
 
         # logger.warning(f'Instruction1(Fetch): {hex(int(instruction1, 2))}')
         # logger.warning(f'Instruction2(Fetch): {hex(int(instruction2, 2))}')

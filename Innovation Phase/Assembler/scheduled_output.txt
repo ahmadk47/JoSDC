@@ -1,30 +1,70 @@
-ADDI $13, $0, 20 
-ADD  $11, $0, $0    
+addi $8, $0, 36		
+		addi $9, $0, 36		
+		addi $10, $0, 36	
+		add $11, $0, $0		
+		add $12, $0, $0		
+		add $13, $0, $0		
+		ori $14, $0, 0		
+		ori $15, $0, 0		
+		ori $16, $0, 0		
+Loop1:
+		add $12, $0, $0		
+Loop2:
+		add $13, $0, $0		
+Loop3:
+		add $24, $9, $0		
+		add $25, $11, $0	
+		jal Mul_Fun			
+		add $18, $23, $13	
+		add $24, $10, $0	
+		sll $18, $18, 0		
+		add $25, $13, $0	
+		lw $19, 0($18)		
+		jal Mul_Fun			
+		add $18, $23, $12	
+		add $24, $19, $0	
+		sll $18, $18, 0		
 NOP
-LOOP1:  
-XOR $21, $11, $0 
-ADD  $12, $0, $0    
+		lw $20, 1300($18)	
 NOP
-LOOP2:  
-XOR $22, $12, $0 
-LW $8, 0x0($21) 
-LW $9, 0x0($22)    
+		add $25, $20, $0	
+		jal Mul_Fun			
+		add $21, $23, $0	
+		add $24, $10, $0	
+		add $25, $11, $0	
+		jal Mul_Fun			
+		add $18, $23, $12	
+		addi $13, $13, 1	
+		sll $18, $18, 0		
+		slt $17, $13, $9	
+		lw $23, 2600($18)	
 NOP
-IF:  
-SLT $10, $8, $9    
-BEQ $10, $0, ENDIF 
-ADD $3, $8, $0 
-ADD $8, $9, $0 
-ADD $9, $3, $0 
-SW $8, 0x0($21) 
+		add $21, $21, $23	
 NOP
-SW $9, 0x0($22) 
-ENDIF:  
-ADDI $12, $12, 1 
+		sw $21, 2600($18)	
+		bne $17, $0, Loop3	
+		addi $12, $12, 1	
 NOP
-SLT $10, $12, $13    
-BNE $10, $0, LOOP2 
-ADDI $11, $11, 1 
+		slt $17, $12, $10	
+		bne $17, $0, Loop2	
+		addi $11, $11, 1	
 NOP
-SLT $10, $11, $13  
-BNE $10, $0, LOOP1
+		slt $17, $11, $8	
+		bne $17, $0, Loop1	
+NOP
+		j finish			
+Mul_Fun:  
+		ADDI $22, $25, -1 	
+		ANDI $23, $0, 0  	
+SLT $1, $22, $0
+BEQ $1, $0, Mul_Loop
+NOP
+		JR $31
+Mul_Loop:   
+		ADDI $22, $22, -1 	
+		ADD  $23, $23, $24 
+SLT $1, $22, $0
+BEQ $1, $0, Mul_Loop
+NOP
+		JR $31				
+finish:
