@@ -3,7 +3,7 @@ module testbench;
 
 	reg clk, rst, enable;
 	
-	wire [8:0] PC;
+	wire [7:0] PC;
 	
 	initial begin
 		clk = 0;
