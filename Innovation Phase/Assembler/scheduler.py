@@ -256,13 +256,14 @@ def main():
     updated_strings = []
     for inst_str in instruction_strings:
         split_inst_str = inst_str.split()
-        temp_reg = 1
+        temp_reg1 = 1
+        temp_reg2 = 2
         if split_inst_str[0].upper() == 'BLTZ':
-            updated_strings.append(f'SLT ${temp_reg}, {split_inst_str[1]} $0')
-            updated_strings.append(f'BNE ${temp_reg}, $0, {split_inst_str[2]}')
+            updated_strings.append(f'SLT ${temp_reg1}, {split_inst_str[1]} $0')
+            updated_strings.append(f'BNE ${temp_reg1}, $0, {split_inst_str[2]}')
         elif split_inst_str[0].upper() == 'BGEZ':
-            updated_strings.append(f'SLT ${temp_reg}, {split_inst_str[1]} $0')
-            updated_strings.append(f'BEQ ${temp_reg}, $0, {split_inst_str[2]}')
+            updated_strings.append(f'SLT ${temp_reg2}, {split_inst_str[1]} $0')
+            updated_strings.append(f'BEQ ${temp_reg2}, $0, {split_inst_str[2]}')
         else:
             updated_strings.append(inst_str)
 
