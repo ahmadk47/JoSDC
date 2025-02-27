@@ -1,0 +1,35 @@
+addi $13, $0, 1000
+addi $12, $0, 150
+addi $8, $0, 0
+addi $9, $0, 0
+lw $10, 1($0)
+lw $11, 2($0)
+lw $15, 0($0)
+decryptLoop:
+beq $13, $0, doneDecryption
+lw $14, 3($8)
+lw $16, 4($8)
+add $24, $0, $14
+add $25, $0, $16
+add $26, $0, $0
+feistelDecryptLoop:
+beq $26, $12, storeDecrypted
+xor $23, $14, $15
+srl $23, $23, 3
+xor $20, $16, $23
+add $16, $0, $14
+add $14, $0, $20
+addi $26, $26, 1
+jal feistelDecryptLoop
+storeDecrypted:
+xor $14, $14, $10
+xor $16, $16, $11
+sw $14, 2003($9)
+sw $16, 2004($9)
+add $10, $0, $24
+add $11, $0, $25
+addi $8, $8, 2
+addi $9, $9, 2
+addi $13, $13, -1
+jal decryptLoop
+doneDecryption:

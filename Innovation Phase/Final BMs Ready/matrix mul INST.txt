@@ -1,0 +1,61 @@
+		addi $8, $0, 36		# ROWS of A
+		addi $9, $0, 36		# COLS of A
+		addi $10, $0, 36	# COLS of B
+		add $11, $0, $0		# counter i
+		add $12, $0, $0		# counter j
+		add $13, $0, $0		# counter k
+		ori $14, $0, 0		# first index of A
+		ori $15, $0, 0		# first index of B
+		ori $16, $0, 0		# first index of C
+Loop1:
+		add $12, $0, $0		# initilize j by 0			
+Loop2:
+		add $13, $0, $0		# initilize k by 0
+Loop3:
+		add $24, $9, $0		# num1 = colsA
+		add $25, $11, $0	# num2 = i
+		jal Mul_Fun			# call mul(colsA, i), result in $23
+		add $18, $23, $13	# $18 = i*colsA + k
+		sll $18, $18, 0		# prepare for addrressing mode
+		lw $19, 0($18)		# $19 = A[i][k]
+		add $24, $10, $0	# num1 = colsB
+		add $25, $13, $0	# num2 = k
+		jal Mul_Fun			# call mul(colsB, k), result in $23
+		add $18, $23, $12	# $18 = k*colsB + j
+		sll $18, $18, 0		# prepare for addrressing mode
+		lw $20, 1300($18)	# $20 = B[k][j]
+		add $24, $19, $0	
+		add $25, $20, $0	
+		jal Mul_Fun			
+		add $21, $23, $0	
+		add $24, $10, $0	
+		add $25, $11, $0	
+		jal Mul_Fun			
+		add $18, $23, $12	
+		sll $18, $18, 0		
+		lw $23, 2600($18)	
+		add $21, $21, $23	
+		sw $21, 2600($18)	
+		addi $13, $13, 1	
+		slt $17, $13, $9	
+		bne $17, $0, Loop3	
+		addi $12, $12, 1	
+		slt $17, $12, $10	
+		bne $17, $0, Loop2	
+		addi $11, $11, 1	
+		slt $17, $11, $8	
+		bne $17, $0, Loop1	
+		j finish			
+Mul_Fun:  
+		ANDI $23, $0, 0  	
+		ADDI $22, $25, -1 	
+		BGEZ $22, Mul_Loop
+		JR $31
+Mul_Loop:   
+		ADD  $23, $23, $24 
+		ADDI $22, $22, -1 	
+		BGEZ $22, Mul_Loop
+		JR $31				
+finish: 
+nop
+

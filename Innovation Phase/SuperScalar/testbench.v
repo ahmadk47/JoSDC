@@ -5,13 +5,19 @@ module testbench;
 	
 	wire [7:0] PC;
 	
+	always @ (posedge clk) begin
+		if (uut.PC >= 8'd193 && uut.PC!=8'd254)
+			$finish;
+		end
+	
 	initial begin
 		clk = 0;
 		rst = 0;
 		enable = 1;
 		#4 rst = 1;
-		#100000000 $stop;
+		#150000000 $stop;
 	end
+	
 	
 	always #5 clk = ~clk;
 	
